@@ -26,6 +26,14 @@ let showDetails = false;
 let stash = [];
 let undoStack = [];
 
+// Last known pointer position, tracked continuously so the cursor orb can be
+// placed correctly the instant a currency is armed — even before the pointer
+// moves again. Without this the native cursor is hidden while the orb is still
+// parked at its previous spot, making it look like the cursor "disappeared".
+let lastMouseX = typeof window !== 'undefined' ? window.innerWidth / 2 : 0;
+let lastMouseY = typeof window !== 'undefined' ? window.innerHeight / 2 : 0;
+let orbRaf = 0;
+
 const elements = {
   tooltip: document.getElementById('jewel-tooltip'),
   itemName: document.getElementById('item-name'),
@@ -262,22 +270,20 @@ function setupEventListeners() {
     if (e.key === 'Alt') { showDetails = false; renderItem(); }
   });
 
-  let lastMouse = null, orbRaf = 0;
   document.addEventListener('mousemove', e => {
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
     if (!armedCurrency) return;
-    lastMouse = e;
     if (orbRaf) return;
     orbRaf = requestAnimationFrame(() => {
       orbRaf = 0;
-      if (!lastMouse) return;
-      elements.cursorOrb.style.transform =
-        `translate3d(${lastMouse.clientX}px, ${lastMouse.clientY}px, 0) translate(-50%, -50%)`;
+      positionOrb();
     });
   });
 
   document.addEventListener('mouseleave', () => { elements.cursorOrb.style.opacity = '0'; });
   document.addEventListener('mouseenter', () => {
-    if (armedCurrency) elements.cursorOrb.style.opacity = '1';
+    if (armedCurrency) { positionOrb(); elements.cursorOrb.style.opacity = '1'; }
   });
 }
 
@@ -306,6 +312,11 @@ function toggleCurrency(currency) {
   else armCurrency(currency);
 }
 
+function positionOrb() {
+  elements.cursorOrb.style.transform =
+    `translate3d(${lastMouseX}px, ${lastMouseY}px, 0) translate(-50%, -50%)`;
+}
+
 function armCurrency(currency) {
   armedCurrency = currency;
   elements.currencyBtns.forEach(b =>
@@ -314,6 +325,7 @@ function armCurrency(currency) {
   const color = (CURRENCIES[currency] && CURRENCIES[currency].color) || DEFAULT_ORB_COLOR;
   elements.cursorOrb.style.setProperty('--orb-color', color);
   elements.cursorOrb.style.background = `radial-gradient(circle, ${color} 0%, transparent 70%)`;
+  positionOrb();
   elements.cursorOrb.style.opacity = '1';
   document.body.style.cursor = 'none';
   elements.tooltip.style.cursor = 'none';
