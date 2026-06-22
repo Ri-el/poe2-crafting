@@ -11,10 +11,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="select.css">
   <script type="module" src="app.js"></script>
+  <script type="module" src="select.js"></script>
 </head>
 <body>
   <div id="app">
+
+    <!-- ===================== ITEM CATEGORY SELECTION ===================== -->
+    <section id="select-view">
+      <header class="select-header">
+        <h1 class="app-title">
+          <span class="title-rune">⬡</span>
+          PoE2 Craft Sim
+          <span class="title-rune">⬡</span>
+        </h1>
+        <h2 id="select-heading" class="select-heading">Choose what to craft</h2>
+        <p id="select-sub" class="app-subtitle">Pick an item category to begin.</p>
+      </header>
+      <div id="select-grid" class="select-grid"><!-- Rendered by select.js --></div>
+    </section>
+
+    <!-- ===================== CRAFT VIEW ===================== -->
+    <div id="craft-view" hidden>
+    <button id="back-to-select" class="back-to-select" type="button">← Item Categories</button>
     <header id="app-header">
       <div class="header-inner">
         <h1 class="app-title">
@@ -176,6 +196,7 @@
     </main>
 
     <div id="error-toast" class="error-toast" aria-live="polite"></div>
+    </div>
   </div>
 
   <div id="cursor-orb" class="cursor-orb" aria-hidden="true"></div>
