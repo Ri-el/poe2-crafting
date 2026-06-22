@@ -1,5 +1,5 @@
 {
-  "_note": "Real PoE2 0.3 'Rise of the Abyssal' jewel Desecrated modifier pool, sourced from poe2db.tw/Desecrated_Modifiers (Jewels Desecrated Mods /32: 29 'Lightless' prefixes + 3 'of the Abyss' suffixes). In-game these are a single shared jewel pool (not base-gated), so the same pool is applied to ruby/emerald/sapphire. Each entry uses { modGroup, name, tier, weight, lines:[{ modLine ('{0}' = rolled value), min, max }] }. Weights are equalised (100) since poe2db does not publish per-mod jewel weights.",
+  "_note": "Real PoE2 0.3 'Rise of the Abyssal' jewel Desecrated modifier pool, sourced from poe2db.tw/Desecrated_Modifiers (Jewels Desecrated Mods /32: 29 'Lightless' prefixes + 3 'of the Abyss' suffixes). In-game these are one shared jewel pool (not base-gated), so the same pool is applied to ruby/emerald/sapphire. Each entry: { modGroup, name, tier, weight, lines:[{ modLine ('{0}' = rolled value), min, max }] }. Weights equalised (100); poe2db does not publish per-mod jewel weights.",
   "bones": {
     "preserved_cranium": {
       "name": "Preserved Cranium",
@@ -116,4 +116,10 @@
         { "modGroup": "lightless_minion_life_aoe", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Minions have {0}% increased maximum Life", "min": 4, "max": 8 }, { "modLine": "Minions have {0}% increased Area of Effect", "min": 3, "max": 6 } ] }
       ],
       "suffixes": [
-        { "modGroup": "abyss_strength", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{
+        { "modGroup": "abyss_strength", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Strength", "min": 1, "max": 2 } ] },
+        { "modGroup": "abyss_dexterity", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Dexterity", "min": 1, "max": 2 } ] },
+        { "modGroup": "abyss_intelligence", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Intelligence", "min": 1, "max": 2 } ] }
+      ]
+    }
+  }
+}
