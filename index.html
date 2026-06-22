@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="select.css">
+  <link rel="stylesheet" href="desecrate.css">
   <script type="module" src="app.js"></script>
   <script type="module" src="select.js"></script>
 </head>
@@ -185,6 +186,32 @@
         </button>
       </div>
 
+      <div id="desecrate-panel">
+        <h2 class="panel-title">Desecration</h2>
+        <button id="bone-btn" class="bone-btn" type="button" title="Preserved Cranium — reveal Desecrated modifiers at the Well of Souls (Rare jewels only)">
+          <span class="bone-glyph">☠</span>
+          <span class="bone-text">
+            <span class="bone-name">Preserved Cranium</span>
+            <span class="bone-desc">Open the Well of Souls</span>
+          </span>
+        </button>
+        <div class="omen-tray">
+          <button class="omen-btn" type="button" data-omen="sinistral_necromancy" title="Omen of Sinistral Necromancy — desecrate a Prefix">
+            <span class="omen-name">Sinistral</span>
+            <span class="omen-sub">Prefix</span>
+          </button>
+          <button class="omen-btn" type="button" data-omen="dextral_necromancy" title="Omen of Dextral Necromancy — desecrate a Suffix">
+            <span class="omen-name">Dextral</span>
+            <span class="omen-sub">Suffix</span>
+          </button>
+          <button class="omen-btn" type="button" data-omen="abyssal_echoes" title="Omen of Abyssal Echoes — one reroll of the revealed set (3 × 2 = 6)">
+            <span class="omen-name">Abyssal Echoes</span>
+            <span class="omen-sub">+1 Reroll</span>
+          </button>
+        </div>
+        <p class="desec-hint">Rare jewels only. Fills an open affix on the targeted side, or replaces a random mod there when full (jewels cap at 4).</p>
+      </div>
+
       <div id="stash-panel">
         <h2 class="panel-title">Stash</h2>
         <div id="stash-grid" class="stash-grid">
@@ -196,6 +223,18 @@
     </main>
 
     <div id="error-toast" class="error-toast" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div id="well-modal" class="well-modal" hidden>
+    <div class="well-dialog" role="dialog" aria-modal="true" aria-label="Well of Souls">
+      <h3 class="well-title">⛧ Well of Souls ⛧</h3>
+      <p id="well-sub" class="well-sub"></p>
+      <div id="well-options" class="well-options"></div>
+      <div class="well-actions">
+        <button id="well-reroll" class="well-btn well-reroll" type="button" hidden>Abyssal Echoes — Reroll (<span id="well-rerolls">0</span>)</button>
+        <button id="well-cancel" class="well-btn well-cancel" type="button">Cancel</button>
+      </div>
     </div>
   </div>
 

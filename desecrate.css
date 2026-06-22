@@ -1,0 +1,213 @@
+/* ============================================================
+   PoE2 Craft Sim — Desecration (Abyssal)
+   Preserved Cranium panel + Well of Souls reveal modal.
+   Relies on the CSS custom properties defined in style.css.
+   ============================================================ */
+
+#desecrate-panel {
+  background: var(--bg-panel);
+  border: 1px solid rgba(176, 97, 214, 0.18);
+  border-radius: var(--panel-radius);
+  padding: 20px;
+  width: 320px;
+  position: relative;
+}
+
+#desecrate-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--panel-radius);
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(176, 97, 214, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+.bone-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(176, 97, 214, 0.06);
+  border: 1px solid rgba(176, 97, 214, 0.3);
+  border-radius: 8px;
+  color: #d9b8ec;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+.bone-btn:hover {
+  background: rgba(176, 97, 214, 0.14);
+  border-color: rgba(176, 97, 214, 0.55);
+}
+.bone-btn:active { transform: scale(0.98); }
+.bone-btn:disabled,
+.bone-btn.disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+
+.bone-glyph {
+  font-size: 1.7rem;
+  line-height: 1;
+  color: #c08fe0;
+  text-shadow: 0 0 10px rgba(176, 97, 214, 0.6);
+}
+.bone-text { display: flex; flex-direction: column; }
+.bone-name { font-family: 'Cinzel', serif; font-weight: 600; font-size: 0.9rem; }
+.bone-desc { font-size: 0.68rem; color: var(--text-secondary); letter-spacing: 0.02em; }
+
+.omen-tray {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.omen-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+.omen-btn:hover {
+  border-color: rgba(176, 97, 214, 0.4);
+  color: #d9b8ec;
+}
+.omen-btn.active {
+  background: rgba(176, 97, 214, 0.16);
+  border-color: rgba(176, 97, 214, 0.6);
+  color: #efe0fa;
+  box-shadow: 0 0 10px rgba(176, 97, 214, 0.3);
+}
+.omen-btn:disabled,
+.omen-btn.disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+.omen-name { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em; }
+.omen-sub { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; }
+
+.desec-hint {
+  margin-top: 12px;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Desecrated mod lines in the tooltip */
+.mod-line.desecrated-mod { color: #d9b8ec; }
+
+/* ---------- Well of Souls modal ---------- */
+.well-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: radial-gradient(ellipse at 50% 40%, rgba(40, 10, 55, 0.55), rgba(0, 0, 0, 0.82));
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  animation: wellFadeIn 200ms ease;
+}
+.well-modal[hidden] { display: none; }
+
+.well-dialog {
+  width: 460px;
+  max-width: 95vw;
+  background: var(--bg-tooltip);
+  border: 1px solid rgba(176, 97, 214, 0.4);
+  border-radius: 8px;
+  padding: 22px 24px 18px;
+  box-shadow: 0 0 40px rgba(176, 97, 214, 0.25), inset 0 0 24px rgba(176, 97, 214, 0.05);
+  animation: wellRise 220ms ease;
+}
+
+.well-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: #d9b8ec;
+  text-shadow: 0 0 14px rgba(176, 97, 214, 0.5);
+}
+.well-sub {
+  text-align: center;
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+  margin: 6px 0 16px;
+}
+
+.well-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.well-option {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 14px;
+  background: rgba(176, 97, 214, 0.05);
+  border: 1px solid rgba(176, 97, 214, 0.25);
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+.well-option:hover {
+  background: rgba(176, 97, 214, 0.14);
+  border-color: rgba(176, 97, 214, 0.6);
+  transform: translateY(-1px);
+}
+.well-option:active { transform: translateY(0) scale(0.99); }
+.wo-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  color: #c08fe0;
+  letter-spacing: 0.03em;
+}
+.wo-line {
+  font-size: 0.92rem;
+  color: var(--text-parchment);
+}
+
+.well-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.well-btn {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.well-reroll {
+  background: rgba(176, 97, 214, 0.14);
+  border-color: rgba(176, 97, 214, 0.45);
+  color: #e0c8f0;
+}
+.well-reroll:hover { background: rgba(176, 97, 214, 0.26); }
+.well-reroll[hidden] { display: none; }
+.well-cancel {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+}
+.well-cancel:hover { background: rgba(255, 255, 255, 0.09); }
+
+@keyframes wellFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes wellRise {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}

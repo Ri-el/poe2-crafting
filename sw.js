@@ -1,10 +1,11 @@
-const CACHE_NAME = 'poe2-craft-v5';
+const CACHE_NAME = 'poe2-craft-v6';
 
 const APP_SHELL = [
   './',
   './index.html',
   './style.css',
   './select.css',
+  './desecrate.css',
   './app.js',
   './select.js',
   './crafting.js',

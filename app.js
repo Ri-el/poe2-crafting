@@ -15,16 +15,22 @@ const CURRENCIES = {
   vaal:          { color: '#c02040' },
   fracturing:    { color: '#6fb0a8' },
   hinekora:      { color: '#b061d6' },
+  desecration:   { color: '#b061d6' },
 };
 const DEFAULT_ORB_COLOR = 'rgba(255,255,255,0.6)';
 
 let engine = null;
 let currentJewelType = 'ruby';
 let modData = null;
+let desecData = null;
 let armedCurrency = null;
 let showDetails = false;
 let stash = [];
 let undoStack = [];
+
+// Desecration (Abyssal) UI state.
+let selectedOmen = null;
+let desecState = null;
 
 // Last known pointer position, tracked continuously so the cursor orb can be
 // placed correctly the instant a currency is armed — even before the pointer
@@ -54,6 +60,15 @@ const elements = {
   undoBtn: document.getElementById('undo-btn'),
   craftCounter: document.getElementById('craft-counter'),
   hinekoraMark: document.getElementById('hinekora-mark'),
+  boneBtn: document.getElementById('bone-btn'),
+  omenBtns: document.querySelectorAll('.omen-btn'),
+  desecratePanel: document.getElementById('desecrate-panel'),
+  wellModal: document.getElementById('well-modal'),
+  wellSub: document.getElementById('well-sub'),
+  wellOptions: document.getElementById('well-options'),
+  wellReroll: document.getElementById('well-reroll'),
+  wellRerolls: document.getElementById('well-rerolls'),
+  wellCancel: document.getElementById('well-cancel'),
 };
 
 function escapeHtml(s) {
@@ -69,6 +84,18 @@ async function init() {
     const text = await res.text();
     modData = JSON.parse(text.replace(/^\uFEFF/, ''));
 
+    // Desecrated (Abyssal) mod pools — optional. Desecration is disabled if absent.
+    try {
+      const dRes = await fetch('data/desecrated-mods.json');
+      if (dRes.ok) {
+        const dText = await dRes.text();
+        desecData = JSON.parse(dText.replace(/^\uFEFF/, ''));
+      }
+    } catch (e) {
+      console.warn('Desecrated mod data unavailable', e);
+      desecData = null;
+    }
+
     loadStash();
     if (USE_SOUND_FILES) preloadSounds();
     setupCurrencyIcons();
@@ -80,8 +107,9 @@ async function init() {
 }
 
 function createEngine(type) {
-  engine = new CraftingEngine(modData, type);
+  engine = new CraftingEngine(modData, type, desecData);
   undoStack = [];
+  closeWell();
   renderItem();
 }
 
@@ -184,6 +212,7 @@ function playProceduralSound(type) {
     case 'divine':        freq = 500; sweep = 1000; oscType = 'square'; dur = 0.2; break;
     case 'fracturing':    freq = 520; sweep = 110; oscType = 'square'; dur = 0.18; break;
     case 'hinekora':      freq = 420; sweep = 900; oscType = 'triangle'; dur = 0.22; break;
+    case 'desecration':   freq = 180; sweep = 70; oscType = 'sawtooth'; dur = 0.26; break;
     case 'undo':          freq = 300; sweep = 620; dur = 0.12; break;
     case 'reset':         freq = 200; sweep = 100; dur = 0.1; break;
     case 'error':         freq = 150; sweep = 120; oscType = 'sawtooth'; dur = 0.15; break;
@@ -262,9 +291,25 @@ function setupEventListeners() {
 
   elements.saveBtn.addEventListener('click', saveToStash);
 
+  // --- Desecration (Abyssal) ---
+  elements.omenBtns.forEach(btn => {
+    btn.addEventListener('click', () => toggleOmen(btn.dataset.omen));
+  });
+  if (elements.boneBtn) elements.boneBtn.addEventListener('click', startDesecrationFlow);
+  if (elements.wellReroll) elements.wellReroll.addEventListener('click', rerollWell);
+  if (elements.wellCancel) elements.wellCancel.addEventListener('click', cancelWell);
+  if (elements.wellModal) {
+    elements.wellModal.addEventListener('click', (e) => {
+      if (e.target === elements.wellModal) cancelWell();
+    });
+  }
+
   document.addEventListener('keydown', e => {
     if (e.key === 'Alt' && !showDetails) { showDetails = true; renderItem(); }
-    if (e.key === 'Escape') disarmCurrency();
+    if (e.key === 'Escape') {
+      if (elements.wellModal && !elements.wellModal.hidden) cancelWell();
+      else disarmCurrency();
+    }
   });
   document.addEventListener('keyup', e => {
     if (e.key === 'Alt') { showDetails = false; renderItem(); }
@@ -337,6 +382,108 @@ function disarmCurrency() {
   elements.cursorOrb.style.opacity = '0';
   document.body.style.cursor = 'default';
   elements.tooltip.style.cursor = 'pointer';
+}
+
+// ============================================================
+// DESECRATION (Abyssal) — Preserved Cranium / Well of Souls
+// ============================================================
+function toggleOmen(omen) {
+  selectedOmen = (selectedOmen === omen) ? null : omen;
+  elements.omenBtns.forEach(b =>
+    b.classList.toggle('active', b.dataset.omen === selectedOmen));
+}
+
+function startDesecrationFlow() {
+  if (!desecData) { showError('Desecrated modifier data is not available.'); return; }
+  disarmCurrency();
+  if (engine.getItem().corrupted) {
+    playSound('error'); triggerErrorAnimation();
+    showError('Item is corrupted and cannot be modified.');
+    return;
+  }
+  const res = engine.startDesecration({ bone: 'preserved_cranium', omen: selectedOmen });
+  if (!res.success) {
+    playSound('error'); triggerErrorAnimation();
+    showError(res.error);
+    return;
+  }
+  playSound('hinekora');
+  openWell(res);
+}
+
+function openWell(res) {
+  desecState = { side: res.side, mode: res.mode, rerollsLeft: res.rerollsLeft, options: res.options };
+  renderWell();
+  if (elements.wellModal) elements.wellModal.hidden = false;
+}
+
+function renderWell() {
+  if (!desecState || !elements.wellOptions) return;
+  const { side, mode, rerollsLeft, options } = desecState;
+  if (elements.wellSub) {
+    elements.wellSub.textContent =
+      `Targeting ${capitalize(side)} — ` +
+      (mode === 'add' ? 'fills the open slot' : `replaces a random ${side}`);
+  }
+  const frag = document.createDocumentFragment();
+  options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'well-option';
+    btn.innerHTML =
+      `<span class="wo-name">${escapeHtml(opt.tierName)}</span>` +
+      `<span class="wo-line">${escapeHtml(opt.displayText)}</span>`;
+    btn.addEventListener('click', () => chooseDesec(i));
+    frag.appendChild(btn);
+  });
+  elements.wellOptions.replaceChildren(frag);
+  if (elements.wellReroll) {
+    if (rerollsLeft > 0) {
+      elements.wellReroll.hidden = false;
+      if (elements.wellRerolls) elements.wellRerolls.textContent = rerollsLeft;
+    } else {
+      elements.wellReroll.hidden = true;
+    }
+  }
+}
+
+function rerollWell() {
+  const res = engine.rerollDesecration();
+  if (!res.success) { playSound('error'); showError(res.error); return; }
+  desecState = { side: res.side, mode: res.mode, rerollsLeft: res.rerollsLeft, options: res.options };
+  playSound('chaos');
+  renderWell();
+}
+
+function chooseDesec(index) {
+  const before = engine.getItem();
+  const result = engine.chooseDesecratedMod(index);
+  if (!result.success) {
+    playSound('error'); triggerErrorAnimation();
+    showError(result.error);
+    closeWell();
+    return;
+  }
+  undoStack.push(before);
+  if (undoStack.length > 50) undoStack.shift();
+  engine.recordCurrencyUse('desecration');
+  engine.clearHinekoraLock();
+  selectedOmen = null;
+  elements.omenBtns.forEach(b => b.classList.remove('active'));
+  closeWell();
+  playSound('vaal');
+  triggerCraftAnimation('desecration');
+  renderItem(result);
+}
+
+function closeWell() {
+  if (elements.wellModal) elements.wellModal.hidden = true;
+  desecState = null;
+}
+
+function cancelWell() {
+  if (engine) engine.cancelDesecration();
+  closeWell();
 }
 
 function undoLastAction() {
@@ -423,6 +570,7 @@ function renderItem(actionResult = null, overrideItem = null) {
       const line = document.createElement('div');
       line.className = 'mod-line';
       if (mod.fractured) line.classList.add('fractured-mod');
+      if (mod.desecrated) line.classList.add('desecrated-mod');
 
       if (actionResult && actionResult.addedMods &&
           actionResult.addedMods.some(m => m.modGroup && m.modGroup === mod.modGroup)) {
@@ -471,6 +619,16 @@ function renderItem(actionResult = null, overrideItem = null) {
       btn.style.opacity = '1';
       btn.style.pointerEvents = 'auto';
     }
+  });
+
+  const desecDisabled = realCorrupted || !desecData;
+  if (elements.boneBtn) {
+    elements.boneBtn.disabled = desecDisabled;
+    elements.boneBtn.classList.toggle('disabled', desecDisabled);
+  }
+  elements.omenBtns.forEach(b => {
+    b.disabled = realCorrupted;
+    b.classList.toggle('disabled', realCorrupted);
   });
 
   if (actionResult && actionResult.previousRarity && actionResult.previousRarity !== item.rarity) {
@@ -546,10 +704,11 @@ function loadFromStash(index) {
     if (match) currentJewelType = item.jewelType;
   });
 
-  engine = new CraftingEngine(modData, item.jewelType);
+  engine = new CraftingEngine(modData, item.jewelType, desecData);
   engine.loadItem(item);
   undoStack = [];
   disarmCurrency();
+  closeWell();
   renderItem();
   playSound('regal');
 }
