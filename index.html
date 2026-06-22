@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Path of Exile 2 Jewel Crafting Simulator — experiment with currency orbs on Cobalt Jewels.">
+  <meta name="theme-color" content="#0c0c0e">
+  <title>PoE2 Craft Sim</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header id="app-header">
+      <div class="header-inner">
+        <h1 class="app-title">
+          <span class="title-rune">⬡</span>
+          PoE2 Craft Sim
+          <span class="title-rune">⬡</span>
+        </h1>
+        <p class="app-subtitle">Jewel Crafting Emulator</p>
+        
+        <div id="jewel-selector" class="jewel-selector">
+          <button class="jewel-btn ruby active" data-type="ruby">Ruby (Str)</button>
+          <button class="jewel-btn emerald" data-type="emerald">Emerald (Dex)</button>
+          <button class="jewel-btn sapphire" data-type="sapphire">Sapphire (Int)</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <div id="jewel-panel">
+        <div id="jewel-tooltip" class="tooltip rarity-normal">
+          <div class="tooltip-border-glow"></div>
+          <div class="tooltip-content">
+            <div class="tooltip-header">
+              <span id="item-name" class="item-name">Cobalt Jewel</span>
+            </div>
+            <div class="tooltip-separator">
+              <svg viewBox="0 0 200 8" preserveAspectRatio="none">
+                <line x1="0" y1="4" x2="200" y2="4" stroke="currentColor" stroke-width="1"/>
+                <circle cx="100" cy="4" r="2.5" fill="currentColor"/>
+                <circle cx="80" cy="4" r="1" fill="currentColor"/>
+                <circle cx="120" cy="4" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <div id="mod-list" class="mod-list">
+              <!-- Mod lines rendered by app.js -->
+            </div>
+            <div class="tooltip-separator separator-bottom">
+              <svg viewBox="0 0 200 8" preserveAspectRatio="none">
+                <line x1="0" y1="4" x2="200" y2="4" stroke="currentColor" stroke-width="1"/>
+                <circle cx="100" cy="4" r="2.5" fill="currentColor"/>
+                <circle cx="80" cy="4" r="1" fill="currentColor"/>
+                <circle cx="120" cy="4" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <div id="enchant-list" class="enchant-list">
+              <!-- Enchantment lines rendered by app.js -->
+            </div>
+            <div id="corrupted-label" class="corrupted-label" style="display: none;">Corrupted</div>
+            <div id="item-level" class="item-level">Item Level: 83</div>
+            <div id="craft-counter" class="craft-counter" style="display: none;"></div>
+            <div id="hinekora-mark" class="hinekora-mark" style="display: none;" title="Hinekora's Lock applied — consumed by your next currency">
+              <span class="hl-mark-glyph">❖</span>
+            </div>
+          </div>
+        </div>
+        <div id="craft-glow" class="craft-glow"></div>
+      </div>
+
+      <div id="side-rail">
+      <div id="currency-panel">
+        <h2 class="panel-title">Currency</h2>
+        <div id="currency-grid" class="currency-grid">
+          <button class="currency-btn" data-currency="transmutation" title="Orb of Transmutation — Normal → Magic">
+            <div class="currency-icon transmutation-icon">
+              <span class="currency-abbr">Trans</span>
+            </div>
+            <span class="currency-label">Transmutation</span>
+          </button>
+
+          <button class="currency-btn" data-currency="augmentation" title="Orb of Augmentation — Add mod to Magic">
+            <div class="currency-icon augmentation-icon">
+              <span class="currency-abbr">Aug</span>
+            </div>
+            <span class="currency-label">Augmentation</span>
+          </button>
+
+          <button class="currency-btn" data-currency="alchemy" title="Orb of Alchemy — Normal → Rare">
+            <div class="currency-icon alchemy-icon">
+              <span class="currency-abbr">Alch</span>
+            </div>
+            <span class="currency-label">Alchemy</span>
+          </button>
+
+          <button class="currency-btn" data-currency="regal" title="Regal Orb — Magic → Rare">
+            <div class="currency-icon regal-icon">
+              <span class="currency-abbr">Regal</span>
+            </div>
+            <span class="currency-label">Regal</span>
+          </button>
+
+          <button class="currency-btn" data-currency="exalted" title="Exalted Orb — Add mod to Rare">
+            <div class="currency-icon exalted-icon">
+              <span class="currency-abbr">Exalt</span>
+            </div>
+            <span class="currency-label">Exalted</span>
+          </button>
+
+          <button class="currency-btn" data-currency="chaos" title="Chaos Orb — Modify Rare">
+            <div class="currency-icon chaos-icon">
+              <span class="currency-abbr">Chaos</span>
+            </div>
+            <span class="currency-label">Chaos</span>
+          </button>
+
+          <button class="currency-btn" data-currency="annulment" title="Orb of Annulment — Remove a mod">
+            <div class="currency-icon annulment-icon">
+              <span class="currency-abbr">Annul</span>
+            </div>
+            <span class="currency-label">Annulment</span>
+          </button>
+
+          <button class="currency-btn" data-currency="divine" title="Divine Orb — Reroll values">
+            <div class="currency-icon divine-icon">
+              <span class="currency-abbr">Divine</span>
+            </div>
+            <span class="currency-label">Divine</span>
+          </button>
+
+          <button class="currency-btn" data-currency="vaal" title="Vaal Orb — Corrupt item">
+            <div class="currency-icon vaal-icon">
+              <span class="currency-abbr">Vaal</span>
+            </div>
+            <span class="currency-label">Vaal</span>
+          </button>
+
+          <button class="currency-btn" data-currency="fracturing" title="Fracturing Orb — Lock a random mod on a Rare item with 4 mods">
+            <div class="currency-icon fracturing-icon">
+              <span class="currency-abbr">Frac</span>
+            </div>
+            <span class="currency-label">Fracturing</span>
+          </button>
+
+          <button class="currency-btn" data-currency="hinekora" title="Hinekora's Lock — marks the item; the mark is consumed when you use another currency">
+            <div class="currency-icon hinekora-icon">
+              <span class="currency-abbr">Lock</span>
+            </div>
+            <span class="currency-label">Hinekora's Lock</span>
+          </button>
+        </div>
+
+        <button id="undo-btn" class="reset-btn undo-btn" title="Undo the last action">
+          <span class="reset-icon">⮌</span>
+          Undo
+        </button>
+        <button id="reset-btn" class="reset-btn" title="Reset item to Normal rarity">
+          <span class="reset-icon">↺</span>
+          Reset Item
+        </button>
+      </div>
+
+      <div id="stash-panel">
+        <h2 class="panel-title">Stash</h2>
+        <div id="stash-grid" class="stash-grid">
+          <!-- Dynamically rendered stash slots -->
+        </div>
+        <button id="save-btn" class="save-btn">Save to Stash</button>
+      </div>
+      </div>
+    </main>
+
+    <div id="error-toast" class="error-toast" aria-live="polite"></div>
+  </div>
+
+  <div id="cursor-orb" class="cursor-orb" aria-hidden="true"></div>
+
+  <script>
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {
+          // SW registration failed — app still works
+        });
+      });
+    }
+  </script>
+</body>
+</html>
