@@ -1,5 +1,5 @@
 {
-  "_note": "PLACEHOLDER Desecrated (Abyssal) modifier pool. Replace these with real PoE2 0.3 'Rise of the Abyssal' desecrated mods when you have the data. Structure mirrors jewel-mods: each entry is { modGroup, modLine ('{0}' placeholder), name, min, max, weight, tier }. Desecration reveals 3 options of the targeted side.",
+  "_note": "Real PoE2 0.3 'Rise of the Abyssal' jewel Desecrated modifier pool, sourced from poe2db.tw/Desecrated_Modifiers (Jewels Desecrated Mods /32: 29 'Lightless' prefixes + 3 'of the Abyss' suffixes). In-game these are a single shared jewel pool (not base-gated), so the same pool is applied to ruby/emerald/sapphire. Each entry uses { modGroup, name, tier, weight, lines:[{ modLine ('{0}' = rolled value), min, max }] }. Weights are equalised (100) since poe2db does not publish per-mod jewel weights.",
   "bones": {
     "preserved_cranium": {
       "name": "Preserved Cranium",
@@ -9,45 +9,111 @@
   "jewelTypes": {
     "ruby": {
       "prefixes": [
-        { "modGroup": "abyssal_life", "modLine": "+{0} to maximum Life", "name": "Abyssal Vitality", "min": 25, "max": 40, "weight": 100, "tier": "D" },
-        { "modGroup": "abyssal_fire_flat", "modLine": "Adds {0} to Fire Damage", "name": "Abyssal Embers", "min": 8, "max": 16, "weight": 80, "tier": "D" },
-        { "modGroup": "abyssal_armour", "modLine": "+{0}% increased Armour", "name": "Abyssal Bulwark", "min": 18, "max": 30, "weight": 70, "tier": "D" },
-        { "modGroup": "abyssal_phys_pct", "modLine": "{0}% increased Physical Damage", "name": "Abyssal Brutality", "min": 20, "max": 35, "weight": 60, "tier": "D" }
+        { "modGroup": "lightless_armour_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_warcry", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Warcry Buff Effect", "min": 4, "max": 8 }, { "modLine": "{0}% increased Damage with Warcries", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_evasion_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_es_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_armour_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_evasion_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_es_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_armour_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_spell_evasion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_spell_es", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_spell_armour", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Armour", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_poison", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to Poison" }, { "modLine": "{0}% increased Magnitude of Poison you inflict", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_evasion_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_es_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_armour_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_lightning_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Lightning Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Lightning Resistance", "min": 4, "max": 7 } ] },
+        { "modGroup": "lightless_abyssal_wasting", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Magnitude of Abyssal Wasting you inflict", "min": 10, "max": 20 } ] },
+        { "modGroup": "lightless_es_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_evasion_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_presence_aura", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Presence Area of Effect", "min": 8, "max": 15 }, { "modLine": "Aura Skills have {0}% increased Magnitudes", "min": 2, "max": 4 } ] },
+        { "modGroup": "lightless_bleed", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to inflict Bleeding" }, { "modLine": "{0}% increased Magnitude of Bleeding you inflict", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_chaos_wither", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Chaos Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Withered Magnitude", "min": 3, "max": 6 } ] },
+        { "modGroup": "lightless_cold_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Cold Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Cold Resistance", "min": 4, "max": 7 } ] },
+        { "modGroup": "lightless_companion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Companions deal {0}% increased Damage", "min": 5, "max": 10 }, { "modLine": "Companions have {0}% increased maximum Life", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_elemental_ailment", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Elemental Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Magnitude of Ailments you inflict", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_exposure", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Exposure Effect", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_fire_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Fire Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Fire Resistance", "min": 4, "max": 7 } ] },
+        { "modGroup": "lightless_phys_armourbreak", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Global Physical Damage", "min": 4, "max": 8 }, { "modLine": "Break {0}% increased Armour", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_minion_life_aoe", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Minions have {0}% increased maximum Life", "min": 4, "max": 8 }, { "modLine": "Minions have {0}% increased Area of Effect", "min": 3, "max": 6 } ] }
       ],
       "suffixes": [
-        { "modGroup": "abyssal_strength", "modLine": "+{0} to Strength", "name": "of the Abyssal Titan", "min": 18, "max": 30, "weight": 100, "tier": "D" },
-        { "modGroup": "abyssal_fire_res", "modLine": "+{0}% to Fire Resistance", "name": "of Abyssal Warding", "min": 20, "max": 35, "weight": 90, "tier": "D" },
-        { "modGroup": "abyssal_spirit", "modLine": "+{0} to Spirit", "name": "of the Abyssal Lord", "min": 10, "max": 20, "weight": 50, "tier": "D" },
-        { "modGroup": "abyssal_stun_threshold", "modLine": "+{0}% to Stun Threshold", "name": "of Abyssal Resolve", "min": 15, "max": 25, "weight": 60, "tier": "D" }
+        { "modGroup": "abyss_strength", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Strength", "min": 1, "max": 2 } ] },
+        { "modGroup": "abyss_dexterity", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Dexterity", "min": 1, "max": 2 } ] },
+        { "modGroup": "abyss_intelligence", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Intelligence", "min": 1, "max": 2 } ] }
       ]
     },
     "emerald": {
       "prefixes": [
-        { "modGroup": "abyssal_evasion", "modLine": "+{0}% increased Evasion Rating", "name": "Abyssal Swiftness", "min": 18, "max": 30, "weight": 90, "tier": "D" },
-        { "modGroup": "abyssal_cold_flat", "modLine": "Adds {0} to Cold Damage", "name": "Abyssal Frost", "min": 7, "max": 14, "weight": 80, "tier": "D" },
-        { "modGroup": "abyssal_life", "modLine": "+{0} to maximum Life", "name": "Abyssal Vitality", "min": 20, "max": 35, "weight": 70, "tier": "D" },
-        { "modGroup": "abyssal_attack_speed", "modLine": "{0}% increased Attack Speed", "name": "Abyssal Alacrity", "min": 8, "max": 14, "weight": 50, "tier": "D" }
+        { "modGroup": "lightless_armour_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_warcry", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Warcry Buff Effect", "min": 4, "max": 8 }, { "modLine": "{0}% increased Damage with Warcries", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_evasion_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_es_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_armour_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_evasion_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_es_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_armour_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_spell_evasion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_spell_es", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_spell_armour", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Armour", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_poison", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to Poison" }, { "modLine": "{0}% increased Magnitude of Poison you inflict", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_evasion_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_es_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_armour_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_lightning_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Lightning Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Lightning Resistance", "min": 4, "max": 7 } ] },
+        { "modGroup": "lightless_abyssal_wasting", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Magnitude of Abyssal Wasting you inflict", "min": 10, "max": 20 } ] },
+        { "modGroup": "lightless_es_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_evasion_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_presence_aura", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Presence Area of Effect", "min": 8, "max": 15 }, { "modLine": "Aura Skills have {0}% increased Magnitudes", "min": 2, "max": 4 } ] },
+        { "modGroup": "lightless_bleed", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to inflict Bleeding" }, { "modLine": "{0}% increased Magnitude of Bleeding you inflict", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_chaos_wither", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Chaos Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Withered Magnitude", "min": 3, "max": 6 } ] },
+        { "modGroup": "lightless_cold_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Cold Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Cold Resistance", "min": 4, "max": 7 } ] },
+        { "modGroup": "lightless_companion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Companions deal {0}% increased Damage", "min": 5, "max": 10 }, { "modLine": "Companions have {0}% increased maximum Life", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_elemental_ailment", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Elemental Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Magnitude of Ailments you inflict", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_exposure", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Exposure Effect", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_fire_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Fire Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Fire Resistance", "min": 4, "max": 7 } ] },
+        { "modGroup": "lightless_phys_armourbreak", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Global Physical Damage", "min": 4, "max": 8 }, { "modLine": "Break {0}% increased Armour", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_minion_life_aoe", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Minions have {0}% increased maximum Life", "min": 4, "max": 8 }, { "modLine": "Minions have {0}% increased Area of Effect", "min": 3, "max": 6 } ] }
       ],
       "suffixes": [
-        { "modGroup": "abyssal_dexterity", "modLine": "+{0} to Dexterity", "name": "of the Abyssal Stalker", "min": 18, "max": 30, "weight": 100, "tier": "D" },
-        { "modGroup": "abyssal_cold_res", "modLine": "+{0}% to Cold Resistance", "name": "of Abyssal Frostward", "min": 20, "max": 35, "weight": 90, "tier": "D" },
-        { "modGroup": "abyssal_crit_chance", "modLine": "{0}% increased Critical Hit Chance", "name": "of Abyssal Precision", "min": 15, "max": 28, "weight": 60, "tier": "D" },
-        { "modGroup": "abyssal_spirit", "modLine": "+{0} to Spirit", "name": "of the Abyssal Lord", "min": 10, "max": 20, "weight": 50, "tier": "D" }
+        { "modGroup": "abyss_strength", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Strength", "min": 1, "max": 2 } ] },
+        { "modGroup": "abyss_dexterity", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Dexterity", "min": 1, "max": 2 } ] },
+        { "modGroup": "abyss_intelligence", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Intelligence", "min": 1, "max": 2 } ] }
       ]
     },
     "sapphire": {
       "prefixes": [
-        { "modGroup": "abyssal_mana", "modLine": "+{0} to maximum Mana", "name": "Abyssal Insight", "min": 25, "max": 45, "weight": 100, "tier": "D" },
-        { "modGroup": "abyssal_light_flat", "modLine": "Adds {0} to Lightning Damage", "name": "Abyssal Storm", "min": 2, "max": 30, "weight": 80, "tier": "D" },
-        { "modGroup": "abyssal_es", "modLine": "+{0}% increased Energy Shield", "name": "Abyssal Aegis", "min": 18, "max": 30, "weight": 70, "tier": "D" },
-        { "modGroup": "abyssal_spell_dmg", "modLine": "{0}% increased Spell Damage", "name": "Abyssal Sorcery", "min": 18, "max": 32, "weight": 60, "tier": "D" }
+        { "modGroup": "lightless_armour_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_warcry", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Warcry Buff Effect", "min": 4, "max": 8 }, { "modLine": "{0}% increased Damage with Warcries", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_evasion_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_es_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_armour_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_evasion_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_es_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_armour_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_spell_evasion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_spell_es", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_spell_armour", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Armour", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_poison", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to Poison" }, { "modLine": "{0}% increased Magnitude of Poison you inflict", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_evasion_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_es_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_armour_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_lightning_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Lightning Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Lightning Resistance", "min": 4, "max": 7 } ] },
+        { "modGroup": "lightless_abyssal_wasting", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Magnitude of Abyssal Wasting you inflict", "min": 10, "max": 20 } ] },
+        { "modGroup": "lightless_es_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_evasion_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_presence_aura", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Presence Area of Effect", "min": 8, "max": 15 }, { "modLine": "Aura Skills have {0}% increased Magnitudes", "min": 2, "max": 4 } ] },
+        { "modGroup": "lightless_bleed", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to inflict Bleeding" }, { "modLine": "{0}% increased Magnitude of Bleeding you inflict", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_chaos_wither", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Chaos Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Withered Magnitude", "min": 3, "max": 6 } ] },
+        { "modGroup": "lightless_cold_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Cold Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Cold Resistance", "min": 4, "max": 7 } ] },
+        { "modGroup": "lightless_companion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Companions deal {0}% increased Damage", "min": 5, "max": 10 }, { "modLine": "Companions have {0}% increased maximum Life", "min": 5, "max": 10 } ] },
+        { "modGroup": "lightless_elemental_ailment", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Elemental Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Magnitude of Ailments you inflict", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_exposure", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Exposure Effect", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_fire_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Fire Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Fire Resistance", "min": 4, "max": 7 } ] },
+        { "modGroup": "lightless_phys_armourbreak", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Global Physical Damage", "min": 4, "max": 8 }, { "modLine": "Break {0}% increased Armour", "min": 4, "max": 8 } ] },
+        { "modGroup": "lightless_minion_life_aoe", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Minions have {0}% increased maximum Life", "min": 4, "max": 8 }, { "modLine": "Minions have {0}% increased Area of Effect", "min": 3, "max": 6 } ] }
       ],
       "suffixes": [
-        { "modGroup": "abyssal_intelligence", "modLine": "+{0} to Intelligence", "name": "of the Abyssal Seer", "min": 18, "max": 30, "weight": 100, "tier": "D" },
-        { "modGroup": "abyssal_light_res", "modLine": "+{0}% to Lightning Resistance", "name": "of Abyssal Grounding", "min": 20, "max": 35, "weight": 90, "tier": "D" },
-        { "modGroup": "abyssal_cast_speed", "modLine": "{0}% increased Cast Speed", "name": "of Abyssal Channeling", "min": 8, "max": 16, "weight": 60, "tier": "D" },
-        { "modGroup": "abyssal_spirit", "modLine": "+{0} to Spirit", "name": "of the Abyssal Lord", "min": 10, "max": 20, "weight": 50, "tier": "D" }
-      ]
-    }
-  }
-}
+        { "modGroup": "abyss_strength", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{

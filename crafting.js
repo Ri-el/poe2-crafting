@@ -185,11 +185,25 @@ export default class CraftingEngine {
     const err = this._checkCorrupted(); if (err) return err;
     if (this._allModEntries().length === 0) return this._fail('Item has no mods to re-roll values on.');
     const rerollable = this._allModEntries().filter(({ mod }) => !mod.fractured);
-    const hasRange = rerollable.some(({ mod }) => mod.min != null && mod.max != null && mod.min !== mod.max);
+    const lineHasRange = (l) => l.min != null && l.max != null && l.min !== l.max;
+    const modHasRange = (mod) =>
+      (mod.min != null && mod.max != null && mod.min !== mod.max) ||
+      (Array.isArray(mod.lines) && mod.lines.some(lineHasRange));
+    const hasRange = rerollable.some(({ mod }) => modHasRange(mod));
     if (!hasRange) return this._fail('No re-rollable mods (fractured or fixed-value mods are locked).');
 
     for (const { mod } of rerollable) {
-      if (mod.min != null && mod.max != null && mod.min !== mod.max) {
+      if (Array.isArray(mod.lines) && mod.lines.length) {
+        let changed = false;
+        for (const l of mod.lines) {
+          if (lineHasRange(l)) {
+            l.value = this._randomInt(l.min, l.max);
+            l.text = l.modLine.replaceAll('{0}', l.value);
+            changed = true;
+          }
+        }
+        if (changed) mod.displayText = mod.lines.map(l => l.text).join('\n');
+      } else if (mod.min != null && mod.max != null && mod.min !== mod.max) {
         mod.value = this._randomInt(mod.min, mod.max);
         mod.displayText = mod.modLine.replaceAll('{0}', mod.value);
       }
@@ -340,7 +354,7 @@ export default class CraftingEngine {
     const cap = this._limits.rare[side === 'prefix' ? 'prefixes' : 'suffixes'];
     const previousRarity = this._item.rarity;
 
-    const record = { ...chosen };
+    const record = structuredClone(chosen);
     delete record.affix;
 
     let removedMod = null;
@@ -405,7 +419,33 @@ export default class CraftingEngine {
     return out;
   }
 
+  // Build a single rolled stat line from a { modLine, min, max } template.
+  _materializeLine(ln) {
+    const hasRange = ln.min != null && ln.max != null;
+    const value = hasRange ? this._randomInt(ln.min, ln.max) : null;
+    const text = ln.modLine
+      ? (value != null ? ln.modLine.replaceAll('{0}', value) : ln.modLine)
+      : '';
+    return { modLine: ln.modLine, min: ln.min, max: ln.max, value, text };
+  }
+
   _materializeDesecrated(c, side) {
+    // Multi-stat desecrated mods carry a `lines` array; each line rolls
+    // independently and renders on its own row.
+    if (Array.isArray(c.lines) && c.lines.length) {
+      const lines = c.lines.map(ln => this._materializeLine(ln));
+      return {
+        modGroup: c.modGroup,
+        tier: c.tier || 'D',
+        tierName: c.name || 'Desecrated',
+        lines,
+        displayText: lines.map(l => l.text).join('\n'),
+        fractured: false,
+        desecrated: true,
+        affix: side,
+      };
+    }
+    // Legacy single-stat path.
     const hasRange = c.min != null && c.max != null;
     const value = hasRange ? this._randomInt(c.min, c.max) : null;
     const displayText = c.modLine
