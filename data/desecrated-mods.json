@@ -1,0 +1,53 @@
+{
+  "_note": "PLACEHOLDER Desecrated (Abyssal) modifier pool. Replace these with real PoE2 0.3 'Rise of the Abyssal' desecrated mods when you have the data. Structure mirrors jewel-mods: each entry is { modGroup, modLine ('{0}' placeholder), name, min, max, weight, tier }. Desecration reveals 3 options of the targeted side.",
+  "bones": {
+    "preserved_cranium": {
+      "name": "Preserved Cranium",
+      "description": "Used at the Well of Souls to reveal Desecrated modifiers. Reveals a set of options to choose from. Omen of Abyssal Echoes grants one reroll of the revealed set."
+    }
+  },
+  "jewelTypes": {
+    "ruby": {
+      "prefixes": [
+        { "modGroup": "abyssal_life", "modLine": "+{0} to maximum Life", "name": "Abyssal Vitality", "min": 25, "max": 40, "weight": 100, "tier": "D" },
+        { "modGroup": "abyssal_fire_flat", "modLine": "Adds {0} to Fire Damage", "name": "Abyssal Embers", "min": 8, "max": 16, "weight": 80, "tier": "D" },
+        { "modGroup": "abyssal_armour", "modLine": "+{0}% increased Armour", "name": "Abyssal Bulwark", "min": 18, "max": 30, "weight": 70, "tier": "D" },
+        { "modGroup": "abyssal_phys_pct", "modLine": "{0}% increased Physical Damage", "name": "Abyssal Brutality", "min": 20, "max": 35, "weight": 60, "tier": "D" }
+      ],
+      "suffixes": [
+        { "modGroup": "abyssal_strength", "modLine": "+{0} to Strength", "name": "of the Abyssal Titan", "min": 18, "max": 30, "weight": 100, "tier": "D" },
+        { "modGroup": "abyssal_fire_res", "modLine": "+{0}% to Fire Resistance", "name": "of Abyssal Warding", "min": 20, "max": 35, "weight": 90, "tier": "D" },
+        { "modGroup": "abyssal_spirit", "modLine": "+{0} to Spirit", "name": "of the Abyssal Lord", "min": 10, "max": 20, "weight": 50, "tier": "D" },
+        { "modGroup": "abyssal_stun_threshold", "modLine": "+{0}% to Stun Threshold", "name": "of Abyssal Resolve", "min": 15, "max": 25, "weight": 60, "tier": "D" }
+      ]
+    },
+    "emerald": {
+      "prefixes": [
+        { "modGroup": "abyssal_evasion", "modLine": "+{0}% increased Evasion Rating", "name": "Abyssal Swiftness", "min": 18, "max": 30, "weight": 90, "tier": "D" },
+        { "modGroup": "abyssal_cold_flat", "modLine": "Adds {0} to Cold Damage", "name": "Abyssal Frost", "min": 7, "max": 14, "weight": 80, "tier": "D" },
+        { "modGroup": "abyssal_life", "modLine": "+{0} to maximum Life", "name": "Abyssal Vitality", "min": 20, "max": 35, "weight": 70, "tier": "D" },
+        { "modGroup": "abyssal_attack_speed", "modLine": "{0}% increased Attack Speed", "name": "Abyssal Alacrity", "min": 8, "max": 14, "weight": 50, "tier": "D" }
+      ],
+      "suffixes": [
+        { "modGroup": "abyssal_dexterity", "modLine": "+{0} to Dexterity", "name": "of the Abyssal Stalker", "min": 18, "max": 30, "weight": 100, "tier": "D" },
+        { "modGroup": "abyssal_cold_res", "modLine": "+{0}% to Cold Resistance", "name": "of Abyssal Frostward", "min": 20, "max": 35, "weight": 90, "tier": "D" },
+        { "modGroup": "abyssal_crit_chance", "modLine": "{0}% increased Critical Hit Chance", "name": "of Abyssal Precision", "min": 15, "max": 28, "weight": 60, "tier": "D" },
+        { "modGroup": "abyssal_spirit", "modLine": "+{0} to Spirit", "name": "of the Abyssal Lord", "min": 10, "max": 20, "weight": 50, "tier": "D" }
+      ]
+    },
+    "sapphire": {
+      "prefixes": [
+        { "modGroup": "abyssal_mana", "modLine": "+{0} to maximum Mana", "name": "Abyssal Insight", "min": 25, "max": 45, "weight": 100, "tier": "D" },
+        { "modGroup": "abyssal_light_flat", "modLine": "Adds {0} to Lightning Damage", "name": "Abyssal Storm", "min": 2, "max": 30, "weight": 80, "tier": "D" },
+        { "modGroup": "abyssal_es", "modLine": "+{0}% increased Energy Shield", "name": "Abyssal Aegis", "min": 18, "max": 30, "weight": 70, "tier": "D" },
+        { "modGroup": "abyssal_spell_dmg", "modLine": "{0}% increased Spell Damage", "name": "Abyssal Sorcery", "min": 18, "max": 32, "weight": 60, "tier": "D" }
+      ],
+      "suffixes": [
+        { "modGroup": "abyssal_intelligence", "modLine": "+{0} to Intelligence", "name": "of the Abyssal Seer", "min": 18, "max": 30, "weight": 100, "tier": "D" },
+        { "modGroup": "abyssal_light_res", "modLine": "+{0}% to Lightning Resistance", "name": "of Abyssal Grounding", "min": 20, "max": 35, "weight": 90, "tier": "D" },
+        { "modGroup": "abyssal_cast_speed", "modLine": "{0}% increased Cast Speed", "name": "of Abyssal Channeling", "min": 8, "max": 16, "weight": 60, "tier": "D" },
+        { "modGroup": "abyssal_spirit", "modLine": "+{0} to Spirit", "name": "of the Abyssal Lord", "min": 10, "max": 20, "weight": 50, "tier": "D" }
+      ]
+    }
+  }
+}
