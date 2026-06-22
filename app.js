@@ -430,9 +430,12 @@ function renderWell() {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'well-option';
+    const lineHtml = (Array.isArray(opt.lines) && opt.lines.length > 0)
+      ? opt.lines.map(l => escapeHtml(l.text)).join('<br>')
+      : escapeHtml(opt.displayText);
     btn.innerHTML =
       `<span class="wo-name">${escapeHtml(opt.tierName)}</span>` +
-      `<span class="wo-line">${escapeHtml(opt.displayText)}</span>`;
+      `<span class="wo-line">${lineHtml}</span>`;
     btn.addEventListener('click', () => chooseDesec(i));
     frag.appendChild(btn);
   });
@@ -577,16 +580,26 @@ function renderItem(actionResult = null, overrideItem = null) {
         line.classList.add('mod-enter');
       }
 
+      // Multi-stat desecrated mods expose a `lines` array; legacy single-stat
+      // mods only have displayText + min/max. Support both.
+      const multi = Array.isArray(mod.lines) && mod.lines.length > 0;
+      const textHtml = multi
+        ? mod.lines.map(l => escapeHtml(l.text)).join('<br>')
+        : escapeHtml(mod.displayText);
+      const rangeText = multi
+        ? mod.lines.map(l => (l.min != null && l.max != null ? `[${l.min}-${l.max}]` : '[—]')).join(' ')
+        : `[${mod.min}-${mod.max}]`;
+
       if (showDetails) {
         line.innerHTML =
           `<span class="mod-meta">T${mod.tier} ${mod.type} (${escapeHtml(mod.modGroup)}) ` +
-          `[${mod.min} – ${mod.max}]</span> ` +
-          `<span class="mod-text">${escapeHtml(mod.displayText)}</span>`;
+          `${rangeText}</span> ` +
+          `<span class="mod-text">${textHtml}</span>`;
       } else {
-        line.textContent = mod.displayText;
+        line.innerHTML = textHtml;
         const hover = document.createElement('div');
         hover.className = 'mod-detail hover-detail';
-        hover.textContent = `T${mod.tier} ${mod.type} [${mod.min}-${mod.max}]`;
+        hover.textContent = `T${mod.tier} ${mod.type} ${rangeText}`;
         line.appendChild(hover);
       }
       frag.appendChild(line);
