@@ -1,61 +1,65 @@
-const CACHE_NAME = 'poe2-craft-v3';
+const CACHE_NAME = 'poe2-craft-v4';
 
-const APP_FILES = [
+const APP_SHELL = [
   './',
   './index.html',
   './style.css',
   './app.js',
   './crafting.js',
   './data/jewel-mods.v2.json',
-  './manifest.json'
+  './manifest.json',
 ];
 
-// Install: pre-cache all app files
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(APP_FILES);
-    })
+    caches.open(CACHE_NAME).then((cache) =>
+      Promise.allSettled(APP_SHELL.map((url) => cache.add(url)))
+    )
   );
   self.skipWaiting();
 });
 
-// Activate: clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames
-          .filter((name) => name !== CACHE_NAME)
-          .map((name) => caches.delete(name))
-      );
-    })
+    caches.keys()
+      .then((names) => Promise.all(names.filter((n) => n !== CACHE_NAME).map((n) => caches.delete(n))))
+      .then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
-// Fetch: cache-first, fall back to network, cache the network response
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
+  const req = event.request;
+  if (req.method !== 'GET') return;
 
-      return fetch(event.request).then((networkResponse) => {
-        // Only cache successful same-origin responses
-        if (
-          networkResponse &&
-          networkResponse.status === 200 &&
-          networkResponse.type === 'basic'
-        ) {
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
+  const url = new URL(req.url);
+  const isAppCode =
+    req.mode === 'navigate' || /\.(?:html|js|css|json)$/.test(url.pathname);
+
+  if (isAppCode) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          if (res && res.status === 200 && res.type === 'basic') {
+            const copy = res.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(req, copy));
+          }
+          return res;
+        })
+        .catch(() => caches.match(req).then((c) => c || caches.match('./index.html')))
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(req).then((cached) =>
+      cached ||
+      fetch(req).then((res) => {
+        if (res && res.status === 200 && res.type === 'basic') {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then((c) => c.put(req, copy));
         }
-        return networkResponse;
-      });
-    })
+        return res;
+      })
+    )
   );
 });
