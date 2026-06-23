@@ -1,5 +1,9 @@
 // app.js - PoE2 Jewel Crafting UI Controller
-import CraftingEngine from './crafting.js';
+// Runs as a classic <script defer> (not an ES module) so the app also works
+// when opened directly from file:// (double-click index.html, no server).
+(function () {
+'use strict';
+const CraftingEngine = window.CraftingEngine;
 
 const USE_SOUND_FILES = false;
 
@@ -16,8 +20,44 @@ const CURRENCIES = {
   fracturing:    { color: '#6fb0a8' },
   hinekora:      { color: '#b061d6' },
   desecration:   { color: '#b061d6' },
+  preserved_cranium: { color: '#5fd38a' },
+  essence_abyss:     { color: '#7a3da6' },
+  essence_breach:    { color: '#c0506f' },
 };
 const DEFAULT_ORB_COLOR = 'rgba(255,255,255,0.6)';
+
+// Crafting omens modify the next use of a specific currency. Each omen maps to
+// the currency it augments. They are mutually exclusive (only one armed).
+const CRAFT_OMENS = {
+  whittling:           { currency: 'chaos',     label: 'Omen of Whittling' },
+  sinistral_erasure:   { currency: 'chaos',     label: 'Omen of Sinistral Erasure' },
+  dextral_erasure:     { currency: 'chaos',     label: 'Omen of Dextral Erasure' },
+  sinistral_annulment: { currency: 'annulment', label: 'Omen of Sinistral Annulment' },
+  dextral_annulment:   { currency: 'annulment', label: 'Omen of Dextral Annulment' },
+  sanctification:      { currency: 'divine',    label: 'Omen of Sanctification' },
+};
+
+// Greater / Perfect orb variants. Each behaves exactly like its base orb but
+// forces the newly added modifier to roll high within its value range.
+// `quality` is 0..1 (the minimum fraction of the range the roll can land in):
+// Greater = top 50%, Perfect = top 20%. They deliberately reuse the base orb's
+// icon + cursor colour ("same assets"). Tweak the quality numbers to taste.
+const ORB_VARIANTS = {
+  greater_transmutation: { base: 'transmutation', quality: 0.5, label: 'Greater Orb of Transmutation', abbr: 'G.Trans' },
+  perfect_transmutation: { base: 'transmutation', quality: 0.8, label: 'Perfect Orb of Transmutation', abbr: 'P.Trans' },
+  greater_augmentation:  { base: 'augmentation',  quality: 0.5, label: 'Greater Orb of Augmentation',  abbr: 'G.Aug'   },
+  perfect_augmentation:  { base: 'augmentation',  quality: 0.8, label: 'Perfect Orb of Augmentation',  abbr: 'P.Aug'   },
+  greater_regal:         { base: 'regal',         quality: 0.5, label: 'Greater Regal Orb',            abbr: 'G.Regal' },
+  perfect_regal:         { base: 'regal',         quality: 0.8, label: 'Perfect Regal Orb',            abbr: 'P.Regal' },
+  greater_exalted:       { base: 'exalted',       quality: 0.5, label: 'Greater Exalted Orb',          abbr: 'G.Exalt' },
+  perfect_exalted:       { base: 'exalted',       quality: 0.8, label: 'Perfect Exalted Orb',          abbr: 'P.Exalt' },
+  greater_chaos:         { base: 'chaos',         quality: 0.5, label: 'Greater Chaos Orb',            abbr: 'G.Chaos' },
+  perfect_chaos:         { base: 'chaos',         quality: 0.8, label: 'Perfect Chaos Orb',            abbr: 'P.Chaos' },
+};
+// Variants reuse the base orb's cursor colour.
+for (const [key, v] of Object.entries(ORB_VARIANTS)) {
+  if (CURRENCIES[v.base]) CURRENCIES[key] = { color: CURRENCIES[v.base].color };
+}
 
 let engine = null;
 let currentJewelType = 'ruby';
@@ -26,11 +66,26 @@ let desecData = null;
 let armedCurrency = null;
 let showDetails = false;
 let stash = [];
+let dragIndex = null;
+let dragCurrency = null;
+// Hinekora's Lock: sealed foresight outcomes for the current Lock, keyed by
+// currency. Computed lazily on hover and reused so the previewed result equals
+// what gets committed. Cleared when the Lock is applied fresh or consumed.
+let foreseenSeals = {};
+let foreseenHover = null; // currency currently previewed on hover (or null)
 let undoStack = [];
+let redoStack = [];
 
 // Desecration (Abyssal) UI state.
-let selectedOmen = null;
+// A directional Necromancy omen (sinistral/dextral) may be combined with
+// Abyssal Echoes, so we track a set of active omens rather than a single one.
+let selectedOmens = new Set();
+let omenOfLightActive = false;
+// Crafting omen currently armed (key in CRAFT_OMENS), or null.
+let selectedCraftOmen = null;
 let desecState = null;
+// Item Level slider state: when locked, the knob can't be dragged.
+let ilvlLocked = false;
 
 // Last known pointer position, tracked continuously so the cursor orb can be
 // placed correctly the instant a currency is armed — even before the pointer
@@ -47,6 +102,11 @@ const elements = {
   enchantList: document.getElementById('enchant-list'),
   corruptedLabel: document.getElementById('corrupted-label'),
   itemLevel: document.getElementById('item-level'),
+  ilvlSlider: document.getElementById('ilvl-slider'),
+  ilvlTrack: document.getElementById('ilvl-track'),
+  ilvlFill: document.getElementById('ilvl-fill'),
+  ilvlKnob: document.getElementById('ilvl-knob'),
+  ilvlValue: document.getElementById('ilvl-value'),
   craftGlow: document.getElementById('craft-glow'),
   currencyGrid: document.getElementById('currency-grid'),
   currencyBtns: document.querySelectorAll('.currency-btn'),
@@ -58,11 +118,17 @@ const elements = {
   stashGrid: document.getElementById('stash-grid'),
   saveBtn: document.getElementById('save-btn'),
   undoBtn: document.getElementById('undo-btn'),
+  redoBtn: document.getElementById('redo-btn'),
   craftCounter: document.getElementById('craft-counter'),
   hinekoraMark: document.getElementById('hinekora-mark'),
-  boneBtn: document.getElementById('bone-btn'),
+  boneBtns: document.querySelectorAll('.bone-btn'),
   omenBtns: document.querySelectorAll('.omen-btn'),
+  craftOmenBtns: document.querySelectorAll('.craft-omen-btn'),
+  essenceBtns: document.querySelectorAll('.essence-btn'),
+  sanctifiedLabel: document.getElementById('sanctified-label'),
   desecratePanel: document.getElementById('desecrate-panel'),
+  revealPanel: document.getElementById('reveal-panel'),
+  revealBtn: document.getElementById('reveal-btn'),
   wellModal: document.getElementById('well-modal'),
   wellSub: document.getElementById('well-sub'),
   wellOptions: document.getElementById('well-options'),
@@ -77,24 +143,41 @@ function escapeHtml(s) {
 }
 function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
+// Merge every loaded category mod file (jewels, time-lost, armour, weapons,
+// jewellery, off-hand, flasks) into one { bases } pool. A base that lists
+// `inherits` gets the named shared prefix/suffix pools merged in at load time,
+// so mods common to a category only need to be written once.
+function resolveInherits(baseDef, shared) {
+  if (!baseDef || !Array.isArray(baseDef.inherits) || !baseDef.inherits.length) return baseDef;
+  const pre = [], suf = [];
+  for (const key of baseDef.inherits) {
+    const s = shared && shared[key];
+    if (!s) continue;
+    if (Array.isArray(s.prefixes)) pre.push(...s.prefixes);
+    if (Array.isArray(s.suffixes)) suf.push(...s.suffixes);
+  }
+  const out = Object.assign({}, baseDef);
+  out.prefixes = pre.concat(baseDef.prefixes || []);
+  out.suffixes = suf.concat(baseDef.suffixes || []);
+  delete out.inherits;
+  return out;
+}
+
+function mergeModSources() {
+  const srcBases = window.MOD_BASES || {};
+  const shared = window.MOD_SHARED || {};
+  const bases = {};
+  for (const id in srcBases) bases[id] = resolveInherits(srcBases[id], shared);
+  return { bases };
+}
+
 async function init() {
   try {
-    const res = await fetch('data/jewel-mods.v2.json');
-    if (!res.ok) throw new Error('Failed to load mod data');
-    const text = await res.text();
-    modData = JSON.parse(text.replace(/^\uFEFF/, ''));
+    if (!window.MOD_BASES) throw new Error('Mod data not found — run build (build.cmd) to generate data/mods.data.js.');
+    modData = mergeModSources();
 
     // Desecrated (Abyssal) mod pools — optional. Desecration is disabled if absent.
-    try {
-      const dRes = await fetch('data/desecrated-mods.json');
-      if (dRes.ok) {
-        const dText = await dRes.text();
-        desecData = JSON.parse(dText.replace(/^\uFEFF/, ''));
-      }
-    } catch (e) {
-      console.warn('Desecrated mod data unavailable', e);
-      desecData = null;
-    }
+    desecData = window.DESECRATED_MODS_RAW || null;
 
     loadStash();
     if (USE_SOUND_FILES) preloadSounds();
@@ -109,7 +192,13 @@ async function init() {
 function createEngine(type) {
   engine = new CraftingEngine(modData, type, desecData);
   undoStack = [];
-  closeWell();
+  redoStack = [];
+  selectedOmens.clear();
+  omenOfLightActive = false;
+  selectedCraftOmen = null;
+  if (elements.omenBtns) elements.omenBtns.forEach(b => b.classList.remove('active'));
+  if (elements.craftOmenBtns) elements.craftOmenBtns.forEach(b => b.classList.remove('active'));
+  clearDesecration();
   renderItem();
 }
 
@@ -120,7 +209,42 @@ function setupCurrencyIcons() {
     if (!type || !iconEl) return;
     loadIconInto(iconEl, type);
   });
+  // Abyssal (bone + omen) buttons mirror the currency icons.
+  document.querySelectorAll('.abyss-btn').forEach(btn => {
+    const name = btn.dataset.bone || btn.dataset.omen || btn.dataset.craftOmen || btn.dataset.currency;
+    const iconEl = btn.querySelector('.currency-icon');
+    if (name && iconEl) loadIconInto(iconEl, name);
+  });
   loadIconInto(elements.hinekoraMark, 'hinekora-mark');
+}
+
+// Some buttons use internal keys (with underscores) that differ from the icon
+// file names on disk. Map those keys to the actual asset basenames so the
+// correct PNG is requested. Anything not listed falls through unchanged.
+const ICON_FILE = {
+  preserved_cranium: 'cranium',
+  sinistral_necromancy: 'sinistral-necromancy',
+  dextral_necromancy: 'dextral-necromancy',
+  abyssal_echoes: 'abyssal-echoes',
+  omen_of_light: 'light',
+  // Crafting omens (underscore key -> hyphenated asset basename).
+  sinistral_erasure: 'sinistral-erasure',
+  dextral_erasure: 'dextral-erasure',
+  sinistral_annulment: 'sinistral-annulment',
+  dextral_annulment: 'dextral-annulment',
+  // Greater / Perfect orbs reuse their base orb's icon asset.
+  greater_transmutation: 'transmutation', perfect_transmutation: 'transmutation',
+  greater_augmentation: 'augmentation', perfect_augmentation: 'augmentation',
+  greater_regal: 'regal', perfect_regal: 'regal',
+  greater_exalted: 'exalted', perfect_exalted: 'exalted',
+  greater_chaos: 'chaos', perfect_chaos: 'chaos',
+  // Abyssal Omens (force the Lich Desecrated group; disabled for jewels for now).
+  omen_of_the_sovereign: 'sovereign', omen_of_the_liege: 'liege', omen_of_the_blackblooded: 'blackblooded',
+  // Essences.
+  essence_abyss: 'abyss-essence', essence_breach: 'breach-essence',
+};
+function iconFileFor(name) {
+  return (ICON_FILE[name] || name);
 }
 
 function loadIconInto(iconEl, name) {
@@ -130,7 +254,7 @@ function loadIconInto(iconEl, name) {
   img.alt = '';
   img.addEventListener('load', () => iconEl.classList.add('has-real-icon'));
   img.addEventListener('error', () => img.remove());
-  img.src = `assets/icons/${name}.png`;
+  img.src = `assets/icons/${iconFileFor(name)}.png`;
   iconEl.appendChild(img);
 }
 
@@ -243,59 +367,193 @@ function setupEventListeners() {
   });
 
   elements.currencyBtns.forEach(btn => {
+    // RIGHT-CLICK activates (arms / disarms) a currency so the orb follows the
+    // cursor; then left-click the jewel to use it. LEFT-CLICK no longer arms --
+    // the left mouse button is reserved for dragging the currency onto the item.
     btn.addEventListener('contextmenu', (e) => {
       e.preventDefault();
       toggleCurrency(btn.dataset.currency);
     });
-    btn.addEventListener('click', () => {
-      if (armedCurrency === btn.dataset.currency) disarmCurrency();
-      else toggleCurrency(btn.dataset.currency);
-    });
   });
 
-  elements.tooltip.addEventListener('click', (e) => {
-    if (!armedCurrency) return;
-    e.preventDefault();
+  // Shared apply path used by BOTH interaction models:
+  //  1) arm (right- or left-click a currency) then left-click the item, and
+  //  2) left-click drag a currency and release it on the item.
+  function useCurrencyOnItem(currency, shiftKey) {
+    if (!currency) return;
+    // The drag-drop path may not have armed the currency; arm it so the orb /
+    // shift-to-keep behaviour stays consistent with the click model.
+    if (armedCurrency !== currency) armCurrency(currency);
 
-    if (armedCurrency === 'hinekora') { applyHinekoraLock(); return; }
+    if (currency === 'hinekora') { applyHinekoraLock(); return; }
+
+    // Abyssal bones open the Well of Souls (desecration) instead of applying directly.
+    if (currency === 'preserved_cranium') {
+      startDesecrationFlow(currency); return;
+    }
+
+    // Hinekora's Lock: using any currency commits its (sealed) foreseen outcome
+    // immediately and removes the Lock. Hovering only previews; there is no
+    // accept/cancel step.
+    if (engine.getItem().hinekoraLocked && FORESEEABLE.has(currency)) {
+      commitForesight(currency);
+      return;
+    }
 
     const before = engine.getItem();
-    const result = applyCurrencyToEngine(armedCurrency);
+    const result = applyCurrencyToEngine(currency);
 
     if (result.success) {
-      undoStack.push(before);
-      if (undoStack.length > 50) undoStack.shift();
-      engine.recordCurrencyUse(armedCurrency);
-      engine.clearHinekoraLock();
-      playSound(armedCurrency);
-      triggerCraftAnimation(armedCurrency);
+      pushUndo(before);
+      engine.recordCurrencyUse(currency);
+      consumeCraftOmen(currency);
+      if (currency === 'annulment' && omenOfLightActive) {
+        omenOfLightActive = false;
+        const lb = Array.from(elements.omenBtns).find(b => b.dataset.omen === 'omen_of_light');
+        if (lb) lb.classList.remove('active');
+      }
+      playSound(currency);
+      triggerCraftAnimation(currency);
       renderItem(result);
-      if (result.item.corrupted) disarmCurrency();
+      // Applying normally consumes the held currency and drops it. Hold SHIFT to
+      // keep it on the cursor so you can keep slamming the remaining slots. A
+      // corrupted result always drops it (nothing more can be applied).
+      if (!shiftKey || result.item.corrupted || result.item.sanctified) disarmCurrency();
     } else {
       playSound('error');
       triggerErrorAnimation();
       showError(result.error);
     }
+  }
+
+  const applyArmedToItem = (e) => {
+    if (!armedCurrency) return;
+    e.preventDefault();
+    useCurrencyOnItem(armedCurrency, e.shiftKey);
+  };
+  // Model 1 (arm + click): right- or left-click a currency to pick it up (its
+  // icon rides the cursor), then LEFT-CLICK the jewel to use it.
+  elements.tooltip.addEventListener('click', applyArmedToItem);
+  // Hinekora's Lock: foresight previews ONLY once a currency is in hand (armed
+  // via left- or right-click) and brought over the item -- never on plain hover
+  // of a currency button. Moving the cursor off the item clears the preview.
+  elements.tooltip.addEventListener('mouseenter', () => { if (armedCurrency) previewForesight(armedCurrency); });
+  elements.tooltip.addEventListener('mouseleave', clearForesightPreview);
+
+  // Model 2 (left-click drag): press and hold left mouse on a currency, drag it
+  // onto the item, and release to use it. The dragged icon follows the cursor
+  // while the button stays put; releasing anywhere other than the item cancels.
+  const startCurrencyDrag = (btn, currency) => (e) => {
+    if (!currency) return;
+    if (engine.getItem().corrupted) { e.preventDefault(); return; }
+    // Clear any armed orb so we never show two icons at once.
+    disarmCurrency();
+    dragCurrency = currency;
+    btn.classList.add('dragging-currency');
+    if (e.dataTransfer) {
+      e.dataTransfer.effectAllowed = 'copy';
+      try { e.dataTransfer.setData('text/plain', currency); } catch (_) {}
+      const iconImg = btn.querySelector('img');
+      if (iconImg && iconImg.complete && iconImg.width) {
+        try { e.dataTransfer.setDragImage(iconImg, iconImg.width / 2, iconImg.height / 2); } catch (_) {}
+      }
+    }
+  };
+  const endCurrencyDrag = (btn) => () => { btn.classList.remove('dragging-currency'); dragCurrency = null; };
+  Array.from(elements.currencyBtns).forEach(btn => {
+    btn.setAttribute('draggable', 'true');
+    btn.addEventListener('dragstart', startCurrencyDrag(btn, btn.dataset.currency));
+    btn.addEventListener('dragend', endCurrencyDrag(btn));
+  });
+  Array.from(elements.boneBtns).forEach(btn => {
+    btn.setAttribute('draggable', 'true');
+    btn.addEventListener('dragstart', startCurrencyDrag(btn, btn.dataset.bone));
+    btn.addEventListener('dragend', endCurrencyDrag(btn));
+  });
+  elements.tooltip.addEventListener('dragover', (e) => {
+    if (!dragCurrency) return; // ignore unrelated drags (e.g. stash reordering)
+    e.preventDefault();
+    if (e.dataTransfer) e.dataTransfer.dropEffect = 'copy';
+    elements.tooltip.classList.add('drag-target');
+    // Hinekora's Lock: dragging a currency over the item previews its foreseen
+    // outcome, just like carrying an armed currency. Guard so we render once per
+    // entry instead of on every dragover tick.
+    if (foreseenHover !== dragCurrency) previewForesight(dragCurrency);
+  });
+  elements.tooltip.addEventListener('dragleave', (e) => {
+    // Detect leaving via pointer position, not relatedTarget (which is null mid
+    // re-render) -- otherwise the foresight preview re-render flickers the drag.
+    const r = elements.tooltip.getBoundingClientRect();
+    const inside = e.clientX >= r.left && e.clientX <= r.right &&
+                   e.clientY >= r.top && e.clientY <= r.bottom;
+    if (!inside) {
+      elements.tooltip.classList.remove('drag-target');
+      clearForesightPreview();
+    }
+  });
+  elements.tooltip.addEventListener('drop', (e) => {
+    if (!dragCurrency) return;
+    e.preventDefault();
+    elements.tooltip.classList.remove('drag-target');
+    const currency = dragCurrency;
+    dragCurrency = null;
+    useCurrencyOnItem(currency, e.shiftKey);
   });
 
   elements.resetBtn.addEventListener('click', () => {
-    undoStack.push(engine.getItem());
-    if (undoStack.length > 50) undoStack.shift();
+    pushUndo(engine.getItem());
     engine.resetItem();
+    clearCraftOmen();
+    clearDesecration();
+    foreseenSeals = {};
+    foreseenHover = null;
     disarmCurrency();
     playSound('reset');
     renderItem();
   });
 
   if (elements.undoBtn) elements.undoBtn.addEventListener('click', undoLastAction);
+  if (elements.redoBtn) elements.redoBtn.addEventListener('click', redoLastAction);
 
   elements.saveBtn.addEventListener('click', saveToStash);
 
+  // --- Item Level slider (drag to set 1-100; click the knob to lock/unlock) ---
+  setupIlvlSlider();
+
   // --- Desecration (Abyssal) ---
   elements.omenBtns.forEach(btn => {
-    btn.addEventListener('click', () => toggleOmen(btn.dataset.omen));
+    // PoE2 omens are activated by RIGHT-CLICK ("right click to set active").
+    btn.addEventListener('contextmenu', (e) => { e.preventDefault(); toggleOmen(btn.dataset.omen); });
+    btn.addEventListener('click', () => showError('Right-click an Omen to activate it.'));
   });
-  if (elements.boneBtn) elements.boneBtn.addEventListener('click', startDesecrationFlow);
+  // Crafting omens (Whittling / Erasure / Annulment / Sanctification): right-click
+  // to arm one, then use its matching currency (Chaos / Annulment / Divine).
+  if (elements.craftOmenBtns) elements.craftOmenBtns.forEach(btn => {
+    btn.addEventListener('contextmenu', (e) => { e.preventDefault(); toggleCraftOmen(btn.dataset.craftOmen); });
+    btn.addEventListener('click', () => showError('Right-click an Omen to activate it, then use its matching currency.'));
+  });
+  elements.boneBtns.forEach(btn => {
+    // Preserved Cranium behaves like a normal currency: left- or right-click to
+    // arm/disarm it (a glowing orb follows the cursor), then click the jewel to
+    // desecrate. The button stays put in the menu while the orb is dragged.
+    btn.addEventListener('contextmenu', (e) => { e.preventDefault(); toggleCurrency(btn.dataset.bone); });
+    btn.addEventListener('click', () => {
+      if (armedCurrency === btn.dataset.bone) disarmCurrency();
+      else toggleCurrency(btn.dataset.bone);
+    });
+  });
+  // Essences behave like currencies: arm with click (or drag), then click the jewel.
+  if (elements.essenceBtns) elements.essenceBtns.forEach(btn => {
+    btn.setAttribute('draggable', 'true');
+    btn.addEventListener('dragstart', startCurrencyDrag(btn, btn.dataset.currency));
+    btn.addEventListener('dragend', endCurrencyDrag(btn));
+    btn.addEventListener('contextmenu', (e) => { e.preventDefault(); toggleCurrency(btn.dataset.currency); });
+    btn.addEventListener('click', () => {
+      if (armedCurrency === btn.dataset.currency) disarmCurrency();
+      else toggleCurrency(btn.dataset.currency);
+    });
+  });
+  if (elements.revealBtn) elements.revealBtn.addEventListener('click', openWell);
   if (elements.wellReroll) elements.wellReroll.addEventListener('click', rerollWell);
   if (elements.wellCancel) elements.wellCancel.addEventListener('click', cancelWell);
   if (elements.wellModal) {
@@ -313,6 +571,11 @@ function setupEventListeners() {
   });
   document.addEventListener('keyup', e => {
     if (e.key === 'Alt') { showDetails = false; renderItem(); }
+  });
+  // If the window loses focus while Alt is held (e.g. Alt+Tab), the keyup never
+  // fires, which would otherwise leave the inspect/detail view stuck on.
+  window.addEventListener('blur', () => {
+    if (showDetails) { showDetails = false; renderItem(); }
   });
 
   document.addEventListener('mousemove', e => {
@@ -333,17 +596,26 @@ function setupEventListeners() {
 }
 
 function applyCurrencyToEngine(currency, eng = engine) {
-  switch (currency) {
-    case 'transmutation': return eng.applyTransmutation();
-    case 'augmentation':  return eng.applyAugmentation();
+  // Greater/Perfect orbs are a base orb plus a high-roll quality bias.
+  const variant = ORB_VARIANTS[currency];
+  const baseCurrency = variant ? variant.base : currency;
+  const quality = variant ? variant.quality : 0;
+  // A crafting omen only applies to its matching (base) currency.
+  const omen = (selectedCraftOmen && CRAFT_OMENS[selectedCraftOmen]
+    && CRAFT_OMENS[selectedCraftOmen].currency === baseCurrency) ? selectedCraftOmen : null;
+  switch (baseCurrency) {
+    case 'transmutation': return eng.applyTransmutation(quality);
+    case 'augmentation':  return eng.applyAugmentation(quality);
     case 'alchemy':       return eng.applyAlchemy();
-    case 'regal':         return eng.applyRegal();
-    case 'exalted':       return eng.applyExalted();
-    case 'chaos':         return eng.applyChaos();
-    case 'annulment':     return eng.applyAnnulment();
-    case 'divine':        return eng.applyDivine();
+    case 'regal':         return eng.applyRegal(quality);
+    case 'exalted':       return eng.applyExalted(quality);
+    case 'chaos':         return eng.applyChaos(omen, quality);
+    case 'annulment':     return eng.applyAnnulment({ desecratedOnly: omenOfLightActive, omen });
+    case 'divine':        return eng.applyDivine(omen);
     case 'vaal':          return eng.applyVaal();
     case 'fracturing':    return eng.applyFracturing();
+    case 'essence_abyss': return eng.applyEssenceOfAbyss();
+    case 'essence_breach':return eng.applyEssenceOfBreach();
     default: return { success: false, error: 'Unknown currency' };
   }
 }
@@ -357,6 +629,29 @@ function toggleCurrency(currency) {
   else armCurrency(currency);
 }
 
+// Show the picked-up currency's real icon riding along with the cursor orb,
+// so dragging feels like carrying the actual currency item.
+function setOrbIcon(name) {
+  if (!elements.cursorOrb) return;
+  let img = elements.cursorOrb.querySelector('.orb-img');
+  if (!img) {
+    img = document.createElement('img');
+    img.className = 'orb-img';
+    img.alt = '';
+    elements.cursorOrb.appendChild(img);
+  }
+  img.style.display = 'none';
+  img.onload = () => { img.style.display = 'block'; };
+  img.onerror = () => { img.remove(); };
+  img.src = `assets/icons/${iconFileFor(name)}.png`;
+}
+
+function clearOrbIcon() {
+  if (!elements.cursorOrb) return;
+  const img = elements.cursorOrb.querySelector('.orb-img');
+  if (img) img.remove();
+}
+
 function positionOrb() {
   elements.cursorOrb.style.transform =
     `translate3d(${lastMouseX}px, ${lastMouseY}px, 0) translate(-50%, -50%)`;
@@ -366,55 +661,231 @@ function armCurrency(currency) {
   armedCurrency = currency;
   elements.currencyBtns.forEach(b =>
     b.classList.toggle('armed', b.dataset.currency === currency));
+  elements.boneBtns.forEach(b =>
+    b.classList.toggle('armed', b.dataset.bone === currency));
+  if (elements.essenceBtns) elements.essenceBtns.forEach(b =>
+    b.classList.toggle('armed', b.dataset.currency === currency));
 
   const color = (CURRENCIES[currency] && CURRENCIES[currency].color) || DEFAULT_ORB_COLOR;
   elements.cursorOrb.style.setProperty('--orb-color', color);
   elements.cursorOrb.style.background = `radial-gradient(circle, ${color} 0%, transparent 70%)`;
+  setOrbIcon(currency);
   positionOrb();
   elements.cursorOrb.style.opacity = '1';
-  document.body.style.cursor = 'none';
-  elements.tooltip.style.cursor = 'none';
+  // Keep the native cursor visible while a currency is armed — the glow orb
+  // simply trails it. Previously this set `cursor: none`, which made the
+  // pointer appear to vanish the moment you picked up a currency.
+  document.body.style.cursor = '';
+  elements.tooltip.style.cursor = 'pointer';
 }
 
 function disarmCurrency() {
   armedCurrency = null;
   elements.currencyBtns.forEach(b => b.classList.remove('armed'));
+  elements.boneBtns.forEach(b => b.classList.remove('armed'));
+  if (elements.essenceBtns) elements.essenceBtns.forEach(b => b.classList.remove('armed'));
+  clearOrbIcon();
   elements.cursorOrb.style.opacity = '0';
   document.body.style.cursor = 'default';
   elements.tooltip.style.cursor = 'pointer';
 }
 
 // ============================================================
-// DESECRATION (Abyssal) — Preserved Cranium / Well of Souls
+// ITEM LEVEL SLIDER -- drag 1..100 (~50 at the middle), lockable knob
 // ============================================================
-function toggleOmen(omen) {
-  selectedOmen = (selectedOmen === omen) ? null : omen;
-  elements.omenBtns.forEach(b =>
-    b.classList.toggle('active', b.dataset.omen === selectedOmen));
+
+// Map an item level (1..100) to a 0..100% position along the track.
+function ilvlToPercent(v) {
+  return ((Math.max(1, Math.min(100, v)) - 1) / 99) * 100;
 }
 
-function startDesecrationFlow() {
+// Reflect the engine's current item level in the slider track + label.
+function updateIlvlUI(ilvl) {
+  const pct = ilvlToPercent(ilvl);
+  if (elements.ilvlFill) elements.ilvlFill.style.width = pct + '%';
+  if (elements.ilvlKnob) {
+    elements.ilvlKnob.style.left = pct + '%';
+    elements.ilvlKnob.classList.toggle('locked', ilvlLocked);
+  }
+  if (elements.ilvlValue) elements.ilvlValue.textContent = ilvl;
+  if (elements.ilvlSlider) elements.ilvlSlider.setAttribute('aria-valuenow', String(ilvl));
+}
+
+function setupIlvlSlider() {
+  const slider = elements.ilvlSlider;
+  const track = elements.ilvlTrack;
+  const knob = elements.ilvlKnob;
+  if (!slider || !track || !knob) return;
+
+  let dragging = false;
+  let moved = false;
+  let startX = 0;
+  let startedOnKnob = false;
+
+  const valueFromClientX = (clientX) => {
+    const r = track.getBoundingClientRect();
+    if (r.width <= 0) return engine.getItem().ilvl;
+    const ratio = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+    return Math.round(1 + ratio * 99);
+  };
+
+  const applyValue = (v) => updateIlvlUI(engine.setItemLevel(v));
+
+  slider.addEventListener('pointerdown', (e) => {
+    // Keep the press off the tooltip so it can't apply an armed currency.
+    e.stopPropagation();
+    e.preventDefault();
+    startedOnKnob = !!(e.target.closest && e.target.closest('.ilvl-knob'));
+    startX = e.clientX;
+    moved = false;
+    dragging = true;
+    try { slider.setPointerCapture(e.pointerId); } catch (_) {}
+  });
+
+  slider.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    if (Math.abs(e.clientX - startX) > 3) moved = true;
+    if (ilvlLocked) return;             // locked: dragging does nothing
+    if (!moved && !startedOnKnob) return;
+    applyValue(valueFromClientX(e.clientX));
+  });
+
+  const endDrag = (e) => {
+    if (!dragging) return;
+    dragging = false;
+    try { slider.releasePointerCapture(e.pointerId); } catch (_) {}
+    if (moved) return;
+    // A plain click (no drag): clicking the knob toggles the lock; clicking the
+    // bare track while unlocked jumps the level to that spot.
+    if (startedOnKnob) {
+      ilvlLocked = !ilvlLocked;
+      updateIlvlUI(engine.getItem().ilvl);
+    } else if (!ilvlLocked) {
+      applyValue(valueFromClientX(e.clientX));
+    }
+  };
+  slider.addEventListener('pointerup', endDrag);
+  slider.addEventListener('pointercancel', endDrag);
+  slider.addEventListener('click', (e) => e.stopPropagation());
+
+  if (engine) updateIlvlUI(engine.getItem().ilvl);
+}
+
+// ============================================================
+// DESECRATION (Abyssal) — Preserved Cranium / Well of Souls
+// ============================================================
+
+// The two directional Necromancy omens target opposite affix sides, so they
+// are mutually exclusive with each other — but either one may be combined with
+// Abyssal Echoes (which only grants a reroll of the revealed set).
+const DIRECTIONAL_OMENS = ['sinistral_necromancy', 'dextral_necromancy'];
+
+function toggleOmen(omen) {
+  // Omen of Light is an ANNULMENT omen, tracked separately from the
+  // desecration-reveal omens: it makes the next Orb of Annulment strip only a
+  // Desecrated modifier. The other omens influence the Well of Souls.
+  if (omen === 'omen_of_light') {
+    omenOfLightActive = !omenOfLightActive;
+    const btn = Array.from(elements.omenBtns).find(b => b.dataset.omen === 'omen_of_light');
+    if (btn) btn.classList.toggle('active', omenOfLightActive);
+    renderItem();
+    return;
+  }
+  if (selectedOmens.has(omen)) {
+    selectedOmens.delete(omen);
+  } else {
+    // Selecting a directional omen clears the other directional omen.
+    if (DIRECTIONAL_OMENS.includes(omen)) {
+      DIRECTIONAL_OMENS.forEach(o => selectedOmens.delete(o));
+    }
+    selectedOmens.add(omen);
+  }
+  elements.omenBtns.forEach(b => {
+    if (b.dataset.omen === 'omen_of_light') return;
+    b.classList.toggle('active', selectedOmens.has(b.dataset.omen));
+  });
+}
+
+// ---- Crafting omens (Chaos / Annulment / Divine augments) ----
+function updateCraftOmenButtons() {
+  if (!elements.craftOmenBtns) return;
+  elements.craftOmenBtns.forEach(b =>
+    b.classList.toggle('active', b.dataset.craftOmen === selectedCraftOmen));
+}
+
+function toggleCraftOmen(omen) {
+  if (!CRAFT_OMENS[omen]) return;
+  selectedCraftOmen = (selectedCraftOmen === omen) ? null : omen;
+  updateCraftOmenButtons();
+  renderItem();
+}
+
+function clearCraftOmen() {
+  selectedCraftOmen = null;
+  updateCraftOmenButtons();
+}
+
+// Consume the armed crafting omen if it matched the currency just applied.
+function consumeCraftOmen(currency) {
+  const base = ORB_VARIANTS[currency] ? ORB_VARIANTS[currency].base : currency;
+  if (selectedCraftOmen && CRAFT_OMENS[selectedCraftOmen]
+      && CRAFT_OMENS[selectedCraftOmen].currency === base) {
+    engine.recordCurrencyUse(selectedCraftOmen);
+    clearCraftOmen();
+  }
+}
+
+function startDesecrationFlow(bone = 'preserved_cranium') {
   if (!desecData) { showError('Desecrated modifier data is not available.'); return; }
   disarmCurrency();
+  // Committing a bone supersedes any Hinekora foresight preview.
+  foreseenSeals = {};
+  foreseenHover = null;
+  hideForeseenBanner();
   if (engine.getItem().corrupted) {
     playSound('error'); triggerErrorAnimation();
     showError('Item is corrupted and cannot be modified.');
     return;
   }
-  const res = engine.startDesecration({ bone: 'preserved_cranium', omen: selectedOmen });
+  const before = engine.getItem();
+  const res = engine.startDesecration({
+    bone: bone || 'preserved_cranium',
+    omens: Array.from(selectedOmens),
+  });
   if (!res.success) {
     playSound('error'); triggerErrorAnimation();
     showError(res.error);
     return;
   }
-  playSound('hinekora');
-  openWell(res);
+  // The bone (and any omens) are consumed now: the desecration is applied and an
+  // unrevealed green modifier is placed on the item. The actual modifier is
+  // revealed later via the Reveal panel below the item.
+  pushUndo(before);
+  engine.recordCurrencyUse(bone || 'preserved_cranium');
+  // Abyssal Echoes is activated at reveal time (not now), so don't count it here.
+  selectedOmens.forEach((o) => { if (o !== 'abyssal_echoes') engine.recordCurrencyUse(o); });
+  engine.clearHinekoraLock();
+  selectedOmens.clear();
+  elements.omenBtns.forEach(b => b.classList.remove('active'));
+
+  desecState = { side: res.side, mode: res.mode, rerollsLeft: 1, options: res.options, abyssalUsed: false };
+  playSound('desecration');
+  triggerCraftAnimation('desecration');
+  renderItem(res);
+  showRevealPanel();
 }
 
-function openWell(res) {
-  desecState = { side: res.side, mode: res.mode, rerollsLeft: res.rerollsLeft, options: res.options };
+function openWell() {
+  if (!desecState) { showError('Nothing to reveal.'); return; }
   renderWell();
-  if (elements.wellModal) elements.wellModal.hidden = false;
+  if (elements.wellModal) {
+    elements.wellModal.hidden = false;
+    // Replay the Well of Souls reveal animation every time the modal opens.
+    elements.wellModal.classList.remove('well-revealing');
+    void elements.wellModal.offsetWidth;
+    elements.wellModal.classList.add('well-revealing');
+  }
+  playSound('desecration');
 }
 
 function renderWell() {
@@ -429,7 +900,7 @@ function renderWell() {
   options.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'well-option';
+    btn.className = 'well-option' + (opt.desecrated ? ' desec-option' : '');
     const lineHtml = (Array.isArray(opt.lines) && opt.lines.length > 0)
       ? opt.lines.map(l => escapeHtml(l.text)).join('<br>')
       : escapeHtml(opt.displayText);
@@ -440,26 +911,29 @@ function renderWell() {
     frag.appendChild(btn);
   });
   elements.wellOptions.replaceChildren(frag);
-  if (elements.wellReroll) {
-    if (rerollsLeft > 0) {
-      elements.wellReroll.hidden = false;
-      if (elements.wellRerolls) elements.wellRerolls.textContent = rerollsLeft;
-    } else {
-      elements.wellReroll.hidden = true;
-    }
-  }
+  // The reroll only appears if Omen of Abyssal Echoes has been activated, and
+  // only once per reveal (it disappears after it's been used).
+  const echoesActive = selectedOmens.has('abyssal_echoes');
+  if (elements.wellReroll) elements.wellReroll.hidden = !(echoesActive && !desecState.abyssalUsed);
 }
 
 function rerollWell() {
+  // Reroll requires Omen of Abyssal Echoes to be activated, and is limited to a
+  // single use per reveal (not unlimited). The omen is only consumed/counted in
+  // the currency counter once a mod is committed.
+  if (!desecState || desecState.abyssalUsed) return;
+  if (!selectedOmens.has('abyssal_echoes')) return;
   const res = engine.rerollDesecration();
   if (!res.success) { playSound('error'); showError(res.error); return; }
-  desecState = { side: res.side, mode: res.mode, rerollsLeft: res.rerollsLeft, options: res.options };
+  desecState = { side: res.side, mode: res.mode, rerollsLeft: 0, options: res.options, abyssalUsed: true };
   playSound('chaos');
   renderWell();
 }
 
 function chooseDesec(index) {
-  const before = engine.getItem();
+  // Whether or not the reroll button was used, if Abyssal Echoes is activated it
+  // is consumed/counted on commit.
+  const usedEcho = selectedOmens.has('abyssal_echoes');
   const result = engine.chooseDesecratedMod(index);
   if (!result.success) {
     playSound('error'); triggerErrorAnimation();
@@ -467,35 +941,100 @@ function chooseDesec(index) {
     closeWell();
     return;
   }
-  undoStack.push(before);
-  if (undoStack.length > 50) undoStack.shift();
-  engine.recordCurrencyUse('desecration');
-  engine.clearHinekoraLock();
-  selectedOmen = null;
-  elements.omenBtns.forEach(b => b.classList.remove('active'));
-  closeWell();
+  // The bone was consumed at desecrate time. If Abyssal Echoes was activated to
+  // reroll, it is consumed/counted now, on commit, in the currency counter.
+  if (usedEcho) engine.recordCurrencyUse('abyssal_echoes');
+  clearDesecration();
   playSound('vaal');
   triggerCraftAnimation('desecration');
   renderItem(result);
 }
 
 function closeWell() {
-  if (elements.wellModal) elements.wellModal.hidden = true;
-  desecState = null;
+  if (elements.wellModal) {
+    elements.wellModal.hidden = true;
+    elements.wellModal.classList.remove('well-revealing');
+  }
 }
 
-function cancelWell() {
-  if (engine) engine.cancelDesecration();
+// Fully clear a pending desecration: hide the modal AND the Reveal panel and
+// forget the rolled options. Used after a mod is revealed, or when the item is
+// reset / undone / replaced.
+function clearDesecration() {
   closeWell();
+  hideRevealPanel();
+  desecState = null;
+  // Abyssal Echoes only applies to an active reveal; drop it when the reveal ends.
+  selectedOmens.delete('abyssal_echoes');
+  elements.omenBtns.forEach(b => {
+    if (b.dataset.omen === 'abyssal_echoes') b.classList.remove('active');
+  });
+}
+
+function showRevealPanel() {
+  if (elements.revealPanel) elements.revealPanel.hidden = false;
+}
+
+function hideRevealPanel() {
+  if (elements.revealPanel) elements.revealPanel.hidden = true;
+}
+
+// The Well's "Cancel" just closes the modal — the unrevealed modifier stays on
+// the item and the Reveal panel remains so the player can reveal it later.
+// Abyssal Echoes is a one-time "before revealing" effect: the act of revealing
+// spends the reroll opportunity. So once the Well has been opened, cancelling
+// consumes the echo — re-revealing later will NOT offer the reroll again.
+function cancelWell() {
+  if (desecState) desecState.abyssalUsed = true;
+  closeWell();
+}
+
+// Snapshot the full restorable state: the item, the UI reveal state
+// (desecState), and the engine's pending desecration so the Reveal step can be
+// brought back intact by undo/redo.
+function snapshotState(item) {
+  return {
+    item,
+    desec: desecState ? structuredClone(desecState) : null,
+    pending: engine.getPendingDesecration(),
+  };
+}
+
+function pushUndo(beforeItem) {
+  undoStack.push(snapshotState(beforeItem));
+  if (undoStack.length > 50) undoStack.shift();
+  // Any fresh action invalidates the redo history.
+  redoStack = [];
+}
+
+function restoreSnapshot(snap) {
+  engine.loadItem(snap.item, snap.pending);
+  clearDesecration();
+  // Restore the pending reveal AFTER clearDesecration so the Reveal panel
+  // re-appears when an unrevealed modifier is still on the item.
+  desecState = snap.desec || null;
+  foreseenSeals = {};
+  foreseenHover = null;
+  disarmCurrency();
+  renderItem();
 }
 
 function undoLastAction() {
   if (undoStack.length === 0) { showError('Nothing to undo.'); return; }
+  redoStack.push(snapshotState(engine.getItem()));
+  if (redoStack.length > 50) redoStack.shift();
   const prev = undoStack.pop();
-  engine.loadItem(prev);
-  disarmCurrency();
+  restoreSnapshot(prev);
   playSound('undo');
-  renderItem();
+}
+
+function redoLastAction() {
+  if (redoStack.length === 0) { showError('Nothing to redo.'); return; }
+  undoStack.push(snapshotState(engine.getItem()));
+  if (undoStack.length > 50) undoStack.shift();
+  const next = redoStack.pop();
+  restoreSnapshot(next);
+  playSound('undo');
 }
 
 function updateUndoButton() {
@@ -503,6 +1042,13 @@ function updateUndoButton() {
   const empty = undoStack.length === 0;
   elements.undoBtn.disabled = empty;
   elements.undoBtn.classList.toggle('disabled', empty);
+}
+
+function updateRedoButton() {
+  if (!elements.redoBtn) return;
+  const empty = redoStack.length === 0;
+  elements.redoBtn.disabled = empty;
+  elements.redoBtn.classList.toggle('disabled', empty);
 }
 
 function applyHinekoraLock() {
@@ -516,13 +1062,254 @@ function applyHinekoraLock() {
     showError("Hinekora's Lock is already applied.");
     return;
   }
-  undoStack.push(engine.getItem());
-  if (undoStack.length > 50) undoStack.shift();
+  pushUndo(engine.getItem());
   engine.setHinekoraLock();
+  engine.recordCurrencyUse('hinekora');
+  foreseenSeals = {};
+  foreseenHover = null;
   disarmCurrency();
   playSound('hinekora');
   triggerCraftAnimation('hinekora');
   renderItem();
+}
+
+// --- Hinekora's Lock: the Vaal is consumed, but the player picks the outcome ---
+const VAAL_CHOICES = {
+  none:    { title: 'Corrupt \u2014 Unchanged', desc: 'Becomes Corrupted with no other change.' },
+  reroll:  { title: 'Corrupt \u2014 Reroll', desc: 'Destroy and re-add 1\u20133 random modifiers, then Corrupt.' },
+  enchant: { title: 'Sanctify \u2014 Corrupted Implicit', desc: 'Add a corrupted implicit modifier, then Corrupt.' },
+  modify:  { title: 'Corrupt \u2014 Modify', desc: 'Add a corrupted implicit OR remove a modifier, then Corrupt.' },
+};
+const VAAL_OUTCOME_NUM = { none: 1, reroll: 2, enchant: 3, modify: 4 };
+
+// Currencies whose effect Hinekora's Lock can foresee (everything that directly
+// modifies the item — not the Lock itself or the Well-of-Souls bone).
+const FORESEEABLE = new Set([
+  'transmutation', 'augmentation', 'alchemy', 'regal', 'exalted',
+  'chaos', 'annulment', 'divine', 'vaal', 'fracturing',
+  'greater_transmutation', 'perfect_transmutation',
+  'greater_augmentation', 'perfect_augmentation',
+  'greater_regal', 'perfect_regal',
+  'greater_exalted', 'perfect_exalted',
+  'greater_chaos', 'perfect_chaos',
+]);
+// Abyssal bones are foreseeable too, but their preview is special: it shows the
+// item gaining an UNREVEALED "Desecrated Modifier" line (the real mod is only
+// chosen later at the Well of Souls). Using the bone consumes the Lock and opens
+// the Well.
+const FORESEEABLE_BONES = new Set(['preserved_cranium']);
+function currencyLabel(currency) {
+  if (ORB_VARIANTS[currency]) return ORB_VARIANTS[currency].label;
+  const map = {
+    transmutation: 'Orb of Transmutation', augmentation: 'Orb of Augmentation',
+    alchemy: 'Orb of Alchemy', regal: 'Regal Orb', exalted: 'Exalted Orb',
+    chaos: 'Chaos Orb', annulment: 'Orb of Annulment', divine: 'Divine Orb',
+    vaal: 'Vaal Orb', fracturing: 'Fracturing Orb',
+    preserved_cranium: 'Preserved Cranium',
+    essence_abyss: 'Essence of the Abyss', essence_breach: 'Essence of the Breach',
+  };
+  return map[currency] || currency;
+}
+
+function getCorruptionModalEl() {
+  let modal = document.getElementById('corruption-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'corruption-modal';
+    modal.className = 'corruption-modal';
+    modal.innerHTML =
+      '<div class="cm-box">' +
+      '<div class="cm-title">Hinekora\'s Lock \u2014 Foreseen Outcome</div>' +
+      '<div class="cm-sub">Hinekora\'s Lock reveals what the Vaal Orb will do before you commit. The outcome is sealed \u2014 apply it or cancel.</div>' +
+      '<div class="cm-options"></div>' +
+      '</div>';
+    document.body.appendChild(modal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeCorruptionChoice(); });
+  }
+  return modal;
+}
+
+function openCorruptionChoice() {
+  if (engine.getItem().corrupted) {
+    showError('Item is corrupted and cannot be modified.');
+    return;
+  }
+  const modal = getCorruptionModalEl();
+  const wrap = modal.querySelector('.cm-options');
+  wrap.innerHTML = '';
+
+  // Hinekora's Lock does NOT let the player pick the result — it foresees it.
+  // Roll one valid outcome now, reveal it, and let the player either apply
+  // that sealed corruption or cancel (which keeps the Lock intact).
+  const opts = engine.vaalOutcomeOptions();
+  const foreseen = opts[Math.floor(Math.random() * opts.length)].key;
+  const info = VAAL_CHOICES[foreseen] || { title: foreseen, desc: '' };
+
+  const preview = document.createElement('div');
+  preview.className = 'cm-foreseen ' + (foreseen === 'enchant' ? 'cm-sanctify' : 'cm-corrupt');
+  preview.innerHTML =
+    `<span class="cm-opt-title">${escapeHtml(info.title)}</span>` +
+    `<span class="cm-opt-desc">${escapeHtml(info.desc)}</span>`;
+  wrap.appendChild(preview);
+
+  const apply = document.createElement('button');
+  apply.type = 'button';
+  apply.className = 'cm-option cm-corrupt cm-apply';
+  apply.innerHTML =
+    `<span class="cm-opt-title">Apply Corruption</span>` +
+    `<span class="cm-opt-desc">Corrupt the jewel with the foreseen outcome.</span>`;
+  apply.addEventListener('click', () => applyChosenCorruption(foreseen));
+  wrap.appendChild(apply);
+
+  const cancel = document.createElement('button');
+  cancel.type = 'button';
+  cancel.className = 'cm-option cm-cancel';
+  cancel.innerHTML =
+    `<span class="cm-opt-title">Cancel</span>` +
+    `<span class="cm-opt-desc">Keep Hinekora's Lock and do nothing.</span>`;
+  cancel.addEventListener('click', () => closeCorruptionChoice());
+  wrap.appendChild(cancel);
+
+  modal.style.display = 'flex';
+}
+
+function closeCorruptionChoice() {
+  const modal = document.getElementById('corruption-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+// --- Hinekora's Lock: foresee the next currency on HOVER ----------------------
+// Hovering a currency while the item is Locked previews that currency's sealed
+// outcome directly on the item card (the engine is left untouched). Using
+// (applying) any currency commits that exact sealed result and removes the
+// Lock. There is no accept/cancel step \u2014 the Lock mark stays until a currency
+// is actually used.
+function computeForesight(currency) {
+  // Apply to the engine, capture the result + resulting item, then roll the
+  // engine back so nothing is actually committed. The captured outcome is
+  // sealed and reused for both the preview and the eventual commit.
+  const snapshot = engine.getItem();
+  const result = applyCurrencyToEngine(currency);
+  if (!result || !result.success) {
+    engine.loadItem(snapshot);
+    return { result };
+  }
+  const afterItem = engine.getItem();
+  engine.loadItem(snapshot);
+  return { result, afterItem };
+}
+
+// Desecration foresight is special: run the engine's desecration on a snapshot
+// (which places an UNREVEALED "Desecrated Modifier" on the item), capture that
+// item, then roll the engine back. The preview shows the original mods plus the
+// hidden Desecrated line; the real roll happens when the bone is actually used.
+function computeDesecrationForesight(bone) {
+  if (!desecData) {
+    return { result: { success: false, error: 'Desecrated modifier data is not available.' } };
+  }
+  const snapshot = engine.getItem();
+  const res = engine.startDesecration({ bone, omens: Array.from(selectedOmens) });
+  if (!res || !res.success) { engine.loadItem(snapshot); return { result: res }; }
+  const afterItem = engine.getItem();
+  engine.loadItem(snapshot); // roll back the placed mod + pending desecration
+  return { result: res, afterItem };
+}
+
+function previewForesight(currency) {
+  if (!currency) return;
+  if (!engine.getItem().hinekoraLocked) return;
+  const isBone = FORESEEABLE_BONES.has(currency);
+  if (!isBone && !FORESEEABLE.has(currency)) return;
+  if (!foreseenSeals[currency]) {
+    foreseenSeals[currency] = isBone
+      ? computeDesecrationForesight(currency)
+      : computeForesight(currency);
+  }
+  const seal = foreseenSeals[currency];
+  foreseenHover = currency;
+  if (!seal.afterItem) {
+    showForeseenBanner(currency, false); // would do nothing
+    return;
+  }
+  renderItem(seal.result, seal.afterItem); // overrideItem keeps the engine untouched
+  showForeseenBanner(currency, true);
+}
+
+function clearForesightPreview() {
+  if (foreseenHover === null) return;
+  foreseenHover = null;
+  hideForeseenBanner();
+  renderItem(); // restore the real, still-Locked item
+}
+
+function commitForesight(currency) {
+  const seal = foreseenSeals[currency] || computeForesight(currency);
+  if (!seal.afterItem) {
+    playSound('error');
+    triggerErrorAnimation();
+    showError((seal.result && seal.result.error) || 'Nothing to foresee.');
+    return;
+  }
+  const before = engine.getItem();
+  pushUndo(before);
+  engine.loadItem(seal.afterItem);   // commit the exact sealed outcome
+  engine.recordCurrencyUse(currency);
+  consumeCraftOmen(currency);
+  engine.clearHinekoraLock();        // "The Lock is removed when this item is modified."
+  if (currency === 'annulment' && omenOfLightActive) {
+    omenOfLightActive = false;
+    const lb = Array.from(elements.omenBtns).find(b => b.dataset.omen === 'omen_of_light');
+    if (lb) lb.classList.remove('active');
+  }
+  foreseenSeals = {};
+  foreseenHover = null;
+  hideForeseenBanner();
+  playSound(currency);
+  triggerCraftAnimation(currency);
+  disarmCurrency();
+  renderItem();
+}
+
+function showForeseenBanner(currency, ok) {
+  const content = elements.tooltip.querySelector('.tooltip-content') || elements.tooltip;
+  let banner = document.getElementById('foreseen-banner');
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = 'foreseen-banner';
+    banner.className = 'foreseen-banner';
+    content.insertBefore(banner, content.firstChild);
+  }
+  banner.textContent = ok
+    ? `FORESEEN \u2014 ${currencyLabel(currency)}`
+    : `${currencyLabel(currency)} would do nothing`;
+  elements.tooltip.classList.toggle('foreseen-empty', !ok);
+  elements.tooltip.classList.add('foreseen-preview');
+}
+
+function hideForeseenBanner() {
+  const banner = document.getElementById('foreseen-banner');
+  if (banner) banner.remove();
+  elements.tooltip.classList.remove('foreseen-preview');
+  elements.tooltip.classList.remove('foreseen-empty');
+}
+
+function applyChosenCorruption(key) {
+  const before = engine.getItem();
+  const result = engine.applyVaal(VAAL_OUTCOME_NUM[key]);
+  if (result.success) {
+    pushUndo(before);
+    engine.recordCurrencyUse('vaal');
+    engine.clearHinekoraLock();
+    playSound('vaal');
+    triggerCraftAnimation('vaal');
+    renderItem(result);
+    disarmCurrency();
+  } else {
+    playSound('error');
+    triggerErrorAnimation();
+    showError(result.error);
+  }
+  closeCorruptionChoice();
 }
 
 function renderCraftCounter(item) {
@@ -535,20 +1322,48 @@ function renderCraftCounter(item) {
     elements.craftCounter.innerHTML = '';
     return;
   }
-  const breakdown = entries
-    .map(([k, n]) => `<span class="cc-item">${escapeHtml(capitalize(k))} ${n}</span>`)
+  const ABBR = {
+    transmutation: 'Trans', augmentation: 'Aug', alchemy: 'Alch', regal: 'Regal',
+    exalted: 'Exalt', chaos: 'Chaos', annulment: 'Annul', divine: 'Divine',
+    fracturing: 'Frac', vaal: 'Vaal', hinekora: 'Lock',
+    preserved_cranium: 'Bone', sinistral_necromancy: 'Sin', dextral_necromancy: 'Dex',
+    abyssal_echoes: 'Echo', omen_of_light: 'Light',
+    essence_abyss: 'EAby', essence_breach: 'EBrc',
+    omen_of_the_sovereign: 'Sov', omen_of_the_liege: 'Lige', omen_of_the_blackblooded: 'Blk',
+  };
+  const NAMES = {
+    preserved_cranium: 'Preserved Cranium', sinistral_necromancy: 'Sinistral Necromancy',
+    dextral_necromancy: 'Dextral Necromancy', abyssal_echoes: 'Abyssal Echoes',
+    omen_of_light: 'Omen of Light',
+    essence_abyss: 'Essence of the Abyss', essence_breach: 'Essence of the Breach',
+    omen_of_the_sovereign: 'Omen of the Sovereign', omen_of_the_liege: 'Omen of the Liege', omen_of_the_blackblooded: 'Omen of the Blackblooded',
+  };
+  const chips = entries
+    .map(([k, n]) =>
+      `<div class="cc-chip" title="${escapeHtml(NAMES[k] || capitalize(k))}: ${n} used">` +
+        `<span class="currency-icon ${k}-icon cc-icon">` +
+          `<span class="currency-abbr">${escapeHtml(ABBR[k] || capitalize(k))}</span>` +
+        `</span>` +
+        `<span class="cc-count">${n}\u00d7</span>` +
+      `</div>`)
     .join('');
   elements.craftCounter.style.display = 'block';
   elements.craftCounter.innerHTML =
     `<span class="cc-total">${total} currenc${total === 1 ? 'y' : 'ies'} used</span>` +
-    `<span class="cc-breakdown">${breakdown}</span>`;
+    `<div class="cc-chips">${chips}</div>`;
+  entries.forEach(([k]) => {
+    const iconEl = elements.craftCounter.querySelector(`.cc-icon.${k}-icon`);
+    if (iconEl) loadIconInto(iconEl, k);
+  });
 }
 
 function renderItem(actionResult = null, overrideItem = null) {
   const item = overrideItem || engine.getItem();
   const realCorrupted = overrideItem ? engine.getItem().corrupted : item.corrupted;
+  const realSanctified = overrideItem ? engine.getItem().sanctified : item.sanctified;
+  const realLocked = realCorrupted || realSanctified;
 
-  elements.tooltip.className = `tooltip rarity-${item.rarity} ${item.corrupted ? 'corrupted' : ''}`;
+  elements.tooltip.className = `tooltip rarity-${item.rarity} ${item.corrupted ? 'corrupted' : ''} ${item.sanctified ? 'sanctified' : ''}`;
 
   let fullName = item.baseName;
   if (item.rarity === 'rare') {
@@ -560,6 +1375,37 @@ function renderItem(actionResult = null, overrideItem = null) {
   }
   elements.itemName.textContent = fullName;
 
+  // --- PoE2-style header extras: base type + item class ---
+  const tipHeader = elements.itemName.parentNode;
+  if (tipHeader) {
+    let baseEl = document.getElementById('item-base');
+    if (!baseEl) {
+      baseEl = document.createElement('span');
+      baseEl.id = 'item-base';
+      baseEl.className = 'item-base';
+      tipHeader.appendChild(baseEl);
+    }
+    let classEl = document.getElementById('item-class');
+    if (!classEl) {
+      classEl = document.createElement('span');
+      classEl.id = 'item-class';
+      classEl.className = 'item-class';
+      classEl.textContent = 'Jewel';
+      tipHeader.appendChild(classEl);
+    }
+    const jt = currentJewelType || 'ruby';
+    if (item.rarity !== 'normal') {
+      baseEl.textContent = jt.charAt(0).toUpperCase() + jt.slice(1);
+      baseEl.style.display = 'block';
+    } else {
+      baseEl.style.display = 'none';
+    }
+  }
+
+  if (elements.itemLevel) {
+    updateIlvlUI(item.ilvl);
+  }
+
   const allMods = [
     ...item.prefixes.map(m => ({ ...m, type: 'prefix' })),
     ...item.suffixes.map(m => ({ ...m, type: 'suffix' })),
@@ -570,14 +1416,23 @@ function renderItem(actionResult = null, overrideItem = null) {
   } else {
     const frag = document.createDocumentFragment();
     allMods.forEach(mod => {
+      const isPrefix = mod.type === 'prefix';
+      // PoE2 affix tag = side + modifier TIER (e.g. P1 = a tier-1 prefix).
+      // Show just P/S normally; reveal the tier number (and the unrevealed "?")
+      // only in the Alt inspect/detail view.
+      const affixLabel = (isPrefix ? 'P' : 'S') + (showDetails ? (mod.unrevealed ? '?' : mod.tier) : '');
+
       const line = document.createElement('div');
       line.className = 'mod-line';
       if (mod.fractured) line.classList.add('fractured-mod');
       if (mod.desecrated) line.classList.add('desecrated-mod');
+      if (mod.unrevealed) line.classList.add('unrevealed-mod');
 
       if (actionResult && actionResult.addedMods &&
           actionResult.addedMods.some(m => m.modGroup && m.modGroup === mod.modGroup)) {
         line.classList.add('mod-enter');
+        // Freshly revealed desecrated mod gets a green highlight flash.
+        if (mod.desecrated) line.classList.add('desec-reveal');
       }
 
       // Multi-stat desecrated mods expose a `lines` array; legacy single-stat
@@ -590,16 +1445,20 @@ function renderItem(actionResult = null, overrideItem = null) {
         ? mod.lines.map(l => (l.min != null && l.max != null ? `[${l.min}-${l.max}]` : '[—]')).join(' ')
         : `[${mod.min}-${mod.max}]`;
 
+      // P#/S# affix tag (blue prefix, red suffix) pinned to the left.
+      const affixTag =
+        `<span class="affix-tag ${isPrefix ? 'prefix' : 'suffix'}">${affixLabel}</span>`;
+
       if (showDetails) {
         line.innerHTML =
-          `<span class="mod-meta">T${mod.tier} ${mod.type} (${escapeHtml(mod.modGroup)}) ` +
-          `${rangeText}</span> ` +
-          `<span class="mod-text">${textHtml}</span>`;
+          affixTag +
+          `<span class="mod-body"><span class="mod-meta">${rangeText}</span> ` +
+          `<span class="mod-text">${textHtml}</span></span>`;
       } else {
-        line.innerHTML = textHtml;
+        line.innerHTML = affixTag + `<span class="mod-body">${textHtml}</span>`;
         const hover = document.createElement('div');
         hover.className = 'mod-detail hover-detail';
-        hover.textContent = `T${mod.tier} ${mod.type} ${rangeText}`;
+        hover.textContent = `${isPrefix ? 'P' : 'S'}${mod.unrevealed ? '?' : mod.tier} ${rangeText}`;
         line.appendChild(hover);
       }
       frag.appendChild(line);
@@ -620,10 +1479,36 @@ function renderItem(actionResult = null, overrideItem = null) {
     elements.enchantList.replaceChildren();
   }
 
+  // Corrupted layout: the red "Corrupted" label takes the middle slot between
+  // the two bottom rules, and the flavour text drops below the second rule.
+  // When not corrupted, the flavour text sits in the middle between the rules.
   elements.corruptedLabel.style.display = item.corrupted ? 'block' : 'none';
+  if (elements.sanctifiedLabel) elements.sanctifiedLabel.style.display = item.sanctified ? 'block' : 'none';
+  const flavorEl = document.getElementById('item-flavor');
+  const sepC = document.getElementById('sep-c');
+  if (flavorEl && sepC) {
+    if (item.corrupted) sepC.after(flavorEl);
+    else sepC.before(flavorEl);
+  }
+
+  // Keep the Reveal panel in sync with the REAL item: it is visible only while an
+  // unrevealed Desecrated modifier is still pending. If a currency (e.g. Orb of
+  // Annulment) stripped the pending modifier, drop the stale desecration state
+  // too. Skip during foresight previews (overrideItem), which must never mutate
+  // real reveal state.
+  if (!overrideItem) {
+    const hasPendingReveal =
+      item.prefixes.some(m => m.unrevealed) || item.suffixes.some(m => m.unrevealed);
+    if (hasPendingReveal && desecState) {
+      showRevealPanel();
+    } else {
+      if (!hasPendingReveal) desecState = null;
+      hideRevealPanel();
+    }
+  }
 
   elements.currencyBtns.forEach(btn => {
-    if (realCorrupted) {
+    if (realLocked) {
       btn.classList.add('disabled');
       btn.style.opacity = '0.3';
       btn.style.pointerEvents = 'none';
@@ -634,15 +1519,71 @@ function renderItem(actionResult = null, overrideItem = null) {
     }
   });
 
-  const desecDisabled = realCorrupted || !desecData;
-  if (elements.boneBtn) {
-    elements.boneBtn.disabled = desecDisabled;
-    elements.boneBtn.classList.toggle('disabled', desecDisabled);
+  // Omen of Light makes the next Annulment remove ONLY a Desecrated modifier,
+  // so when the item has no Desecrated mod, Annulment can't do anything — block it.
+  const hasDesecratedMod =
+    item.prefixes.some(m => m.desecrated) || item.suffixes.some(m => m.desecrated);
+  const annulBtn = Array.from(elements.currencyBtns).find(b => b.dataset.currency === 'annulment');
+  if (annulBtn && !realLocked) {
+    if (omenOfLightActive && !hasDesecratedMod) {
+      annulBtn.classList.add('disabled');
+      annulBtn.style.opacity = '0.3';
+      annulBtn.style.pointerEvents = 'none';
+      annulBtn.title = 'Omen of Light active — no Desecrated modifier to remove';
+      if (armedCurrency === 'annulment') disarmCurrency();
+    } else {
+      annulBtn.title = 'Orb of Annulment — Remove a mod';
+    }
   }
-  elements.omenBtns.forEach(b => {
-    b.disabled = realCorrupted;
-    b.classList.toggle('disabled', realCorrupted);
+
+  // Once an item carries a Desecrated modifier it cannot be desecrated again,
+  // so grey out the bone button (the engine also blocks it defensively).
+  const alreadyDesecrated =
+    item.prefixes.some(m => m.desecrated) || item.suffixes.some(m => m.desecrated);
+  const desecDisabled = realLocked || !desecData || alreadyDesecrated || item.rarity !== 'rare';
+  elements.boneBtns.forEach(b => {
+    b.disabled = desecDisabled;
+    b.classList.toggle('disabled', desecDisabled);
   });
+  elements.omenBtns.forEach(b => {
+    // Omen of Light (Annulment) and Abyssal Echoes (reroll at reveal) stay usable
+    // even after the item already carries a Desecrated modifier; the directional
+    // reveal omens do not.
+    const alwaysUsable = b.dataset.omen === 'omen_of_light' || b.dataset.omen === 'abyssal_echoes';
+    // Abyssal Omens (Sovereign / Liege / Blackblooded) force the item type's
+    // special Lich Desecrated mod group, which jewels do not have \u2014 disabled
+    // until non-jewel bases are added.
+    const jewelUnsupported = b.dataset.jewelDisabled === 'true';
+    const omenDisabled = realLocked || jewelUnsupported || (!alwaysUsable && (alreadyDesecrated || item.rarity !== 'rare'));
+    b.disabled = omenDisabled;
+    b.classList.toggle('disabled', omenDisabled);
+  });
+
+  // Essences: Essence of the Abyss needs a Rare item with a removable mod and no
+  // existing Mark; Essence of the Breach has no jewel effect (disabled for now).
+  if (elements.essenceBtns && elements.essenceBtns.length) {
+    const hasRemovable = item.prefixes.concat(item.suffixes).some(m => !m.fractured);
+    const hasMark = item.prefixes.some(m => m.mark) || item.suffixes.some(m => m.mark);
+    elements.essenceBtns.forEach(b => {
+      const key = b.dataset.currency;
+      let dis = realLocked;
+      if (key === 'essence_breach') dis = true;
+      else if (key === 'essence_abyss') dis = dis || item.rarity !== 'rare' || !hasRemovable || hasMark;
+      b.disabled = dis;
+      b.classList.toggle('disabled', dis);
+    });
+  }
+
+  // Crafting omens require a Rare, unlocked item (their currencies are Chaos /
+  // Annulment / Divine, all Rare-only in this sim).
+  if (elements.craftOmenBtns && elements.craftOmenBtns.length) {
+    const coDisabled = realLocked || item.rarity !== 'rare';
+    elements.craftOmenBtns.forEach(b => {
+      b.disabled = coDisabled;
+      b.classList.toggle('disabled', coDisabled);
+    });
+    if (coDisabled && selectedCraftOmen) clearCraftOmen();
+  }
 
   if (actionResult && actionResult.previousRarity && actionResult.previousRarity !== item.rarity) {
     elements.tooltip.style.animation = 'none';
@@ -656,6 +1597,7 @@ function renderItem(actionResult = null, overrideItem = null) {
 
   renderCraftCounter(item);
   updateUndoButton();
+  updateRedoButton();
 }
 
 function triggerCraftAnimation(currency) {
@@ -687,12 +1629,13 @@ function loadStash() {
     if (saved) {
       stash = JSON.parse(saved);
       if (!Array.isArray(stash)) stash = [];
-      renderStash();
     }
   } catch (e) {
     console.error('Failed to load stash', e);
     stash = [];
   }
+  // Always render so the grid (and its drop targets) exists even when empty.
+  renderStash();
 }
 
 function saveToStash() {
@@ -720,8 +1663,9 @@ function loadFromStash(index) {
   engine = new CraftingEngine(modData, item.jewelType, desecData);
   engine.loadItem(item);
   undoStack = [];
+  redoStack = [];
   disarmCurrency();
-  closeWell();
+  clearDesecration();
   renderItem();
   playSound('regal');
 }
@@ -741,28 +1685,82 @@ function renderStash() {
 
     if (i < stash.length) {
       const item = stash[i];
+      slot.classList.add('filled');
       slot.classList.add(`rarity-${item.rarity}`);
       if (item.corrupted) slot.classList.add('corrupted');
+      slot.draggable = true;
 
+      // Jewel icon: use the real PNG (assets/icons/<type>.png) when present,
+      // falling back to the coloured dot if the image is missing.
       const dot = document.createElement('div');
       dot.className = `jewel-dot ${item.jewelType}`;
+      const img = new Image();
+      img.className = 'stash-img';
+      img.alt = '';
+      img.addEventListener('load', () => slot.classList.add('has-real-icon'));
+      img.addEventListener('error', () => img.remove());
+      img.src = `assets/icons/${iconFileFor(item.jewelType)}.png`;
+      dot.appendChild(img);
       slot.appendChild(dot);
 
       const modCount = item.prefixes.length + item.suffixes.length;
       if (modCount > 0) {
         const badge = document.createElement('span');
-        badge.style.cssText = 'position:absolute;bottom:2px;right:4px;font-size:0.6rem;color:#fff;';
+        badge.className = 'stash-badge';
         badge.textContent = modCount;
         slot.appendChild(badge);
       }
 
-      slot.title = `${item.baseName} (${item.rarity})\n${modCount} mods\nLeft-click to load\nRight-click to delete`;
+      // Visible delete button (in addition to right-click).
+      const del = document.createElement('button');
+      del.type = 'button';
+      del.className = 'stash-del';
+      del.textContent = '\u00d7';
+      del.title = 'Delete';
+      del.addEventListener('click', (e) => { e.stopPropagation(); removeFromStash(i); });
+      slot.appendChild(del);
+
+      slot.title = `${item.baseName} (${item.rarity})\n${modCount} mods\nLeft-click to load \u00b7 Drag to move \u00b7 Right-click to delete`;
       slot.addEventListener('click', () => loadFromStash(i));
       slot.addEventListener('contextmenu', (e) => { e.preventDefault(); removeFromStash(i); });
+
+      slot.addEventListener('dragstart', (e) => {
+        dragIndex = i;
+        slot.classList.add('dragging');
+        if (e.dataTransfer) e.dataTransfer.effectAllowed = 'move';
+      });
+      slot.addEventListener('dragend', () => { slot.classList.remove('dragging'); });
     }
+
+    // Any slot is a valid drop target; dropping past the end moves to the end.
+    slot.addEventListener('dragover', (e) => {
+      if (dragIndex === null) return;
+      e.preventDefault();
+      slot.classList.add('drag-over');
+    });
+    slot.addEventListener('dragleave', () => slot.classList.remove('drag-over'));
+    slot.addEventListener('drop', (e) => {
+      e.preventDefault();
+      slot.classList.remove('drag-over');
+      if (dragIndex === null) return;
+      moveStash(dragIndex, i);
+      dragIndex = null;
+    });
+
     frag.appendChild(slot);
   }
   elements.stashGrid.replaceChildren(frag);
 }
 
+function moveStash(from, to) {
+  if (from === to || from < 0 || from >= stash.length) return;
+  const target = Math.min(to, stash.length - 1);
+  const [moved] = stash.splice(from, 1);
+  stash.splice(target, 0, moved);
+  localStorage.setItem('poe2_stash', JSON.stringify(stash));
+  renderStash();
+  playSound('transmutation');
+}
+
 document.addEventListener('DOMContentLoaded', init);
+})();

@@ -18,6 +18,14 @@ $types = @(
     @{ Id="sapphire"; Name="Sapphire"; Attr="Intelligence"; File="data\sapphire_raw.json" }
 )
 
+# Only regenerate mod data from raw PoE2DB dumps when they're actually present.
+# They're optional/legacy — the curated data\jewel-mods.v2.json is the source of
+# truth. Without this guard, a missing raw file would crash before the .data.js
+# wrappers below get refreshed.
+$rawFilesPresent = ($types | Where-Object { Test-Path $_.File }).Count -eq $types.Count
+
+if ($rawFilesPresent) {
+
 $output = @{ jewelTypes = @{} }
 
 foreach ($t in $types) {
@@ -154,3 +162,54 @@ foreach ($t in $types) {
 $jsonOut = $output | ConvertTo-Json -Depth 10
 Set-Content "data\jewel-mods.json" -Value $jsonOut -Encoding UTF8
 Write-Host "Generated data\jewel-mods.json successfully!"
+}
+else {
+    Write-Host "Raw PoE2DB dumps not found - skipping mod regeneration. Using existing data\jewel-mods.v2.json as the source of truth."
+}
+
+# ============================================================
+#  Emit file:// friendly data modules (runs automatically each build)
+#  Mirrors the JSON the app actually loads into global-variable .js
+#  files so index.html works by double-click (no server, no fetch).
+#  If you regenerate the JSON, just run this script and the .data.js
+#  wrappers refresh to match.
+# ============================================================
+function Write-DataModule {
+    param([string]$JsonFile, [string]$GlobalName, [string]$OutFile)
+
+    if (-not (Test-Path $JsonFile)) {
+        Write-Host "Skipped $OutFile (source $JsonFile not found)"
+        return
+    }
+
+    # Read raw JSON and drop a leading UTF-8 BOM so it parses cleanly as JS
+    $json = (Get-Content $JsonFile -Raw).TrimStart([char]0xFEFF)
+    $module = "window.$GlobalName = " + $json.TrimEnd() + ";`r`n"
+
+    # Write UTF-8 WITHOUT a BOM so the script loads cleanly from file://
+    $enc = New-Object System.Text.UTF8Encoding($false)
+    [System.IO.File]::WriteAllText((Join-Path (Get-Location) $OutFile), $module, $enc)
+    Write-Host "Generated $OutFile"
+}
+
+Write-DataModule "data\desecrated-mods.json" "DESECRATED_MODS_RAW" "data\desecrated-mods.data.js"
+
+# Compile every per-base file in data\bases (and optional data\shared) into ONE
+# file:// loader: data\mods.data.js  (so index.html only needs one script tag).
+$loader = "window.MOD_BASES = window.MOD_BASES || {};`r`nwindow.MOD_SHARED = window.MOD_SHARED || {};`r`n"
+Get-ChildItem -Path "data\bases" -Filter *.json | Sort-Object Name | ForEach-Object {
+    $id  = $_.BaseName
+    $raw = (Get-Content $_.FullName -Raw).TrimStart([char]0xFEFF).Trim()
+    $null = ConvertFrom-Json $raw   # validate JSON; stops the build on a typo
+    $loader += 'window.MOD_BASES[' + (ConvertTo-Json $id) + '] = ' + $raw + ";`r`n"
+}
+if (Test-Path "data\shared") {
+    Get-ChildItem -Path "data\shared" -Filter *.json | Sort-Object Name | ForEach-Object {
+        $key = $_.BaseName
+        $raw = (Get-Content $_.FullName -Raw).TrimStart([char]0xFEFF).Trim()
+        $null = ConvertFrom-Json $raw
+        $loader += 'window.MOD_SHARED[' + (ConvertTo-Json $key) + '] = ' + $raw + ";`r`n"
+    }
+}
+[System.IO.File]::WriteAllText((Join-Path (Get-Location) "data\mods.data.js"), $loader, (New-Object System.Text.UTF8Encoding($false)))
+Write-Host "Generated data\mods.data.js"

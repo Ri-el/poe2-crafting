@@ -13,8 +13,12 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="select.css">
   <link rel="stylesheet" href="desecrate.css">
-  <script type="module" src="app.js"></script>
-  <script type="module" src="select.js"></script>
+  <!-- Classic deferred scripts so the app runs from file:// (double-click) with no server. -->
+  <script defer src="data/mods.data.js"></script>
+  <script defer src="data/desecrated-mods.data.js"></script>
+  <script defer src="crafting.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="select.js"></script>
 </head>
 <body>
   <div id="app">
@@ -35,8 +39,8 @@
 
     <!-- ===================== CRAFT VIEW ===================== -->
     <div id="craft-view" hidden>
-    <button id="back-to-select" class="back-to-select" type="button">← Item Categories</button>
     <header id="app-header">
+      <button id="back-to-select" class="back-to-select" type="button">← Item Categories</button>
       <div class="header-inner">
         <h1 class="app-title">
           <span class="title-rune">⬡</span>
@@ -45,72 +49,93 @@
         </h1>
         <p class="app-subtitle">Jewel Crafting Emulator</p>
         
-        <div id="jewel-selector" class="jewel-selector">
-          <button class="jewel-btn ruby active" data-type="ruby">Ruby (Str)</button>
-          <button class="jewel-btn emerald" data-type="emerald">Emerald (Dex)</button>
-          <button class="jewel-btn sapphire" data-type="sapphire">Sapphire (Int)</button>
-        </div>
+
       </div>
     </header>
 
     <main id="main-content">
       <div id="jewel-panel">
+        <div id="craft-zone" class="craft-zone is-empty">
+        <div id="craft-slot" class="craft-slot" title="Drag an item from the stash here">
+          <div id="craft-slot-icon" class="craft-slot-icon"></div>
+          <div class="craft-slot-empty"><span class="craft-slot-plus">+</span><span class="craft-slot-hint">Drag an item here</span></div>
+        </div>
         <div id="jewel-tooltip" class="tooltip rarity-normal">
           <div class="tooltip-border-glow"></div>
           <div class="tooltip-content">
             <div class="tooltip-header">
               <span id="item-name" class="item-name">Cobalt Jewel</span>
             </div>
-            <div class="tooltip-separator">
-              <svg viewBox="0 0 200 8" preserveAspectRatio="none">
-                <line x1="0" y1="4" x2="200" y2="4" stroke="currentColor" stroke-width="1"/>
-                <circle cx="100" cy="4" r="2.5" fill="currentColor"/>
-                <circle cx="80" cy="4" r="1" fill="currentColor"/>
-                <circle cx="120" cy="4" r="1" fill="currentColor"/>
-              </svg>
-            </div>
-            <div id="mod-list" class="mod-list">
-              <!-- Mod lines rendered by app.js -->
-            </div>
-            <div class="tooltip-separator separator-bottom">
-              <svg viewBox="0 0 200 8" preserveAspectRatio="none">
-                <line x1="0" y1="4" x2="200" y2="4" stroke="currentColor" stroke-width="1"/>
-                <circle cx="100" cy="4" r="2.5" fill="currentColor"/>
-                <circle cx="80" cy="4" r="1" fill="currentColor"/>
-                <circle cx="120" cy="4" r="1" fill="currentColor"/>
-              </svg>
+            <!-- Item level + slider sit ABOVE the single top rule (the slider IS that rule) -->
+            <div id="item-level" class="item-level">
+              <div class="ilvl-label">Item Level: <span id="ilvl-value">83</span></div>
+              <div id="ilvl-slider" class="ilvl-slider" role="slider" aria-valuemin="1" aria-valuemax="100" aria-valuenow="83" title="Drag to set Item Level. Click the knob to lock or unlock it.">
+                <div id="ilvl-track" class="ilvl-track">
+                  <div id="ilvl-fill" class="ilvl-fill"></div>
+                  <div id="ilvl-knob" class="ilvl-knob"></div>
+                </div>
+              </div>
             </div>
             <div id="enchant-list" class="enchant-list">
               <!-- Enchantment lines rendered by app.js -->
             </div>
+            <div id="mod-list" class="mod-list">
+              <!-- Mod lines rendered by app.js -->
+            </div>
+            <!-- Bottom rule 1 -->
+            <div id="sep-b" class="tip-rule"></div>
+            <!-- Middle slot: "Corrupted" when corrupted, otherwise the flavour text -->
             <div id="corrupted-label" class="corrupted-label" style="display: none;">Corrupted</div>
-            <div id="item-level" class="item-level">Item Level: 83</div>
-            <div id="craft-counter" class="craft-counter" style="display: none;"></div>
+            <div id="sanctified-label" class="sanctified-label" style="display: none;">Sanctified</div>
+            <div id="item-flavor" class="item-flavor">Place into an allocated Jewel Socket on the Passive Skill Tree. Right click to remove from the Socket.</div>
+            <!-- Bottom rule 2 -->
+            <div id="sep-c" class="tip-rule"></div>
             <div id="hinekora-mark" class="hinekora-mark" style="display: none;" title="Hinekora's Lock applied — consumed by your next currency">
               <span class="hl-mark-glyph">❖</span>
             </div>
           </div>
         </div>
+        <div id="craft-counter" class="craft-counter" style="display: none;"></div>
         <div id="craft-glow" class="craft-glow"></div>
+        </div><!-- /craft-zone -->
+        <div id="reveal-panel" hidden>
+          <button id="reveal-btn" type="button" class="reveal-btn">⛧ Reveal ⛧</button>
+        </div>
       </div>
 
       <div id="side-rail">
       <div id="currency-panel">
         <h2 class="panel-title">Currency</h2>
         <div id="currency-grid" class="currency-grid">
-          <button class="currency-btn" data-currency="transmutation" title="Orb of Transmutation — Normal → Magic">
-            <div class="currency-icon transmutation-icon">
-              <span class="currency-abbr">Trans</span>
+          <div class="cur-cluster">
+            <button class="currency-btn" data-currency="transmutation" title="Orb of Transmutation — Normal → Magic">
+              <div class="currency-icon transmutation-icon"><span class="currency-abbr">Trans</span></div>
+              <span class="currency-label">Transmutation</span>
+            </button>
+            <div class="cur-tiers">
+              <button class="currency-btn tier-badge" data-currency="greater_transmutation" title="Greater Orb of Transmutation — Normal → Magic; the added mod rolls high (top ~50% of its value range)">
+                <div class="currency-icon transmutation-icon"></div><span class="tier-num">II</span>
+              </button>
+              <button class="currency-btn tier-badge" data-currency="perfect_transmutation" title="Perfect Orb of Transmutation — Normal → Magic; the added mod rolls very high (top ~20% of its value range)">
+                <div class="currency-icon transmutation-icon"></div><span class="tier-num">III</span>
+              </button>
             </div>
-            <span class="currency-label">Transmutation</span>
-          </button>
+          </div>
 
-          <button class="currency-btn" data-currency="augmentation" title="Orb of Augmentation — Add mod to Magic">
-            <div class="currency-icon augmentation-icon">
-              <span class="currency-abbr">Aug</span>
+          <div class="cur-cluster">
+            <button class="currency-btn" data-currency="augmentation" title="Orb of Augmentation — Add mod to Magic">
+              <div class="currency-icon augmentation-icon"><span class="currency-abbr">Aug</span></div>
+              <span class="currency-label">Augmentation</span>
+            </button>
+            <div class="cur-tiers">
+              <button class="currency-btn tier-badge" data-currency="greater_augmentation" title="Greater Orb of Augmentation — Add mod to Magic; the added mod rolls high (top ~50% of its value range)">
+                <div class="currency-icon augmentation-icon"></div><span class="tier-num">II</span>
+              </button>
+              <button class="currency-btn tier-badge" data-currency="perfect_augmentation" title="Perfect Orb of Augmentation — Add mod to Magic; the added mod rolls very high (top ~20% of its value range)">
+                <div class="currency-icon augmentation-icon"></div><span class="tier-num">III</span>
+              </button>
             </div>
-            <span class="currency-label">Augmentation</span>
-          </button>
+          </div>
 
           <button class="currency-btn" data-currency="alchemy" title="Orb of Alchemy — Normal → Rare">
             <div class="currency-icon alchemy-icon">
@@ -119,26 +144,50 @@
             <span class="currency-label">Alchemy</span>
           </button>
 
-          <button class="currency-btn" data-currency="regal" title="Regal Orb — Magic → Rare">
-            <div class="currency-icon regal-icon">
-              <span class="currency-abbr">Regal</span>
+          <div class="cur-cluster">
+            <button class="currency-btn" data-currency="regal" title="Regal Orb — Magic → Rare">
+              <div class="currency-icon regal-icon"><span class="currency-abbr">Regal</span></div>
+              <span class="currency-label">Regal</span>
+            </button>
+            <div class="cur-tiers">
+              <button class="currency-btn tier-badge" data-currency="greater_regal" title="Greater Regal Orb — Magic → Rare; the added mod rolls high (top ~50% of its value range)">
+                <div class="currency-icon regal-icon"></div><span class="tier-num">II</span>
+              </button>
+              <button class="currency-btn tier-badge" data-currency="perfect_regal" title="Perfect Regal Orb — Magic → Rare; the added mod rolls very high (top ~20% of its value range)">
+                <div class="currency-icon regal-icon"></div><span class="tier-num">III</span>
+              </button>
             </div>
-            <span class="currency-label">Regal</span>
-          </button>
+          </div>
 
-          <button class="currency-btn" data-currency="exalted" title="Exalted Orb — Add mod to Rare">
-            <div class="currency-icon exalted-icon">
-              <span class="currency-abbr">Exalt</span>
+          <div class="cur-cluster">
+            <button class="currency-btn" data-currency="exalted" title="Exalted Orb — Add mod to Rare">
+              <div class="currency-icon exalted-icon"><span class="currency-abbr">Exalt</span></div>
+              <span class="currency-label">Exalted</span>
+            </button>
+            <div class="cur-tiers">
+              <button class="currency-btn tier-badge" data-currency="greater_exalted" title="Greater Exalted Orb — Add mod to Rare; the added mod rolls high (top ~50% of its value range)">
+                <div class="currency-icon exalted-icon"></div><span class="tier-num">II</span>
+              </button>
+              <button class="currency-btn tier-badge" data-currency="perfect_exalted" title="Perfect Exalted Orb — Add mod to Rare; the added mod rolls very high (top ~20% of its value range)">
+                <div class="currency-icon exalted-icon"></div><span class="tier-num">III</span>
+              </button>
             </div>
-            <span class="currency-label">Exalted</span>
-          </button>
+          </div>
 
-          <button class="currency-btn" data-currency="chaos" title="Chaos Orb — Modify Rare">
-            <div class="currency-icon chaos-icon">
-              <span class="currency-abbr">Chaos</span>
+          <div class="cur-cluster">
+            <button class="currency-btn" data-currency="chaos" title="Chaos Orb — Modify Rare">
+              <div class="currency-icon chaos-icon"><span class="currency-abbr">Chaos</span></div>
+              <span class="currency-label">Chaos</span>
+            </button>
+            <div class="cur-tiers">
+              <button class="currency-btn tier-badge" data-currency="greater_chaos" title="Greater Chaos Orb — Modify Rare; the added mod rolls high (top ~50% of its value range)">
+                <div class="currency-icon chaos-icon"></div><span class="tier-num">II</span>
+              </button>
+              <button class="currency-btn tier-badge" data-currency="perfect_chaos" title="Perfect Chaos Orb — Modify Rare; the added mod rolls very high (top ~20% of its value range)">
+                <div class="currency-icon chaos-icon"></div><span class="tier-num">III</span>
+              </button>
             </div>
-            <span class="currency-label">Chaos</span>
-          </button>
+          </div>
 
           <button class="currency-btn" data-currency="annulment" title="Orb of Annulment — Remove a mod">
             <div class="currency-icon annulment-icon">
@@ -176,10 +225,16 @@
           </button>
         </div>
 
-        <button id="undo-btn" class="reset-btn undo-btn" title="Undo the last action">
-          <span class="reset-icon">⮌</span>
-          Undo
-        </button>
+        <div class="undo-redo-row">
+          <button id="undo-btn" class="reset-btn undo-btn" title="Undo the last action">
+            <span class="reset-icon">⮌</span>
+            Undo
+          </button>
+          <button id="redo-btn" class="reset-btn redo-btn" title="Redo the last undone action">
+            <span class="reset-icon">⮎</span>
+            Redo
+          </button>
+        </div>
         <button id="reset-btn" class="reset-btn" title="Reset item to Normal rarity">
           <span class="reset-icon">↺</span>
           Reset Item
@@ -187,37 +242,93 @@
       </div>
 
       <div id="desecrate-panel">
-        <h2 class="panel-title">Desecration</h2>
-        <button id="bone-btn" class="bone-btn" type="button" title="Preserved Cranium — reveal Desecrated modifiers at the Well of Souls (Rare jewels only)">
-          <span class="bone-glyph">☠</span>
-          <span class="bone-text">
-            <span class="bone-name">Preserved Cranium</span>
-            <span class="bone-desc">Open the Well of Souls</span>
-          </span>
-        </button>
-        <div class="omen-tray">
-          <button class="omen-btn" type="button" data-omen="sinistral_necromancy" title="Omen of Sinistral Necromancy — desecrate a Prefix">
-            <span class="omen-name">Sinistral</span>
-            <span class="omen-sub">Prefix</span>
-          </button>
-          <button class="omen-btn" type="button" data-omen="dextral_necromancy" title="Omen of Dextral Necromancy — desecrate a Suffix">
-            <span class="omen-name">Dextral</span>
-            <span class="omen-sub">Suffix</span>
-          </button>
-          <button class="omen-btn" type="button" data-omen="abyssal_echoes" title="Omen of Abyssal Echoes — one reroll of the revealed set (3 × 2 = 6)">
-            <span class="omen-name">Abyssal Echoes</span>
-            <span class="omen-sub">+1 Reroll</span>
-          </button>
+        <h2 class="panel-title">Omens &amp; Abyssal</h2>
+        <div class="abyss-stash">
+
+          <div class="stash-row bones-row">
+            <button id="bone-btn" class="abyss-btn bone-btn" data-bone="preserved_cranium" type="button" title="Preserved Cranium — desecrate a Rare jewel of any Item Level. Left-click to use.">
+              <div class="currency-icon abyss-icon preserved_cranium-icon"><span class="currency-abbr">Bone</span></div>
+              <span class="currency-label">Preserved Cranium</span>
+            </button>
+          </div>
+
+          <div class="stash-row omens-row">
+            <button class="abyss-btn omen-btn" type="button" data-omen="sinistral_necromancy" title="Omen of Sinistral Necromancy — your next Desecration adds only a Prefix. Right-click to activate.">
+              <div class="currency-icon abyss-icon sinistral_necromancy-icon"><span class="currency-abbr">Sin</span></div>
+              <span class="currency-label">Sinistral Necromancy</span>
+            </button>
+            <button class="abyss-btn omen-btn" type="button" data-omen="dextral_necromancy" title="Omen of Dextral Necromancy — your next Desecration adds only a Suffix. Right-click to activate.">
+              <div class="currency-icon abyss-icon dextral_necromancy-icon"><span class="currency-abbr">Dex</span></div>
+              <span class="currency-label">Dextral Necromancy</span>
+            </button>
+            <button class="abyss-btn omen-btn" type="button" data-omen="abyssal_echoes" title="Omen of Abyssal Echoes — reroll the revealed options once at the Well of Souls. Right-click to activate.">
+              <div class="currency-icon abyss-icon abyssal_echoes-icon"><span class="currency-abbr">Echo</span></div>
+              <span class="currency-label">Abyssal Echoes</span>
+            </button>
+            <button class="abyss-btn omen-btn" type="button" data-omen="omen_of_light" title="Omen of Light — your next Orb of Annulment removes only a Desecrated modifier. Right-click to activate.">
+              <div class="currency-icon abyss-icon omen_of_light-icon"><span class="currency-abbr">Light</span></div>
+              <span class="currency-label">Omen of Light</span>
+            </button>
+            <button class="abyss-btn omen-btn" type="button" data-omen="omen_of_the_sovereign" data-jewel-disabled="true" title="Omen of the Sovereign — forces the item type's special Lich Desecrated modifier group. Not applicable to Jewels (no Lich group); enabled for other bases later.">
+              <div class="currency-icon abyss-icon omen_of_the_sovereign-icon"><span class="currency-abbr">Sov</span></div>
+              <span class="currency-label">Omen of the Sovereign</span>
+            </button>
+            <button class="abyss-btn omen-btn" type="button" data-omen="omen_of_the_liege" data-jewel-disabled="true" title="Omen of the Liege — forces the item type's special Lich Desecrated modifier group. Not applicable to Jewels (no Lich group); enabled for other bases later.">
+              <div class="currency-icon abyss-icon omen_of_the_liege-icon"><span class="currency-abbr">Liege</span></div>
+              <span class="currency-label">Omen of the Liege</span>
+            </button>
+            <button class="abyss-btn omen-btn" type="button" data-omen="omen_of_the_blackblooded" data-jewel-disabled="true" title="Omen of the Blackblooded — forces the item type's special Lich Desecrated modifier group. Not applicable to Jewels (no Lich group); enabled for other bases later.">
+              <div class="currency-icon abyss-icon omen_of_the_blackblooded-icon"><span class="currency-abbr">Blk</span></div>
+              <span class="currency-label">Omen of the Blackblooded</span>
+            </button>
+            <button class="abyss-btn craft-omen-btn" type="button" data-craft-omen="whittling" title="Omen of Whittling — your next Chaos Orb removes the modifier with the LOWEST modifier level. Right-click to activate.">
+              <div class="currency-icon abyss-icon whittling-icon"><span class="currency-abbr">Whit</span></div>
+              <span class="currency-label">Whittling</span>
+            </button>
+            <button class="abyss-btn craft-omen-btn" type="button" data-craft-omen="sinistral_erasure" title="Omen of Sinistral Erasure — your next Chaos Orb removes a PREFIX. Right-click to activate.">
+              <div class="currency-icon abyss-icon sinistral_erasure-icon"><span class="currency-abbr">SinE</span></div>
+              <span class="currency-label">Sinistral Erasure</span>
+            </button>
+            <button class="abyss-btn craft-omen-btn" type="button" data-craft-omen="dextral_erasure" title="Omen of Dextral Erasure — your next Chaos Orb removes a SUFFIX. Right-click to activate.">
+              <div class="currency-icon abyss-icon dextral_erasure-icon"><span class="currency-abbr">DexE</span></div>
+              <span class="currency-label">Dextral Erasure</span>
+            </button>
+            <button class="abyss-btn craft-omen-btn" type="button" data-craft-omen="sinistral_annulment" title="Omen of Sinistral Annulment — your next Orb of Annulment removes a PREFIX. Right-click to activate.">
+              <div class="currency-icon abyss-icon sinistral_annulment-icon"><span class="currency-abbr">SinA</span></div>
+              <span class="currency-label">Sinistral Annulment</span>
+            </button>
+            <button class="abyss-btn craft-omen-btn" type="button" data-craft-omen="dextral_annulment" title="Omen of Dextral Annulment — your next Orb of Annulment removes a SUFFIX. Right-click to activate.">
+              <div class="currency-icon abyss-icon dextral_annulment-icon"><span class="currency-abbr">DexA</span></div>
+              <span class="currency-label">Dextral Annulment</span>
+            </button>
+            <button class="abyss-btn craft-omen-btn" type="button" data-craft-omen="sanctification" title="Omen of Sanctification — your next Divine Orb sanctifies the item: every mod rolls high (and may exceed its range), then the item is locked. Right-click to activate.">
+              <div class="currency-icon abyss-icon sanctification-icon"><span class="currency-abbr">Sanct</span></div>
+              <span class="currency-label">Sanctification</span>
+            </button>
+          </div>
+
+          <div class="stash-row essences-row">
+            <button class="abyss-btn essence-btn" type="button" data-currency="essence_abyss" title="Essence of the Abyss — removes a random modifier and adds the guaranteed Mark of the Abyssal Lord. Desecrating the item then consumes the Mark for a guaranteed Desecrated modifier. Left-click to use.">
+              <div class="currency-icon abyss-icon essence_abyss-icon"><span class="currency-abbr">EAby</span></div>
+              <span class="currency-label">Essence of the Abyss</span>
+            </button>
+            <button class="abyss-btn essence-btn" type="button" data-currency="essence_breach" title="Essence of the Breach — no effect on Jewels (enabled for other bases later).">
+              <div class="currency-icon abyss-icon essence_breach-icon"><span class="currency-abbr">EBrc</span></div>
+              <span class="currency-label">Essence of the Breach</span>
+            </button>
+          </div>
+
         </div>
-        <p class="desec-hint">Rare jewels only. Fills an open affix on the targeted side, or replaces a random mod there when full (jewels cap at 4).</p>
       </div>
 
       <div id="stash-panel">
-        <h2 class="panel-title">Stash</h2>
-        <div id="stash-grid" class="stash-grid">
-          <!-- Dynamically rendered stash slots -->
+        <h2 class="panel-title">Item Stash</h2>
+        <div id="base-tabs" class="base-tabs"><!-- base-type tabs rendered by app.js --></div>
+        <div id="base-stash" class="base-stash"><!-- base variants rendered by app.js --></div>
+        <div id="stash-grid" class="stash-grid" hidden>
+          <!-- Saved items rendered by app.js (Saved tab) -->
         </div>
-        <button id="save-btn" class="save-btn">Save to Stash</button>
+        <button id="save-btn" class="save-btn">Save current item</button>
       </div>
       </div>
     </main>
@@ -232,7 +343,7 @@
       <p id="well-sub" class="well-sub"></p>
       <div id="well-options" class="well-options"></div>
       <div class="well-actions">
-        <button id="well-reroll" class="well-btn well-reroll" type="button" hidden>Abyssal Echoes — Reroll (<span id="well-rerolls">0</span>)</button>
+        <button id="well-reroll" class="well-btn well-reroll" type="button" hidden>⟳ Reroll</button>
         <button id="well-cancel" class="well-btn well-cancel" type="button">Cancel</button>
       </div>
     </div>

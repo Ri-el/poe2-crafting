@@ -6,7 +6,7 @@
 
 #desecrate-panel {
   background: var(--bg-panel);
-  border: 1px solid rgba(176, 97, 214, 0.18);
+  border: 1px solid rgba(95, 211, 138, 0.20);
   border-radius: var(--panel-radius);
   padding: 20px;
   width: 320px;
@@ -18,76 +18,134 @@
   position: absolute;
   inset: 0;
   border-radius: var(--panel-radius);
-  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(176, 97, 214, 0.05), transparent 70%);
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(95, 211, 138, 0.06), transparent 70%);
   pointer-events: none;
 }
 
-.bone-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
-  background: rgba(176, 97, 214, 0.06);
-  border: 1px solid rgba(176, 97, 214, 0.3);
-  border-radius: 8px;
-  color: #d9b8ec;
-  cursor: pointer;
-  text-align: left;
-  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+.abyss-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 4px;
 }
-.bone-btn:hover {
-  background: rgba(176, 97, 214, 0.14);
-  border-color: rgba(176, 97, 214, 0.55);
-}
-.bone-btn:active { transform: scale(0.98); }
-.bone-btn:disabled,
-.bone-btn.disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
-
-.bone-glyph {
-  font-size: 1.7rem;
-  line-height: 1;
-  color: #c08fe0;
-  text-shadow: 0 0 10px rgba(176, 97, 214, 0.6);
-}
-.bone-text { display: flex; flex-direction: column; }
-.bone-name { font-family: 'Cinzel', serif; font-weight: 600; font-size: 0.9rem; }
-.bone-desc { font-size: 0.68rem; color: var(--text-secondary); letter-spacing: 0.02em; }
-
-.omen-tray {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-}
-.omen-btn {
-  flex: 1;
+.abyss-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  padding: 8px 4px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
+  gap: 6px;
+  padding: 10px 6px;
+  background: rgba(95, 211, 138, 0.05);
+  border: 1px solid rgba(95, 211, 138, 0.22);
+  border-radius: 8px;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  text-align: center;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
-.omen-btn:hover {
-  border-color: rgba(176, 97, 214, 0.4);
-  color: #d9b8ec;
+.abyss-btn:hover {
+  background: rgba(95, 211, 138, 0.12);
+  border-color: rgba(95, 211, 138, 0.5);
+  color: #d6f7e2;
 }
+.abyss-btn:active { transform: scale(0.97); }
+.abyss-btn .currency-label {
+  font-size: 0.66rem;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+.abyss-btn.bone-btn .currency-label { color: var(--text-secondary); font-weight: 500; }
+.abyss-icon { background: rgba(95, 211, 138, 0.12) !important; }
+.abyss-icon .currency-abbr { color: #7fd6a0; }
 .omen-btn.active {
-  background: rgba(176, 97, 214, 0.16);
-  border-color: rgba(176, 97, 214, 0.6);
-  color: #efe0fa;
-  box-shadow: 0 0 10px rgba(176, 97, 214, 0.3);
+  background: rgba(95, 211, 138, 0.18);
+  border-color: rgba(95, 211, 138, 0.65);
+  color: #e6fbee;
+  box-shadow: 0 0 12px rgba(95, 211, 138, 0.35);
 }
-.omen-btn:disabled,
-.omen-btn.disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
-.omen-name { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em; }
-.omen-sub { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; }
+.omen-btn.active .currency-label { color: #e6fbee; }
+.omen-btn.active .abyss-icon { box-shadow: 0 0 12px rgba(95, 211, 138, 0.55); }
 
+/* ---- Crafting Omens (Chaos / Annulment / Divine augments) ---- */
+/* Distinct gold theme so they read apart from the green Abyssal omens. */
+.craft-omen-btn .abyss-icon { background: rgba(212, 175, 90, 0.14) !important; }
+.craft-omen-btn .abyss-icon .currency-abbr { color: #e3c987; }
+.craft-omen-btn.active {
+  background: rgba(212, 175, 90, 0.18);
+  border-color: rgba(212, 175, 90, 0.7);
+  color: #fbf1d8;
+  box-shadow: 0 0 12px rgba(212, 175, 90, 0.4);
+}
+.craft-omen-btn.active .currency-label { color: #fbf1d8; }
+.craft-omen-btn.active .abyss-icon { box-shadow: 0 0 12px rgba(212, 175, 90, 0.6); }
+.whittling-icon,
+.sinistral_erasure-icon,
+.dextral_erasure-icon,
+.sinistral_annulment-icon,
+.dextral_annulment-icon {
+  background: linear-gradient(135deg, #7a5d24, #d4af5a, #8f6f32) !important;
+  box-shadow: 0 2px 8px rgba(212, 175, 90, 0.3);
+}
+.sanctification-icon {
+  background: linear-gradient(135deg, #b8932f, #ffe9a8, #c9a23d) !important;
+  box-shadow: 0 2px 10px rgba(255, 220, 130, 0.45);
+}
+/* Armed state for Preserved Cranium (behaves like a currency). */
+.abyss-btn.armed {
+  background: rgba(95, 211, 138, 0.18);
+  border-color: rgba(95, 211, 138, 0.7);
+  color: #e6fbee;
+  box-shadow: 0 0 12px rgba(95, 211, 138, 0.4);
+}
+.abyss-btn.armed .currency-label { color: #e6fbee; }
+.abyss-btn.armed .abyss-icon { box-shadow: 0 0 12px rgba(95, 211, 138, 0.6); }
+/* Counter chip orbs for abyss currencies (Preserved Cranium + Omens). */
+.preserved_cranium-icon,
+.sinistral_necromancy-icon,
+.dextral_necromancy-icon,
+.abyssal_echoes-icon,
+.omen_of_light-icon {
+  background: linear-gradient(135deg, #2f7d52, #6fd39a, #3a8f63);
+  box-shadow: 0 2px 8px rgba(95, 211, 138, 0.3);
+}
+.abyss-btn:disabled,
+.abyss-btn.disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+
+/* ============================================================
+   Merged "Omens & Abyssal" panel — stacked stash rows
+   (bones on top, omens in the middle, essences on the bottom).
+   ============================================================ */
+.abyss-stash { display: flex; flex-direction: column; gap: 14px; margin-top: 6px; }
+.stash-row { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
+.abyss-stash .abyss-btn {
+  flex: 0 0 calc((100% - 24px) / 4);
+  padding: 8px 4px;
+  gap: 5px;
+}
+.stash-row.bones-row { padding-bottom: 12px; border-bottom: 1px solid rgba(95, 211, 138, 0.14); }
+.stash-row.essences-row { padding-top: 12px; border-top: 1px solid rgba(180, 90, 200, 0.18); }
+
+/* Abyssal Omens (Lich-group forcing) — distinct violet so they read apart
+   from the green reveal omens; disabled for jewels for now. */
+.omen_of_the_sovereign-icon,
+.omen_of_the_liege-icon,
+.omen_of_the_blackblooded-icon {
+  background: linear-gradient(135deg, #3a2f5a, #6f5fb0, #473a8f) !important;
+  box-shadow: 0 2px 8px rgba(111, 95, 176, 0.3);
+}
+.omen-btn[data-omen^="omen_of_the_"] .abyss-icon .currency-abbr { color: #c7bdf0; }
+
+/* Essences — Abyss = arcane purple, Breach = breach red. */
+.essence-btn .abyss-icon { background: rgba(180, 90, 200, 0.14) !important; }
+.essence-btn .abyss-icon .currency-abbr { color: #e6a8ee; }
+.essence-btn.armed {
+  background: rgba(180, 90, 200, 0.18);
+  border-color: rgba(180, 90, 200, 0.7);
+  color: #f3e1fb;
+  box-shadow: 0 0 12px rgba(180, 90, 200, 0.4);
+}
+.essence-btn.armed .abyss-icon { box-shadow: 0 0 12px rgba(180, 90, 200, 0.6); }
+.essence_abyss-icon { background: linear-gradient(135deg, #5a2a7a, #b070d6, #6a3a92) !important; box-shadow: 0 2px 8px rgba(180, 90, 200, 0.35); }
+.essence_breach-icon { background: linear-gradient(135deg, #7a2a3a, #d06080, #8a3a4a) !important; box-shadow: 0 2px 8px rgba(208, 96, 128, 0.35); }
 .desec-hint {
   margin-top: 12px;
   font-size: 0.68rem;
@@ -97,7 +155,7 @@
 }
 
 /* Desecrated mod lines in the tooltip */
-.mod-line.desecrated-mod { color: #d9b8ec; }
+.mod-line.desecrated-mod { color: #5fd38a; }
 
 /* ---------- Well of Souls modal ---------- */
 .well-modal {
@@ -108,7 +166,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: radial-gradient(ellipse at 50% 40%, rgba(40, 10, 55, 0.55), rgba(0, 0, 0, 0.82));
+  background: radial-gradient(ellipse at 50% 40%, rgba(10, 45, 28, 0.55), rgba(0, 0, 0, 0.82));
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   animation: wellFadeIn 200ms ease;
@@ -119,10 +177,10 @@
   width: 460px;
   max-width: 95vw;
   background: var(--bg-tooltip);
-  border: 1px solid rgba(176, 97, 214, 0.4);
+  border: 1px solid rgba(95, 211, 138, 0.42);
   border-radius: 8px;
   padding: 22px 24px 18px;
-  box-shadow: 0 0 40px rgba(176, 97, 214, 0.25), inset 0 0 24px rgba(176, 97, 214, 0.05);
+  box-shadow: 0 0 40px rgba(95, 211, 138, 0.22), inset 0 0 24px rgba(95, 211, 138, 0.06);
   animation: wellRise 220ms ease;
 }
 
@@ -132,8 +190,8 @@
   font-size: 1.15rem;
   letter-spacing: 0.08em;
   text-align: center;
-  color: #d9b8ec;
-  text-shadow: 0 0 14px rgba(176, 97, 214, 0.5);
+  color: #bdeccb;
+  text-shadow: 0 0 14px rgba(95, 211, 138, 0.5);
 }
 .well-sub {
   text-align: center;
@@ -153,23 +211,23 @@
   flex-direction: column;
   gap: 3px;
   padding: 12px 14px;
-  background: rgba(176, 97, 214, 0.05);
-  border: 1px solid rgba(176, 97, 214, 0.25);
+  background: rgba(95, 211, 138, 0.05);
+  border: 1px solid rgba(95, 211, 138, 0.25);
   border-radius: 6px;
   cursor: pointer;
   text-align: left;
   transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 .well-option:hover {
-  background: rgba(176, 97, 214, 0.14);
-  border-color: rgba(176, 97, 214, 0.6);
+  background: rgba(95, 211, 138, 0.14);
+  border-color: rgba(95, 211, 138, 0.6);
   transform: translateY(-1px);
 }
 .well-option:active { transform: translateY(0) scale(0.99); }
 .wo-name {
   font-family: 'Cinzel', serif;
   font-size: 0.78rem;
-  color: #c08fe0;
+  color: #7fd6a0;
   letter-spacing: 0.03em;
 }
 .wo-line {
@@ -193,11 +251,11 @@
   transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 .well-reroll {
-  background: rgba(176, 97, 214, 0.14);
-  border-color: rgba(176, 97, 214, 0.45);
-  color: #e0c8f0;
+  background: rgba(95, 211, 138, 0.14);
+  border-color: rgba(95, 211, 138, 0.45);
+  color: #d7f3e1;
 }
-.well-reroll:hover { background: rgba(176, 97, 214, 0.26); }
+.well-reroll:hover { background: rgba(95, 211, 138, 0.26); }
 .well-reroll[hidden] { display: none; }
 .well-cancel {
   background: rgba(255, 255, 255, 0.04);
@@ -210,4 +268,445 @@
 @keyframes wellRise {
   from { opacity: 0; transform: translateY(12px) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ============================================================
+   PoE2-style mod layout — affix tags + desecrated reveal
+   ============================================================ */
+
+/* Left-align mod lines and lay them out as [tag] [body] */
+.mod-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  text-align: left;
+}
+.mod-line.mod-empty { justify-content: center; }
+
+.mod-body { flex: 1 1 0; min-width: 0; }
+
+/* P#/S# affix tags: blue prefix, red suffix, pinned left */
+.affix-tag {
+  flex: 0 0 auto;
+  min-width: 24px;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  padding: 1px 5px;
+  border-radius: 3px;
+  line-height: 1.5;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+.affix-tag.prefix {
+  color: #6fa8ff;
+  background: rgba(80, 130, 220, 0.16);
+  border: 1px solid rgba(80, 130, 220, 0.45);
+}
+.affix-tag.suffix {
+  color: #ff7a7a;
+  background: rgba(210, 60, 60, 0.16);
+  border: 1px solid rgba(210, 60, 60, 0.45);
+}
+
+/* Hover detail + fractured note span the full width below the mod */
+.mod-line .mod-detail { flex-basis: 100%; }
+.mod-line.fractured-mod::after { flex-basis: 100%; }
+
+/* Desecrated modifiers render GREEN with a small label */
+.mod-line.desecrated-mod,
+.mod-line.desecrated-mod .mod-body {
+  color: #5fd38a;
+  text-shadow: 0 0 8px rgba(95, 211, 138, 0.3);
+}
+.mod-line.desecrated-mod::after {
+  content: '\2620 Desecrated';
+  flex-basis: 100%;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4fbf7a;
+  opacity: 0.85;
+  margin-top: 1px;
+}
+
+/* Green highlight flash when a desecrated mod is first revealed */
+.mod-line.desec-reveal { animation: desecReveal 1000ms ease-out both; }
+@keyframes desecReveal {
+  0%   { background: rgba(95, 211, 138, 0.35); box-shadow: 0 0 18px rgba(95, 211, 138, 0.55); }
+  60%  { background: rgba(95, 211, 138, 0.18); }
+  100% { background: transparent; box-shadow: none; }
+}
+
+/* Item level sits above the mods. No border here — the slider already acts as
+   the top rule, so a second faint line was redundant clutter. */
+.item-level {
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+}
+
+/* Well of Souls: desecrated reveal options glow green */
+.well-option.desec-option {
+  background: rgba(95, 211, 138, 0.07);
+  border-color: rgba(95, 211, 138, 0.35);
+}
+.well-option.desec-option:hover {
+  background: rgba(95, 211, 138, 0.16);
+  border-color: rgba(95, 211, 138, 0.65);
+}
+.well-option.desec-option .wo-name { color: #5fd38a; }
+
+/* ============================================================
+   In-game tooltip parity — base type, item class, flavour, mod color
+   ============================================================ */
+
+/* Item name banner area */
+.tooltip-header {
+  padding: 8px 0 10px;
+}
+
+/* Base type line (e.g. "Emerald") under the item name */
+.item-base {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+.rarity-normal .item-base { color: var(--rarity-normal); }
+.rarity-magic .item-base { color: var(--rarity-magic); }
+.rarity-rare .item-base { color: var(--rarity-rare); }
+
+/* Item class line (JEWEL) */
+.item-class {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* Explicit mod stats render in PoE2 augmented blue */
+.mod-line .mod-body { color: #8c9eff; }
+.mod-line.desecrated-mod .mod-body { color: #5fd38a; }
+.mod-line.fractured-mod .mod-body { color: #c9a86a; }
+
+/* Italic flavour text footer. No border here — sep-b already provides the
+   rule above the flavour text, so a second faint line was redundant clutter. */
+.item-flavor {
+  margin-top: 12px;
+  padding-top: 10px;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+  color: #b07b3f;
+}
+
+/* Subtle gold frame around the tooltip body */
+.tooltip-content {
+  border: 1px solid rgba(168, 130, 70, 0.4);
+}
+
+/* Currency-used icon chips */
+.craft-counter .cc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 12px;
+  margin-top: 8px;
+}
+.cc-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.cc-chip .cc-icon {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+.cc-chip .cc-icon .currency-abbr {
+  font-size: 0.44rem;
+}
+.cc-chip .cc-count {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e8e8e8;
+}
+
+/* ============================================================
+   TOP BAR FIX — let the header grow for the jewel selector so
+   the buttons don't sit clipped against the bottom gold line.
+   ============================================================ */
+#app-header {
+  min-height: 0;
+  height: auto;
+  overflow: visible;
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
+#app-header .header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#app-header .jewel-selector {
+  margin-top: 14px;
+  margin-bottom: 2px;
+}
+
+/* ============================================================
+   HINEKORA CORRUPTION-CHOICE MODAL
+   ============================================================ */
+.corruption-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 4, 8, 0.78);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.corruption-modal .cm-box {
+  width: 360px;
+  max-width: 92vw;
+  background: linear-gradient(180deg, rgba(20, 16, 24, 0.98), rgba(12, 10, 16, 0.98));
+  border: 1px solid rgba(176, 97, 214, 0.45);
+  border-radius: 10px;
+  padding: 20px 22px 18px;
+  box-shadow: 0 0 30px rgba(176, 97, 214, 0.25), inset 0 0 18px rgba(176, 97, 214, 0.06);
+}
+.corruption-modal .cm-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1.02rem;
+  text-align: center;
+  color: #d9a6f0;
+  text-shadow: 0 0 10px rgba(176, 97, 214, 0.5);
+  letter-spacing: 0.03em;
+}
+.corruption-modal .cm-sub {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-secondary, #7f7f7f);
+  margin: 8px 0 16px;
+  line-height: 1.45;
+}
+.corruption-modal .cm-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.corruption-modal .cm-option {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid transparent;
+  transition: background 150ms ease, border-color 150ms ease, transform 120ms ease;
+}
+.corruption-modal .cm-option:active { transform: scale(0.98); }
+.corruption-modal .cm-opt-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.corruption-modal .cm-opt-desc {
+  font-size: 0.72rem;
+  color: var(--text-secondary, #7f7f7f);
+  line-height: 1.4;
+}
+.corruption-modal .cm-corrupt {
+  background: rgba(192, 48, 48, 0.12);
+  border-color: rgba(224, 122, 106, 0.4);
+}
+.corruption-modal .cm-corrupt .cm-opt-title { color: #e07a6a; }
+.corruption-modal .cm-corrupt:hover {
+  background: rgba(192, 48, 48, 0.22);
+  border-color: rgba(224, 122, 106, 0.7);
+}
+.corruption-modal .cm-sanctify {
+  background: rgba(110, 200, 120, 0.12);
+  border-color: rgba(110, 200, 120, 0.4);
+}
+.corruption-modal .cm-sanctify .cm-opt-title { color: #8fe0a0; }
+.corruption-modal .cm-sanctify:hover {
+  background: rgba(110, 200, 120, 0.22);
+  border-color: rgba(110, 200, 120, 0.7);
+}
+
+/* Hinekora's Lock foreseen-outcome preview (not a choice) */
+.corruption-modal .cm-foreseen {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  margin-bottom: 4px;
+}
+.corruption-modal .cm-cancel {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.corruption-modal .cm-cancel .cm-opt-title { color: var(--text-secondary, #9a9a9a); }
+.corruption-modal .cm-cancel:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* ============================================================
+   CATEGORY SELECT SCREEN — desktop landscape fix.
+   #select-view was shrink-wrapping to a single narrow (mobile)
+   column on desktop. The craft view (#main-content) already uses
+   width:100% to fill the page, so mirror that here and the
+   category grid expands into multiple columns.
+   ============================================================ */
+#select-view {
+  width: 100%;
+  box-sizing: border-box;
+}
+#select-grid {
+  width: 100%;
+}
+.cat-grid {
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+}
+
+/* ============================================================
+   PHONE FRIENDLINESS
+   ============================================================ */
+@media (max-width: 768px) {
+  #app-header {
+    padding-top: 12px;
+    padding-bottom: 14px;
+  }
+  #app-header .jewel-selector {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .jewel-btn {
+    font-size: 0.7rem;
+    padding: 4px 9px;
+  }
+  /* Keep the Abyss / Desecration + Stash panels readable when the rail
+     collapses under the jewel on small screens. */
+  #side-rail {
+    width: 100%;
+    align-items: stretch;
+  }
+  #desecrate-panel,
+  #abyss-panel,
+  #stash-panel,
+  #currency-panel {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 480px) {
+  .cat-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+  .corruption-modal .cm-box {
+    width: 92vw;
+    padding: 16px 16px 14px;
+  }
+}
+
+/* ============================================================
+   Two-step desecration: unrevealed modifier + Reveal panel
+   ============================================================ */
+
+/* The unrevealed Desecrated modifier placed on the item before it is revealed */
+.mod-line.unrevealed-mod,
+.mod-line.unrevealed-mod .mod-body {
+  color: #5fd38a;
+  font-style: italic;
+  opacity: 0.92;
+}
+.mod-line.unrevealed-mod {
+  animation: unrevealedPulse 1.8s ease-in-out infinite;
+  border-radius: 4px;
+}
+/* Unrevealed line shows plain text — no redundant "Desecrated" sublabel. */
+.mod-line.unrevealed-mod::after {
+  content: none;
+}
+@keyframes unrevealedPulse {
+  0%, 100% { background: rgba(95, 211, 138, 0.06); }
+  50%      { background: rgba(95, 211, 138, 0.16); }
+}
+
+/* Reveal panel beneath the item */
+#reveal-panel {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+#reveal-panel[hidden] { display: none; }
+.reveal-hint {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #5fd38a;
+  letter-spacing: 0.04em;
+  max-width: 260px;
+}
+.reveal-btn {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0c140f;
+  background: linear-gradient(180deg, #7ee6a6, #3fbf7a);
+  border: 1px solid rgba(95, 211, 138, 0.8);
+  border-radius: 6px;
+  padding: 10px 26px;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(95, 211, 138, 0.45);
+  transition: transform 120ms ease, box-shadow 200ms ease, filter 120ms ease;
+}
+.reveal-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(95, 211, 138, 0.7);
+}
+.reveal-btn:active { transform: translateY(0); }
+
+/* Well of Souls reveal animation when the modal opens */
+.well-modal.well-revealing .well-dialog {
+  animation: wellReveal 520ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+.well-modal.well-revealing .well-option {
+  animation: wellOptionIn 480ms ease both;
+}
+.well-modal.well-revealing .well-option:nth-child(1) { animation-delay: 120ms; }
+.well-modal.well-revealing .well-option:nth-child(2) { animation-delay: 230ms; }
+.well-modal.well-revealing .well-option:nth-child(3) { animation-delay: 340ms; }
+.well-modal.well-revealing .well-option:nth-child(4) { animation-delay: 450ms; }
+@keyframes wellReveal {
+  0%   { opacity: 0; transform: scale(0.92) translateY(8px); filter: brightness(0.6); }
+  60%  { filter: brightness(1.15); }
+  100% { opacity: 1; transform: scale(1) translateY(0); filter: brightness(1); }
+}
+@keyframes wellOptionIn {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }

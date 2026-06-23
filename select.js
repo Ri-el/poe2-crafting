@@ -1,3 +1,4 @@
+(function () { "use strict";
 // ============================================================
 //  Item Category Selection Screen  (UI ONLY — no craft logic)
 //
@@ -256,3 +257,4 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+})();

@@ -92,7 +92,7 @@ body::before {
 #app-header {
   position: relative;
   z-index: 10;
-  background: linear-gradient(180deg, rgba(15, 15, 18, 0.98) 0%, rgba(10, 10, 12, 0.95) 100%);
+  background: var(--bg-deepest);
   border-bottom: 1px solid rgba(175, 96, 37, 0.25);
   min-height: var(--header-height);
   padding: 18px 0 16px;
@@ -105,14 +105,25 @@ body::before {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 10%;
-  right: 10%;
+  left: 0;
+  right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-gold) 30%, var(--accent-gold-light) 50%, var(--accent-gold) 70%, transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-gold) 12%, var(--accent-gold-light) 50%, var(--accent-gold) 88%, transparent);
 }
 
 .header-inner {
   text-align: center;
+}
+
+/* Back button lives inside the header, pinned left and vertically
+   centered so it sits on the same level as the PoE2 Craft Sim title. */
+#app-header .back-to-select {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  z-index: 11;
 }
 
 .app-title {
@@ -153,12 +164,13 @@ body::before {
 #main-content {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 32px;
-  max-width: 1100px;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  gap: 56px;
+  max-width: 1320px;
   width: 100%;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: 40px 48px;
   align-items: start;
 }
 
@@ -167,8 +179,9 @@ body::before {
    ============================================================ */
 #jewel-panel {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   position: relative;
   min-height: 200px;
   padding-top: 20px;
@@ -394,6 +407,54 @@ body::before {
   color: var(--text-secondary);
   padding-top: 4px;
 }
+/* The item-level slider IS the single divider line under the title (matching
+   the in-game tooltip): one thin separator line with a draggable gilded knob. */
+.ilvl-slider {
+  position: relative;
+  padding: 4px 0 2px;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+}
+.ilvl-track {
+  position: relative;
+  height: 1px;
+  background: var(--accent-separator);
+}
+.ilvl-fill { display: none; }
+.ilvl-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e7cf9b, #b8965c 70%);
+  border: 1px solid rgba(20, 16, 10, 0.7);
+  box-shadow: 0 0 4px rgba(200, 170, 110, 0.4);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+.ilvl-slider:hover .ilvl-knob {
+  transform: scale(1.2);
+  box-shadow: 0 0 7px rgba(200, 170, 110, 0.7);
+}
+.ilvl-knob.locked {
+  background: radial-gradient(circle at 35% 35%, #e88a8a, #b03636 70%);
+  box-shadow: 0 0 7px rgba(210, 70, 70, 0.7);
+}
+.ilvl-label {
+  margin-bottom: 3px;
+  letter-spacing: 0.03em;
+}
+/* Shared tooltip rule: every separator line uses this exact style so the top
+   slider line and the two bottom rules all look identical. */
+.tip-rule {
+  height: 1px;
+  background: var(--accent-separator);
+  margin: 9px 0;
+}
 
 /* Armed cursor state on jewel panel */
 #jewel-panel.cursor-armed {
@@ -558,6 +619,11 @@ body::before {
   box-shadow: 0 2px 8px rgba(112, 144, 208, 0.3);
 }
 .currency-btn:hover .transmutation-icon { box-shadow: 0 4px 16px rgba(112, 144, 208, 0.5); }
+.hinekora-icon {
+  background: linear-gradient(135deg, #7a3da6, #c98fe0, #8a4db6);
+  box-shadow: 0 2px 8px rgba(176, 97, 214, 0.35);
+}
+.currency-btn:hover .hinekora-icon { box-shadow: 0 4px 16px rgba(176, 97, 214, 0.6); }
 
 .augmentation-icon {
   background: linear-gradient(135deg, #7060c0, #a090e0, #6858b0);
@@ -657,10 +723,17 @@ body::before {
   transform: scale(0.97);
 }
 
-.undo-btn {
+.undo-redo-row {
+  display: flex;
+  gap: 8px;
   margin-bottom: 8px;
 }
-.undo-btn:hover {
+.undo-redo-row .reset-btn {
+  flex: 1 1 0;
+  margin-bottom: 0;
+}
+.undo-btn:hover,
+.redo-btn:hover {
   background: rgba(100, 150, 255, 0.08);
   border-color: rgba(100, 150, 255, 0.3);
   color: #80a0ff;
@@ -763,9 +836,15 @@ body::before {
 }
 
 /* Currency-used counter (travels with the jewel) */
+/* Currency-used counter: its own panel below the Reveal UI (outside the item
+   tooltip), styled as a subtle card. */
 .craft-counter {
-  margin-top: 8px;
+  margin-top: 12px;
   text-align: center;
+  padding: 9px 14px;
+  border: 1px solid rgba(200, 170, 110, 0.18);
+  border-radius: 8px;
+  background: rgba(22, 19, 14, 0.55);
 }
 .craft-counter .cc-total {
   font-size: 0.72rem;
@@ -1088,6 +1167,32 @@ body.crafting {
 .currency-btn:hover .vaal-icon { box-shadow: 0 4px 16px rgba(200, 32, 64, 0.6); }
 .currency-btn.armed[data-currency="vaal"] { --armed-color: var(--cur-vaal); }
 
+/* ============================================================
+   Currency overhaul — square 50px slots, hidden labels, and
+   Greater/Perfect orbs collapsed onto the base orb as clusters
+   with II (Greater) / III (Perfect) tier badges.
+   ============================================================ */
+.currency-grid { gap: 8px; align-items: flex-start; }
+.currency-grid .currency-btn { flex: 0 0 auto; padding: 4px; gap: 0; border: 1px solid transparent; }
+.currency-grid .currency-label { display: none; }
+.currency-grid .currency-icon { width: 50px; height: 50px; border-radius: 10px; }
+.currency-grid .currency-img { border-radius: 10px; padding: 2px; }
+
+.cur-cluster { display: flex; align-items: stretch; gap: 3px; padding: 2px; }
+.cur-cluster > .currency-btn { padding: 0; }
+.cur-tiers { display: flex; flex-direction: column; justify-content: space-between; gap: 3px; }
+.cur-tiers .tier-badge { flex: 1 1 0; padding: 0 !important; border: none; }
+.tier-badge { position: relative; }
+.currency-grid .tier-badge .currency-icon { width: 23.5px; height: 23.5px; border-radius: 6px; }
+.currency-grid .tier-badge .currency-img { border-radius: 6px; padding: 1px; }
+.tier-num {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.6rem; line-height: 1;
+  color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.95); pointer-events: none; z-index: 6;
+}
+.tier-badge[data-currency^="perfect_"] .tier-num { color: #ffe9a8; }
+.tier-badge.armed { z-index: 7; }
+
 /* Corrupted state */
 .corrupted-label {
   color: #d02020;
@@ -1111,22 +1216,32 @@ body.crafting {
 .mod-line.fractured-mod {
   color: #c9a86a;
 }
-.mod-line.fractured-mod::after {
-  content: '⬥ Fractured';
-  display: block;
-  font-size: 0.58rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #a8884a;
-  opacity: 0.9;
-  margin-top: 1px;
-}
 .tooltip.corrupted .tooltip-border-glow {
   animation: corruptPulse 2s infinite alternate;
 }
 @keyframes corruptPulse {
   0% { box-shadow: 0 0 15px rgba(200, 32, 32, 0.2), inset 0 0 10px rgba(200, 32, 32, 0.1); }
   100% { box-shadow: 0 0 25px rgba(200, 32, 32, 0.5), inset 0 0 15px rgba(200, 32, 32, 0.3); }
+}
+
+/* Sanctified state (Omen of Sanctification) */
+.sanctified-label {
+  color: #e3c25a;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 6px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 8px rgba(227, 194, 90, 0.5);
+}
+.tooltip.sanctified .tooltip-border-glow {
+  animation: sanctifyPulse 2s infinite alternate;
+}
+@keyframes sanctifyPulse {
+  0% { box-shadow: 0 0 15px rgba(227, 194, 90, 0.25), inset 0 0 10px rgba(227, 194, 90, 0.12); }
+  100% { box-shadow: 0 0 28px rgba(255, 222, 130, 0.6), inset 0 0 16px rgba(255, 222, 130, 0.35); }
 }
 
 /* Stash */
@@ -1173,10 +1288,88 @@ body.crafting {
 .stash-slot .jewel-dot {
   width: 14px; height: 14px;
   border-radius: 50%;
+  position: relative;
+  overflow: hidden;
 }
 .stash-slot .jewel-dot.ruby { background: linear-gradient(135deg, #ff4040, #800000); }
 .stash-slot .jewel-dot.emerald { background: linear-gradient(135deg, #40ff40, #008000); }
 .stash-slot .jewel-dot.sapphire { background: linear-gradient(135deg, #4040ff, #000080); }
+/* When the real PNG loads, let it fill the slot and drop the coloured dot. */
+.stash-slot.has-real-icon .jewel-dot {
+  width: 86%; height: 86%;
+  border-radius: 4px;
+  background: none !important;
+}
+.stash-slot .stash-img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.stash-badge {
+  position: absolute;
+  bottom: 2px; right: 4px;
+  font-size: 0.6rem;
+  color: #fff;
+  pointer-events: none;
+  text-shadow: 0 0 3px #000;
+}
+.stash-del {
+  position: absolute;
+  top: 1px; left: 1px;
+  width: 16px; height: 16px;
+  padding: 0; line-height: 14px;
+  border: none; border-radius: 3px;
+  background: rgba(140,25,25,0.9);
+  color: #fff; font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.stash-slot:hover .stash-del { opacity: 1; }
+.stash-slot.dragging { opacity: 0.4; }
+.stash-slot.drag-over {
+  border-color: #d4af37;
+  box-shadow: 0 0 6px rgba(212,175,55,0.6);
+}
+/* Currency drag-and-drop onto the item (interaction model 2). */
+.currency-btn.dragging-currency,
+.bone-btn.dragging-currency {
+  opacity: 0.45;
+}
+.tooltip.drag-target {
+  outline: 2px dashed #d4af37;
+  outline-offset: 3px;
+  box-shadow: 0 0 18px rgba(212,175,55,0.45);
+}
+/* Hinekora's Lock foresight preview shown inside the item card. */
+.foreseen-banner {
+  margin: 6px 0 4px;
+  padding: 4px 8px;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #1a1207;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #c79a3a, #f0d57a, #c79a3a);
+  animation: foreseenPulse 1.4s ease-in-out infinite;
+}
+.tooltip.foreseen-preview {
+  outline: 2px solid #e8c45a;
+  box-shadow: 0 0 22px rgba(232,196,90,0.55);
+}
+@keyframes foreseenPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+.tooltip.foreseen-empty .foreseen-banner {
+  background: linear-gradient(90deg, #6e2b2b, #b05a5a, #6e2b2b);
+  color: #fff;
+}
+.tooltip.foreseen-empty {
+  outline-color: #b05a5a;
+  box-shadow: 0 0 18px rgba(176,90,90,0.45);
+}
 
 .save-btn {
   width: 100%;
@@ -1269,6 +1462,20 @@ self.addEventListener('fetch', (event) => {
   will-change: transform, opacity;
   box-shadow: 0 0 20px 6px var(--orb-color, rgba(255, 255, 255, 0.6));
   transition: opacity 150ms ease;
+}
+/* The picked-up currency icon that rides along with the cursor orb while
+   dragging. Sits on top of the coloured glow. */
+#cursor-orb .orb-img,
+.cursor-orb .orb-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
 }
 @media (hover: none) {
   #cursor-orb,
