@@ -1,52 +1,10 @@
 {
   "suffixes": [
     {
-      "modGroup": "LifeRegenerationRate",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Life Regeneration rate",
-          "name": "of Regeneration",
-          "max": 10,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "BannerValourGained",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Glory generation for Banner Skills",
-          "name": "of Valour",
-          "max": 20,
-          "min": 15
-        }
-      ]
-    },
-    {
-      "modGroup": "StunDamageIncrease",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Stun Buildup",
-          "name": "of Stunning",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
       "modGroup": "LifeLeech",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "{0}% increased amount of Life Leeched",
@@ -57,42 +15,28 @@
       ]
     },
     {
-      "modGroup": "BannerDuration",
+      "modGroup": "ArmourBreakDuration",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
-          "modLine": "Banner Skills have {0}% increased Duration",
-          "name": "of Inspiring",
-          "max": 25,
-          "min": 15
-        }
-      ]
-    },
-    {
-      "modGroup": "SummonTotemCastSpeed",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Totem Placement speed",
-          "name": "of Ancestry",
+          "modLine": "{0}% increased Armour Break Duration",
+          "name": "Armour Break Duration",
           "max": 20,
           "min": 10
         }
       ]
     },
     {
-      "modGroup": "SkillEffectDuration",
+      "modGroup": "BleedDuration",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
-          "modLine": "{0}% increased Skill Effect Duration",
-          "name": "of Lengthening",
+          "modLine": "{0}% increased Bleeding Duration",
+          "name": "Bleed Duration",
           "max": 10,
           "min": 5
         }
@@ -102,7 +46,7 @@
       "modGroup": "IgniteChanceIncrease",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "{0}% increased Flammability Magnitude",
@@ -113,10 +57,66 @@
       ]
     },
     {
+      "modGroup": "BannerValourGained",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Glory generation for Banner Skills",
+          "name": "of Valour",
+          "max": 20,
+          "min": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "Knockback",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Knockback Distance",
+          "name": "Knockback",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "LifeRegenerationRate",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Life Regeneration rate",
+          "name": "of Regeneration",
+          "max": 10,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "SkillEffectDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Skill Effect Duration",
+          "name": "of Lengthening",
+          "max": 10,
+          "min": 5
+        }
+      ]
+    },
+    {
       "modGroup": "SpecificWeaponSpeed",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "{0}% increased Skill Speed while Shapeshifted",
@@ -127,10 +127,94 @@
       ]
     },
     {
+      "modGroup": "StunDamageIncrease",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Stun Buildup",
+          "name": "of Stunning",
+          "max": 20,
+          "min": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "MaceStun",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Stun Buildup with Maces",
+          "name": "Mace Stun",
+          "max": 25,
+          "min": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedStunThreshold",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Stun Threshold",
+          "name": "Increased Stun Threshold",
+          "max": 16,
+          "min": 6
+        }
+      ]
+    },
+    {
+      "modGroup": "SummonTotemCastSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Totem Placement speed",
+          "name": "of Ancestry",
+          "max": 20,
+          "min": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "WarcryCooldownSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Warcry Cooldown Recovery Rate",
+          "name": "Warcry Cooldown Speed",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "WarcrySpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Warcry Speed",
+          "name": "Warcry Speed",
+          "max": 20,
+          "min": 10
+        }
+      ]
+    },
+    {
       "modGroup": "LifeCost",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
@@ -141,38 +225,10 @@
       ]
     },
     {
-      "modGroup": "ArmourBreakDuration",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Armour Break Duration",
-          "name": "Resonating",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "Knockback",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Knockback Distance",
-          "name": "of Fending",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
       "modGroup": "MaximumFireResist",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "+{0}% to Maximum Fire Resistance",
@@ -183,44 +239,16 @@
       ]
     },
     {
-      "modGroup": "BleedDuration",
+      "modGroup": "BannerDuration",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
-          "modLine": "{0}% increased Bleeding Duration",
-          "name": "of Haemophilia",
-          "max": 10,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "MinionPhysicalDamageReduction",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Minions have {0}% additional Physical Damage Reduction",
-          "name": "of Confidence",
-          "max": 16,
-          "min": 6
-        }
-      ]
-    },
-    {
-      "modGroup": "IncreasedStunThreshold",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Stun Threshold",
-          "name": "of Withstanding",
-          "max": 16,
-          "min": 6
+          "modLine": "Banner Skills have {0}% increased Duration",
+          "name": "of Inspiring",
+          "max": 25,
+          "min": 15
         }
       ]
     },
@@ -228,27 +256,13 @@
       "modGroup": "RageOnHit",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "Gain {0} Rage on Melee Hit",
-          "name": "of Raging",
+          "name": "Rage On Hit",
           "max": 1,
           "min": 1
-        }
-      ]
-    },
-    {
-      "modGroup": "WarcrySpeed",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Warcry Speed",
-          "name": "of Lungs",
-          "max": 20,
-          "min": 10
         }
       ]
     },
@@ -256,234 +270,43 @@
       "modGroup": "GainRage",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "Gain {0} Rage when Hit by an Enemy",
-          "name": "of Retribution",
+          "name": "Gain Rage",
           "max": 3,
           "min": 1
         }
       ]
     },
     {
-      "modGroup": "WarcryCooldownSpeed",
+      "modGroup": "MinionPhysicalDamageReduction",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
-          "modLine": "{0}% increased Warcry Cooldown Recovery Rate",
-          "name": "of Rallying",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "MaceStun",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Stun Buildup with Maces",
-          "name": "of Thumping",
-          "max": 25,
-          "min": 15
+          "modLine": "Minions have {0}% additional Physical Damage Reduction",
+          "name": "Minion Physical Damage Reduction",
+          "max": 16,
+          "min": 6
         }
       ]
     }
   ],
   "prefixes": [
     {
-      "modGroup": "PhysicalDamagePercent",
+      "modGroup": "IncisionChance",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
-          "modLine": "{0}% increased Global Physical Damage",
-          "name": "Sharpened",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "FireResistancePenetration",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Damage Penetrates {0}% Fire Resistance",
-          "name": "Searing",
-          "max": 10,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "BannerArea",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Banner Skills have {0}% increased Area of Effect",
-          "name": "Rallying",
-          "max": 16,
-          "min": 6
-        }
-      ]
-    },
-    {
-      "modGroup": "MinionLife",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Minions have {0}% increased maximum Life",
-          "name": "Fortuitous",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "IncreasedTotemLife",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Totem Life",
-          "name": "Carved",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "ShieldArmourIncrease",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Armour, Evasion and Energy Shield from Equipped Shield",
-          "name": "Shielding",
-          "max": 32,
-          "min": 18
-        }
-      ]
-    },
-    {
-      "modGroup": "DamageForm",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Damage with Plant Skills",
-          "name": "Overgrown",
-          "max": 15,
-          "min": 5
-        },
-        {
-          "weight": 1,
-          "tier": 2,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Damage while Shapeshifted",
-          "name": "Bestial",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "IgniteEffect",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Ignite Magnitude",
-          "name": "Burning",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "PresenceRadius",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Presence Area of Effect",
-          "name": "Iconic",
+          "modLine": "{0}% chance for Attack Hits to apply Incision",
+          "name": "Incision Chance",
           "max": 25,
           "min": 15
-        }
-      ]
-    },
-    {
-      "modGroup": "MaximumRage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "+{0} to Maximum Rage",
-          "name": "Angry",
-          "max": 2,
-          "min": 1
-        }
-      ]
-    },
-    {
-      "modGroup": "TotemDamage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Totem Damage",
-          "name": "Shaman's",
-          "max": 18,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "SpecificWeaponDamage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Damage with Maces",
-          "name": "Beating",
-          "max": 16,
-          "min": 6
-        }
-      ]
-    },
-    {
-      "modGroup": "IncreasedBlockChance",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Block chance",
-          "name": "Protecting",
-          "max": 7,
-          "min": 3
         }
       ]
     },
@@ -491,153 +314,13 @@
       "modGroup": "BleedChanceIncrease",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "{0}% chance to inflict Bleeding on Hit",
-          "name": "Bleeding",
+          "name": "Bleed Chance Increase",
           "max": 7,
           "min": 3
-        }
-      ]
-    },
-    {
-      "modGroup": "IncreasedPhysicalDamageReductionRatingPercent",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Armour",
-          "name": "Armoured",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "AttackDamage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Attack Damage",
-          "name": "Combat",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "ElementalDamagePercent",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Elemental Damage",
-          "name": "Prismatic",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "WarcryDamage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Damage with Warcries",
-          "name": "Yelling",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "ArmourBreak",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Break {0}% increased Armour",
-          "name": "Shattering",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "MeleeDamage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Melee Damage",
-          "name": "Clashing",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "Thorns",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Thorns damage",
-          "name": "Retaliating",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "FireDamagePercentage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Fire Damage",
-          "name": "Flaming",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "BleedingDamage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Magnitude of Bleeding you inflict",
-          "name": "Haemorrhaging",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "MinionAreaOfEffect",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Minions have {0}% increased Area of Effect",
-          "name": "Companion",
-          "max": 8,
-          "min": 5
         }
       ]
     },
@@ -645,7 +328,7 @@
       "modGroup": "AreaOfEffect",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "{0}% increased Area of Effect",
@@ -656,16 +339,324 @@
       ]
     },
     {
+      "modGroup": "IncreasedPhysicalDamageReductionRatingPercent",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Armour",
+          "name": "Armoured",
+          "max": 20,
+          "min": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "ShieldArmourIncrease",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Armour, Evasion and Energy Shield from Equipped Shield",
+          "name": "Shield Armour Increase",
+          "max": 32,
+          "min": 18
+        }
+      ]
+    },
+    {
+      "modGroup": "AttackDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Attack Damage",
+          "name": "Combat",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedBlockChance",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Block chance",
+          "name": "Increased Block Chance",
+          "max": 7,
+          "min": 3
+        }
+      ]
+    },
+    {
       "modGroup": "DamagevsArmourBrokenEnemies",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "{0}% increased Damage against Enemies with Fully Broken Armour",
-          "name": "Exploiting",
+          "name": "Damagevs Armour Broken Enemies",
           "max": 25,
           "min": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "DamageForm",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage while Shapeshifted",
+          "name": "Damage Form",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "SpecificWeaponDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage with Maces",
+          "name": "Specific Weapon Damage",
+          "max": 16,
+          "min": 6
+        }
+      ]
+    },
+    {
+      "modGroup": "DamageForm",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage with Plant Skills",
+          "name": "Damage Form",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "WarcryDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage with Warcries",
+          "name": "Warcry Damage",
+          "max": 20,
+          "min": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "ElementalDamagePercent",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Elemental Damage",
+          "name": "Prismatic",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "FireDamagePercentage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Fire Damage",
+          "name": "Flaming",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "PhysicalDamagePercent",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Global Physical Damage",
+          "name": "Sharpened",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "IgniteEffect",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Ignite Magnitude",
+          "name": "Ignite Effect",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "BleedingDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Magnitude of Bleeding you inflict",
+          "name": "Bleeding Damage",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "MeleeDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Melee Damage",
+          "name": "Clashing",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "PresenceRadius",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Presence Area of Effect",
+          "name": "Presence Radius",
+          "max": 25,
+          "min": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "Thorns",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Thorns damage",
+          "name": "Thorns",
+          "max": 20,
+          "min": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "TotemDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Totem Damage",
+          "name": "Totem Damage",
+          "max": 18,
+          "min": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedTotemLife",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Totem Life",
+          "name": "Increased Totem Life",
+          "max": 20,
+          "min": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "MaximumRage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "+{0} to Maximum Rage",
+          "name": "Maximum Rage",
+          "max": 2,
+          "min": 1
+        }
+      ]
+    },
+    {
+      "modGroup": "BannerArea",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Banner Skills have {0}% increased Area of Effect",
+          "name": "Banner Area",
+          "max": 16,
+          "min": 6
+        }
+      ]
+    },
+    {
+      "modGroup": "ArmourBreak",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Break {0}% increased Armour",
+          "name": "Armour Break",
+          "max": 15,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "FireResistancePenetration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Damage Penetrates {0}% Fire Resistance",
+          "name": "Fire Resistance Penetration",
+          "max": 10,
+          "min": 5
         }
       ]
     },
@@ -673,27 +664,41 @@
       "modGroup": "ExertedAttackDamage",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "Empowered Attacks deal {0}% increased Damage",
-          "name": "Empowering",
+          "name": "Exerted Attack Damage",
           "max": 20,
           "min": 10
         }
       ]
     },
     {
-      "modGroup": "IncisionChance",
+      "modGroup": "MinionAreaOfEffect",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
-          "modLine": "{0}% chance for Attack Hits to apply Incision",
-          "name": "Incise",
-          "max": 25,
-          "min": 15
+          "modLine": "Minions have {0}% increased Area of Effect",
+          "name": "Minion Area Of Effect",
+          "max": 8,
+          "min": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "MinionLife",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Minions have {0}% increased maximum Life",
+          "name": "Minion Life",
+          "max": 15,
+          "min": 5
         }
       ]
     }
