@@ -1639,33 +1639,54 @@ function loadStash() {
 }
 
 function saveToStash() {
-  const item = engine.getItem();
   if (stash.length >= 24) {
     showError('Stash is full (24 limit). Right-click a jewel to remove it.');
     return;
   }
-  stash.push(structuredClone(item));
+  const item = engine.getItem();
+  // Preserve any in-progress (unrevealed) desecration so a saved item can be
+  // resumed after it is loaded back. The unrevealed placeholder lives on the
+  // item itself, but the pending reveal options (and the UI reveal state) live
+  // outside it -- without saving them the placeholder would be stuck unrevealable.
+  const pending = engine.getPendingDesecration();
+  if (pending) item._pendingDesecration = pending;
+  if (desecState) item._desecState = structuredClone(desecState);
+  stash.push(item);
   localStorage.setItem('poe2_stash', JSON.stringify(stash));
   renderStash();
   playSound('transmutation');
 }
 
 function loadFromStash(index) {
-  const item = stash[index];
-  if (!item) return;
+  const saved = stash[index];
+  if (!saved) return;
 
   elements.jewelBtns.forEach(b => {
-    const match = b.dataset.type === item.jewelType;
+    const match = b.dataset.type === saved.jewelType;
     b.classList.toggle('active', match);
-    if (match) currentJewelType = item.jewelType;
+    if (match) currentJewelType = saved.jewelType;
   });
 
-  engine = new CraftingEngine(modData, item.jewelType, desecData);
-  engine.loadItem(item);
+  engine = new CraftingEngine(modData, saved.jewelType, desecData);
+
+  // Restore a saved in-progress desecration (the unrevealed placeholder plus its
+  // pending reveal options) so a stashed reveal can be resumed. Strip the
+  // stash-only bookkeeping fields before handing the item to the engine so they
+  // don't leak onto the live item.
+  const pending = saved._pendingDesecration || null;
+  const savedDesecState = saved._desecState || null;
+  const item = structuredClone(saved);
+  delete item._pendingDesecration;
+  delete item._desecState;
+
+  engine.loadItem(item, pending);
   undoStack = [];
   redoStack = [];
   disarmCurrency();
   clearDesecration();
+  // Re-show the Reveal panel (via renderItem) when an unrevealed desecration was
+  // restored; set desecState AFTER clearDesecration, mirroring restoreSnapshot.
+  desecState = savedDesecState;
   renderItem();
   playSound('regal');
 }
@@ -1734,33 +1755,4 @@ function renderStash() {
 
     // Any slot is a valid drop target; dropping past the end moves to the end.
     slot.addEventListener('dragover', (e) => {
-      if (dragIndex === null) return;
-      e.preventDefault();
-      slot.classList.add('drag-over');
-    });
-    slot.addEventListener('dragleave', () => slot.classList.remove('drag-over'));
-    slot.addEventListener('drop', (e) => {
-      e.preventDefault();
-      slot.classList.remove('drag-over');
-      if (dragIndex === null) return;
-      moveStash(dragIndex, i);
-      dragIndex = null;
-    });
-
-    frag.appendChild(slot);
-  }
-  elements.stashGrid.replaceChildren(frag);
-}
-
-function moveStash(from, to) {
-  if (from === to || from < 0 || from >= stash.length) return;
-  const target = Math.min(to, stash.length - 1);
-  const [moved] = stash.splice(from, 1);
-  stash.splice(target, 0, moved);
-  localStorage.setItem('poe2_stash', JSON.stringify(stash));
-  renderStash();
-  playSound('transmutation');
-}
-
-document.addEventListener('DOMContentLoaded', init);
-})();
+      if (dragIndex === null
