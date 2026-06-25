@@ -678,6 +678,7 @@ class CraftingEngine {
       modGroup: group.modGroup,
       tier: tier.tier,
       tierName: tier.name,
+      ilvlReq: tier.ilvlReq,
       modLine: tier.modLine,
       displayText,
       value,
@@ -889,7 +890,17 @@ class CraftingEngine {
 
     let pick;
     if (mode === 'lowest') {
-      const levelOf = (m) => (m.ilvlReq != null ? m.ilvlReq : (m.tier != null ? m.tier : 0));
+      // Rank by NUMERIC modifier level (ilvlReq). Some mods have no numeric
+      // level: Desecrated mods use a string tier ('D'), and mods revealed from
+      // the Well of Souls historically lacked ilvlReq. Coerce to a Number and
+      // treat anything non-numeric as Infinity so it sorts LAST. Previously the
+      // fallback returned the raw `tier` string, so comparisons like 5 < 'D'
+      // evaluated to NaN-driven false and Whittling removed the wrong modifier.
+      const levelOf = (m) => {
+        const lvl = m.ilvlReq != null ? m.ilvlReq : m.tier;
+        const n = Number(lvl);
+        return Number.isFinite(n) ? n : Infinity;
+      };
       pick = entries.reduce((lo, e) => (levelOf(e.mod) < levelOf(lo.mod) ? e : lo), entries[0]);
     } else {
       pick = entries[this._randomInt(0, entries.length - 1)];
