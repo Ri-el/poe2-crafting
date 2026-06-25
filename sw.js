@@ -20,8 +20,11 @@ const APP_SHELL = [
   './app.js',
   './select.js',
   './crafting.js',
-  './data/jewel-mods.v2.json',
-  './data/desecrated-mods.json',
+  // Real data the app loads via <script defer> in index.html.
+  // (Previously this listed the legacy ./data/jewel-mods.v2.json, which the
+  //  app no longer loads, and omitted these compiled files — breaking offline.)
+  './data/mods.data.js',
+  './data/desecrated-mods.data.js',
   './manifest.json',
 ];
 
