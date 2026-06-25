@@ -221,8 +221,11 @@ class CraftingEngine {
 
     // Omen of Light: the next Orb of Annulment removes ONLY a Desecrated mod.
     if (opts.desecratedOnly) {
+      // Exclude the UNREVEALED pending placeholder (it also carries
+      // desecrated:true): Omen of Light must only strip a real, revealed
+      // Desecrated modifier, never the hidden pending one before it is revealed.
       const desEntries = this._allModEntries()
-        .filter(e => !e.mod.fractured && e.mod.desecrated);
+        .filter(e => !e.mod.fractured && e.mod.desecrated && !e.mod.unrevealed);
       if (desEntries.length === 0) {
         return this._fail('Omen of Light: this item has no Desecrated modifier to remove.');
       }
