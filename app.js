@@ -1538,8 +1538,11 @@ function renderItem(actionResult = null, overrideItem = null) {
 
   // Once an item carries a Desecrated modifier it cannot be desecrated again,
   // so grey out the bone button (the engine also blocks it defensively).
+  // NOTE: the unrevealed Mark of the Abyssal Lord (added by Essence of the
+  // Abyss) also carries `desecrated: true`, but it must NOT count as
+  // already-desecrated — desecrating is exactly how the Mark gets consumed.
   const alreadyDesecrated =
-    item.prefixes.some(m => m.desecrated) || item.suffixes.some(m => m.desecrated);
+    item.prefixes.some(m => m.desecrated && !m.mark) || item.suffixes.some(m => m.desecrated && !m.mark);
   const desecDisabled = realLocked || !desecData || alreadyDesecrated || item.rarity !== 'rare';
   elements.boneBtns.forEach(b => {
     b.disabled = desecDisabled;
