@@ -1767,4 +1767,33 @@ function renderStash() {
 
     // Any slot is a valid drop target; dropping past the end moves to the end.
     slot.addEventListener('dragover', (e) => {
-      if (dragIndex === null
+      if (dragIndex === null) return;
+      e.preventDefault();
+      slot.classList.add('drag-over');
+    });
+    slot.addEventListener('dragleave', () => slot.classList.remove('drag-over'));
+    slot.addEventListener('drop', (e) => {
+      e.preventDefault();
+      slot.classList.remove('drag-over');
+      if (dragIndex === null) return;
+      moveStash(dragIndex, i);
+      dragIndex = null;
+    });
+
+    frag.appendChild(slot);
+  }
+  elements.stashGrid.replaceChildren(frag);
+}
+
+function moveStash(from, to) {
+  if (from === to || from < 0 || from >= stash.length) return;
+  const target = Math.min(to, stash.length - 1);
+  const [moved] = stash.splice(from, 1);
+  stash.splice(target, 0, moved);
+  localStorage.setItem('poe2_stash', JSON.stringify(stash));
+  renderStash();
+  playSound('transmutation');
+}
+
+document.addEventListener('DOMContentLoaded', init);
+})();
