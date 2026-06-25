@@ -189,15 +189,23 @@ async function init() {
   }
 }
 
-function createEngine(type) {
-  engine = new CraftingEngine(modData, type, desecData);
-  undoStack = [];
-  redoStack = [];
+// Reset all omen-related UI state to a clean slate. Called whenever the active
+// item is swapped out from under the UI (new engine, or an item loaded from the
+// stash) so leftover armed omens can't leak onto the new item. Both call sites
+// (createEngine + loadFromStash) share this so they can't drift apart again.
+function resetOmenState() {
   selectedOmens.clear();
   omenOfLightActive = false;
   selectedCraftOmen = null;
   if (elements.omenBtns) elements.omenBtns.forEach(b => b.classList.remove('active'));
   if (elements.craftOmenBtns) elements.craftOmenBtns.forEach(b => b.classList.remove('active'));
+}
+
+function createEngine(type) {
+  engine = new CraftingEngine(modData, type, desecData);
+  undoStack = [];
+  redoStack = [];
+  resetOmenState();
   clearDesecration();
   renderItem();
 }
@@ -1686,6 +1694,7 @@ function loadFromStash(index) {
   undoStack = [];
   redoStack = [];
   disarmCurrency();
+  resetOmenState();
   clearDesecration();
   // Re-show the Reveal panel (via renderItem) when an unrevealed desecration was
   // restored; set desecState AFTER clearDesecration, mirroring restoreSnapshot.
