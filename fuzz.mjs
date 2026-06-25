@@ -1,4 +1,4 @@
-// fuzz.mjs — engine fuzz harness for the PoE2 jewel crafting engine.
+// fuzz.mjs - engine fuzz harness for the PoE2 jewel crafting engine.
 // Run: node fuzz.mjs [iterations]
 // Exercises every public CraftingEngine method across random crafting
 // sequences and reports "Exceptions: 0". Any thrown error is captured with a
@@ -7,11 +7,21 @@ import { readFileSync } from 'node:fs';
 import CraftingEngine from './crafting.js';
 
 const here = new URL('.', import.meta.url);
-const modData   = JSON.parse(readFileSync(new URL('data/jewel-mods.v2.json', here)));
+
+// Build the engine's mod data straight from the per-base source files in
+// data/bases/ (the same files build_data.ps1 compiles into mods.data.js).
+// Previously this loaded the legacy aggregated data/jewel-mods.v2.json, which
+// has been removed now that each base owns its own JSON.
+const BASES = ['ruby', 'emerald', 'sapphire'];
+const modData = Object.fromEntries(
+  BASES.map((id) => [id, JSON.parse(readFileSync(new URL(`data/bases/${id}.json`, here)))])
+);
 const desecData = JSON.parse(readFileSync(new URL('data/desecrated-mods.json', here)));
 
-const BASES = ['ruby', 'emerald', 'sapphire'];
-const BONES = ['gnawed_cranium', 'preserved_cranium', 'ancient_cranium'];
+// Cranium is the only jewel bone in PoE2, and only the Preserved quality exists
+// for Craniums (Gnawed/Ancient are Jawbone/Rib/Collarbone bones that don't apply
+// to jewels). So the jewel fuzzer only ever uses preserved_cranium.
+const BONES = ['preserved_cranium'];
 const OMEN_SETS = [
   [], ['sinistral_necromancy'], ['dextral_necromancy'],
   ['abyssal_echoes'], ['sinistral_necromancy', 'abyssal_echoes'],
