@@ -69,6 +69,14 @@ class CraftingEngine {
     if (!Array.isArray(this._item.prefixes)) this._item.prefixes = [];
     if (!Array.isArray(this._item.suffixes)) this._item.suffixes = [];
     if (this._item.sanctified == null) this._item.sanctified = false;
+    if (this._item.ilvl == null) this._item.ilvl = 83;
+    // Rebuild the ilvl-eligible candidate pools to match the loaded item's Item
+    // Level. Without this, an item loaded from the stash (or restored by
+    // undo/redo) keeps whatever ilvl the engine was constructed with (the blank
+    // default of 83), letting tiers that should be ineligible roll on later
+    // crafts — and hiding tiers that should be available at a higher ilvl.
+    this._prefixCandidates = this._buildCandidatePool(this._prefixPool, 'prefix');
+    this._suffixCandidates = this._buildCandidatePool(this._suffixPool, 'suffix');
     // Optionally restore a pending (unrevealed) desecration so undo/redo can
     // bring the Reveal step back exactly as it was.
     this._pendingDesecration = pending ? structuredClone(pending) : null;
