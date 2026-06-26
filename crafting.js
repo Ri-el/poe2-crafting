@@ -280,9 +280,7 @@ class CraftingEngine {
     }
 
     const rerollable = this._allModEntries().filter(({ mod }) => !mod.fractured);
-    const lineHasRange = (l) =>
-      (l.min != null && l.max != null && l.min !== l.max) ||
-      (Array.isArray(l.vals) && l.vals.some(s => s.min != null && s.max != null && s.min !== s.max));
+    const lineHasRange = (l) => l.min != null && l.max != null && l.min !== l.max;
     const modHasRange = (mod) =>
       (mod.min != null && mod.max != null && mod.min !== mod.max) ||
       (Array.isArray(mod.lines) && mod.lines.some(lineHasRange));
@@ -293,22 +291,15 @@ class CraftingEngine {
       if (Array.isArray(mod.lines) && mod.lines.length) {
         let changed = false;
         for (const l of mod.lines) {
-          if (Array.isArray(l.vals) && l.vals.length) {
-            l.values = l.vals.map(s => this._rollSpec(s.min, s.max, 0));
-            let text = l.modLine || '';
-            l.values.forEach((v, idx) => { text = text.replaceAll(`{${idx}}`, v); });
-            l.text = text;
-            l.value = l.values[0]; l.min = l.vals[0].min; l.max = l.vals[0].max;
-            changed = true;
-          } else if (lineHasRange(l)) {
-            l.value = this._rollSpec(l.min, l.max, 0);
+          if (lineHasRange(l)) {
+            l.value = this._randomInt(l.min, l.max);
             l.text = l.modLine.replaceAll('{0}', l.value);
             changed = true;
           }
         }
         if (changed) mod.displayText = mod.lines.map(l => l.text).join('\n');
       } else if (mod.min != null && mod.max != null && mod.min !== mod.max) {
-        mod.value = this._rollSpec(mod.min, mod.max, 0);
+        mod.value = this._randomInt(mod.min, mod.max);
         mod.displayText = mod.modLine.replaceAll('{0}', mod.value);
       }
     }
@@ -700,21 +691,8 @@ class CraftingEngine {
   // the Well of Souls uses. Mirrors _applyMod but does not mutate the item.
   _materializeNormal(candidate, side) {
     const { group, tier } = candidate;
-    if (Array.isArray(tier.lines) && tier.lines.length) {
-      const lines = tier.lines.map(ln => this._rollLineTemplate(ln, 0));
-      return {
-        modGroup: group.modGroup,
-        tier: tier.tier,
-        tierName: tier.name,
-        ilvlReq: tier.ilvlReq,
-        lines,
-        displayText: lines.map(l => l.text).join('\n'),
-        fractured: false,
-        affix: side,
-      };
-    }
     const hasRange = tier.min != null && tier.max != null;
-    const value = hasRange ? this._rollSpec(tier.min, tier.max, 0) : null;
+    const value = hasRange ? this._randomInt(tier.min, tier.max) : null;
     const displayText = tier.modLine
       ? (value != null ? tier.modLine.replaceAll('{0}', value) : tier.modLine)
       : 'Unknown Mod';
@@ -733,53 +711,14 @@ class CraftingEngine {
     };
   }
 
-  // Roll one value spec [min,max] with optional quality bias (0..1) that lifts
-  // the low end toward max (Greater/Perfect orbs). Fixed specs (min===max) and
-  // null specs return the obvious result.
-  _rollSpec(min, max, quality = 0) {
-    if (min == null || max == null) return null;
-    if (min === max) return min;
-    // Many gear mods use FRACTIONAL ranges (e.g. "2.1 to 3 Life Regeneration").
-    // _randomInt only steps by whole integers, so roll on an integer grid scaled
-    // to the range's decimal precision, then scale back. quality (0..1) lifts the
-    // low end toward max for Greater/Perfect orbs.
-    const decimals = (x) => { const s = String(x); const d = s.indexOf('.'); return d < 0 ? 0 : s.length - d - 1; };
-    const p = Math.max(decimals(min), decimals(max));
-    const scale = Math.pow(10, p);
-    const lo = Math.round(min * scale);
-    const hi = Math.round(max * scale);
-    const span = hi - lo;
-    if (span <= 0) return min;
-    const floorK = quality > 0 ? Math.ceil(span * quality) : 0;
-    const k = floorK + this._randomInt(0, Math.max(0, span - floorK));
-    return (lo + k) / scale;
-  }
-
-  // Roll a stat-line template that may carry EITHER a single {0} placeholder
-  // (min/max) or several placeholders {0},{1},... described by a `vals` array of
-  // { min, max } specs (e.g. "Adds {0} to {1} Fire Damage", or a hybrid mod
-  // whose stat lines were joined into one template). value/min/max keep pointing
-  // at the FIRST placeholder so the single-value range checks (and the fuzz
-  // harness) still validate it, while `values`/`vals` carry every placeholder
-  // for divine reroll, sanctification, and display.
-  _rollLineTemplate(ln, quality = 0) {
-    if (Array.isArray(ln.vals) && ln.vals.length) {
-      const vals = ln.vals.map(s => ({ min: s.min, max: s.max }));
-      const values = vals.map(s => this._rollSpec(s.min, s.max, quality));
-      let text = ln.modLine || '';
-      values.forEach((v, idx) => { text = text.replaceAll(`{${idx}}`, v); });
-      return { modLine: ln.modLine, vals, values, value: values[0], min: vals[0].min, max: vals[0].max, text };
-    }
-    const value = this._rollSpec(ln.min, ln.max, quality);
+  // Build a single rolled stat line from a { modLine, min, max } template.
+  _materializeLine(ln) {
+    const hasRange = ln.min != null && ln.max != null;
+    const value = hasRange ? this._randomInt(ln.min, ln.max) : null;
     const text = ln.modLine
       ? (value != null ? ln.modLine.replaceAll('{0}', value) : ln.modLine)
       : '';
     return { modLine: ln.modLine, min: ln.min, max: ln.max, value, text };
-  }
-
-  // Build a single rolled stat line from a template (single- or multi-value).
-  _materializeLine(ln) {
-    return this._rollLineTemplate(ln, 0);
   }
 
   _materializeDesecrated(c, side) {
@@ -931,27 +870,13 @@ class CraftingEngine {
   }
 
   _applyMod(type, group, tier, quality = 0) {
-    if (Array.isArray(tier.lines) && tier.lines.length) {
-      const lines = tier.lines.map(ln => this._rollLineTemplate(ln, quality));
-      const multiRecord = {
-        modGroup: group.modGroup,
-        tier: tier.tier,
-        tierName: tier.name,
-        ilvlReq: tier.ilvlReq,
-        lines,
-        displayText: lines.map(l => l.text).join('\n'),
-        fractured: false,
-      };
-      if (type === 'prefix') this._item.prefixes.push(multiRecord);
-      else this._item.suffixes.push(multiRecord);
-      return { ...multiRecord, type };
-    }
     const hasRange = tier.min != null && tier.max != null;
     // `quality` (0..1) raises the low end of the roll toward max, so Greater and
     // Perfect orbs land in the upper part of the mod's value range.
     let value = null;
     if (hasRange) {
-      value = this._rollSpec(tier.min, tier.max, quality);
+      const lo = quality > 0 ? Math.ceil(tier.min + (tier.max - tier.min) * quality) : tier.min;
+      value = this._randomInt(Math.min(lo, tier.max), tier.max);
     }
     const displayText = tier.modLine
       ? (value != null ? tier.modLine.replaceAll('{0}', value) : tier.modLine)
@@ -1020,13 +945,7 @@ class CraftingEngine {
       if (mod.fractured) continue;
       if (Array.isArray(mod.lines) && mod.lines.length) {
         for (const l of mod.lines) {
-          if (Array.isArray(l.vals) && Array.isArray(l.values)) {
-            l.values = l.values.map(v => sanctify(v));
-            let text = l.modLine || '';
-            l.values.forEach((v, idx) => { text = text.replaceAll(`{${idx}}`, v); });
-            l.text = text;
-            l.value = l.values[0];
-          } else if (l.value != null && l.modLine) {
+          if (l.value != null && l.modLine) {
             l.value = sanctify(l.value);
             l.text = l.modLine.replaceAll('{0}', l.value);
           }
@@ -1044,16 +963,9 @@ class CraftingEngine {
     const pool = this._vaalCorruptedPool;
     if (!pool || pool.length === 0) return null;
     const selected = pool[this._randomInt(0, pool.length - 1)];
-    let text;
-    if (Array.isArray(selected.vals) && selected.vals.length) {
-      const values = selected.vals.map(s => this._randomInt(s.min, s.max));
-      text = selected.modLine || '';
-      values.forEach((v, idx) => { text = text.replaceAll(`{${idx}}`, v); });
-    } else {
-      const hasRange = selected.min != null && selected.max != null;
-      const value = hasRange ? this._rollSpec(selected.min, selected.max, 0) : null;
-      text = value != null ? selected.modLine.replaceAll('{0}', value) : selected.modLine;
-    }
+    const hasRange = selected.min != null && selected.max != null;
+    const value = hasRange ? this._randomInt(selected.min, selected.max) : null;
+    const text = value != null ? selected.modLine.replaceAll('{0}', value) : selected.modLine;
     return { text, mod: { type: 'corrupted', modGroup: selected.modGroup, displayText: text } };
   }
 
