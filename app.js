@@ -428,6 +428,11 @@ function setupEventListeners() {
       // corrupted result always drops it (nothing more can be applied).
       if (!shiftKey || result.item.corrupted || result.item.sanctified) disarmCurrency();
     } else {
+      // A blocked/failed application consumes nothing, but the held currency
+      // must not stay glued to the cursor. Drop it back automatically (hold
+      // SHIFT to keep it in hand and try another slot), mirroring the success
+      // path so an invalid currency never trails the pointer.
+      if (!shiftKey) disarmCurrency();
       playSound('error');
       triggerErrorAnimation();
       showError(result.error);
@@ -873,8 +878,17 @@ function startDesecrationFlow(bone = 'preserved_cranium') {
   // Abyssal Echoes is activated at reveal time (not now), so don't count it here.
   selectedOmens.forEach((o) => { if (o !== 'abyssal_echoes') engine.recordCurrencyUse(o); });
   engine.clearHinekoraLock();
+  // Keep Abyssal Echoes armed through the reveal: it is consumed at the Well of
+  // Souls (the reroll), NOT when the bone is used. Clearing every omen here is
+  // what stopped the reroll button from ever appearing. Drop only the other
+  // (directional / one-shot) omens and leave abyssal_echoes + its button active.
+  const keepEchoes = selectedOmens.has('abyssal_echoes');
   selectedOmens.clear();
-  elements.omenBtns.forEach(b => b.classList.remove('active'));
+  if (keepEchoes) selectedOmens.add('abyssal_echoes');
+  elements.omenBtns.forEach(b => {
+    if (b.dataset.omen === 'abyssal_echoes') return;
+    b.classList.remove('active');
+  });
 
   desecState = { side: res.side, mode: res.mode, rerollsLeft: 1, options: res.options, abyssalUsed: false };
   playSound('desecration');
@@ -1253,6 +1267,9 @@ function clearForesightPreview() {
 function commitForesight(currency) {
   const seal = foreseenSeals[currency] || computeForesight(currency);
   if (!seal.afterItem) {
+    // A foreseen currency that would do nothing must not stay stuck on the
+    // cursor either -- drop it back like every other blocked application.
+    disarmCurrency();
     playSound('error');
     triggerErrorAnimation();
     showError((seal.result && seal.result.error) || 'Nothing to foresee.');

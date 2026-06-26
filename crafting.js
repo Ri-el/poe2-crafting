@@ -378,14 +378,23 @@ class CraftingEngine {
   applyFracturing() {
     const err = this._checkCorrupted(); if (err) return err;
     if (this._item.rarity !== 'rare') return this._fail('Fracturing Orb can only be used on Rare items.');
-    // Exclude UNREVEALED placeholders (pending Desecrated mod / Mark of the
-    // Abyssal Lord) from both the 4-mod requirement and the fracture pick: they
-    // are not real, revealed modifiers, so fracturing must never land on one
-    // (which would "succeed" while leaving the item with no fractured mod).
-    const allMods = this._allModEntries().filter(e => !e.mod.unrevealed);
-    if (allMods.length < 4) return this._fail('Fracturing Orb requires a Rare item with 4 modifiers.');
-    if (allMods.some(e => e.mod.fractured)) return this._fail('Item already has a fractured modifier.');
-    const pick = allMods[this._randomInt(0, allMods.length - 1)];
+    // A full Rare item has 4 modifier SLOTS. An UNREVEALED placeholder (a pending
+    // Desecrated mod or the Mark of the Abyssal Lord) still occupies a slot, so it
+    // counts toward the "4 modifiers" requirement. Previously it was filtered out
+    // before this check, so a fully-modded jewel that had just been desecrated
+    // (3 revealed + 1 pending) wrongly read as only 3 mods and the orb refused.
+    const allEntries = this._allModEntries();
+    if (allEntries.length < 4) return this._fail('Fracturing Orb requires a Rare item with 4 modifiers.');
+    if (allEntries.some(e => e.mod.fractured)) return this._fail('Item already has a fractured modifier.');
+    // ...but fracturing can only LAND on a real, REVEALED modifier — never the
+    // unrevealed placeholder (that would "succeed" while leaving nothing
+    // fractured). With a pending Desecrated mod present, the fracture is chosen
+    // from the 3 revealed mods (1-in-3), not 1-in-4.
+    const fracturable = allEntries.filter(e => !e.mod.unrevealed);
+    if (fracturable.length === 0) {
+      return this._fail('Reveal the Desecrated modifier before fracturing this item.');
+    }
+    const pick = fracturable[this._randomInt(0, fracturable.length - 1)];
     pick.mod.fractured = true;
     return this._success({ action: 'fracture', fracturedMod: { ...pick.mod, type: pick.type }, previousRarity: 'rare' });
   }
