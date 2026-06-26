@@ -1,6 +1,6 @@
 (function () { "use strict";
 // ============================================================
-//  Item Category Selection Screen  (UI ONLY — no craft logic)
+//  Item Category Selection Screen
 //
 //  Icons auto-load from /assets/icons/<icon>.png. Until a PNG
 //  exists, a glyph fallback is shown. Just drop files named
@@ -8,6 +8,13 @@
 //
 //  Naming pattern for attribute variants: <base>_<attr>.png
 //  e.g. gloves_str.png, gloves_str_dex.png, body_armours_str_dex_int.png
+//
+//  ALL BASES RELEASED: every category is playable. Clicking a simple
+//  category loads that base's mod pool directly; an armour category
+//  with attribute variants opens its variant grid, and each variant
+//  loads its own base (e.g. gloves_str). Jewels are special -- they
+//  enter the jewel crafter and use the in-craft Ruby/Sapphire/Emerald
+//  header selector to swap sub-bases.
 // ============================================================
 
 const ATTR_LABELS = {
@@ -24,8 +31,8 @@ const ARMOUR_ATTRS = ['str', 'dex', 'int', 'str_dex', 'str_int', 'dex_int'];
 const BODY_ATTRS = ['str', 'dex', 'int', 'str_dex', 'str_int', 'dex_int', 'str_dex_int'];
 const SHIELD_ATTRS = ['str', 'str_dex', 'str_int'];
 
-// Build attribute variants for a base item.
-// TODO: fill `bestBase` with the best base item per attribute when known.
+// Build attribute variants for a base item. Each variant id matches a compiled
+// base file in data/bases (e.g. gloves_str.json -> id 'gloves_str').
 function variants(base, attrs) {
   return attrs.map((a) => ({
     id: base + '_' + a,
@@ -45,61 +52,61 @@ const CATEGORIES = [
   {
     group: 'Jewellery',
     items: [
-      { id: 'amulets', name: 'Amulets', icon: 'amulets', status: 'soon' },
-      { id: 'rings', name: 'Rings', icon: 'rings', status: 'soon' },
-      { id: 'belts', name: 'Belts', icon: 'belts', status: 'soon' },
+      { id: 'amulets', name: 'Amulets', icon: 'amulets', status: 'active' },
+      { id: 'rings', name: 'Rings', icon: 'rings', status: 'active' },
+      { id: 'belts', name: 'Belts', icon: 'belts', status: 'active' },
     ],
   },
   {
     group: 'Armour',
     items: [
-      { id: 'gloves', name: 'Gloves', icon: 'gloves', status: 'soon', variants: variants('gloves', ARMOUR_ATTRS) },
-      { id: 'boots', name: 'Boots', icon: 'boots', status: 'soon', variants: variants('boots', ARMOUR_ATTRS) },
-      { id: 'body_armours', name: 'Body Armours', icon: 'body_armours', status: 'soon', variants: variants('body_armours', BODY_ATTRS) },
-      { id: 'helmets', name: 'Helmets', icon: 'helmets', status: 'soon', variants: variants('helmets', ARMOUR_ATTRS) },
+      { id: 'gloves', name: 'Gloves', icon: 'gloves', status: 'active', variants: variants('gloves', ARMOUR_ATTRS) },
+      { id: 'boots', name: 'Boots', icon: 'boots', status: 'active', variants: variants('boots', ARMOUR_ATTRS) },
+      { id: 'body_armours', name: 'Body Armours', icon: 'body_armours', status: 'active', variants: variants('body_armours', BODY_ATTRS) },
+      { id: 'helmets', name: 'Helmets', icon: 'helmets', status: 'active', variants: variants('helmets', ARMOUR_ATTRS) },
     ],
   },
   {
     group: 'Off-hand',
     items: [
-      { id: 'quivers', name: 'Quivers', icon: 'quivers', status: 'soon' },
-      { id: 'shields', name: 'Shields', icon: 'shields', status: 'soon', variants: variants('shields', SHIELD_ATTRS) },
-      { id: 'bucklers', name: 'Bucklers', icon: 'bucklers', status: 'soon' },
-      { id: 'foci', name: 'Foci', icon: 'foci', status: 'soon' },
+      { id: 'quivers', name: 'Quivers', icon: 'quivers', status: 'active' },
+      { id: 'shields', name: 'Shields', icon: 'shields', status: 'active', variants: variants('shields', SHIELD_ATTRS) },
+      { id: 'bucklers', name: 'Bucklers', icon: 'bucklers', status: 'active' },
+      { id: 'foci', name: 'Foci', icon: 'foci', status: 'active' },
     ],
   },
   {
     group: 'One-Handed Weapons',
     items: [
-      { id: 'claws', name: 'Claws', icon: 'claws', status: 'soon' },
-      { id: 'daggers', name: 'Daggers', icon: 'daggers', status: 'soon' },
-      { id: 'wands', name: 'Wands', icon: 'wands', status: 'soon' },
-      { id: 'one_hand_swords', name: 'One Hand Swords', icon: 'one_hand_swords', status: 'soon' },
-      { id: 'one_hand_axes', name: 'One Hand Axes', icon: 'one_hand_axes', status: 'soon' },
-      { id: 'one_hand_maces', name: 'One Hand Maces', icon: 'one_hand_maces', status: 'soon' },
-      { id: 'sceptres', name: 'Sceptres', icon: 'sceptres', status: 'soon' },
-      { id: 'spears', name: 'Spears', icon: 'spears', status: 'soon' },
-      { id: 'flails', name: 'Flails', icon: 'flails', status: 'soon' },
+      { id: 'claws', name: 'Claws', icon: 'claws', status: 'active' },
+      { id: 'daggers', name: 'Daggers', icon: 'daggers', status: 'active' },
+      { id: 'wands', name: 'Wands', icon: 'wands', status: 'active' },
+      { id: 'one_hand_swords', name: 'One Hand Swords', icon: 'one_hand_swords', status: 'active' },
+      { id: 'one_hand_axes', name: 'One Hand Axes', icon: 'one_hand_axes', status: 'active' },
+      { id: 'one_hand_maces', name: 'One Hand Maces', icon: 'one_hand_maces', status: 'active' },
+      { id: 'sceptres', name: 'Sceptres', icon: 'sceptres', status: 'active' },
+      { id: 'spears', name: 'Spears', icon: 'spears', status: 'active' },
+      { id: 'flails', name: 'Flails', icon: 'flails', status: 'active' },
     ],
   },
   {
     group: 'Two-Handed Weapons',
     items: [
-      { id: 'bows', name: 'Bows', icon: 'bows', status: 'soon' },
-      { id: 'staves', name: 'Staves', icon: 'staves', status: 'soon' },
-      { id: 'two_hand_swords', name: 'Two Hand Swords', icon: 'two_hand_swords', status: 'soon' },
-      { id: 'two_hand_axes', name: 'Two Hand Axes', icon: 'two_hand_axes', status: 'soon' },
-      { id: 'two_hand_maces', name: 'Two Hand Maces', icon: 'two_hand_maces', status: 'soon' },
-      { id: 'quarterstaves', name: 'Quarterstaves', icon: 'quarterstaves', status: 'soon' },
-      { id: 'crossbows', name: 'Crossbows', icon: 'crossbows', status: 'soon' },
+      { id: 'bows', name: 'Bows', icon: 'bows', status: 'active' },
+      { id: 'staves', name: 'Staves', icon: 'staves', status: 'active' },
+      { id: 'two_hand_swords', name: 'Two Hand Swords', icon: 'two_hand_swords', status: 'active' },
+      { id: 'two_hand_axes', name: 'Two Hand Axes', icon: 'two_hand_axes', status: 'active' },
+      { id: 'two_hand_maces', name: 'Two Hand Maces', icon: 'two_hand_maces', status: 'active' },
+      { id: 'quarterstaves', name: 'Quarterstaves', icon: 'quarterstaves', status: 'active' },
+      { id: 'crossbows', name: 'Crossbows', icon: 'crossbows', status: 'active' },
     ],
   },
   {
     group: 'Flasks & Charms',
     items: [
-      { id: 'life_flasks', name: 'Life Flasks', icon: 'life_flasks', status: 'soon' },
-      { id: 'mana_flasks', name: 'Mana Flasks', icon: 'mana_flasks', status: 'soon' },
-      { id: 'charms', name: 'Charms', icon: 'charms', status: 'soon' },
+      { id: 'life_flasks', name: 'Life Flasks', icon: 'life_flasks', status: 'active' },
+      { id: 'mana_flasks', name: 'Mana Flasks', icon: 'mana_flasks', status: 'active' },
+      { id: 'charms', name: 'Charms', icon: 'charms', status: 'active' },
     ],
   },
 ];
@@ -122,7 +129,7 @@ function iconEl(name) {
     img.remove();
     const glyph = document.createElement('span');
     glyph.className = 'cat-ico-glyph';
-    glyph.textContent = '◆';
+    glyph.textContent = '\u25C6';
     wrap.appendChild(glyph);
   });
   wrap.appendChild(img);
@@ -132,13 +139,12 @@ function iconEl(name) {
 function buildCard(item) {
   const hasVariants = Array.isArray(item.variants) && item.variants.length > 0;
   const active = item.status === 'active';
-  const clickable = active || hasVariants;
 
   const card = document.createElement('button');
   card.type = 'button';
-  card.className = 'cat-card' + (active ? ' is-active' : '') + (clickable ? '' : ' is-disabled');
-  if (!clickable) card.disabled = true;
-  if (!active) card.title = 'Coming soon';
+  // Every released category is clickable. Variant categories open their
+  // attribute grid; everything else jumps straight into the crafter.
+  card.className = 'cat-card' + (active ? ' is-active' : '');
 
   card.appendChild(iconEl(item.icon));
 
@@ -147,8 +153,7 @@ function buildCard(item) {
   label.textContent = item.name;
   card.appendChild(label);
 
-  // Only the playable category shows a badge; “coming soon” cards are
-  // communicated by their dimmed styling (keeps the screen compact).
+  // Now that every base is released, every card wears the green "Playable" tag.
   if (active) {
     const badge = document.createElement('span');
     badge.className = 'cat-badge badge-ready';
@@ -157,8 +162,8 @@ function buildCard(item) {
   }
 
   card.addEventListener('click', () => {
-    if (active) enterCraft();
-    else if (hasVariants) renderVariants(item);
+    if (hasVariants) renderVariants(item);
+    else enterCraft(item.id, item.name);
   });
 
   return card;
@@ -184,22 +189,23 @@ function renderCategories() {
 
 function renderVariants(item) {
   if (selectHeading) selectHeading.textContent = item.name;
-  if (selectSub) selectSub.textContent = 'Best base per attribute requirement.';
+  if (selectSub) selectSub.textContent = 'Pick an attribute base to craft.';
   root.innerHTML = '';
 
   const back = document.createElement('button');
   back.type = 'button';
   back.className = 'variant-back';
-  back.textContent = '← All categories';
+  back.textContent = '\u2190 All categories';
   back.addEventListener('click', renderCategories);
   root.appendChild(back);
 
   const grid = document.createElement('div');
   grid.className = 'cat-grid variant-grid';
   for (const v of item.variants) {
-    const card = document.createElement('div');
-    card.className = 'cat-card variant-card is-disabled';
-    card.title = 'Coming soon';
+    const card = document.createElement('button');
+    card.type = 'button';
+    // Variant cards are now live: each loads its own base (gloves_str, ...).
+    card.className = 'cat-card variant-card is-active';
 
     card.appendChild(iconEl(v.icon));
 
@@ -210,8 +216,10 @@ function renderVariants(item) {
 
     const base = document.createElement('span');
     base.className = 'variant-base';
-    base.textContent = v.bestBase ? 'Best base: ' + v.bestBase : 'Best base — TBD';
+    base.textContent = v.bestBase ? 'Best base: ' + v.bestBase : v.name;
     card.appendChild(base);
+
+    card.addEventListener('click', () => enterCraft(v.id, item.name));
 
     grid.appendChild(card);
   }
@@ -219,7 +227,14 @@ function renderVariants(item) {
   window.scrollTo(0, 0);
 }
 
-function enterCraft() {
+// Hand the chosen base to the crafter (app.js). If its data isn't available the
+// bridge returns false and we stay on the select screen rather than opening an
+// empty crafter.
+function enterCraft(baseId, classLabel) {
+  if (window.CraftForge && typeof window.CraftForge.loadBase === 'function') {
+    const ok = window.CraftForge.loadBase(baseId, classLabel);
+    if (ok === false) return;
+  }
   craftView.hidden = false;
   selectView.hidden = true;
   window.scrollTo(0, 0);
