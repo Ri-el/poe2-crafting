@@ -1,5 +1,1993 @@
 {
-  "name": "Wands",
-  "prefixes": [],
-  "suffixes": []
+  "name": "Wand",
+  "prefixes": [
+    {
+      "modGroup": "ColdDamage",
+      "tiers": [
+        {
+          "weight": 500,
+          "tier": 1,
+          "ilvlReq": 80,
+          "modLine": "Gain {0}% of Damage as Extra Cold Damage",
+          "name": "Cold Damage",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "Gain {0}% of Damage as Extra Cold Damage",
+          "name": "Cold Damage",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 46,
+          "modLine": "Gain {0}% of Damage as Extra Cold Damage",
+          "name": "Cold Damage",
+          "min": 22,
+          "max": 24
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 33,
+          "modLine": "Gain {0}% of Damage as Extra Cold Damage",
+          "name": "Cold Damage",
+          "min": 19,
+          "max": 21
+        },
+        {
+          "weight": 500,
+          "tier": 5,
+          "ilvlReq": 16,
+          "modLine": "Gain {0}% of Damage as Extra Cold Damage",
+          "name": "Cold Damage",
+          "min": 16,
+          "max": 18
+        },
+        {
+          "weight": 500,
+          "tier": 6,
+          "ilvlReq": 5,
+          "modLine": "Gain {0}% of Damage as Extra Cold Damage",
+          "name": "Cold Damage",
+          "min": 13,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "FireDamage",
+      "tiers": [
+        {
+          "weight": 500,
+          "tier": 1,
+          "ilvlReq": 80,
+          "modLine": "Gain {0}% of Damage as Extra Fire Damage",
+          "name": "Fire Damage",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "Gain {0}% of Damage as Extra Fire Damage",
+          "name": "Fire Damage",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 46,
+          "modLine": "Gain {0}% of Damage as Extra Fire Damage",
+          "name": "Fire Damage",
+          "min": 22,
+          "max": 24
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 33,
+          "modLine": "Gain {0}% of Damage as Extra Fire Damage",
+          "name": "Fire Damage",
+          "min": 19,
+          "max": 21
+        },
+        {
+          "weight": 500,
+          "tier": 5,
+          "ilvlReq": 16,
+          "modLine": "Gain {0}% of Damage as Extra Fire Damage",
+          "name": "Fire Damage",
+          "min": 16,
+          "max": 18
+        },
+        {
+          "weight": 500,
+          "tier": 6,
+          "ilvlReq": 5,
+          "modLine": "Gain {0}% of Damage as Extra Fire Damage",
+          "name": "Fire Damage",
+          "min": 13,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedMana",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 70,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 150,
+          "max": 164
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 65,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 125,
+          "max": 149
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 60,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 105,
+          "max": 124
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 54,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 90,
+          "max": 104
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 46,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 80,
+          "max": 89
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 38,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 65,
+          "max": 79
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 33,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 55,
+          "max": 64
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 25,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 35,
+          "max": 54
+        },
+        {
+          "weight": 1000,
+          "tier": 9,
+          "ilvlReq": 16,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 25,
+          "max": 34
+        },
+        {
+          "weight": 1000,
+          "tier": 10,
+          "ilvlReq": 6,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 15,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 11,
+          "ilvlReq": 1,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "LightningDamage",
+      "tiers": [
+        {
+          "weight": 500,
+          "tier": 1,
+          "ilvlReq": 80,
+          "modLine": "Gain {0}% of Damage as Extra Lightning Damage",
+          "name": "Lightning Damage",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "Gain {0}% of Damage as Extra Lightning Damage",
+          "name": "Lightning Damage",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 46,
+          "modLine": "Gain {0}% of Damage as Extra Lightning Damage",
+          "name": "Lightning Damage",
+          "min": 22,
+          "max": 24
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 33,
+          "modLine": "Gain {0}% of Damage as Extra Lightning Damage",
+          "name": "Lightning Damage",
+          "min": 19,
+          "max": 21
+        },
+        {
+          "weight": 500,
+          "tier": 5,
+          "ilvlReq": 16,
+          "modLine": "Gain {0}% of Damage as Extra Lightning Damage",
+          "name": "Lightning Damage",
+          "min": 16,
+          "max": 18
+        },
+        {
+          "weight": 500,
+          "tier": 6,
+          "ilvlReq": 5,
+          "modLine": "Gain {0}% of Damage as Extra Lightning Damage",
+          "name": "Lightning Damage",
+          "min": 13,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "SpellDamageAndMana",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 80,
+          "name": "Spell Damage And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 45,
+                  "max": 49
+                },
+                {
+                  "min": 42,
+                  "max": 45
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 200,
+          "tier": 2,
+          "ilvlReq": 60,
+          "name": "Spell Damage And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 40,
+                  "max": 44
+                },
+                {
+                  "min": 38,
+                  "max": 41
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 400,
+          "tier": 3,
+          "ilvlReq": 46,
+          "name": "Spell Damage And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 35,
+                  "max": 39
+                },
+                {
+                  "min": 34,
+                  "max": 37
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 600,
+          "tier": 4,
+          "ilvlReq": 38,
+          "name": "Spell Damage And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 30,
+                  "max": 34
+                },
+                {
+                  "min": 29,
+                  "max": 33
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 23,
+          "name": "Spell Damage And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 25,
+                  "max": 29
+                },
+                {
+                  "min": 25,
+                  "max": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 11,
+          "name": "Spell Damage And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 20,
+                  "max": 24
+                },
+                {
+                  "min": 21,
+                  "max": 24
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 2,
+          "name": "Spell Damage And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 15,
+                  "max": 19
+                },
+                {
+                  "min": 17,
+                  "max": 20
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "WeaponCasterDamagePrefix",
+      "tiers": [
+        {
+          "weight": 50,
+          "tier": 1,
+          "ilvlReq": 80,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Weapon Caster Damage Prefix",
+          "min": 105,
+          "max": 119
+        },
+        {
+          "weight": 100,
+          "tier": 2,
+          "ilvlReq": 70,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Weapon Caster Damage Prefix",
+          "min": 90,
+          "max": 104
+        },
+        {
+          "weight": 200,
+          "tier": 3,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Weapon Caster Damage Prefix",
+          "min": 75,
+          "max": 89
+        },
+        {
+          "weight": 400,
+          "tier": 4,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Weapon Caster Damage Prefix",
+          "min": 65,
+          "max": 74
+        },
+        {
+          "weight": 600,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Weapon Caster Damage Prefix",
+          "min": 55,
+          "max": 64
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Weapon Caster Damage Prefix",
+          "min": 45,
+          "max": 54
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 8,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Weapon Caster Damage Prefix",
+          "min": 35,
+          "max": 44
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Weapon Caster Damage Prefix",
+          "min": 25,
+          "max": 34
+        }
+      ]
+    },
+    {
+      "modGroup": "WeaponDamageTypePrefix",
+      "tiers": [
+        {
+          "weight": 50,
+          "tier": 1,
+          "ilvlReq": 81,
+          "modLine": "{0}% increased Chaos Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 105,
+          "max": 119
+        },
+        {
+          "weight": 50,
+          "tier": 2,
+          "ilvlReq": 81,
+          "modLine": "{0}% increased Cold Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 105,
+          "max": 119
+        },
+        {
+          "weight": 50,
+          "tier": 3,
+          "ilvlReq": 81,
+          "modLine": "{0}% increased Fire Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 105,
+          "max": 119
+        },
+        {
+          "weight": 50,
+          "tier": 4,
+          "ilvlReq": 81,
+          "modLine": "{0}% increased Lightning Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 105,
+          "max": 119
+        },
+        {
+          "weight": 50,
+          "tier": 5,
+          "ilvlReq": 81,
+          "modLine": "{0}% increased Spell Physical Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 105,
+          "max": 119
+        },
+        {
+          "weight": 100,
+          "tier": 6,
+          "ilvlReq": 70,
+          "modLine": "{0}% increased Chaos Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 90,
+          "max": 104
+        },
+        {
+          "weight": 100,
+          "tier": 7,
+          "ilvlReq": 70,
+          "modLine": "{0}% increased Cold Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 90,
+          "max": 104
+        },
+        {
+          "weight": 100,
+          "tier": 8,
+          "ilvlReq": 70,
+          "modLine": "{0}% increased Fire Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 90,
+          "max": 104
+        },
+        {
+          "weight": 100,
+          "tier": 9,
+          "ilvlReq": 70,
+          "modLine": "{0}% increased Lightning Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 90,
+          "max": 104
+        },
+        {
+          "weight": 100,
+          "tier": 10,
+          "ilvlReq": 70,
+          "modLine": "{0}% increased Spell Physical Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 90,
+          "max": 104
+        },
+        {
+          "weight": 200,
+          "tier": 11,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Chaos Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 75,
+          "max": 89
+        },
+        {
+          "weight": 200,
+          "tier": 12,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Cold Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 75,
+          "max": 89
+        },
+        {
+          "weight": 200,
+          "tier": 13,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Fire Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 75,
+          "max": 89
+        },
+        {
+          "weight": 200,
+          "tier": 14,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Lightning Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 75,
+          "max": 89
+        },
+        {
+          "weight": 200,
+          "tier": 15,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Spell Physical Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 75,
+          "max": 89
+        },
+        {
+          "weight": 300,
+          "tier": 16,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Chaos Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 65,
+          "max": 74
+        },
+        {
+          "weight": 300,
+          "tier": 17,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Cold Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 65,
+          "max": 74
+        },
+        {
+          "weight": 300,
+          "tier": 18,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Fire Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 65,
+          "max": 74
+        },
+        {
+          "weight": 300,
+          "tier": 19,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Lightning Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 65,
+          "max": 74
+        },
+        {
+          "weight": 300,
+          "tier": 20,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Spell Physical Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 65,
+          "max": 74
+        },
+        {
+          "weight": 400,
+          "tier": 21,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Chaos Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 55,
+          "max": 64
+        },
+        {
+          "weight": 400,
+          "tier": 22,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Cold Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 55,
+          "max": 64
+        },
+        {
+          "weight": 400,
+          "tier": 23,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Fire Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 55,
+          "max": 64
+        },
+        {
+          "weight": 400,
+          "tier": 24,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Lightning Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 55,
+          "max": 64
+        },
+        {
+          "weight": 400,
+          "tier": 25,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Spell Physical Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 55,
+          "max": 64
+        },
+        {
+          "weight": 500,
+          "tier": 26,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Chaos Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 45,
+          "max": 54
+        },
+        {
+          "weight": 500,
+          "tier": 27,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Cold Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 45,
+          "max": 54
+        },
+        {
+          "weight": 500,
+          "tier": 28,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Fire Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 45,
+          "max": 54
+        },
+        {
+          "weight": 500,
+          "tier": 29,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Lightning Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 45,
+          "max": 54
+        },
+        {
+          "weight": 500,
+          "tier": 30,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Spell Physical Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 45,
+          "max": 54
+        },
+        {
+          "weight": 500,
+          "tier": 31,
+          "ilvlReq": 8,
+          "modLine": "{0}% increased Chaos Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 35,
+          "max": 44
+        },
+        {
+          "weight": 500,
+          "tier": 32,
+          "ilvlReq": 8,
+          "modLine": "{0}% increased Cold Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 35,
+          "max": 44
+        },
+        {
+          "weight": 500,
+          "tier": 33,
+          "ilvlReq": 8,
+          "modLine": "{0}% increased Fire Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 35,
+          "max": 44
+        },
+        {
+          "weight": 500,
+          "tier": 34,
+          "ilvlReq": 8,
+          "modLine": "{0}% increased Lightning Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 35,
+          "max": 44
+        },
+        {
+          "weight": 500,
+          "tier": 35,
+          "ilvlReq": 8,
+          "modLine": "{0}% increased Spell Physical Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 35,
+          "max": 44
+        },
+        {
+          "weight": 500,
+          "tier": 36,
+          "ilvlReq": 2,
+          "modLine": "{0}% increased Chaos Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 25,
+          "max": 34
+        },
+        {
+          "weight": 500,
+          "tier": 37,
+          "ilvlReq": 2,
+          "modLine": "{0}% increased Cold Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 25,
+          "max": 34
+        },
+        {
+          "weight": 500,
+          "tier": 38,
+          "ilvlReq": 2,
+          "modLine": "{0}% increased Fire Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 25,
+          "max": 34
+        },
+        {
+          "weight": 500,
+          "tier": 39,
+          "ilvlReq": 2,
+          "modLine": "{0}% increased Lightning Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 25,
+          "max": 34
+        },
+        {
+          "weight": 500,
+          "tier": 40,
+          "ilvlReq": 2,
+          "modLine": "{0}% increased Spell Physical Damage",
+          "name": "Weapon Damage Type Prefix",
+          "min": 25,
+          "max": 34
+        }
+      ]
+    }
+  ],
+  "suffixes": [
+    {
+      "modGroup": "CriticalStrikeMultiplier",
+      "tiers": [
+        {
+          "weight": 125,
+          "tier": 1,
+          "ilvlReq": 73,
+          "modLine": "{0}% increased Critical Spell Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 35,
+          "max": 39
+        },
+        {
+          "weight": 250,
+          "tier": 2,
+          "ilvlReq": 59,
+          "modLine": "{0}% increased Critical Spell Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 30,
+          "max": 34
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 44,
+          "modLine": "{0}% increased Critical Spell Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 25,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 30,
+          "modLine": "{0}% increased Critical Spell Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 20,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 21,
+          "modLine": "{0}% increased Critical Spell Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 15,
+          "max": 19
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 8,
+          "modLine": "{0}% increased Critical Spell Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "FreezeDamageIncrease",
+      "tiers": [
+        {
+          "weight": 500,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "{0}% increased Freeze Buildup",
+          "name": "Freeze Damage Increase",
+          "min": 71,
+          "max": 80
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Freeze Buildup",
+          "name": "Freeze Damage Increase",
+          "min": 61,
+          "max": 70
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 45,
+          "modLine": "{0}% increased Freeze Buildup",
+          "name": "Freeze Damage Increase",
+          "min": 51,
+          "max": 60
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 30,
+          "modLine": "{0}% increased Freeze Buildup",
+          "name": "Freeze Damage Increase",
+          "min": 41,
+          "max": 50
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 15,
+          "modLine": "{0}% increased Freeze Buildup",
+          "name": "Freeze Damage Increase",
+          "min": 31,
+          "max": 40
+        }
+      ]
+    },
+    {
+      "modGroup": "IgniteChanceIncrease",
+      "tiers": [
+        {
+          "weight": 500,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "{0}% increased Flammability Magnitude",
+          "name": "Ignite Chance Increase",
+          "min": 91,
+          "max": 100
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Flammability Magnitude",
+          "name": "Ignite Chance Increase",
+          "min": 81,
+          "max": 90
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 45,
+          "modLine": "{0}% increased Flammability Magnitude",
+          "name": "Ignite Chance Increase",
+          "min": 71,
+          "max": 80
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 30,
+          "modLine": "{0}% increased Flammability Magnitude",
+          "name": "Ignite Chance Increase",
+          "min": 61,
+          "max": 70
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 15,
+          "modLine": "{0}% increased Flammability Magnitude",
+          "name": "Ignite Chance Increase",
+          "min": 51,
+          "max": 60
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedCastSpeed",
+      "tiers": [
+        {
+          "weight": 250,
+          "tier": 1,
+          "ilvlReq": 80,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 33,
+          "max": 35
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 70,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 29,
+          "max": 32
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 25,
+          "max": 28
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 45,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 21,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 30,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 15,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 13,
+          "max": 16
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 9,
+          "max": 12
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreaseSocketedGemLevel",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 81,
+          "modLine": "+{0} to Level of all Chaos Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "weight": 100,
+          "tier": 2,
+          "ilvlReq": 81,
+          "modLine": "+{0} to Level of all Cold Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "weight": 100,
+          "tier": 3,
+          "ilvlReq": 81,
+          "modLine": "+{0} to Level of all Fire Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "weight": 100,
+          "tier": 4,
+          "ilvlReq": 81,
+          "modLine": "+{0} to Level of all Lightning Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "weight": 100,
+          "tier": 5,
+          "ilvlReq": 81,
+          "modLine": "+{0} to Level of all Physical Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "weight": 50,
+          "tier": 6,
+          "ilvlReq": 78,
+          "modLine": "+{0} to Level of all Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 4,
+          "max": 4
+        },
+        {
+          "weight": 250,
+          "tier": 7,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Level of all Chaos Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 4,
+          "max": 4
+        },
+        {
+          "weight": 250,
+          "tier": 8,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Level of all Cold Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 4,
+          "max": 4
+        },
+        {
+          "weight": 250,
+          "tier": 9,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Level of all Fire Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 4,
+          "max": 4
+        },
+        {
+          "weight": 250,
+          "tier": 10,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Level of all Lightning Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 4,
+          "max": 4
+        },
+        {
+          "weight": 250,
+          "tier": 11,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Level of all Physical Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 4,
+          "max": 4
+        },
+        {
+          "weight": 100,
+          "tier": 12,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Level of all Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 500,
+          "tier": 13,
+          "ilvlReq": 36,
+          "modLine": "+{0} to Level of all Chaos Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 500,
+          "tier": 14,
+          "ilvlReq": 36,
+          "modLine": "+{0} to Level of all Cold Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 500,
+          "tier": 15,
+          "ilvlReq": 36,
+          "modLine": "+{0} to Level of all Fire Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 500,
+          "tier": 16,
+          "ilvlReq": 36,
+          "modLine": "+{0} to Level of all Lightning Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 500,
+          "tier": 17,
+          "ilvlReq": 36,
+          "modLine": "+{0} to Level of all Physical Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 150,
+          "tier": 18,
+          "ilvlReq": 25,
+          "modLine": "+{0} to Level of all Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 750,
+          "tier": 19,
+          "ilvlReq": 18,
+          "modLine": "+{0} to Level of all Chaos Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 750,
+          "tier": 20,
+          "ilvlReq": 18,
+          "modLine": "+{0} to Level of all Cold Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 750,
+          "tier": 21,
+          "ilvlReq": 18,
+          "modLine": "+{0} to Level of all Fire Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 750,
+          "tier": 22,
+          "ilvlReq": 18,
+          "modLine": "+{0} to Level of all Lightning Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 750,
+          "tier": 23,
+          "ilvlReq": 18,
+          "modLine": "+{0} to Level of all Physical Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 200,
+          "tier": 24,
+          "ilvlReq": 5,
+          "modLine": "+{0} to Level of all Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "weight": 1000,
+          "tier": 25,
+          "ilvlReq": 2,
+          "modLine": "+{0} to Level of all Chaos Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "weight": 1000,
+          "tier": 26,
+          "ilvlReq": 2,
+          "modLine": "+{0} to Level of all Cold Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "weight": 1000,
+          "tier": 27,
+          "ilvlReq": 2,
+          "modLine": "+{0} to Level of all Fire Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "weight": 1000,
+          "tier": 28,
+          "ilvlReq": 2,
+          "modLine": "+{0} to Level of all Lightning Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "weight": 1000,
+          "tier": 29,
+          "ilvlReq": 2,
+          "modLine": "+{0} to Level of all Physical Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "modGroup": "Intelligence",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 74,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 31,
+          "max": 33
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 66,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 21,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 13,
+          "max": 16
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 9,
+          "max": 12
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 5,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "modGroup": "LifeGainedFromEnemyDeath",
+      "tiers": [
+        {
+          "weight": 750,
+          "tier": 1,
+          "ilvlReq": 77,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 69,
+          "max": 84
+        },
+        {
+          "weight": 750,
+          "tier": 2,
+          "ilvlReq": 66,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 54,
+          "max": 68
+        },
+        {
+          "weight": 750,
+          "tier": 3,
+          "ilvlReq": 55,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 41,
+          "max": 53
+        },
+        {
+          "weight": 750,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 29,
+          "max": 40
+        },
+        {
+          "weight": 750,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 19,
+          "max": 28
+        },
+        {
+          "weight": 750,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 10,
+          "max": 18
+        },
+        {
+          "weight": 750,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 7,
+          "max": 9
+        },
+        {
+          "weight": 750,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 4,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "modGroup": "LightRadiusAndManaRegeneration",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 30,
+          "name": "Light Radius And Mana Regeneration",
+          "lines": [
+            {
+              "modLine": "{0}% increased Light Radius, {1}% increased Mana Regeneration Rate",
+              "vals": [
+                {
+                  "min": 15,
+                  "max": 15
+                },
+                {
+                  "min": 18,
+                  "max": 22
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 15,
+          "name": "Light Radius And Mana Regeneration",
+          "lines": [
+            {
+              "modLine": "{0}% increased Light Radius, {1}% increased Mana Regeneration Rate",
+              "vals": [
+                {
+                  "min": 10,
+                  "max": 10
+                },
+                {
+                  "min": 13,
+                  "max": 17
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 8,
+          "name": "Light Radius And Mana Regeneration",
+          "lines": [
+            {
+              "modLine": "{0}% increased Light Radius, {1}% increased Mana Regeneration Rate",
+              "vals": [
+                {
+                  "min": 5,
+                  "max": 5
+                },
+                {
+                  "min": 8,
+                  "max": 12
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "LocalAttributeRequirements",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 60,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 35,
+          "max": 35
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 52,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 30,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 40,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 25,
+          "max": 25
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 32,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 20,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 24,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 15,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "ManaGainedFromEnemyDeath",
+      "tiers": [
+        {
+          "weight": 750,
+          "tier": 1,
+          "ilvlReq": 78,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 36,
+          "max": 45
+        },
+        {
+          "weight": 750,
+          "tier": 2,
+          "ilvlReq": 67,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 28,
+          "max": 35
+        },
+        {
+          "weight": 750,
+          "tier": 3,
+          "ilvlReq": 56,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 21,
+          "max": 27
+        },
+        {
+          "weight": 750,
+          "tier": 4,
+          "ilvlReq": 45,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 15,
+          "max": 20
+        },
+        {
+          "weight": 750,
+          "tier": 5,
+          "ilvlReq": 34,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 10,
+          "max": 14
+        },
+        {
+          "weight": 750,
+          "tier": 6,
+          "ilvlReq": 23,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "weight": 750,
+          "tier": 7,
+          "ilvlReq": 12,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "weight": 750,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "modGroup": "ManaRegeneration",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 79,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 60,
+          "max": 69
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 55,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 50,
+          "max": 59
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 42,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 40,
+          "max": 49
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 29,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 30,
+          "max": 39
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 18,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 20,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 10,
+          "max": 19
+        }
+      ]
+    },
+    {
+      "modGroup": "ShockChanceIncrease",
+      "tiers": [
+        {
+          "weight": 500,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "{0}% increased chance to Shock",
+          "name": "Shock Chance Increase",
+          "min": 91,
+          "max": 100
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased chance to Shock",
+          "name": "Shock Chance Increase",
+          "min": 81,
+          "max": 90
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 45,
+          "modLine": "{0}% increased chance to Shock",
+          "name": "Shock Chance Increase",
+          "min": 71,
+          "max": 80
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 30,
+          "modLine": "{0}% increased chance to Shock",
+          "name": "Shock Chance Increase",
+          "min": 61,
+          "max": 70
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 15,
+          "modLine": "{0}% increased chance to Shock",
+          "name": "Shock Chance Increase",
+          "min": 51,
+          "max": 60
+        }
+      ]
+    },
+    {
+      "modGroup": "SpellCriticalStrikeChanceIncrease",
+      "tiers": [
+        {
+          "weight": 125,
+          "tier": 1,
+          "ilvlReq": 76,
+          "modLine": "{0}% increased Critical Hit Chance for Spells",
+          "name": "Spell Critical Strike Chance Increase",
+          "min": 60,
+          "max": 73
+        },
+        {
+          "weight": 250,
+          "tier": 2,
+          "ilvlReq": 59,
+          "modLine": "{0}% increased Critical Hit Chance for Spells",
+          "name": "Spell Critical Strike Chance Increase",
+          "min": 54,
+          "max": 59
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 41,
+          "modLine": "{0}% increased Critical Hit Chance for Spells",
+          "name": "Spell Critical Strike Chance Increase",
+          "min": 47,
+          "max": 53
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 28,
+          "modLine": "{0}% increased Critical Hit Chance for Spells",
+          "name": "Spell Critical Strike Chance Increase",
+          "min": 40,
+          "max": 46
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 21,
+          "modLine": "{0}% increased Critical Hit Chance for Spells",
+          "name": "Spell Critical Strike Chance Increase",
+          "min": 34,
+          "max": 39
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 11,
+          "modLine": "{0}% increased Critical Hit Chance for Spells",
+          "name": "Spell Critical Strike Chance Increase",
+          "min": 27,
+          "max": 33
+        }
+      ]
+    }
+  ],
+  "vaalCorruptedMods": [
+    {
+      "modGroup": "IncreasedCastSpeed",
+      "modLine": "{0}% increased Cast Speed",
+      "min": 10,
+      "max": 15,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "ShockChanceIncrease",
+      "modLine": "{0}% increased chance to Shock",
+      "min": 20,
+      "max": 30,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "SpellCriticalStrikeChanceIncrease",
+      "modLine": "{0}% increased Critical Hit Chance for Spells",
+      "min": 20,
+      "max": 30,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IgniteChanceIncrease",
+      "modLine": "{0}% increased Flammability Magnitude",
+      "min": 20,
+      "max": 30,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "FreezeDamageIncrease",
+      "modLine": "{0}% increased Freeze Buildup",
+      "min": 20,
+      "max": 30,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "WeaponCasterDamagePrefix",
+      "modLine": "{0}% increased Spell Damage",
+      "min": 20,
+      "max": 30,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "LocalAttributeRequirements",
+      "modLine": "{0}% reduced Attribute Requirements",
+      "min": 10,
+      "max": 20,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IncreaseSocketedGemLevel",
+      "modLine": "+{0} to Level of all Chaos Spell Skills",
+      "min": 1,
+      "max": 1,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IncreaseSocketedGemLevel",
+      "modLine": "+{0} to Level of all Cold Spell Skills",
+      "min": 1,
+      "max": 1,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IncreaseSocketedGemLevel",
+      "modLine": "+{0} to Level of all Fire Spell Skills",
+      "min": 1,
+      "max": 1,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IncreaseSocketedGemLevel",
+      "modLine": "+{0} to Level of all Lightning Spell Skills",
+      "min": 1,
+      "max": 1,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IncreaseSocketedGemLevel",
+      "modLine": "+{0} to Level of all Physical Spell Skills",
+      "min": 1,
+      "max": 1,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "LifeGainedFromEnemyDeath",
+      "modLine": "Gain {0} Life per enemy killed",
+      "min": 20,
+      "max": 25,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "ManaGainedFromEnemyDeath",
+      "modLine": "Gain {0} Mana per enemy killed",
+      "min": 10,
+      "max": 15,
+      "type": "corrupted"
+    }
+  ],
+  "vaalEnchantments": []
 }

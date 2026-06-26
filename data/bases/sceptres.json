@@ -1,5 +1,2064 @@
 {
-  "name": "Sceptres",
-  "prefixes": [],
-  "suffixes": []
+  "name": "Sceptre",
+  "prefixes": [
+    {
+      "modGroup": "AllDamage",
+      "tiers": [
+        {
+          "weight": 50,
+          "tier": 1,
+          "ilvlReq": 82,
+          "modLine": "Allies in your Presence deal {0}% increased Damage",
+          "name": "All Damage",
+          "min": 105,
+          "max": 119
+        },
+        {
+          "weight": 100,
+          "tier": 2,
+          "ilvlReq": 70,
+          "modLine": "Allies in your Presence deal {0}% increased Damage",
+          "name": "All Damage",
+          "min": 90,
+          "max": 104
+        },
+        {
+          "weight": 200,
+          "tier": 3,
+          "ilvlReq": 60,
+          "modLine": "Allies in your Presence deal {0}% increased Damage",
+          "name": "All Damage",
+          "min": 75,
+          "max": 89
+        },
+        {
+          "weight": 400,
+          "tier": 4,
+          "ilvlReq": 46,
+          "modLine": "Allies in your Presence deal {0}% increased Damage",
+          "name": "All Damage",
+          "min": 65,
+          "max": 74
+        },
+        {
+          "weight": 600,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "Allies in your Presence deal {0}% increased Damage",
+          "name": "All Damage",
+          "min": 55,
+          "max": 64
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 16,
+          "modLine": "Allies in your Presence deal {0}% increased Damage",
+          "name": "All Damage",
+          "min": 45,
+          "max": 54
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 8,
+          "modLine": "Allies in your Presence deal {0}% increased Damage",
+          "name": "All Damage",
+          "min": 35,
+          "max": 44
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "Allies in your Presence deal {0}% increased Damage",
+          "name": "All Damage",
+          "min": 25,
+          "max": 34
+        }
+      ]
+    },
+    {
+      "modGroup": "ColdDamage",
+      "tiers": [
+        {
+          "weight": 200,
+          "tier": 1,
+          "ilvlReq": 75,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Cold Damage",
+              "vals": [
+                {
+                  "min": 21,
+                  "max": 24
+                },
+                {
+                  "min": 32,
+                  "max": 37
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 300,
+          "tier": 2,
+          "ilvlReq": 65,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Cold Damage",
+              "vals": [
+                {
+                  "min": 16,
+                  "max": 20
+                },
+                {
+                  "min": 25,
+                  "max": 31
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 400,
+          "tier": 3,
+          "ilvlReq": 60,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Cold Damage",
+              "vals": [
+                {
+                  "min": 14,
+                  "max": 15
+                },
+                {
+                  "min": 22,
+                  "max": 24
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 54,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Cold Damage",
+              "vals": [
+                {
+                  "min": 11,
+                  "max": 13
+                },
+                {
+                  "min": 18,
+                  "max": 21
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 5,
+          "ilvlReq": 46,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Cold Damage",
+              "vals": [
+                {
+                  "min": 9,
+                  "max": 10
+                },
+                {
+                  "min": 15,
+                  "max": 17
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 6,
+          "ilvlReq": 33,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Cold Damage",
+              "vals": [
+                {
+                  "min": 7,
+                  "max": 8
+                },
+                {
+                  "min": 12,
+                  "max": 14
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 7,
+          "ilvlReq": 16,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Cold Damage",
+              "vals": [
+                {
+                  "min": 5,
+                  "max": 6
+                },
+                {
+                  "min": 9,
+                  "max": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 8,
+          "ilvlReq": 8,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Cold Damage",
+              "vals": [
+                {
+                  "min": 3,
+                  "max": 4
+                },
+                {
+                  "min": 5,
+                  "max": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 9,
+          "ilvlReq": 1,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Cold Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 2
+                },
+                {
+                  "min": 3,
+                  "max": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "FireDamage",
+      "tiers": [
+        {
+          "weight": 200,
+          "tier": 1,
+          "ilvlReq": 75,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Fire Damage",
+              "vals": [
+                {
+                  "min": 25,
+                  "max": 29
+                },
+                {
+                  "min": 39,
+                  "max": 45
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 300,
+          "tier": 2,
+          "ilvlReq": 65,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Fire Damage",
+              "vals": [
+                {
+                  "min": 20,
+                  "max": 24
+                },
+                {
+                  "min": 31,
+                  "max": 38
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 400,
+          "tier": 3,
+          "ilvlReq": 60,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Fire Damage",
+              "vals": [
+                {
+                  "min": 17,
+                  "max": 19
+                },
+                {
+                  "min": 27,
+                  "max": 30
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 54,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Fire Damage",
+              "vals": [
+                {
+                  "min": 14,
+                  "max": 16
+                },
+                {
+                  "min": 21,
+                  "max": 26
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 5,
+          "ilvlReq": 46,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Fire Damage",
+              "vals": [
+                {
+                  "min": 12,
+                  "max": 13
+                },
+                {
+                  "min": 18,
+                  "max": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 6,
+          "ilvlReq": 33,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Fire Damage",
+              "vals": [
+                {
+                  "min": 9,
+                  "max": 11
+                },
+                {
+                  "min": 14,
+                  "max": 17
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 7,
+          "ilvlReq": 16,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Fire Damage",
+              "vals": [
+                {
+                  "min": 6,
+                  "max": 8
+                },
+                {
+                  "min": 10,
+                  "max": 13
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 8,
+          "ilvlReq": 8,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Fire Damage",
+              "vals": [
+                {
+                  "min": 3,
+                  "max": 5
+                },
+                {
+                  "min": 6,
+                  "max": 9
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 9,
+          "ilvlReq": 1,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Fire Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 2
+                },
+                {
+                  "min": 3,
+                  "max": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedMana",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 70,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 150,
+          "max": 164
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 65,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 125,
+          "max": 149
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 60,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 105,
+          "max": 124
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 54,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 90,
+          "max": 104
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 46,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 80,
+          "max": 89
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 38,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 65,
+          "max": 79
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 33,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 55,
+          "max": 64
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 25,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 35,
+          "max": 54
+        },
+        {
+          "weight": 1000,
+          "tier": 9,
+          "ilvlReq": 16,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 25,
+          "max": 34
+        },
+        {
+          "weight": 1000,
+          "tier": 10,
+          "ilvlReq": 6,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 15,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 11,
+          "ilvlReq": 1,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "LightningDamage",
+      "tiers": [
+        {
+          "weight": 200,
+          "tier": 1,
+          "ilvlReq": 75,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 4
+                },
+                {
+                  "min": 60,
+                  "max": 71
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 300,
+          "tier": 2,
+          "ilvlReq": 65,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 3
+                },
+                {
+                  "min": 48,
+                  "max": 59
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 400,
+          "tier": 3,
+          "ilvlReq": 60,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 2
+                },
+                {
+                  "min": 41,
+                  "max": 47
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 54,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 2
+                },
+                {
+                  "min": 33,
+                  "max": 40
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 5,
+          "ilvlReq": 46,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "min": 28,
+                  "max": 32
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 6,
+          "ilvlReq": 33,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "min": 23,
+                  "max": 27
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 7,
+          "ilvlReq": 16,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "min": 16,
+                  "max": 22
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 8,
+          "ilvlReq": 8,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "min": 10,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 9,
+          "ilvlReq": 1,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "min": 5,
+                  "max": 7
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "LocalIncreasedSpiritAndMana",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 70,
+          "name": "Local Increased Spirit And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 35,
+                  "max": 38
+                },
+                {
+                  "min": 42,
+                  "max": 45
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 200,
+          "tier": 2,
+          "ilvlReq": 58,
+          "name": "Local Increased Spirit And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 31,
+                  "max": 34
+                },
+                {
+                  "min": 38,
+                  "max": 41
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 400,
+          "tier": 3,
+          "ilvlReq": 48,
+          "name": "Local Increased Spirit And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 27,
+                  "max": 30
+                },
+                {
+                  "min": 34,
+                  "max": 37
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 600,
+          "tier": 4,
+          "ilvlReq": 36,
+          "name": "Local Increased Spirit And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 23,
+                  "max": 26
+                },
+                {
+                  "min": 29,
+                  "max": 33
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 26,
+          "name": "Local Increased Spirit And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 19,
+                  "max": 22
+                },
+                {
+                  "min": 25,
+                  "max": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 11,
+          "name": "Local Increased Spirit And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 15,
+                  "max": 18
+                },
+                {
+                  "min": 21,
+                  "max": 24
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 2,
+          "name": "Local Increased Spirit And Mana",
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit, +{1} to maximum Mana",
+              "vals": [
+                {
+                  "min": 10,
+                  "max": 14
+                },
+                {
+                  "min": 17,
+                  "max": 20
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "LocalIncreasedSpiritPercent",
+      "tiers": [
+        {
+          "weight": 50,
+          "tier": 1,
+          "ilvlReq": 82,
+          "modLine": "{0}% increased Spirit",
+          "name": "Local Increased Spirit Percent",
+          "min": 61,
+          "max": 65
+        },
+        {
+          "weight": 100,
+          "tier": 2,
+          "ilvlReq": 75,
+          "modLine": "{0}% increased Spirit",
+          "name": "Local Increased Spirit Percent",
+          "min": 56,
+          "max": 60
+        },
+        {
+          "weight": 200,
+          "tier": 3,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Spirit",
+          "name": "Local Increased Spirit Percent",
+          "min": 51,
+          "max": 55
+        },
+        {
+          "weight": 400,
+          "tier": 4,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Spirit",
+          "name": "Local Increased Spirit Percent",
+          "min": 45,
+          "max": 50
+        },
+        {
+          "weight": 600,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Spirit",
+          "name": "Local Increased Spirit Percent",
+          "min": 39,
+          "max": 44
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Spirit",
+          "name": "Local Increased Spirit Percent",
+          "min": 33,
+          "max": 38
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 8,
+          "modLine": "{0}% increased Spirit",
+          "name": "Local Increased Spirit Percent",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Spirit",
+          "name": "Local Increased Spirit Percent",
+          "min": 20,
+          "max": 26
+        }
+      ]
+    },
+    {
+      "modGroup": "PhysicalDamage",
+      "tiers": [
+        {
+          "weight": 200,
+          "tier": 1,
+          "ilvlReq": 75,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Physical Damage",
+              "vals": [
+                {
+                  "min": 12,
+                  "max": 19
+                },
+                {
+                  "min": 22,
+                  "max": 32
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 300,
+          "tier": 2,
+          "ilvlReq": 65,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Physical Damage",
+              "vals": [
+                {
+                  "min": 10,
+                  "max": 15
+                },
+                {
+                  "min": 18,
+                  "max": 26
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 400,
+          "tier": 3,
+          "ilvlReq": 60,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Physical Damage",
+              "vals": [
+                {
+                  "min": 7,
+                  "max": 11
+                },
+                {
+                  "min": 14,
+                  "max": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 54,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Physical Damage",
+              "vals": [
+                {
+                  "min": 6,
+                  "max": 10
+                },
+                {
+                  "min": 12,
+                  "max": 17
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 5,
+          "ilvlReq": 46,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Physical Damage",
+              "vals": [
+                {
+                  "min": 5,
+                  "max": 7
+                },
+                {
+                  "min": 9,
+                  "max": 13
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 6,
+          "ilvlReq": 33,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Physical Damage",
+              "vals": [
+                {
+                  "min": 4,
+                  "max": 6
+                },
+                {
+                  "min": 8,
+                  "max": 11
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 7,
+          "ilvlReq": 16,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Physical Damage",
+              "vals": [
+                {
+                  "min": 2,
+                  "max": 4
+                },
+                {
+                  "min": 5,
+                  "max": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 8,
+          "ilvlReq": 8,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Physical Damage",
+              "vals": [
+                {
+                  "min": 2,
+                  "max": 3
+                },
+                {
+                  "min": 4,
+                  "max": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 500,
+          "tier": 9,
+          "ilvlReq": 1,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Allies in your Presence deal {0} to {1} added Attack Physical Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 2
+                },
+                {
+                  "min": 3,
+                  "max": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "suffixes": [
+    {
+      "modGroup": "AllResistances",
+      "tiers": [
+        {
+          "weight": 800,
+          "tier": 1,
+          "ilvlReq": 80,
+          "modLine": "Allies in your Presence have +{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 17,
+          "max": 18
+        },
+        {
+          "weight": 800,
+          "tier": 2,
+          "ilvlReq": 68,
+          "modLine": "Allies in your Presence have +{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 15,
+          "max": 16
+        },
+        {
+          "weight": 800,
+          "tier": 3,
+          "ilvlReq": 54,
+          "modLine": "Allies in your Presence have +{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 12,
+          "max": 14
+        },
+        {
+          "weight": 800,
+          "tier": 4,
+          "ilvlReq": 40,
+          "modLine": "Allies in your Presence have +{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 9,
+          "max": 11
+        },
+        {
+          "weight": 800,
+          "tier": 5,
+          "ilvlReq": 26,
+          "modLine": "Allies in your Presence have +{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 6,
+          "max": 8
+        },
+        {
+          "weight": 800,
+          "tier": 6,
+          "ilvlReq": 12,
+          "modLine": "Allies in your Presence have +{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 3,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "CriticalStrikeChanceIncrease",
+      "tiers": [
+        {
+          "weight": 125,
+          "tier": 1,
+          "ilvlReq": 76,
+          "modLine": "Allies in your Presence have {0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 35,
+          "max": 38
+        },
+        {
+          "weight": 250,
+          "tier": 2,
+          "ilvlReq": 59,
+          "modLine": "Allies in your Presence have {0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 30,
+          "max": 34
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 41,
+          "modLine": "Allies in your Presence have {0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 25,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 28,
+          "modLine": "Allies in your Presence have {0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 20,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 21,
+          "modLine": "Allies in your Presence have {0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 15,
+          "max": 19
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 11,
+          "modLine": "Allies in your Presence have {0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "CriticalStrikeMultiplier",
+      "tiers": [
+        {
+          "weight": 125,
+          "tier": 1,
+          "ilvlReq": 73,
+          "modLine": "Allies in your Presence have {0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 35,
+          "max": 39
+        },
+        {
+          "weight": 250,
+          "tier": 2,
+          "ilvlReq": 59,
+          "modLine": "Allies in your Presence have {0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 30,
+          "max": 34
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 44,
+          "modLine": "Allies in your Presence have {0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 25,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 30,
+          "modLine": "Allies in your Presence have {0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 20,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 21,
+          "modLine": "Allies in your Presence have {0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 15,
+          "max": 19
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 8,
+          "modLine": "Allies in your Presence have {0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedAttackSpeed",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 55,
+          "modLine": "Allies in your Presence have {0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 14,
+          "max": 16
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 35,
+          "modLine": "Allies in your Presence have {0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 11,
+          "max": 13
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 20,
+          "modLine": "Allies in your Presence have {0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 8,
+          "max": 10
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 5,
+          "modLine": "Allies in your Presence have {0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 5,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedCastSpeed",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 56,
+          "modLine": "Allies in your Presence have {0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 36,
+          "modLine": "Allies in your Presence have {0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 13,
+          "max": 16
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 21,
+          "modLine": "Allies in your Presence have {0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 9,
+          "max": 12
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 6,
+          "modLine": "Allies in your Presence have {0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 5,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreaseSocketedGemLevel",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 78,
+          "modLine": "+{0} to Level of all Minion Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 4,
+          "max": 4
+        },
+        {
+          "weight": 250,
+          "tier": 2,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Level of all Minion Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 25,
+          "modLine": "+{0} to Level of all Minion Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 750,
+          "tier": 4,
+          "ilvlReq": 2,
+          "modLine": "+{0} to Level of all Minion Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "modGroup": "Intelligence",
+      "tiers": [
+        {
+          "weight": 750,
+          "tier": 1,
+          "ilvlReq": 74,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 31,
+          "max": 33
+        },
+        {
+          "weight": 750,
+          "tier": 2,
+          "ilvlReq": 66,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 750,
+          "tier": 3,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 750,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 21,
+          "max": 24
+        },
+        {
+          "weight": 750,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "weight": 750,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 13,
+          "max": 16
+        },
+        {
+          "weight": 750,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 9,
+          "max": 12
+        },
+        {
+          "weight": 750,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 5,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "modGroup": "LifeRegeneration",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "Allies in your Presence Regenerate {0} Life per second",
+          "name": "Life Regeneration",
+          "min": 29.1,
+          "max": 33
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 68,
+          "modLine": "Allies in your Presence Regenerate {0} Life per second",
+          "name": "Life Regeneration",
+          "min": 23.1,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 58,
+          "modLine": "Allies in your Presence Regenerate {0} Life per second",
+          "name": "Life Regeneration",
+          "min": 18.1,
+          "max": 23
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 47,
+          "modLine": "Allies in your Presence Regenerate {0} Life per second",
+          "name": "Life Regeneration",
+          "min": 13.1,
+          "max": 18
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 35,
+          "modLine": "Allies in your Presence Regenerate {0} Life per second",
+          "name": "Life Regeneration",
+          "min": 9.1,
+          "max": 13
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 26,
+          "modLine": "Allies in your Presence Regenerate {0} Life per second",
+          "name": "Life Regeneration",
+          "min": 6.1,
+          "max": 9
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 17,
+          "modLine": "Allies in your Presence Regenerate {0} Life per second",
+          "name": "Life Regeneration",
+          "min": 4.1,
+          "max": 6
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 11,
+          "modLine": "Allies in your Presence Regenerate {0} Life per second",
+          "name": "Life Regeneration",
+          "min": 3.1,
+          "max": 4
+        },
+        {
+          "weight": 1000,
+          "tier": 9,
+          "ilvlReq": 5,
+          "modLine": "Allies in your Presence Regenerate {0} Life per second",
+          "name": "Life Regeneration",
+          "min": 2.1,
+          "max": 3
+        },
+        {
+          "weight": 1000,
+          "tier": 10,
+          "ilvlReq": 1,
+          "modLine": "Allies in your Presence Regenerate {0} Life per second",
+          "name": "Life Regeneration",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "modGroup": "LightRadiusAndManaRegeneration",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 30,
+          "name": "Light Radius And Mana Regeneration",
+          "lines": [
+            {
+              "modLine": "{0}% increased Light Radius, {1}% increased Mana Regeneration Rate",
+              "vals": [
+                {
+                  "min": 15,
+                  "max": 15
+                },
+                {
+                  "min": 18,
+                  "max": 22
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 15,
+          "name": "Light Radius And Mana Regeneration",
+          "lines": [
+            {
+              "modLine": "{0}% increased Light Radius, {1}% increased Mana Regeneration Rate",
+              "vals": [
+                {
+                  "min": 10,
+                  "max": 10
+                },
+                {
+                  "min": 13,
+                  "max": 17
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 8,
+          "name": "Light Radius And Mana Regeneration",
+          "lines": [
+            {
+              "modLine": "{0}% increased Light Radius, {1}% increased Mana Regeneration Rate",
+              "vals": [
+                {
+                  "min": 5,
+                  "max": 5
+                },
+                {
+                  "min": 8,
+                  "max": 12
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "LocalAttributeRequirements",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 60,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 35,
+          "max": 35
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 52,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 30,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 40,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 25,
+          "max": 25
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 32,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 20,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 24,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 15,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "ManaRegeneration",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 79,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 60,
+          "max": 69
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 55,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 50,
+          "max": 59
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 42,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 40,
+          "max": 49
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 29,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 30,
+          "max": 39
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 18,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 20,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 10,
+          "max": 19
+        }
+      ]
+    },
+    {
+      "modGroup": "MinionLife",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 80,
+          "modLine": "Minions have {0}% increased maximum Life",
+          "name": "Minion Life",
+          "min": 46,
+          "max": 50
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 64,
+          "modLine": "Minions have {0}% increased maximum Life",
+          "name": "Minion Life",
+          "min": 41,
+          "max": 45
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 48,
+          "modLine": "Minions have {0}% increased maximum Life",
+          "name": "Minion Life",
+          "min": 36,
+          "max": 40
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 32,
+          "modLine": "Minions have {0}% increased maximum Life",
+          "name": "Minion Life",
+          "min": 31,
+          "max": 35
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 16,
+          "modLine": "Minions have {0}% increased maximum Life",
+          "name": "Minion Life",
+          "min": 26,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 2,
+          "modLine": "Minions have {0}% increased maximum Life",
+          "name": "Minion Life",
+          "min": 21,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "modGroup": "PresenceRadius",
+      "tiers": [
+        {
+          "weight": 500,
+          "tier": 1,
+          "ilvlReq": 72,
+          "modLine": "{0}% increased Presence Area of Effect",
+          "name": "Presence Radius",
+          "min": 66,
+          "max": 80
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 56,
+          "modLine": "{0}% increased Presence Area of Effect",
+          "name": "Presence Radius",
+          "min": 56,
+          "max": 65
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 40,
+          "modLine": "{0}% increased Presence Area of Effect",
+          "name": "Presence Radius",
+          "min": 46,
+          "max": 55
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 23,
+          "modLine": "{0}% increased Presence Area of Effect",
+          "name": "Presence Radius",
+          "min": 36,
+          "max": 45
+        }
+      ]
+    },
+    {
+      "modGroup": "Strength",
+      "tiers": [
+        {
+          "weight": 250,
+          "tier": 1,
+          "ilvlReq": 74,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 31,
+          "max": 33
+        },
+        {
+          "weight": 250,
+          "tier": 2,
+          "ilvlReq": 66,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 250,
+          "tier": 3,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 250,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 21,
+          "max": 24
+        },
+        {
+          "weight": 250,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "weight": 250,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 13,
+          "max": 16
+        },
+        {
+          "weight": 250,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 9,
+          "max": 12
+        },
+        {
+          "weight": 250,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 5,
+          "max": 8
+        }
+      ]
+    }
+  ],
+  "vaalCorruptedMods": [
+    {
+      "modGroup": "LocalIncreasedSpiritPercent",
+      "modLine": "{0}% increased Spirit",
+      "min": 15,
+      "max": 25,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "LocalAttributeRequirements",
+      "modLine": "{0}% reduced Attribute Requirements",
+      "min": 10,
+      "max": 20,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "AllDamage",
+      "modLine": "Allies in your Presence deal {0}% increased Damage",
+      "min": 20,
+      "max": 30,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IncreasedAttackSpeed",
+      "modLine": "Allies in your Presence have {0}% increased Attack Speed",
+      "min": 5,
+      "max": 10,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IncreasedCastSpeed",
+      "modLine": "Allies in your Presence have {0}% increased Cast Speed",
+      "min": 5,
+      "max": 10,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "CriticalStrikeMultiplier",
+      "modLine": "Allies in your Presence have {0}% increased Critical Damage Bonus",
+      "min": 10,
+      "max": 15,
+      "type": "corrupted"
+    }
+  ],
+  "vaalEnchantments": []
 }

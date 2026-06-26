@@ -1,5 +1,572 @@
 {
   "name": "Mana Flask",
-  "prefixes": [],
-  "suffixes": []
+  "prefixes": [
+    {
+      "modGroup": "FlaskBuffWhileHealing",
+      "tiers": [
+        {
+          "weight": 850,
+          "tier": 1,
+          "ilvlReq": 42,
+          "modLine": "Instant Recovery, {0}% reduced Amount Recovered",
+          "name": "Flask Buff While Healing",
+          "min": 50,
+          "max": 50
+        }
+      ]
+    },
+    {
+      "modGroup": "FlaskRecoveryAmount",
+      "tiers": [
+        {
+          "weight": 800,
+          "tier": 1,
+          "ilvlReq": 83,
+          "modLine": "{0}% increased Amount Recovered",
+          "name": "Flask Recovery Amount",
+          "min": 76,
+          "max": 80
+        },
+        {
+          "weight": 650,
+          "tier": 2,
+          "ilvlReq": 82,
+          "modLine": "{0}% more Recovery if used while on Low Mana",
+          "name": "Flask Recovery Amount",
+          "min": 91,
+          "max": 100
+        },
+        {
+          "weight": 700,
+          "tier": 3,
+          "ilvlReq": 81,
+          "name": "Flask Recovery Amount",
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Recovered, Removes {1}% of Mana Recovered from Life when used",
+              "vals": [
+                {
+                  "min": 93,
+                  "max": 100
+                },
+                {
+                  "min": 15,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 800,
+          "tier": 4,
+          "ilvlReq": 67,
+          "modLine": "{0}% increased Amount Recovered",
+          "name": "Flask Recovery Amount",
+          "min": 71,
+          "max": 75
+        },
+        {
+          "weight": 700,
+          "tier": 5,
+          "ilvlReq": 64,
+          "name": "Flask Recovery Amount",
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Recovered, Removes {1}% of Mana Recovered from Life when used",
+              "vals": [
+                {
+                  "min": 85,
+                  "max": 92
+                },
+                {
+                  "min": 15,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 650,
+          "tier": 6,
+          "ilvlReq": 63,
+          "modLine": "{0}% more Recovery if used while on Low Mana",
+          "name": "Flask Recovery Amount",
+          "min": 81,
+          "max": 90
+        },
+        {
+          "weight": 800,
+          "tier": 7,
+          "ilvlReq": 56,
+          "modLine": "{0}% increased Amount Recovered",
+          "name": "Flask Recovery Amount",
+          "min": 66,
+          "max": 70
+        },
+        {
+          "weight": 700,
+          "tier": 8,
+          "ilvlReq": 47,
+          "name": "Flask Recovery Amount",
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Recovered, Removes {1}% of Mana Recovered from Life when used",
+              "vals": [
+                {
+                  "min": 77,
+                  "max": 84
+                },
+                {
+                  "min": 15,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 800,
+          "tier": 9,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Amount Recovered",
+          "name": "Flask Recovery Amount",
+          "min": 61,
+          "max": 65
+        },
+        {
+          "weight": 650,
+          "tier": 10,
+          "ilvlReq": 44,
+          "modLine": "{0}% more Recovery if used while on Low Mana",
+          "name": "Flask Recovery Amount",
+          "min": 71,
+          "max": 80
+        },
+        {
+          "weight": 800,
+          "tier": 11,
+          "ilvlReq": 34,
+          "modLine": "{0}% increased Amount Recovered",
+          "name": "Flask Recovery Amount",
+          "min": 56,
+          "max": 60
+        },
+        {
+          "weight": 700,
+          "tier": 12,
+          "ilvlReq": 30,
+          "name": "Flask Recovery Amount",
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Recovered, Removes {1}% of Mana Recovered from Life when used",
+              "vals": [
+                {
+                  "min": 69,
+                  "max": 76
+                },
+                {
+                  "min": 15,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 650,
+          "tier": 13,
+          "ilvlReq": 25,
+          "modLine": "{0}% more Recovery if used while on Low Mana",
+          "name": "Flask Recovery Amount",
+          "min": 61,
+          "max": 70
+        },
+        {
+          "weight": 800,
+          "tier": 14,
+          "ilvlReq": 23,
+          "modLine": "{0}% increased Amount Recovered",
+          "name": "Flask Recovery Amount",
+          "min": 51,
+          "max": 55
+        },
+        {
+          "weight": 700,
+          "tier": 15,
+          "ilvlReq": 13,
+          "name": "Flask Recovery Amount",
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Recovered, Removes {1}% of Mana Recovered from Life when used",
+              "vals": [
+                {
+                  "min": 61,
+                  "max": 68
+                },
+                {
+                  "min": 15,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 800,
+          "tier": 16,
+          "ilvlReq": 11,
+          "modLine": "{0}% increased Amount Recovered",
+          "name": "Flask Recovery Amount",
+          "min": 46,
+          "max": 50
+        },
+        {
+          "weight": 650,
+          "tier": 17,
+          "ilvlReq": 2,
+          "modLine": "{0}% more Recovery if used while on Low Mana",
+          "name": "Flask Recovery Amount",
+          "min": 51,
+          "max": 60
+        },
+        {
+          "weight": 800,
+          "tier": 18,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Amount Recovered",
+          "name": "Flask Recovery Amount",
+          "min": 41,
+          "max": 45
+        }
+      ]
+    },
+    {
+      "modGroup": "FlaskRecoverySpeed",
+      "tiers": [
+        {
+          "weight": 800,
+          "tier": 1,
+          "ilvlReq": 81,
+          "modLine": "{0}% increased Recovery rate",
+          "name": "Flask Recovery Speed",
+          "min": 66,
+          "max": 70
+        },
+        {
+          "weight": 800,
+          "tier": 2,
+          "ilvlReq": 61,
+          "modLine": "{0}% increased Recovery rate",
+          "name": "Flask Recovery Speed",
+          "min": 61,
+          "max": 65
+        },
+        {
+          "weight": 800,
+          "tier": 3,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Recovery rate",
+          "name": "Flask Recovery Speed",
+          "min": 56,
+          "max": 60
+        },
+        {
+          "weight": 700,
+          "tier": 4,
+          "ilvlReq": 46,
+          "modLine": "{0}% of Recovery applied Instantly",
+          "name": "Flask Recovery Speed",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 800,
+          "tier": 5,
+          "ilvlReq": 31,
+          "modLine": "{0}% increased Recovery rate",
+          "name": "Flask Recovery Speed",
+          "min": 51,
+          "max": 55
+        },
+        {
+          "weight": 700,
+          "tier": 6,
+          "ilvlReq": 27,
+          "modLine": "{0}% of Recovery applied Instantly",
+          "name": "Flask Recovery Speed",
+          "min": 24,
+          "max": 27
+        },
+        {
+          "weight": 800,
+          "tier": 7,
+          "ilvlReq": 15,
+          "modLine": "{0}% increased Recovery rate",
+          "name": "Flask Recovery Speed",
+          "min": 46,
+          "max": 50
+        },
+        {
+          "weight": 700,
+          "tier": 8,
+          "ilvlReq": 3,
+          "modLine": "{0}% of Recovery applied Instantly",
+          "name": "Flask Recovery Speed",
+          "min": 20,
+          "max": 23
+        },
+        {
+          "weight": 800,
+          "tier": 9,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Recovery rate",
+          "name": "Flask Recovery Speed",
+          "min": 41,
+          "max": 45
+        }
+      ]
+    }
+  ],
+  "suffixes": [
+    {
+      "modGroup": "FlaskChargesUsed",
+      "tiers": [
+        {
+          "weight": 900,
+          "tier": 1,
+          "ilvlReq": 83,
+          "modLine": "{0}% reduced Charges per use",
+          "name": "Flask Charges Used",
+          "min": 30,
+          "max": 32
+        },
+        {
+          "weight": 900,
+          "tier": 2,
+          "ilvlReq": 64,
+          "modLine": "{0}% reduced Charges per use",
+          "name": "Flask Charges Used",
+          "min": 27,
+          "max": 29
+        },
+        {
+          "weight": 900,
+          "tier": 3,
+          "ilvlReq": 49,
+          "modLine": "{0}% reduced Charges per use",
+          "name": "Flask Charges Used",
+          "min": 24,
+          "max": 26
+        },
+        {
+          "weight": 900,
+          "tier": 4,
+          "ilvlReq": 34,
+          "modLine": "{0}% reduced Charges per use",
+          "name": "Flask Charges Used",
+          "min": 21,
+          "max": 23
+        },
+        {
+          "weight": 900,
+          "tier": 5,
+          "ilvlReq": 14,
+          "modLine": "{0}% reduced Charges per use",
+          "name": "Flask Charges Used",
+          "min": 18,
+          "max": 20
+        },
+        {
+          "weight": 900,
+          "tier": 6,
+          "ilvlReq": 1,
+          "modLine": "{0}% reduced Charges per use",
+          "name": "Flask Charges Used",
+          "min": 15,
+          "max": 17
+        }
+      ]
+    },
+    {
+      "modGroup": "FlaskGainCharge",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 45,
+          "modLine": "Gains {0} Charges per Second",
+          "name": "Flask Gain Charge",
+          "min": 0.25,
+          "max": 0.25
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 26,
+          "modLine": "Gains {0} Charges per Second",
+          "name": "Flask Gain Charge",
+          "min": 0.2,
+          "max": 0.2
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 8,
+          "modLine": "Gains {0} Charges per Second",
+          "name": "Flask Gain Charge",
+          "min": 0.15,
+          "max": 0.15
+        }
+      ]
+    },
+    {
+      "modGroup": "FlaskNumCharges",
+      "tiers": [
+        {
+          "weight": 950,
+          "tier": 1,
+          "ilvlReq": 81,
+          "modLine": "{0}% increased Charges",
+          "name": "Flask Num Charges",
+          "min": 63,
+          "max": 70
+        },
+        {
+          "weight": 950,
+          "tier": 2,
+          "ilvlReq": 62,
+          "modLine": "{0}% increased Charges",
+          "name": "Flask Num Charges",
+          "min": 55,
+          "max": 62
+        },
+        {
+          "weight": 950,
+          "tier": 3,
+          "ilvlReq": 47,
+          "modLine": "{0}% increased Charges",
+          "name": "Flask Num Charges",
+          "min": 47,
+          "max": 54
+        },
+        {
+          "weight": 950,
+          "tier": 4,
+          "ilvlReq": 32,
+          "modLine": "{0}% increased Charges",
+          "name": "Flask Num Charges",
+          "min": 39,
+          "max": 46
+        },
+        {
+          "weight": 950,
+          "tier": 5,
+          "ilvlReq": 12,
+          "modLine": "{0}% increased Charges",
+          "name": "Flask Num Charges",
+          "min": 31,
+          "max": 38
+        },
+        {
+          "weight": 950,
+          "tier": 6,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Charges",
+          "name": "Flask Num Charges",
+          "min": 23,
+          "max": 30
+        }
+      ]
+    },
+    {
+      "modGroup": "FlaskRechargeRate",
+      "tiers": [
+        {
+          "weight": 900,
+          "tier": 1,
+          "ilvlReq": 82,
+          "modLine": "{0}% increased Charges gained",
+          "name": "Flask Recharge Rate",
+          "min": 63,
+          "max": 70
+        },
+        {
+          "weight": 900,
+          "tier": 2,
+          "ilvlReq": 63,
+          "modLine": "{0}% increased Charges gained",
+          "name": "Flask Recharge Rate",
+          "min": 55,
+          "max": 62
+        },
+        {
+          "weight": 900,
+          "tier": 3,
+          "ilvlReq": 48,
+          "modLine": "{0}% increased Charges gained",
+          "name": "Flask Recharge Rate",
+          "min": 47,
+          "max": 54
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 45,
+          "modLine": "{0}% Chance to gain a Charge when you kill an enemy",
+          "name": "Flask Recharge Rate",
+          "min": 31,
+          "max": 35
+        },
+        {
+          "weight": 900,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Charges gained",
+          "name": "Flask Recharge Rate",
+          "min": 39,
+          "max": 46
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 26,
+          "modLine": "{0}% Chance to gain a Charge when you kill an enemy",
+          "name": "Flask Recharge Rate",
+          "min": 26,
+          "max": 30
+        },
+        {
+          "weight": 900,
+          "tier": 7,
+          "ilvlReq": 13,
+          "modLine": "{0}% increased Charges gained",
+          "name": "Flask Recharge Rate",
+          "min": 31,
+          "max": 38
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 8,
+          "modLine": "{0}% Chance to gain a Charge when you kill an enemy",
+          "name": "Flask Recharge Rate",
+          "min": 21,
+          "max": 25
+        },
+        {
+          "weight": 900,
+          "tier": 9,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Charges gained",
+          "name": "Flask Recharge Rate",
+          "min": 23,
+          "max": 30
+        }
+      ]
+    }
+  ],
+  "vaalCorruptedMods": [],
+  "vaalEnchantments": []
 }

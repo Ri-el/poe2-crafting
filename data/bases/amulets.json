@@ -1,5 +1,2125 @@
 {
   "name": "Amulet",
-  "prefixes": [],
-  "suffixes": []
+  "prefixes": [
+    {
+      "modGroup": "BaseSpirit",
+      "tiers": [
+        {
+          "weight": 400,
+          "tier": 1,
+          "ilvlReq": 54,
+          "modLine": "+{0} to Spirit",
+          "name": "Base Spirit",
+          "min": 47,
+          "max": 50
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 46,
+          "modLine": "+{0} to Spirit",
+          "name": "Base Spirit",
+          "min": 43,
+          "max": 46
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 33,
+          "modLine": "+{0} to Spirit",
+          "name": "Base Spirit",
+          "min": 38,
+          "max": 42
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 25,
+          "modLine": "+{0} to Spirit",
+          "name": "Base Spirit",
+          "min": 34,
+          "max": 37
+        },
+        {
+          "weight": 500,
+          "tier": 5,
+          "ilvlReq": 16,
+          "modLine": "+{0} to Spirit",
+          "name": "Base Spirit",
+          "min": 30,
+          "max": 33
+        }
+      ]
+    },
+    {
+      "modGroup": "EnergyShieldPercent",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "{0}% increased maximum Energy Shield",
+          "name": "Energy Shield Percent",
+          "min": 45,
+          "max": 50
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 65,
+          "modLine": "{0}% increased maximum Energy Shield",
+          "name": "Energy Shield Percent",
+          "min": 39,
+          "max": 44
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 54,
+          "modLine": "{0}% increased maximum Energy Shield",
+          "name": "Energy Shield Percent",
+          "min": 33,
+          "max": 38
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased maximum Energy Shield",
+          "name": "Energy Shield Percent",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased maximum Energy Shield",
+          "name": "Energy Shield Percent",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased maximum Energy Shield",
+          "name": "Energy Shield Percent",
+          "min": 15,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 2,
+          "modLine": "{0}% increased maximum Energy Shield",
+          "name": "Energy Shield Percent",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "EvasionRatingPercent",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 77,
+          "modLine": "{0}% increased Evasion Rating",
+          "name": "Evasion Rating Percent",
+          "min": 45,
+          "max": 50
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 70,
+          "modLine": "{0}% increased Evasion Rating",
+          "name": "Evasion Rating Percent",
+          "min": 39,
+          "max": 44
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 54,
+          "modLine": "{0}% increased Evasion Rating",
+          "name": "Evasion Rating Percent",
+          "min": 33,
+          "max": 38
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Evasion Rating",
+          "name": "Evasion Rating Percent",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Evasion Rating",
+          "name": "Evasion Rating Percent",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Evasion Rating",
+          "name": "Evasion Rating Percent",
+          "min": 15,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 2,
+          "modLine": "{0}% increased Evasion Rating",
+          "name": "Evasion Rating Percent",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedAccuracy",
+      "tiers": [
+        {
+          "weight": 400,
+          "tier": 1,
+          "ilvlReq": 67,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 347,
+          "max": 450
+        },
+        {
+          "weight": 800,
+          "tier": 2,
+          "ilvlReq": 58,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 237,
+          "max": 346
+        },
+        {
+          "weight": 800,
+          "tier": 3,
+          "ilvlReq": 48,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 168,
+          "max": 236
+        },
+        {
+          "weight": 800,
+          "tier": 4,
+          "ilvlReq": 36,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 124,
+          "max": 167
+        },
+        {
+          "weight": 800,
+          "tier": 5,
+          "ilvlReq": 26,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 85,
+          "max": 123
+        },
+        {
+          "weight": 800,
+          "tier": 6,
+          "ilvlReq": 18,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 61,
+          "max": 84
+        },
+        {
+          "weight": 800,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 33,
+          "max": 60
+        },
+        {
+          "weight": 800,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 11,
+          "max": 32
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedEnergyShield",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 80,
+          "modLine": "+{0} to maximum Energy Shield",
+          "name": "Increased Energy Shield",
+          "min": 80,
+          "max": 89
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 70,
+          "modLine": "+{0} to maximum Energy Shield",
+          "name": "Increased Energy Shield",
+          "min": 71,
+          "max": 79
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 65,
+          "modLine": "+{0} to maximum Energy Shield",
+          "name": "Increased Energy Shield",
+          "min": 62,
+          "max": 70
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 54,
+          "modLine": "+{0} to maximum Energy Shield",
+          "name": "Increased Energy Shield",
+          "min": 52,
+          "max": 61
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 46,
+          "modLine": "+{0} to maximum Energy Shield",
+          "name": "Increased Energy Shield",
+          "min": 42,
+          "max": 51
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 33,
+          "modLine": "+{0} to maximum Energy Shield",
+          "name": "Increased Energy Shield",
+          "min": 34,
+          "max": 41
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 25,
+          "modLine": "+{0} to maximum Energy Shield",
+          "name": "Increased Energy Shield",
+          "min": 25,
+          "max": 33
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 16,
+          "modLine": "+{0} to maximum Energy Shield",
+          "name": "Increased Energy Shield",
+          "min": 21,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 9,
+          "ilvlReq": 11,
+          "modLine": "+{0} to maximum Energy Shield",
+          "name": "Increased Energy Shield",
+          "min": 15,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 10,
+          "ilvlReq": 1,
+          "modLine": "+{0} to maximum Energy Shield",
+          "name": "Increased Energy Shield",
+          "min": 8,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedLife",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 60,
+          "modLine": "+{0} to maximum Life",
+          "name": "Increased Life",
+          "min": 120,
+          "max": 149
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 54,
+          "modLine": "+{0} to maximum Life",
+          "name": "Increased Life",
+          "min": 100,
+          "max": 119
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 46,
+          "modLine": "+{0} to maximum Life",
+          "name": "Increased Life",
+          "min": 85,
+          "max": 99
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 38,
+          "modLine": "+{0} to maximum Life",
+          "name": "Increased Life",
+          "min": 70,
+          "max": 84
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "+{0} to maximum Life",
+          "name": "Increased Life",
+          "min": 60,
+          "max": 69
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 24,
+          "modLine": "+{0} to maximum Life",
+          "name": "Increased Life",
+          "min": 40,
+          "max": 59
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 16,
+          "modLine": "+{0} to maximum Life",
+          "name": "Increased Life",
+          "min": 30,
+          "max": 39
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 6,
+          "modLine": "+{0} to maximum Life",
+          "name": "Increased Life",
+          "min": 20,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 9,
+          "ilvlReq": 1,
+          "modLine": "+{0} to maximum Life",
+          "name": "Increased Life",
+          "min": 10,
+          "max": 19
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedMana",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 82,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 180,
+          "max": 189
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 75,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 165,
+          "max": 179
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 70,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 150,
+          "max": 164
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 65,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 125,
+          "max": 149
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 60,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 105,
+          "max": 124
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 54,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 90,
+          "max": 104
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 46,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 80,
+          "max": 89
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 38,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 65,
+          "max": 79
+        },
+        {
+          "weight": 1000,
+          "tier": 9,
+          "ilvlReq": 33,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 55,
+          "max": 64
+        },
+        {
+          "weight": 1000,
+          "tier": 10,
+          "ilvlReq": 25,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 35,
+          "max": 54
+        },
+        {
+          "weight": 1000,
+          "tier": 11,
+          "ilvlReq": 16,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 25,
+          "max": 34
+        },
+        {
+          "weight": 1000,
+          "tier": 12,
+          "ilvlReq": 6,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 15,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 13,
+          "ilvlReq": 1,
+          "modLine": "+{0} to maximum Mana",
+          "name": "Increased Mana",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedPhysicalDamageReductionRatingPercent",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "{0}% increased Armour",
+          "name": "Increased Physical Damage Reduction Rating Percent",
+          "min": 45,
+          "max": 50
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 65,
+          "modLine": "{0}% increased Armour",
+          "name": "Increased Physical Damage Reduction Rating Percent",
+          "min": 39,
+          "max": 44
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 54,
+          "modLine": "{0}% increased Armour",
+          "name": "Increased Physical Damage Reduction Rating Percent",
+          "min": 33,
+          "max": 38
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Armour",
+          "name": "Increased Physical Damage Reduction Rating Percent",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Armour",
+          "name": "Increased Physical Damage Reduction Rating Percent",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Armour",
+          "name": "Increased Physical Damage Reduction Rating Percent",
+          "min": 15,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 2,
+          "modLine": "{0}% increased Armour",
+          "name": "Increased Physical Damage Reduction Rating Percent",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "ItemFoundRarityIncreasePrefix",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 47,
+          "modLine": "{0}% increased Rarity of Items found",
+          "name": "Item Found Rarity Increase Prefix",
+          "min": 16,
+          "max": 19
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 29,
+          "modLine": "{0}% increased Rarity of Items found",
+          "name": "Item Found Rarity Increase Prefix",
+          "min": 12,
+          "max": 15
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 10,
+          "modLine": "{0}% increased Rarity of Items found",
+          "name": "Item Found Rarity Increase Prefix",
+          "min": 8,
+          "max": 11
+        }
+      ]
+    },
+    {
+      "modGroup": "MaximumLifeIncreasePercent",
+      "tiers": [
+        {
+          "weight": 300,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "{0}% increased maximum Life",
+          "name": "Maximum Life Increase Percent",
+          "min": 7,
+          "max": 8
+        },
+        {
+          "weight": 300,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased maximum Life",
+          "name": "Maximum Life Increase Percent",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "weight": 300,
+          "tier": 3,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased maximum Life",
+          "name": "Maximum Life Increase Percent",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "MaximumManaIncreasePercent",
+      "tiers": [
+        {
+          "weight": 300,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "{0}% increased maximum Mana",
+          "name": "Maximum Mana Increase Percent",
+          "min": 7,
+          "max": 8
+        },
+        {
+          "weight": 300,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased maximum Mana",
+          "name": "Maximum Mana Increase Percent",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "weight": 300,
+          "tier": 3,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased maximum Mana",
+          "name": "Maximum Mana Increase Percent",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "SpellDamage",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Spell Damage",
+          "min": 27,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Spell Damage",
+          "min": 23,
+          "max": 26
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Spell Damage",
+          "min": 18,
+          "max": 22
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Spell Damage",
+          "min": 13,
+          "max": 17
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Spell Damage",
+          "min": 8,
+          "max": 12
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Spell Damage",
+          "min": 3,
+          "max": 7
+        }
+      ]
+    }
+  ],
+  "suffixes": [
+    {
+      "modGroup": "AllAttributes",
+      "tiers": [
+        {
+          "weight": 800,
+          "tier": 1,
+          "ilvlReq": 82,
+          "modLine": "+{0} to all Attributes",
+          "name": "All Attributes",
+          "min": 23,
+          "max": 24
+        },
+        {
+          "weight": 800,
+          "tier": 2,
+          "ilvlReq": 75,
+          "modLine": "+{0} to all Attributes",
+          "name": "All Attributes",
+          "min": 21,
+          "max": 22
+        },
+        {
+          "weight": 800,
+          "tier": 3,
+          "ilvlReq": 66,
+          "modLine": "+{0} to all Attributes",
+          "name": "All Attributes",
+          "min": 19,
+          "max": 20
+        },
+        {
+          "weight": 800,
+          "tier": 4,
+          "ilvlReq": 55,
+          "modLine": "+{0} to all Attributes",
+          "name": "All Attributes",
+          "min": 17,
+          "max": 18
+        },
+        {
+          "weight": 800,
+          "tier": 5,
+          "ilvlReq": 44,
+          "modLine": "+{0} to all Attributes",
+          "name": "All Attributes",
+          "min": 14,
+          "max": 16
+        },
+        {
+          "weight": 800,
+          "tier": 6,
+          "ilvlReq": 33,
+          "modLine": "+{0} to all Attributes",
+          "name": "All Attributes",
+          "min": 11,
+          "max": 13
+        },
+        {
+          "weight": 800,
+          "tier": 7,
+          "ilvlReq": 22,
+          "modLine": "+{0} to all Attributes",
+          "name": "All Attributes",
+          "min": 8,
+          "max": 10
+        },
+        {
+          "weight": 800,
+          "tier": 8,
+          "ilvlReq": 11,
+          "modLine": "+{0} to all Attributes",
+          "name": "All Attributes",
+          "min": 5,
+          "max": 7
+        },
+        {
+          "weight": 800,
+          "tier": 9,
+          "ilvlReq": 1,
+          "modLine": "+{0} to all Attributes",
+          "name": "All Attributes",
+          "min": 2,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "AllResistances",
+      "tiers": [
+        {
+          "weight": 800,
+          "tier": 1,
+          "ilvlReq": 80,
+          "modLine": "+{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 17,
+          "max": 18
+        },
+        {
+          "weight": 800,
+          "tier": 2,
+          "ilvlReq": 68,
+          "modLine": "+{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 15,
+          "max": 16
+        },
+        {
+          "weight": 800,
+          "tier": 3,
+          "ilvlReq": 54,
+          "modLine": "+{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 12,
+          "max": 14
+        },
+        {
+          "weight": 800,
+          "tier": 4,
+          "ilvlReq": 40,
+          "modLine": "+{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 9,
+          "max": 11
+        },
+        {
+          "weight": 800,
+          "tier": 5,
+          "ilvlReq": 26,
+          "modLine": "+{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 6,
+          "max": 8
+        },
+        {
+          "weight": 800,
+          "tier": 6,
+          "ilvlReq": 12,
+          "modLine": "+{0}% to all Elemental Resistances",
+          "name": "All Resistances",
+          "min": 3,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "ChaosResistance",
+      "tiers": [
+        {
+          "weight": 250,
+          "tier": 1,
+          "ilvlReq": 81,
+          "modLine": "+{0}% to Chaos Resistance",
+          "name": "Chaos Resistance",
+          "min": 24,
+          "max": 27
+        },
+        {
+          "weight": 250,
+          "tier": 2,
+          "ilvlReq": 68,
+          "modLine": "+{0}% to Chaos Resistance",
+          "name": "Chaos Resistance",
+          "min": 20,
+          "max": 23
+        },
+        {
+          "weight": 250,
+          "tier": 3,
+          "ilvlReq": 56,
+          "modLine": "+{0}% to Chaos Resistance",
+          "name": "Chaos Resistance",
+          "min": 16,
+          "max": 19
+        },
+        {
+          "weight": 250,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "+{0}% to Chaos Resistance",
+          "name": "Chaos Resistance",
+          "min": 12,
+          "max": 15
+        },
+        {
+          "weight": 250,
+          "tier": 5,
+          "ilvlReq": 30,
+          "modLine": "+{0}% to Chaos Resistance",
+          "name": "Chaos Resistance",
+          "min": 8,
+          "max": 11
+        },
+        {
+          "weight": 250,
+          "tier": 6,
+          "ilvlReq": 16,
+          "modLine": "+{0}% to Chaos Resistance",
+          "name": "Chaos Resistance",
+          "min": 4,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "modGroup": "ColdResistance",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 82,
+          "modLine": "+{0}% to Cold Resistance",
+          "name": "Cold Resistance",
+          "min": 41,
+          "max": 45
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 71,
+          "modLine": "+{0}% to Cold Resistance",
+          "name": "Cold Resistance",
+          "min": 36,
+          "max": 40
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 60,
+          "modLine": "+{0}% to Cold Resistance",
+          "name": "Cold Resistance",
+          "min": 31,
+          "max": 35
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 50,
+          "modLine": "+{0}% to Cold Resistance",
+          "name": "Cold Resistance",
+          "min": 26,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 38,
+          "modLine": "+{0}% to Cold Resistance",
+          "name": "Cold Resistance",
+          "min": 21,
+          "max": 25
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 26,
+          "modLine": "+{0}% to Cold Resistance",
+          "name": "Cold Resistance",
+          "min": 16,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 14,
+          "modLine": "+{0}% to Cold Resistance",
+          "name": "Cold Resistance",
+          "min": 11,
+          "max": 15
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0}% to Cold Resistance",
+          "name": "Cold Resistance",
+          "min": 6,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "CriticalStrikeChanceIncrease",
+      "tiers": [
+        {
+          "weight": 125,
+          "tier": 1,
+          "ilvlReq": 72,
+          "modLine": "{0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 35,
+          "max": 38
+        },
+        {
+          "weight": 250,
+          "tier": 2,
+          "ilvlReq": 58,
+          "modLine": "{0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 30,
+          "max": 34
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 44,
+          "modLine": "{0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 25,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 30,
+          "modLine": "{0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 20,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 20,
+          "modLine": "{0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 15,
+          "max": 19
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 5,
+          "modLine": "{0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "CriticalStrikeMultiplier",
+      "tiers": [
+        {
+          "weight": 125,
+          "tier": 1,
+          "ilvlReq": 74,
+          "modLine": "{0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 35,
+          "max": 39
+        },
+        {
+          "weight": 250,
+          "tier": 2,
+          "ilvlReq": 59,
+          "modLine": "{0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 30,
+          "max": 34
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 45,
+          "modLine": "{0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 25,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 31,
+          "modLine": "{0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 20,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 21,
+          "modLine": "{0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 15,
+          "max": 19
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 8,
+          "modLine": "{0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 10,
+          "max": 14
+        }
+      ]
+    },
+    {
+      "modGroup": "DamageTakenGainedAsLife",
+      "tiers": [
+        {
+          "weight": 500,
+          "tier": 1,
+          "ilvlReq": 79,
+          "modLine": "{0}% of Damage taken Recouped as Life",
+          "name": "Damage Taken Gained As Life",
+          "min": 22,
+          "max": 24
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 68,
+          "modLine": "{0}% of Damage taken Recouped as Life",
+          "name": "Damage Taken Gained As Life",
+          "min": 19,
+          "max": 21
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 56,
+          "modLine": "{0}% of Damage taken Recouped as Life",
+          "name": "Damage Taken Gained As Life",
+          "min": 16,
+          "max": 18
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "{0}% of Damage taken Recouped as Life",
+          "name": "Damage Taken Gained As Life",
+          "min": 13,
+          "max": 15
+        },
+        {
+          "weight": 500,
+          "tier": 5,
+          "ilvlReq": 30,
+          "modLine": "{0}% of Damage taken Recouped as Life",
+          "name": "Damage Taken Gained As Life",
+          "min": 10,
+          "max": 12
+        }
+      ]
+    },
+    {
+      "modGroup": "Dexterity",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 74,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 31,
+          "max": 33
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 66,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 21,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 13,
+          "max": 16
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 9,
+          "max": 12
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 5,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "modGroup": "FireResistance",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 82,
+          "modLine": "+{0}% to Fire Resistance",
+          "name": "Fire Resistance",
+          "min": 41,
+          "max": 45
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 71,
+          "modLine": "+{0}% to Fire Resistance",
+          "name": "Fire Resistance",
+          "min": 36,
+          "max": 40
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 60,
+          "modLine": "+{0}% to Fire Resistance",
+          "name": "Fire Resistance",
+          "min": 31,
+          "max": 35
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 48,
+          "modLine": "+{0}% to Fire Resistance",
+          "name": "Fire Resistance",
+          "min": 26,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 36,
+          "modLine": "+{0}% to Fire Resistance",
+          "name": "Fire Resistance",
+          "min": 21,
+          "max": 25
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 24,
+          "modLine": "+{0}% to Fire Resistance",
+          "name": "Fire Resistance",
+          "min": 16,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 12,
+          "modLine": "+{0}% to Fire Resistance",
+          "name": "Fire Resistance",
+          "min": 11,
+          "max": 15
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0}% to Fire Resistance",
+          "name": "Fire Resistance",
+          "min": 6,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedCastSpeed",
+      "tiers": [
+        {
+          "weight": 800,
+          "tier": 1,
+          "ilvlReq": 66,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 25,
+          "max": 28
+        },
+        {
+          "weight": 800,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 22,
+          "max": 24
+        },
+        {
+          "weight": 800,
+          "tier": 3,
+          "ilvlReq": 51,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 19,
+          "max": 21
+        },
+        {
+          "weight": 800,
+          "tier": 4,
+          "ilvlReq": 35,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 16,
+          "max": 18
+        },
+        {
+          "weight": 800,
+          "tier": 5,
+          "ilvlReq": 18,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 13,
+          "max": 15
+        },
+        {
+          "weight": 800,
+          "tier": 6,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 9,
+          "max": 12
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreaseSocketedGemLevel",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "+{0} to Level of all Melee Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 100,
+          "tier": 2,
+          "ilvlReq": 75,
+          "modLine": "+{0} to Level of all Minion Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 100,
+          "tier": 3,
+          "ilvlReq": 75,
+          "modLine": "+{0} to Level of all Projectile Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 100,
+          "tier": 4,
+          "ilvlReq": 75,
+          "modLine": "+{0} to Level of all Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 250,
+          "tier": 5,
+          "ilvlReq": 41,
+          "modLine": "+{0} to Level of all Melee Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 250,
+          "tier": 6,
+          "ilvlReq": 41,
+          "modLine": "+{0} to Level of all Minion Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 250,
+          "tier": 7,
+          "ilvlReq": 41,
+          "modLine": "+{0} to Level of all Projectile Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 250,
+          "tier": 8,
+          "ilvlReq": 41,
+          "modLine": "+{0} to Level of all Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "weight": 500,
+          "tier": 9,
+          "ilvlReq": 10,
+          "modLine": "+{0} to Level of all Spell Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "weight": 500,
+          "tier": 10,
+          "ilvlReq": 5,
+          "modLine": "+{0} to Level of all Melee Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "weight": 500,
+          "tier": 11,
+          "ilvlReq": 5,
+          "modLine": "+{0} to Level of all Minion Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "weight": 500,
+          "tier": 12,
+          "ilvlReq": 5,
+          "modLine": "+{0} to Level of all Projectile Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "modGroup": "Intelligence",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 74,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 31,
+          "max": 33
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 66,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 21,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 13,
+          "max": 16
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 9,
+          "max": 12
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0} to Intelligence",
+          "name": "Intelligence",
+          "min": 5,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "modGroup": "ItemFoundRarityIncrease",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 40,
+          "modLine": "{0}% increased Rarity of Items found",
+          "name": "Item Found Rarity Increase",
+          "min": 15,
+          "max": 18
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 24,
+          "modLine": "{0}% increased Rarity of Items found",
+          "name": "Item Found Rarity Increase",
+          "min": 11,
+          "max": 14
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 3,
+          "modLine": "{0}% increased Rarity of Items found",
+          "name": "Item Found Rarity Increase",
+          "min": 6,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "LifeRegeneration",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 75,
+          "modLine": "{0} Life Regeneration per second",
+          "name": "Life Regeneration",
+          "min": 29.1,
+          "max": 33
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 68,
+          "modLine": "{0} Life Regeneration per second",
+          "name": "Life Regeneration",
+          "min": 23.1,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 58,
+          "modLine": "{0} Life Regeneration per second",
+          "name": "Life Regeneration",
+          "min": 18.1,
+          "max": 23
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 47,
+          "modLine": "{0} Life Regeneration per second",
+          "name": "Life Regeneration",
+          "min": 13.1,
+          "max": 18
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 35,
+          "modLine": "{0} Life Regeneration per second",
+          "name": "Life Regeneration",
+          "min": 9.1,
+          "max": 13
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 26,
+          "modLine": "{0} Life Regeneration per second",
+          "name": "Life Regeneration",
+          "min": 6.1,
+          "max": 9
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 17,
+          "modLine": "{0} Life Regeneration per second",
+          "name": "Life Regeneration",
+          "min": 4.1,
+          "max": 6
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 11,
+          "modLine": "{0} Life Regeneration per second",
+          "name": "Life Regeneration",
+          "min": 3.1,
+          "max": 4
+        },
+        {
+          "weight": 1000,
+          "tier": 9,
+          "ilvlReq": 5,
+          "modLine": "{0} Life Regeneration per second",
+          "name": "Life Regeneration",
+          "min": 2.1,
+          "max": 3
+        },
+        {
+          "weight": 1000,
+          "tier": 10,
+          "ilvlReq": 1,
+          "modLine": "{0} Life Regeneration per second",
+          "name": "Life Regeneration",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "modGroup": "LightningResistance",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 82,
+          "modLine": "+{0}% to Lightning Resistance",
+          "name": "Lightning Resistance",
+          "min": 41,
+          "max": 45
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 71,
+          "modLine": "+{0}% to Lightning Resistance",
+          "name": "Lightning Resistance",
+          "min": 36,
+          "max": 40
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 60,
+          "modLine": "+{0}% to Lightning Resistance",
+          "name": "Lightning Resistance",
+          "min": 31,
+          "max": 35
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 49,
+          "modLine": "+{0}% to Lightning Resistance",
+          "name": "Lightning Resistance",
+          "min": 26,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 37,
+          "modLine": "+{0}% to Lightning Resistance",
+          "name": "Lightning Resistance",
+          "min": 21,
+          "max": 25
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 25,
+          "modLine": "+{0}% to Lightning Resistance",
+          "name": "Lightning Resistance",
+          "min": 16,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 13,
+          "modLine": "+{0}% to Lightning Resistance",
+          "name": "Lightning Resistance",
+          "min": 11,
+          "max": 15
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0}% to Lightning Resistance",
+          "name": "Lightning Resistance",
+          "min": 6,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "ManaRegeneration",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 79,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 60,
+          "max": 69
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 55,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 50,
+          "max": 59
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 42,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 40,
+          "max": 49
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 29,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 30,
+          "max": 39
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 18,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 20,
+          "max": 29
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 10,
+          "max": 19
+        }
+      ]
+    },
+    {
+      "modGroup": "PercentDamageGoesToMana",
+      "tiers": [
+        {
+          "weight": 500,
+          "tier": 1,
+          "ilvlReq": 80,
+          "modLine": "{0}% of Damage taken Recouped as Mana",
+          "name": "Percent Damage Goes To Mana",
+          "min": 22,
+          "max": 24
+        },
+        {
+          "weight": 500,
+          "tier": 2,
+          "ilvlReq": 69,
+          "modLine": "{0}% of Damage taken Recouped as Mana",
+          "name": "Percent Damage Goes To Mana",
+          "min": 19,
+          "max": 21
+        },
+        {
+          "weight": 500,
+          "tier": 3,
+          "ilvlReq": 57,
+          "modLine": "{0}% of Damage taken Recouped as Mana",
+          "name": "Percent Damage Goes To Mana",
+          "min": 16,
+          "max": 18
+        },
+        {
+          "weight": 500,
+          "tier": 4,
+          "ilvlReq": 45,
+          "modLine": "{0}% of Damage taken Recouped as Mana",
+          "name": "Percent Damage Goes To Mana",
+          "min": 13,
+          "max": 15
+        },
+        {
+          "weight": 500,
+          "tier": 5,
+          "ilvlReq": 31,
+          "modLine": "{0}% of Damage taken Recouped as Mana",
+          "name": "Percent Damage Goes To Mana",
+          "min": 10,
+          "max": 12
+        }
+      ]
+    },
+    {
+      "modGroup": "Strength",
+      "tiers": [
+        {
+          "weight": 1000,
+          "tier": 1,
+          "ilvlReq": 74,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 31,
+          "max": 33
+        },
+        {
+          "weight": 1000,
+          "tier": 2,
+          "ilvlReq": 66,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 1000,
+          "tier": 3,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 1000,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 21,
+          "max": 24
+        },
+        {
+          "weight": 1000,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "weight": 1000,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 13,
+          "max": 16
+        },
+        {
+          "weight": 1000,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 9,
+          "max": 12
+        },
+        {
+          "weight": 1000,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 5,
+          "max": 8
+        }
+      ]
+    }
+  ],
+  "vaalCorruptedMods": [
+    {
+      "modGroup": "ItemFoundRarityIncrease",
+      "modLine": "{0}% increased Rarity of Items found",
+      "min": 10,
+      "max": 15,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "Dexterity",
+      "modLine": "+{0} to Dexterity",
+      "min": 10,
+      "max": 15,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "Intelligence",
+      "modLine": "+{0} to Intelligence",
+      "min": 10,
+      "max": 15,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IncreaseSocketedGemLevel",
+      "modLine": "+{0} to Level of all Skills",
+      "min": 1,
+      "max": 1,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "Strength",
+      "modLine": "+{0} to Strength",
+      "min": 10,
+      "max": 15,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "AllResistances",
+      "modLine": "+{0}% to all Elemental Resistances",
+      "min": 5,
+      "max": 10,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "MaximumResistances",
+      "modLine": "+{0}% to all Maximum Elemental Resistances",
+      "min": 1,
+      "max": 1,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "FlaskChargeGeneration",
+      "modLine": "Charms gain {0} charges per Second",
+      "min": 0.08,
+      "max": 0.17,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "LifeLeech",
+      "modLine": "Leech {0}% of Physical Attack Damage as Life",
+      "min": 3,
+      "max": 3,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "ManaLeech",
+      "modLine": "Leech {0}% of Physical Attack Damage as Mana",
+      "min": 2,
+      "max": 2,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "FlaskChargeGeneration",
+      "modLine": "Life Flasks gain {0} charges per Second",
+      "min": 0.08,
+      "max": 0.17,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "FlaskChargeGeneration",
+      "modLine": "Mana Flasks gain {0} charges per Second",
+      "min": 0.08,
+      "max": 0.17,
+      "type": "corrupted"
+    }
+  ],
+  "vaalEnchantments": []
 }

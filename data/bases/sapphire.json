@@ -1,564 +1,18 @@
 {
-  "suffixes": [
-    {
-      "modGroup": "QuarterstaffFreezeBuildup",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Freeze Buildup with Quarterstaves",
-          "name": "of Glaciers",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "CurseDelay",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% faster Curse Activation",
-          "name": "of Chanting",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "FormCritMultiplier",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Critical Spell Damage Bonus",
-          "name": "of Unmaking",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "MaximumColdResist",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "+{0}% to Maximum Cold Resistance",
-          "name": "of the Kraken",
-          "max": 1,
-          "min": 1
-        }
-      ]
-    },
-    {
-      "modGroup": "DamagingAilmentDuration",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Duration of Damaging Ailments on Enemies",
-          "name": "of Suffusion",
-          "max": 10,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "IncreasedCastSpeed",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Cast Speed",
-          "name": "of Enchanting",
-          "max": 4,
-          "min": 2
-        }
-      ]
-    },
-    {
-      "modGroup": "IncreasedChillDuration",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Chill Duration on Enemies",
-          "name": "of Frost",
-          "max": 25,
-          "min": 15
-        }
-      ]
-    },
-    {
-      "modGroup": "ManaGainedOnKillPercentage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Recover {0}% of maximum Mana on Kill",
-          "name": "of Osmosis",
-          "max": 2,
-          "min": 1
-        }
-      ]
-    },
-    {
-      "modGroup": "MinionCriticalStrikeChance",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Minions have {0}% increased Critical Hit Chance",
-          "name": "of Marshalling",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "MinionElementalResistances",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Minions have +{0}% to all Elemental Resistances",
-          "name": "of Acclimatisation",
-          "max": 10,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "FreezeThreshold",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Freeze Threshold",
-          "name": "of Snowbreathing",
-          "max": 32,
-          "min": 18
-        }
-      ]
-    },
-    {
-      "modGroup": "AilmentThresholdfromEnergyShield",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Gain additional Ailment Threshold equal to {0}% of maximum Energy Shield",
-          "name": "of Inuring",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "MinionCriticalStrikeMultiplier",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Minions have {0}% increased Critical Damage Bonus",
-          "name": "of Gripping",
-          "max": 25,
-          "min": 15
-        }
-      ]
-    },
-    {
-      "modGroup": "FreezeDamageIncrease",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Freeze Buildup",
-          "name": "of Freezing",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "FasterAilmentDamage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Damaging Ailments deal damage {0}% faster",
-          "name": "of Decrepifying",
-          "max": 7,
-          "min": 3
-        }
-      ]
-    },
-    {
-      "modGroup": "DamageRemovedFromManaBeforeLife",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% of Damage is taken from Mana before Life",
-          "name": "of Mind",
-          "max": 4,
-          "min": 2
-        }
-      ]
-    },
-    {
-      "modGroup": "MaximumLifeOnKillPercent",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Recover {0}% of maximum Life on Kill",
-          "name": "of Success",
-          "max": 2,
-          "min": 1
-        }
-      ]
-    },
-    {
-      "modGroup": "ManaRegeneration",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Mana Regeneration Rate",
-          "name": "of Energy",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "SpecificWeaponSpeed",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Skill Speed while Shapeshifted",
-          "name": "of the Wild",
-          "max": 4,
-          "min": 2
-        }
-      ]
-    },
-    {
-      "modGroup": "CriticalStrikeChanceIncrease",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Critical Hit Chance",
-          "name": "of Annihilation",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "ShockChanceIncrease",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased chance to Shock",
-          "name": "of Shocking",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "Energy",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Meta Skills gain {0}% increased Energy",
-          "name": "of Generation",
-          "max": 8,
-          "min": 4
-        }
-      ]
-    },
-    {
-      "modGroup": "SpellCriticalStrikeChanceIncrease",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Critical Hit Chance for Spells",
-          "name": "of Annihilating",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "DamageTakenGainedAsLife",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% of Damage taken Recouped as Life",
-          "name": "of Infusion",
-          "max": 3,
-          "min": 2
-        }
-      ]
-    },
-    {
-      "modGroup": "StunThresholdfromEnergyShield",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Gain additional Stun Threshold equal to {0}% of maximum Energy Shield",
-          "name": "of Barriers",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "CriticalStrikeMultiplier",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Critical Damage Bonus",
-          "name": "of Potency",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "IgniteChanceIncrease",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Flammability Magnitude",
-          "name": "of Ignition",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "DebuffTime",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Debuffs on you expire {0}% faster",
-          "name": "of Diminishing",
-          "max": 10,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "AilmentChance",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased chance to inflict Ailments",
-          "name": "of Ailing",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "BaseCurseDuration",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Curse Duration",
-          "name": "of Continuation",
-          "max": 25,
-          "min": 15
-        }
-      ]
-    },
-    {
-      "modGroup": "OfferingDuration",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Offering Skills have {0}% increased Duration",
-          "name": "of Offering",
-          "max": 25,
-          "min": 15
-        }
-      ]
-    },
-    {
-      "modGroup": "MinionAttackSpeedAndCastSpeed",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Minions have {0}% increased Attack and Cast Speed",
-          "name": "of Orchestration",
-          "max": 4,
-          "min": 2
-        }
-      ]
-    },
-    {
-      "modGroup": "SkillEffectDuration",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Skill Effect Duration",
-          "name": "of Lengthening",
-          "max": 10,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "ShockDuration",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Shock Duration",
-          "name": "of Paralyzing",
-          "max": 25,
-          "min": 15
-        }
-      ]
-    },
-    {
-      "modGroup": "MinionChaosResistance",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Minions have +{0}% to Chaos Resistance",
-          "name": "of Righteousness",
-          "max": 13,
-          "min": 7
-        }
-      ]
-    }
-  ],
+  "name": "Sapphire",
+  "attribute": "Intelligence",
   "prefixes": [
     {
-      "modGroup": "AreaOfEffect",
+      "modGroup": "AilmentEffect",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
-          "modLine": "{0}% increased Area of Effect",
-          "name": "Blasting",
-          "max": 6,
-          "min": 4
-        }
-      ]
-    },
-    {
-      "modGroup": "DamageWithTriggeredSpells",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Triggered Spells deal {0}% increased Spell Damage",
-          "name": "Triggered",
-          "max": 18,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "CurseAreaOfEffect",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Area of Effect of Curses",
-          "name": "Expanding",
-          "max": 12,
-          "min": 8
-        }
-      ]
-    },
-    {
-      "modGroup": "FocusEnergyShield",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Energy Shield from Equipped Focus",
-          "name": "Focusing",
-          "max": 50,
-          "min": 30
-        }
-      ]
-    },
-    {
-      "modGroup": "EnergyShieldPercent",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased maximum Energy Shield",
-          "name": "Shimmering",
-          "max": 20,
-          "min": 10
+          "modLine": "{0}% increased Magnitude of Ailments you inflict",
+          "name": "Ailment Effect",
+          "min": 5,
+          "max": 15
         }
       ]
     },
@@ -566,120 +20,27 @@
       "modGroup": "AllDamage",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "{0}% increased Damage if you have Consumed a Corpse Recently",
-          "name": "Necromantic",
-          "max": 20,
-          "min": 10
+          "name": "All Damage",
+          "min": 10,
+          "max": 20
         }
       ]
     },
     {
-      "modGroup": "WeaponCasterDamagePrefix",
+      "modGroup": "AreaOfEffect",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
-          "modLine": "{0}% increased Spell Damage",
-          "name": "Mystic",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "PresenceRadius",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Presence Area of Effect",
-          "name": "Iconic",
-          "max": 25,
-          "min": 15
-        }
-      ]
-    },
-    {
-      "modGroup": "IgniteEffect",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Ignite Magnitude",
-          "name": "Burning",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "IncreasedChaosDamage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Chaos Damage",
-          "name": "Chaotic",
-          "max": 13,
-          "min": 7
-        }
-      ]
-    },
-    {
-      "modGroup": "DamageForm",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Damage with Plant Skills",
-          "name": "Overgrown",
-          "max": 15,
-          "min": 5
-        },
-        {
-          "weight": 1,
-          "tier": 2,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Damage while Shapeshifted",
-          "name": "Bestial",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "EnergyShieldDelay",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% faster start of Energy Shield Recharge",
-          "name": "Serene",
-          "max": 15,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "MinionDamage",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Minions deal {0}% increased Damage",
-          "name": "Authoritative",
-          "max": 15,
-          "min": 5
+          "modLine": "{0}% increased Area of Effect",
+          "name": "Area Of Effect",
+          "min": 4,
+          "max": 6
         }
       ]
     },
@@ -687,83 +48,13 @@
       "modGroup": "ColdDamagePercentage",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "{0}% increased Cold Damage",
-          "name": "Chilling",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "CurseEffectiveness",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Curse Magnitudes",
-          "name": "Hexing",
-          "max": 4,
-          "min": 2
-        }
-      ]
-    },
-    {
-      "modGroup": "ElementalDamagePercent",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Elemental Damage",
-          "name": "Prismatic",
-          "max": 15,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "CriticalAilmentEffect",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Magnitude of Damaging Ailments you inflict with Critical Hits",
-          "name": "Rancorous",
-          "max": 20,
-          "min": 10
-        }
-      ]
-    },
-    {
-      "modGroup": "WitheredEffect",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "{0}% increased Withered Magnitude",
-          "name": "Withering",
-          "max": 10,
-          "min": 5
-        }
-      ]
-    },
-    {
-      "modGroup": "OfferingLife",
-      "tiers": [
-        {
-          "weight": 1,
-          "tier": 1,
-          "ilvlReq": 1,
-          "modLine": "Offerings have {0}% increased Maximum Life",
-          "name": "Sacrificial",
-          "max": 25,
-          "min": 15
+          "name": "Cold Damage Percentage",
+          "min": 5,
+          "max": 15
         }
       ]
     },
@@ -771,27 +62,218 @@
       "modGroup": "ColdResistancePenetration",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "Damage Penetrates {0}% Cold Resistance",
-          "name": "Numbing",
-          "max": 10,
-          "min": 5
+          "name": "Cold Resistance Penetration",
+          "min": 5,
+          "max": 10
         }
       ]
     },
     {
-      "modGroup": "AilmentEffect",
+      "modGroup": "CriticalAilmentEffect",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
-          "modLine": "{0}% increased Magnitude of Ailments you inflict",
-          "name": "Acrimonious",
-          "max": 15,
-          "min": 5
+          "modLine": "{0}% increased Magnitude of Damaging Ailments you inflict with Critical Hits",
+          "name": "Critical Ailment Effect",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "CurseAreaOfEffect",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Area of Effect of Curses",
+          "name": "Curse Area Of Effect",
+          "min": 8,
+          "max": 12
+        }
+      ]
+    },
+    {
+      "modGroup": "CurseEffectiveness",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Curse Magnitudes",
+          "name": "Curse Effectiveness",
+          "min": 2,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "DamageForm",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage while Shapeshifted",
+          "name": "Damage Form",
+          "min": 5,
+          "max": 15
+        },
+        {
+          "weight": 100,
+          "tier": 2,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage with Plant Skills",
+          "name": "Damage Form",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "DamageWithTriggeredSpells",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Triggered Spells deal {0}% increased Spell Damage",
+          "name": "Damage With Triggered Spells",
+          "min": 10,
+          "max": 18
+        }
+      ]
+    },
+    {
+      "modGroup": "ElementalDamagePercent",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Elemental Damage",
+          "name": "Elemental Damage Percent",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "EnergyShieldDelay",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% faster start of Energy Shield Recharge",
+          "name": "Energy Shield Delay",
+          "min": 10,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "EnergyShieldPercent",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased maximum Energy Shield",
+          "name": "Energy Shield Percent",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "FocusEnergyShield",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Energy Shield from Equipped Focus",
+          "name": "Focus Energy Shield",
+          "min": 30,
+          "max": 50
+        }
+      ]
+    },
+    {
+      "modGroup": "IgniteEffect",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Ignite Magnitude",
+          "name": "Ignite Effect",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedChaosDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Chaos Damage",
+          "name": "Increased Chaos Damage",
+          "min": 7,
+          "max": 13
+        }
+      ]
+    },
+    {
+      "modGroup": "MinionDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Minions deal {0}% increased Damage",
+          "name": "Minion Damage",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "OfferingLife",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Offerings have {0}% increased Maximum Life",
+          "name": "Offering Life",
+          "min": 15,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "modGroup": "PresenceRadius",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Presence Area of Effect",
+          "name": "Presence Radius",
+          "min": 15,
+          "max": 25
         }
       ]
     },
@@ -799,126 +281,583 @@
       "modGroup": "ShockEffect",
       "tiers": [
         {
-          "weight": 1,
+          "weight": 100,
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "{0}% increased Magnitude of Shock you inflict",
-          "name": "Jolting",
-          "max": 15,
-          "min": 10
+          "name": "Shock Effect",
+          "min": 10,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "WeaponCasterDamagePrefix",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Spell Damage",
+          "name": "Weapon Caster Damage Prefix",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "WitheredEffect",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Withered Magnitude",
+          "name": "Withered Effect",
+          "min": 5,
+          "max": 10
         }
       ]
     }
   ],
-  "name": "Sapphire",
-  "attribute": "Intelligence",
-  "vaalEnchantments": [
+  "suffixes": [
     {
-      "text": "Corrupted Blood cannot be inflicted on you",
-      "weight": 100
+      "modGroup": "AilmentChance",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased chance to inflict Ailments",
+          "name": "Ailment Chance",
+          "min": 5,
+          "max": 15
+        }
+      ]
     },
     {
-      "text": "Cannot be Blinded",
-      "weight": 100
+      "modGroup": "AilmentThresholdfromEnergyShield",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Gain additional Ailment Threshold equal to {0}% of maximum Energy Shield",
+          "name": "Ailment Thresholdfrom Energy Shield",
+          "min": 5,
+          "max": 15
+        }
+      ]
     },
     {
-      "text": "You cannot be Hindered",
-      "weight": 100
+      "modGroup": "BaseCurseDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Curse Duration",
+          "name": "Base Curse Duration",
+          "min": 15,
+          "max": 25
+        }
+      ]
     },
     {
-      "weight": 200,
-      "min": 3,
-      "text": "+{0}% to Chaos Resistance",
-      "max": 5
+      "modGroup": "CriticalStrikeChanceIncrease",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 5,
+          "max": 15
+        }
+      ]
     },
     {
-      "text": "Immune to Maim",
-      "weight": 100
+      "modGroup": "CriticalStrikeMultiplier",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 10,
+          "max": 20
+        }
+      ]
     },
     {
-      "text": "Damaging Ailments cannot be inflicted on you",
-      "weight": 50
+      "modGroup": "CurseDelay",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% faster Curse Activation",
+          "name": "Curse Delay",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "DamageRemovedFromManaBeforeLife",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% of Damage is taken from Mana before Life",
+          "name": "Damage Removed From Mana Before Life",
+          "min": 2,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "DamageTakenGainedAsLife",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% of Damage taken Recouped as Life",
+          "name": "Damage Taken Gained As Life",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "modGroup": "DamagingAilmentDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Duration of Damaging Ailments on Enemies",
+          "name": "Damaging Ailment Duration",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "DebuffTime",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Debuffs on you expire {0}% faster",
+          "name": "Debuff Time",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "Energy",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Meta Skills gain {0}% increased Energy",
+          "name": "Energy",
+          "min": 4,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "modGroup": "FasterAilmentDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Damaging Ailments deal damage {0}% faster",
+          "name": "Faster Ailment Damage",
+          "min": 3,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "modGroup": "FormCritMultiplier",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Critical Spell Damage Bonus",
+          "name": "Form Crit Multiplier",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "FreezeDamageIncrease",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Freeze Buildup",
+          "name": "Freeze Damage Increase",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "FreezeThreshold",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Freeze Threshold",
+          "name": "Freeze Threshold",
+          "min": 18,
+          "max": 32
+        }
+      ]
+    },
+    {
+      "modGroup": "IgniteChanceIncrease",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Flammability Magnitude",
+          "name": "Ignite Chance Increase",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedCastSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Cast Speed",
+          "name": "Increased Cast Speed",
+          "min": 2,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedChillDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Chill Duration on Enemies",
+          "name": "Increased Chill Duration",
+          "min": 15,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "modGroup": "ManaGainedOnKillPercentage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Recover {0}% of maximum Mana on Kill",
+          "name": "Mana Gained On Kill Percentage",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "modGroup": "ManaRegeneration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Mana Regeneration Rate",
+          "name": "Mana Regeneration",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "MaximumColdResist",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "+{0}% to Maximum Cold Resistance",
+          "name": "Maximum Cold Resist"
+        }
+      ]
+    },
+    {
+      "modGroup": "MaximumLifeOnKillPercent",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Recover {0}% of maximum Life on Kill",
+          "name": "Maximum Life On Kill Percent",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "modGroup": "MinionAttackSpeedAndCastSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Minions have {0}% increased Attack and Cast Speed",
+          "name": "Minion Attack Speed And Cast Speed",
+          "min": 2,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "MinionChaosResistance",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Minions have +{0}% to Chaos Resistance",
+          "name": "Minion Chaos Resistance",
+          "min": 7,
+          "max": 13
+        }
+      ]
+    },
+    {
+      "modGroup": "MinionCriticalStrikeChance",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Minions have {0}% increased Critical Hit Chance",
+          "name": "Minion Critical Strike Chance",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "MinionCriticalStrikeMultiplier",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Minions have {0}% increased Critical Damage Bonus",
+          "name": "Minion Critical Strike Multiplier",
+          "min": 15,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "modGroup": "MinionElementalResistances",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Minions have +{0}% to all Elemental Resistances",
+          "name": "Minion Elemental Resistances",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "OfferingDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Offering Skills have {0}% increased Duration",
+          "name": "Offering Duration",
+          "min": 15,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "modGroup": "QuarterstaffFreezeBuildup",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Freeze Buildup with Quarterstaves",
+          "name": "Quarterstaff Freeze Buildup",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "ShockChanceIncrease",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased chance to Shock",
+          "name": "Shock Chance Increase",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "ShockDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Shock Duration",
+          "name": "Shock Duration",
+          "min": 15,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "modGroup": "SkillEffectDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Skill Effect Duration",
+          "name": "Skill Effect Duration",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "SpecificWeaponSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Skill Speed while Shapeshifted",
+          "name": "Specific Weapon Speed",
+          "min": 2,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "SpellCriticalStrikeChanceIncrease",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Critical Hit Chance for Spells",
+          "name": "Spell Critical Strike Chance Increase",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "StunThresholdfromEnergyShield",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Gain additional Stun Threshold equal to {0}% of maximum Energy Shield",
+          "name": "Stun Thresholdfrom Energy Shield",
+          "min": 5,
+          "max": 15
+        }
+      ]
     }
   ],
   "vaalCorruptedMods": [
     {
-      "modGroup": "Strength",
-      "modLine": "{0} to Strength",
-      "min": 4,
-      "max": 6,
-      "genTypeId": "5",
-      "type": "corrupted"
-    },
-    {
       "modGroup": "Dexterity",
-      "modLine": "{0} to Dexterity",
+      "modLine": "+{0} to Dexterity",
       "min": 4,
       "max": 6,
-      "genTypeId": "5",
       "type": "corrupted"
     },
     {
       "modGroup": "Intelligence",
-      "modLine": "{0} to Intelligence",
+      "modLine": "+{0} to Intelligence",
       "min": 4,
       "max": 6,
-      "genTypeId": "5",
       "type": "corrupted"
     },
     {
-      "modGroup": "FireResistance",
-      "modLine": "{0}% to Fire Resistance",
-      "min": 5,
-      "max": 10,
-      "genTypeId": "5",
-      "type": "corrupted"
-    },
-    {
-      "modGroup": "ColdResistance",
-      "modLine": "{0}% to Cold Resistance",
-      "min": 5,
-      "max": 10,
-      "genTypeId": "5",
-      "type": "corrupted"
-    },
-    {
-      "modGroup": "LightningResistance",
-      "modLine": "{0}% to Lightning Resistance",
-      "min": 5,
-      "max": 10,
-      "genTypeId": "5",
+      "modGroup": "Strength",
+      "modLine": "+{0} to Strength",
+      "min": 4,
+      "max": 6,
       "type": "corrupted"
     },
     {
       "modGroup": "ChaosResistance",
-      "modLine": "{0}% to Chaos Resistance",
+      "modLine": "+{0}% to Chaos Resistance",
       "min": 3,
       "max": 7,
-      "genTypeId": "5",
       "type": "corrupted"
     },
     {
-      "modGroup": "ImmuneToMaim",
-      "modLine": "Immune to Maim",
-      "min": null,
-      "max": null,
-      "genTypeId": "5",
+      "modGroup": "ColdResistance",
+      "modLine": "+{0}% to Cold Resistance",
+      "min": 5,
+      "max": 10,
       "type": "corrupted"
     },
     {
-      "modGroup": "YouCannotBeHindered",
-      "modLine": "You cannot be Hindered",
-      "min": null,
-      "max": null,
-      "genTypeId": "5",
+      "modGroup": "FireResistance",
+      "modLine": "+{0}% to Fire Resistance",
+      "min": 5,
+      "max": 10,
       "type": "corrupted"
     },
     {
-      "modGroup": "CorruptedBlood",
-      "modLine": "Corrupted Blood cannot be inflicted on you",
-      "min": null,
-      "max": null,
-      "genTypeId": "5",
+      "modGroup": "LightningResistance",
+      "modLine": "+{0}% to Lightning Resistance",
+      "min": 5,
+      "max": 10,
       "type": "corrupted"
     },
     {
@@ -926,8 +865,29 @@
       "modLine": "Cannot be Blinded",
       "min": null,
       "max": null,
-      "genTypeId": "5",
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "CorruptedBlood",
+      "modLine": "Corrupted Blood cannot be inflicted on you",
+      "min": null,
+      "max": null,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "ImmuneToMaim",
+      "modLine": "Immune to Maim",
+      "min": null,
+      "max": null,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "YouCannotBeHindered",
+      "modLine": "You cannot be Hindered",
+      "min": null,
+      "max": null,
       "type": "corrupted"
     }
-  ]
+  ],
+  "vaalEnchantments": []
 }
