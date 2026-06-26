@@ -24,6 +24,15 @@
   <style>
     .app-logo { height: 88px; width: auto; max-width: 92vw; display: block; margin: 0 auto; }
     #app-header .app-logo { height: 64px; }
+    /* Jewel base selector (Ruby / Sapphire / Emerald) under the header title */
+    .jewel-selector { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+    .jewel-btn { display: inline-flex; align-items: center; gap: 7px; padding: 6px 14px; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.82rem; color: #cdb784; background: rgba(20, 20, 24, 0.8); border: 1px solid rgba(200, 162, 83, 0.28); transition: border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease; }
+    .jewel-btn:hover { border-color: rgba(200, 162, 83, 0.6); color: #e8d6a8; }
+    .jewel-btn.active { border-color: rgba(200, 162, 83, 0.9); color: #f0e2b8; box-shadow: 0 0 14px rgba(200, 162, 83, 0.22); }
+    .jewel-swatch { width: 14px; height: 14px; border-radius: 50%; display: inline-block; box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
+    .jewel-swatch.ruby { background: radial-gradient(circle at 35% 30%, #ff6b6b, #b01a2e); }
+    .jewel-swatch.sapphire { background: radial-gradient(circle at 35% 30%, #7db0ff, #1c4fb0); }
+    .jewel-swatch.emerald { background: radial-gradient(circle at 35% 30%, #79e6a0, #1a8a4f); }
   </style>
   <!-- Classic deferred scripts so the app runs from file:// (double-click) with no server. -->
   <script defer src="data/mods.data.js"></script>
@@ -56,8 +65,17 @@
           <img src="assets/icons/OishyCraftingForge.png" alt="Oishy Crafting Forge" class="app-logo">
         </h1>
         <p class="app-subtitle">Jewel Crafting Emulator</p>
-        
-
+        <div id="jewel-selector" class="jewel-selector">
+          <button class="jewel-btn active" type="button" data-type="ruby" title="Ruby Jewel — Strength">
+            <span class="jewel-swatch ruby"></span>Ruby
+          </button>
+          <button class="jewel-btn" type="button" data-type="sapphire" title="Sapphire Jewel — Intelligence">
+            <span class="jewel-swatch sapphire"></span>Sapphire
+          </button>
+          <button class="jewel-btn" type="button" data-type="emerald" title="Emerald Jewel — Dexterity">
+            <span class="jewel-swatch emerald"></span>Emerald
+          </button>
+        </div>
       </div>
     </header>
 
