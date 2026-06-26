@@ -1,126 +1,9569 @@
 window.DESECRATED_MODS_RAW = {
-  "_note": "Real PoE2 0.3 'Rise of the Abyssal' jewel Desecrated modifier pool, sourced from poe2db.tw/Desecrated_Modifiers (Jewels Desecrated Mods /32: 29 'Lightless' prefixes + 3 'of the Abyss' suffixes). In-game these are one shared jewel pool (not base-gated), so the same pool is applied to ruby/emerald/sapphire. Each entry: { modGroup, name, tier, weight, lines:[{ modLine ('{0}' = rolled value), min, max }] }. Weights equalised (100); poe2db does not publish per-mod jewel weights.",
+  "_note": "Real PoE2 0.3 jewel Desecrated modifier pool.",
   "bones": {
     "preserved_cranium": {
       "name": "Preserved Cranium",
-      "description": "Used at the Well of Souls to reveal Desecrated modifiers. Reveals a set of options to choose from. Omen of Abyssal Echoes grants one reroll of the revealed set."
+      "description": "Used at the Well of Souls to reveal Desecrated modifiers."
     }
   },
   "jewelTypes": {
     "ruby": {
       "prefixes": [
-        { "modGroup": "lightless_armour_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_warcry", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Warcry Buff Effect", "min": 4, "max": 8 }, { "modLine": "{0}% increased Damage with Warcries", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_evasion_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_es_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_armour_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_evasion_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_es_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_armour_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_spell_evasion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_spell_es", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_spell_armour", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Armour", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_poison", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to Poison" }, { "modLine": "{0}% increased Magnitude of Poison you inflict", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_evasion_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_es_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_armour_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_lightning_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Lightning Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Lightning Resistance", "min": 4, "max": 7 } ] },
-        { "modGroup": "lightless_abyssal_wasting", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Magnitude of Abyssal Wasting you inflict", "min": 10, "max": 20 } ] },
-        { "modGroup": "lightless_es_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_evasion_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_presence_aura", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Presence Area of Effect", "min": 8, "max": 15 }, { "modLine": "Aura Skills have {0}% increased Magnitudes", "min": 2, "max": 4 } ] },
-        { "modGroup": "lightless_bleed", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to inflict Bleeding" }, { "modLine": "{0}% increased Magnitude of Bleeding you inflict", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_chaos_wither", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Chaos Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Withered Magnitude", "min": 3, "max": 6 } ] },
-        { "modGroup": "lightless_cold_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Cold Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Cold Resistance", "min": 4, "max": 7 } ] },
-        { "modGroup": "lightless_companion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Companions deal {0}% increased Damage", "min": 5, "max": 10 }, { "modLine": "Companions have {0}% increased maximum Life", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_elemental_ailment", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Elemental Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Magnitude of Ailments you inflict", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_exposure", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Exposure Effect", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_fire_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Fire Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Fire Resistance", "min": 4, "max": 7 } ] },
-        { "modGroup": "lightless_phys_armourbreak", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Global Physical Damage", "min": 4, "max": 8 }, { "modLine": "Break {0}% increased Armour", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_minion_life_aoe", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Minions have {0}% increased maximum Life", "min": 4, "max": 8 }, { "modLine": "Minions have {0}% increased Area of Effect", "min": 3, "max": 6 } ] }
+        {
+          "modGroup": "lightless_armour_attack",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Armour",
+              "min": 5,
+              "max": 10
+            },
+            {
+              "modLine": "{0}% increased Attack Damage",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        },
+        {
+          "modGroup": "lightless_warcry",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Warcry Buff Effect",
+              "min": 4,
+              "max": 8
+            },
+            {
+              "modLine": "{0}% increased Damage with Warcries",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "lightless_poison",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "15% increased chance to Poison"
+            },
+            {
+              "modLine": "{0}% increased Magnitude of Poison you inflict",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "lightless_abyssal_wasting",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Abyssal Wasting you inflict",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "lightless_exposure",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Exposure Effect",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        }
       ],
       "suffixes": [
-        { "modGroup": "abyss_strength", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Strength", "min": 1, "max": 2 } ] },
-        { "modGroup": "abyss_dexterity", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Dexterity", "min": 1, "max": 2 } ] },
-        { "modGroup": "abyss_intelligence", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Intelligence", "min": 1, "max": 2 } ] }
+        {
+          "modGroup": "abyss_strength",
+          "name": "of the Abyss",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Strength",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "abyss_dexterity",
+          "name": "of the Abyss",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Dexterity",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "abyss_intelligence",
+          "name": "of the Abyss",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Intelligence",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        }
       ]
     },
     "emerald": {
       "prefixes": [
-        { "modGroup": "lightless_armour_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_warcry", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Warcry Buff Effect", "min": 4, "max": 8 }, { "modLine": "{0}% increased Damage with Warcries", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_evasion_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_es_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_armour_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_evasion_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_es_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_armour_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_spell_evasion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_spell_es", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_spell_armour", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Armour", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_poison", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to Poison" }, { "modLine": "{0}% increased Magnitude of Poison you inflict", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_evasion_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_es_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_armour_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_lightning_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Lightning Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Lightning Resistance", "min": 4, "max": 7 } ] },
-        { "modGroup": "lightless_abyssal_wasting", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Magnitude of Abyssal Wasting you inflict", "min": 10, "max": 20 } ] },
-        { "modGroup": "lightless_es_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_evasion_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_presence_aura", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Presence Area of Effect", "min": 8, "max": 15 }, { "modLine": "Aura Skills have {0}% increased Magnitudes", "min": 2, "max": 4 } ] },
-        { "modGroup": "lightless_bleed", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to inflict Bleeding" }, { "modLine": "{0}% increased Magnitude of Bleeding you inflict", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_chaos_wither", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Chaos Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Withered Magnitude", "min": 3, "max": 6 } ] },
-        { "modGroup": "lightless_cold_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Cold Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Cold Resistance", "min": 4, "max": 7 } ] },
-        { "modGroup": "lightless_companion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Companions deal {0}% increased Damage", "min": 5, "max": 10 }, { "modLine": "Companions have {0}% increased maximum Life", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_elemental_ailment", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Elemental Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Magnitude of Ailments you inflict", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_exposure", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Exposure Effect", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_fire_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Fire Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Fire Resistance", "min": 4, "max": 7 } ] },
-        { "modGroup": "lightless_phys_armourbreak", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Global Physical Damage", "min": 4, "max": 8 }, { "modLine": "Break {0}% increased Armour", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_minion_life_aoe", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Minions have {0}% increased maximum Life", "min": 4, "max": 8 }, { "modLine": "Minions have {0}% increased Area of Effect", "min": 3, "max": 6 } ] }
+        {
+          "modGroup": "lightless_armour_attack",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Armour",
+              "min": 5,
+              "max": 10
+            },
+            {
+              "modLine": "{0}% increased Attack Damage",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        },
+        {
+          "modGroup": "lightless_poison",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "15% increased chance to Poison"
+            },
+            {
+              "modLine": "{0}% increased Magnitude of Poison you inflict",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "lightless_exposure",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Exposure Effect",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        }
       ],
       "suffixes": [
-        { "modGroup": "abyss_strength", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Strength", "min": 1, "max": 2 } ] },
-        { "modGroup": "abyss_dexterity", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Dexterity", "min": 1, "max": 2 } ] },
-        { "modGroup": "abyss_intelligence", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Intelligence", "min": 1, "max": 2 } ] }
+        {
+          "modGroup": "abyss_strength",
+          "name": "of the Abyss",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Strength",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "abyss_dexterity",
+          "name": "of the Abyss",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Dexterity",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "abyss_intelligence",
+          "name": "of the Abyss",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Intelligence",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        }
       ]
     },
     "sapphire": {
       "prefixes": [
-        { "modGroup": "lightless_armour_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_warcry", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Warcry Buff Effect", "min": 4, "max": 8 }, { "modLine": "{0}% increased Damage with Warcries", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_evasion_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_es_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_armour_totem", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Totem Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_evasion_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_es_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_armour_thorns", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "{0}% increased Thorns damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_spell_evasion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_spell_es", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_spell_armour", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Spell Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Armour", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_poison", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to Poison" }, { "modLine": "{0}% increased Magnitude of Poison you inflict", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_evasion_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_es_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_armour_minion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Armour", "min": 5, "max": 10 }, { "modLine": "Minions deal {0}% increased Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_lightning_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Lightning Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Lightning Resistance", "min": 4, "max": 7 } ] },
-        { "modGroup": "lightless_abyssal_wasting", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Magnitude of Abyssal Wasting you inflict", "min": 10, "max": 20 } ] },
-        { "modGroup": "lightless_es_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased maximum Energy Shield", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_evasion_attack", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Evasion Rating", "min": 5, "max": 10 }, { "modLine": "{0}% increased Attack Damage", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_presence_aura", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Presence Area of Effect", "min": 8, "max": 15 }, { "modLine": "Aura Skills have {0}% increased Magnitudes", "min": 2, "max": 4 } ] },
-        { "modGroup": "lightless_bleed", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "15% increased chance to inflict Bleeding" }, { "modLine": "{0}% increased Magnitude of Bleeding you inflict", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_chaos_wither", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Chaos Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Withered Magnitude", "min": 3, "max": 6 } ] },
-        { "modGroup": "lightless_cold_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Cold Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Cold Resistance", "min": 4, "max": 7 } ] },
-        { "modGroup": "lightless_companion", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Companions deal {0}% increased Damage", "min": 5, "max": 10 }, { "modLine": "Companions have {0}% increased maximum Life", "min": 5, "max": 10 } ] },
-        { "modGroup": "lightless_elemental_ailment", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Elemental Damage", "min": 4, "max": 8 }, { "modLine": "{0}% increased Magnitude of Ailments you inflict", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_exposure", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Exposure Effect", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_fire_pen", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Fire Damage", "min": 4, "max": 8 }, { "modLine": "Damage Penetrates {0}% Fire Resistance", "min": 4, "max": 7 } ] },
-        { "modGroup": "lightless_phys_armourbreak", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Global Physical Damage", "min": 4, "max": 8 }, { "modLine": "Break {0}% increased Armour", "min": 4, "max": 8 } ] },
-        { "modGroup": "lightless_minion_life_aoe", "name": "Lightless", "tier": "D", "weight": 100, "lines": [ { "modLine": "Minions have {0}% increased maximum Life", "min": 4, "max": 8 }, { "modLine": "Minions have {0}% increased Area of Effect", "min": 3, "max": 6 } ] }
+        {
+          "modGroup": "lightless_armour_attack",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Armour",
+              "min": 5,
+              "max": 10
+            },
+            {
+              "modLine": "{0}% increased Attack Damage",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        },
+        {
+          "modGroup": "lightless_poison",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "15% increased chance to Poison"
+            },
+            {
+              "modLine": "{0}% increased Magnitude of Poison you inflict",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "lightless_exposure",
+          "name": "Lightless",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Exposure Effect",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        }
       ],
       "suffixes": [
-        { "modGroup": "abyss_strength", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Strength", "min": 1, "max": 2 } ] },
-        { "modGroup": "abyss_dexterity", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Dexterity", "min": 1, "max": 2 } ] },
-        { "modGroup": "abyss_intelligence", "name": "of the Abyss", "tier": "D", "weight": 100, "lines": [ { "modLine": "{0}% increased Intelligence", "min": 1, "max": 2 } ] }
+        {
+          "modGroup": "abyss_strength",
+          "name": "of the Abyss",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Strength",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "abyss_dexterity",
+          "name": "of the Abyss",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Dexterity",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "abyss_intelligence",
+          "name": "of the Abyss",
+          "tier": "D",
+          "weight": 100,
+          "lines": [
+            {
+              "modLine": "{0}% increased Intelligence",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        }
       ]
     }
+  },
+  "bases": {
+    "rings": {
+      "prefixes": [
+        {
+          "modGroup": "AttackDamage",
+          "name": "Attack Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Attack Damage while on Low Life",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalAilmentEffect",
+          "name": "Elemental Ailment Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Freeze Buildup if you've consumed an Power Charge Recently",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalAilmentEffect",
+          "name": "Elemental Ailment Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Ignite if you've consumed an Endurance Charge Recently",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalAilmentEffect",
+          "name": "Elemental Ailment Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Shock if you've consumed a Frenzy Charge Recently",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedSpellDamageOnFullEnergyShield",
+          "name": "Increased Spell Damage On Full Energy Shield",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage while on Full Energy Shield",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedMinionDamageIfYouHitEnemy",
+          "name": "Increased Minion Damage If You Hit Enemy",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Minions deal {0}% increased Damage if you've Hit Recently",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "RemnantEffect",
+          "name": "Remnant Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Remnants you create have {0}% increased effect",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "LifeLeech",
+          "name": "Life Leech",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased amount of Life Leeched",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaLeechAmount",
+          "name": "Mana Leech Amount",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased amount of Mana Leeched",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "CooldownRecovery",
+          "name": "Cooldown Recovery",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cooldown Recovery Rate",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ExposureEffect",
+          "name": "Exposure Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Exposure Effect",
+              "min": 10,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SkillEffectDuration",
+          "name": "Skill Effect Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Skill Effect Duration",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedSpeed",
+          "name": "Increased Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Skill Speed",
+              "min": 3,
+              "max": 6
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "RecoverPercentMaxLifeOnKill",
+          "name": "Recover Percent Max Life On Kill",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Recover {0}% of maximum Life on Kill",
+              "min": 2,
+              "max": 3
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaGainedOnKillPercentage",
+          "name": "Mana Gained On Kill Percentage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Recover {0}% of maximum Mana on Kill",
+              "min": 2,
+              "max": 3
+            }
+          ]
+        },
+        {
+          "modGroup": "RemnantPickupRadius",
+          "name": "Remnant Pickup Radius",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Remnants can be collected from {0}% further away",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        }
+      ]
+    },
+    "amulets": {
+      "prefixes": [
+        {
+          "modGroup": "GloryChanceToNotConsume",
+          "name": "Glory Chance To Not Consume",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance for Skills to retain 40% of Glory on use",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "BodyArmourFromBodyArmour",
+          "name": "Body Armour From Body Armour",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Armour from Equipped Body Armour",
+              "min": 35,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "AttackDamage",
+          "name": "Attack Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Attack Damage while on Low Life",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "GlobalDeflectionRating",
+          "name": "Global Deflection Rating",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Deflection Rating",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "MaximumEnergyShieldFromBodyArmour",
+          "name": "Maximum Energy Shield From Body Armour",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Energy Shield from Equipped Body Armour",
+              "min": 35,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "EvasionRatingFromBodyArmour",
+          "name": "Evasion Rating From Body Armour",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Evasion Rating from Equipped Body Armour",
+              "min": 35,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "AllDefences",
+          "name": "All Defences",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Global Armour, Evasion and Energy Shield",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedSpellDamageOnFullEnergyShield",
+          "name": "Increased Spell Damage On Full Energy Shield",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage while on Full Energy Shield",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "InvocatedSpellHalfEnergyChance",
+          "name": "Invocated Spell Half Energy Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Invocated Spells have {0}% chance to consume half as much Energy",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedMinionDamageIfYouHitEnemy",
+          "name": "Increased Minion Damage If You Hit Enemy",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Minions deal {0}% increased Damage if you've Hit Recently",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "RemnantEffect",
+          "name": "Remnant Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Remnants you create have {0}% increased effect",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "CooldownRecovery",
+          "name": "Cooldown Recovery",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cooldown Recovery Rate",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ExposureEffect",
+          "name": "Exposure Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Exposure Effect",
+              "min": 10,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "HeraldReservationEfficiency",
+          "name": "Herald Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Reservation Efficiency of Herald Skills",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "SkillEffectDuration",
+          "name": "Skill Effect Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Skill Effect Duration",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedSpeed",
+          "name": "Increased Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Skill Speed",
+              "min": 3,
+              "max": 6
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageRemovedFromManaBeforeLife",
+          "name": "Damage Removed From Mana Before Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage is taken from Mana before Life",
+              "min": 8,
+              "max": 16
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreaseSocketedGemLevel",
+          "name": "Increase Socketed Gem Level",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Level of all Skills",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "GlobalSkillGemQuality",
+          "name": "Global Skill Gem Quality",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Quality of all Skills",
+              "min": 3,
+              "max": 5
+            }
+          ]
+        },
+        {
+          "modGroup": "AuraEffect",
+          "name": "Aura Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Aura Skills have {0}% increased Magnitudes",
+              "min": 8,
+              "max": 16
+            }
+          ]
+        },
+        {
+          "modGroup": "GlobalItemAttributeRequirements",
+          "name": "Global Item Attribute Requirements",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Equipment and Skill Gems have {0}% reduced Attribute Requirements",
+              "min": 10,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "MinionCooldown",
+          "name": "Minion Cooldown",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Minions have {0}% increased Cooldown Recovery Rate",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "RecoverPercentMaxLifeOnKill",
+          "name": "Recover Percent Max Life On Kill",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Recover {0}% of maximum Life on Kill",
+              "min": 2,
+              "max": 3
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaGainedOnKillPercentage",
+          "name": "Mana Gained On Kill Percentage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Recover {0}% of maximum Mana on Kill",
+              "min": 2,
+              "max": 3
+            }
+          ]
+        },
+        {
+          "modGroup": "RemnantPickupRadius",
+          "name": "Remnant Pickup Radius",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Remnants can be collected from {0}% further away",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        }
+      ]
+    },
+    "belts": {
+      "prefixes": [
+        {
+          "modGroup": "Thorns",
+          "name": "Thorns",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0} to {1} Fire Thorns damage per 100 maximum Life",
+              "vals": [
+                {
+                  "min": 2,
+                  "max": 2
+                },
+                {
+                  "min": 4,
+                  "max": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "CharmChargesUsed",
+          "name": "Charm Charges Used",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance for Charms you use to not consume Charges",
+              "min": 10,
+              "max": 18
+            }
+          ]
+        },
+        {
+          "modGroup": "FlaskChargesUsed",
+          "name": "Flask Charges Used",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance for Flasks you use to not consume Charges",
+              "min": 10,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "FlaskExtraLifeRegeneration",
+          "name": "Flask Extra Life Regeneration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Regeneration rate during Effect of any Life Flask",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "FlaskChargeGeneration",
+          "name": "Flask Charge Generation",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Charms gain {0} charges per Second",
+              "min": 0.1,
+              "max": 0.2
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedPhysicalDamageReductionRating",
+          "name": "Increased Physical Damage Reduction Rating",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Gain {0}% of Maximum Mana as Armour",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "FlaskChargeGeneration",
+          "name": "Flask Charge Generation",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Life Flasks gain {0} charges per Second",
+              "min": 0.1,
+              "max": 0.2
+            }
+          ]
+        },
+        {
+          "modGroup": "FlaskChargeGeneration",
+          "name": "Flask Charge Generation",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Mana Flasks gain {0} charges per Second",
+              "min": 0.1,
+              "max": 0.2
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ManaRegeneration",
+          "name": "Mana Regeneration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Regeneration Rate",
+              "min": 30,
+              "max": 40
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Duration of Bleeding on You",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedSelfIgniteDuration",
+          "name": "Reduced Self Ignite Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Ignite Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Poison Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "SlowEffect",
+          "name": "Slow Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Slowing Potency of Debuffs on You if you've used a Charm Recently",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "Thorns",
+          "name": "Thorns",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Thorns Critical Hit Chance",
+              "min": 2,
+              "max": 4
+            }
+          ]
+        }
+      ]
+    },
+    "quivers": {
+      "prefixes": [
+        {
+          "modGroup": "ProjectileDamage",
+          "name": "Projectile Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Increases and Reductions to Projectile Speed also apply to Damage with Bows"
+            }
+          ]
+        },
+        {
+          "modGroup": "ProjectileDamage",
+          "name": "Projectile Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles deal {0}% increased Damage with Hits against Enemies further than 6m",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ProjectileDamage",
+          "name": "Projectile Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles deal {0}% increased Damage with Hits against Enemies within 2m",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 10,
+              "max": 14
+            }
+          ]
+        },
+        {
+          "modGroup": "AdditionalProjectiles",
+          "name": "Additional Projectiles",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectile Attacks have a {0}% chance to fire two additional Projectiles while moving",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "CriticalStrikeMultiplier",
+          "name": "Critical Strike Multiplier",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles have {0}% increased Critical Damage Bonus against Enemies within 2m",
+              "min": 18,
+              "max": 26
+            }
+          ]
+        },
+        {
+          "modGroup": "CriticalStrikeChanceIncrease",
+          "name": "Critical Strike Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles have {0}% increased Critical Hit Chance against Enemies further than 6m",
+              "min": 18,
+              "max": 26
+            }
+          ]
+        }
+      ]
+    },
+    "shields_str": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "GainManaOnBlock",
+          "name": "Gain Mana On Block",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0} Mana gained when you Block",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageTakenGainedAsLife",
+          "name": "Damage Taken Gained As Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PhysicalDamageTakenAsLightningWhileActiveBlocking",
+          "name": "Physical Damage Taken As Lightning While Active Blocking",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Physical Damage taken as Lightning while your Shield is raised, You take {1}% of damage from Blocked Hits with a raised Shield",
+              "vals": [
+                {
+                  "min": 30,
+                  "max": 40
+                },
+                {
+                  "min": 8,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourAppliesToChaosDamage",
+          "name": "Armour Applies To Chaos Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% of Armour also applies to Chaos Damage",
+              "min": 23,
+              "max": 31
+            }
+          ]
+        },
+        {
+          "modGroup": "MaximumResistances",
+          "name": "Maximum Resistances",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to all maximum Resistances",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "MaximumBlockChance",
+          "name": "Maximum Block Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to maximum Block chance",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "ShieldSkillsStunningAlsoFullyBreaksArmour",
+          "name": "Shield Skills Stunning Also Fully Breaks Armour",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits with Shield Skills which Heavy Stun enemies break fully Break Armour"
+            }
+          ]
+        },
+        {
+          "modGroup": "HeavyStunDecayRate",
+          "name": "Heavy Stun Decay Rate",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Your Heavy Stun buildup empties {0}% faster",
+              "min": 30,
+              "max": 40
+            }
+          ]
+        }
+      ]
+    },
+    "bucklers": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "GainManaOnBlock",
+          "name": "Gain Mana On Block",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0} Mana gained when you Block",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ParriedDebuff",
+          "name": "Parried Debuff",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Parried Debuff Duration",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "ParriedDebuff",
+          "name": "Parried Debuff",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Parried Debuff Magnitude",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageTakenGainedAsLife",
+          "name": "Damage Taken Gained As Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PhysicalDamageTakenAsLightningWhileActiveBlocking",
+          "name": "Physical Damage Taken As Lightning While Active Blocking",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Physical Damage taken as Lightning while your Shield is raised, You take {1}% of damage from Blocked Hits with a raised Shield",
+              "vals": [
+                {
+                  "min": 30,
+                  "max": 40
+                },
+                {
+                  "min": 8,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourAppliesToChaosDamage",
+          "name": "Armour Applies To Chaos Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% of Armour also applies to Chaos Damage",
+              "min": 23,
+              "max": 31
+            }
+          ]
+        },
+        {
+          "modGroup": "MaximumResistances",
+          "name": "Maximum Resistances",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to all maximum Resistances",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "MaximumBlockChance",
+          "name": "Maximum Block Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to maximum Block chance",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "ShieldSkillsStunningAlsoFullyBreaksArmour",
+          "name": "Shield Skills Stunning Also Fully Breaks Armour",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits with Shield Skills which Heavy Stun enemies break fully Break Armour"
+            }
+          ]
+        },
+        {
+          "modGroup": "HeavyStunDecayRate",
+          "name": "Heavy Stun Decay Rate",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Your Heavy Stun buildup empties {0}% faster",
+              "min": 30,
+              "max": 40
+            }
+          ]
+        }
+      ]
+    },
+    "shields_str_dex": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "GainManaOnBlock",
+          "name": "Gain Mana On Block",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0} Mana gained when you Block",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ParriedDebuff",
+          "name": "Parried Debuff",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Parried Debuff Duration",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "ParriedDebuff",
+          "name": "Parried Debuff",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Parried Debuff Magnitude",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageTakenGainedAsLife",
+          "name": "Damage Taken Gained As Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PhysicalDamageTakenAsLightningWhileActiveBlocking",
+          "name": "Physical Damage Taken As Lightning While Active Blocking",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Physical Damage taken as Lightning while your Shield is raised, You take {1}% of damage from Blocked Hits with a raised Shield",
+              "vals": [
+                {
+                  "min": 30,
+                  "max": 40
+                },
+                {
+                  "min": 8,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourAppliesToChaosDamage",
+          "name": "Armour Applies To Chaos Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% of Armour also applies to Chaos Damage",
+              "min": 23,
+              "max": 31
+            }
+          ]
+        },
+        {
+          "modGroup": "MaximumResistances",
+          "name": "Maximum Resistances",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to all maximum Resistances",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "MaximumBlockChance",
+          "name": "Maximum Block Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to maximum Block chance",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "ShieldSkillsStunningAlsoFullyBreaksArmour",
+          "name": "Shield Skills Stunning Also Fully Breaks Armour",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits with Shield Skills which Heavy Stun enemies break fully Break Armour"
+            }
+          ]
+        },
+        {
+          "modGroup": "HeavyStunDecayRate",
+          "name": "Heavy Stun Decay Rate",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Your Heavy Stun buildup empties {0}% faster",
+              "min": 30,
+              "max": 40
+            }
+          ]
+        }
+      ]
+    },
+    "shields_str_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "GainManaOnBlock",
+          "name": "Gain Mana On Block",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0} Mana gained when you Block",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "EnergyShieldRechargeRateIfBlockedRecently",
+          "name": "Energy Shield Recharge Rate If Blocked Recently",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Energy Shield Recharge Rate if you've Blocked Recently",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageTakenGainedAsLife",
+          "name": "Damage Taken Gained As Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalDamageTakenRecoupedAsEnergyShield",
+          "name": "Elemental Damage Taken Recouped As Energy Shield",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Elemental Damage taken Recouped as Energy Shield",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PhysicalDamageTakenAsLightningWhileActiveBlocking",
+          "name": "Physical Damage Taken As Lightning While Active Blocking",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Physical Damage taken as Lightning while your Shield is raised, You take {1}% of damage from Blocked Hits with a raised Shield",
+              "vals": [
+                {
+                  "min": 30,
+                  "max": 40
+                },
+                {
+                  "min": 8,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourAppliesToChaosDamage",
+          "name": "Armour Applies To Chaos Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% of Armour also applies to Chaos Damage",
+              "min": 23,
+              "max": 31
+            }
+          ]
+        },
+        {
+          "modGroup": "MaximumResistances",
+          "name": "Maximum Resistances",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to all maximum Resistances",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "MaximumBlockChance",
+          "name": "Maximum Block Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to maximum Block chance",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "ShieldSkillsStunningAlsoFullyBreaksArmour",
+          "name": "Shield Skills Stunning Also Fully Breaks Armour",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits with Shield Skills which Heavy Stun enemies break fully Break Armour"
+            }
+          ]
+        },
+        {
+          "modGroup": "HeavyStunDecayRate",
+          "name": "Heavy Stun Decay Rate",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Your Heavy Stun buildup empties {0}% faster",
+              "min": 30,
+              "max": 40
+            }
+          ]
+        }
+      ]
+    },
+    "claws": {
+      "prefixes": [
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        }
+      ]
+    },
+    "daggers": {
+      "prefixes": [
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        }
+      ]
+    },
+    "one_hand_swords": {
+      "prefixes": [
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        }
+      ]
+    },
+    "one_hand_axes": {
+      "prefixes": [
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        }
+      ]
+    },
+    "one_hand_maces": {
+      "prefixes": [
+        {
+          "modGroup": "DamagevsArmourBrokenEnemies",
+          "name": "Damagevs Armour Broken Enemies",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Damage against Enemies with Fully Broken Armour",
+              "min": 41,
+              "max": 59
+            }
+          ]
+        },
+        {
+          "modGroup": "TotemDamage",
+          "name": "Totem Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Damage while you have a Totem",
+              "min": 41,
+              "max": 59
+            }
+          ]
+        },
+        {
+          "modGroup": "LocalPhysicalDamagePercent",
+          "name": "Local Physical Damage Percent",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Physical Damage, {1}% reduced Attack Speed",
+              "vals": [
+                {
+                  "min": 110,
+                  "max": 154
+                },
+                {
+                  "min": 15,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "ExertedAttackDamage",
+          "name": "Exerted Attack Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Empowered Attacks deal {0}% increased Damage",
+              "min": 41,
+              "max": 59
+            }
+          ]
+        },
+        {
+          "modGroup": "AdditionalTotems",
+          "name": "Additional Totems",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Melee Attack Skills have +{0} to maximum number of Summoned Totems",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "AftershockChance",
+          "name": "Aftershock Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance for Mace Slam Skills you use yourself to cause an additional Aftershock",
+              "min": 10,
+              "max": 16
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "SummonTotemCastSpeed",
+          "name": "Summon Totem Cast Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Totem Placement speed",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "WarcryCooldownSpeed",
+          "name": "Warcry Cooldown Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Warcry Cooldown Recovery Rate",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourPenetration",
+          "name": "Armour Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Break Armour equal to {0}% of Physical Damage dealt",
+              "min": 2,
+              "max": 4
+            }
+          ]
+        },
+        {
+          "modGroup": "FissureChance",
+          "name": "Fissure Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Skills which create Fissures have a {0}% chance to create an additional Fissure",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        }
+      ]
+    },
+    "sceptres": {
+      "prefixes": [],
+      "suffixes": []
+    },
+    "wands": {
+      "prefixes": [
+        {
+          "modGroup": "WeaponDamageTypePrefix",
+          "name": "Weapon Damage Type Prefix",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Elemental Damage",
+              "min": 74,
+              "max": 89
+            }
+          ]
+        },
+        {
+          "modGroup": "BleedingDamage",
+          "name": "Bleeding Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Bleeding you inflict",
+              "min": 27,
+              "max": 38
+            }
+          ]
+        },
+        {
+          "modGroup": "WeaponCasterDamagePrefix",
+          "name": "Weapon Caster Damage Prefix",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage with Spells that cost Life",
+              "min": 74,
+              "max": 89
+            }
+          ]
+        },
+        {
+          "modGroup": "MartialWeaponGainedDamage",
+          "name": "Martial Weapon Gained Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Gain {0}% of Damage as Extra Physical Damage",
+              "min": 21,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "WeaponCasterDamagePrefix",
+          "name": "Weapon Caster Damage Prefix",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Invocated Spells deal {0}% increased Damage",
+              "min": 75,
+              "max": 89
+            }
+          ]
+        },
+        {
+          "modGroup": "MinionDamage",
+          "name": "Minion Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Minions deal {0}% increased Damage, {1}% increased Spell Damage",
+              "vals": [
+                {
+                  "min": 55,
+                  "max": 64
+                },
+                {
+                  "min": 55,
+                  "max": 64
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "IncreasedCastSpeed",
+          "name": "Increased Cast Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cast Speed for each different Non-Instant Spell you've Cast Recently",
+              "min": 3,
+              "max": 5
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedCastSpeed",
+          "name": "Increased Cast Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cast Speed while on Full Mana",
+              "min": 26,
+              "max": 36
+            }
+          ]
+        },
+        {
+          "modGroup": "SkillLifeCost",
+          "name": "Skill Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Spell Mana Cost Converted to Life Cost, {1}% increased Cost Efficiency",
+              "vals": [
+                {
+                  "min": 15,
+                  "max": 25
+                },
+                {
+                  "min": 5,
+                  "max": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourBreak",
+          "name": "Armour Break",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Break {0}% increased Armour",
+              "min": 31,
+              "max": 39
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourBreak",
+          "name": "Armour Break",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Break Armour on Critical Hit with Spells equal to {0}% of Physical Damage dealt",
+              "min": 11,
+              "max": 18
+            }
+          ]
+        },
+        {
+          "modGroup": "HinderedEnemyTakeIncreasedDamage",
+          "name": "Hindered Enemy Take Increased Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Enemies Hindered by you take {0}% increased Chaos Damage",
+              "min": 4,
+              "max": 7
+            }
+          ]
+        },
+        {
+          "modGroup": "HinderedEnemyTakeIncreasedDamage",
+          "name": "Hindered Enemy Take Increased Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Enemies Hindered by you take {0}% increased Elemental Damage",
+              "min": 4,
+              "max": 7
+            }
+          ]
+        },
+        {
+          "modGroup": "HinderedEnemyTakeIncreasedDamage",
+          "name": "Hindered Enemy Take Increased Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Enemies Hindered by you take {0}% increased Physical Damage",
+              "min": 4,
+              "max": 7
+            }
+          ]
+        },
+        {
+          "modGroup": "SpellAreaOfEffect",
+          "name": "Spell Area Of Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Spell Skills have {0}% increased Area of Effect",
+              "min": 8,
+              "max": 16
+            }
+          ]
+        }
+      ]
+    },
+    "bows": {
+      "prefixes": [
+        {
+          "modGroup": "IncreasedAttackAreaOfEffect",
+          "name": "Increased Attack Area Of Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Area of Effect for Attacks",
+              "min": 12,
+              "max": 23
+            }
+          ]
+        },
+        {
+          "modGroup": "EquipmentModifierEffect",
+          "name": "Equipment Modifier Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased bonuses gained from Equipped Quiver",
+              "min": 30,
+              "max": 40
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "CompanionDamage",
+          "name": "Companion Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Companions deal {0}% increased Damage, {1}% increased Damage while your Companion is in your Presence",
+              "vals": [
+                {
+                  "min": 40,
+                  "max": 59
+                },
+                {
+                  "min": 40,
+                  "max": 59
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ProjectileDamage",
+          "name": "Projectile Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles deal {0}% increased Damage with Hits against Enemies further than 6m",
+              "min": 60,
+              "max": 79
+            }
+          ]
+        },
+        {
+          "modGroup": "ChainFromTerrain",
+          "name": "Chain From Terrain",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles have {0}% chance to Chain an additional time from terrain",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ChanceToPierce",
+          "name": "Chance To Pierce",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Pierce an Enemy",
+              "min": 40,
+              "max": 60
+            }
+          ]
+        },
+        {
+          "modGroup": "CompanionDamage",
+          "name": "Companion Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Attack Speed, {1}% increased Attack Speed while your Companion is in your Presence",
+              "vals": [
+                {
+                  "min": 8,
+                  "max": 13
+                },
+                {
+                  "min": 8,
+                  "max": 13
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "CompanionAttackSpeed",
+          "name": "Companion Attack Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Attack Speed, Companions have {1}% increased Attack Speed",
+              "vals": [
+                {
+                  "min": 12,
+                  "max": 18
+                },
+                {
+                  "min": 12,
+                  "max": 18
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Immobilise",
+          "name": "Immobilise",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Immobilisation buildup",
+              "min": 25,
+              "max": 34
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "AdditionalProjectiles",
+          "name": "Additional Projectiles",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectile Attacks have a {0}% chance to fire two additional Projectiles while moving",
+              "min": 10,
+              "max": 18
+            }
+          ]
+        },
+        {
+          "modGroup": "CriticalStrikeChanceIncrease",
+          "name": "Critical Strike Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles have {0}% increased Critical Hit Chance against Enemies further than 6m",
+              "min": 25,
+              "max": 34
+            }
+          ]
+        }
+      ]
+    },
+    "staves": {
+      "prefixes": [
+        {
+          "modGroup": "AilmentEffect",
+          "name": "Ailment Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Damaging Ailments you inflict",
+              "min": 40,
+              "max": 64
+            }
+          ]
+        },
+        {
+          "modGroup": "WeaponCasterDamagePrefix",
+          "name": "Weapon Caster Damage Prefix",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage per 100 Maximum Life",
+              "min": 4,
+              "max": 5
+            }
+          ]
+        },
+        {
+          "modGroup": "WeaponCasterDamagePrefix",
+          "name": "Weapon Caster Damage Prefix",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage per 100 maximum Mana",
+              "min": 4,
+              "max": 5
+            }
+          ]
+        },
+        {
+          "modGroup": "WeaponCasterDamagePrefix",
+          "name": "Weapon Caster Damage Prefix",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage with Spells that cost Life",
+              "min": 148,
+              "max": 178
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalInfusion",
+          "name": "Elemental Infusion",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to maximum number of Elemental Infusions",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "BaseSpirit",
+          "name": "Base Spirit",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Spirit",
+              "min": 35,
+              "max": 50
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "SpellsFire2AdditionalProjectileChance",
+          "name": "Spells Fire2 Additional Projectile Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance for Spell Skills to fire 2 additional Projectiles",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "ArchonDuration",
+          "name": "Archon Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Archon Buff duration",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "CastSpeedOnLowLife",
+          "name": "Cast Speed On Low Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cast Speed when on Low Life",
+              "min": 30,
+              "max": 40
+            }
+          ]
+        },
+        {
+          "modGroup": "SkillLifeCost",
+          "name": "Skill Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Spell Mana Cost Converted to Life Cost",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "AdditionalBlock",
+          "name": "Additional Block",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Block chance",
+              "min": 12,
+              "max": 16
+            }
+          ]
+        },
+        {
+          "modGroup": "ArchonDelayRecovery",
+          "name": "Archon Delay Recovery",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Archon recovery period expires {0}% faster",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        }
+      ]
+    },
+    "two_hand_swords": {
+      "prefixes": [
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        }
+      ]
+    },
+    "two_hand_maces": {
+      "prefixes": [
+        {
+          "modGroup": "DamagevsArmourBrokenEnemies",
+          "name": "Damagevs Armour Broken Enemies",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Damage against Enemies with Fully Broken Armour",
+              "min": 86,
+              "max": 99
+            }
+          ]
+        },
+        {
+          "modGroup": "TotemDamage",
+          "name": "Totem Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Damage while you have a Totem",
+              "min": 86,
+              "max": 99
+            }
+          ]
+        },
+        {
+          "modGroup": "LocalPhysicalDamagePercent",
+          "name": "Local Physical Damage Percent",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Physical Damage, {1}% reduced Attack Speed",
+              "vals": [
+                {
+                  "min": 110,
+                  "max": 154
+                },
+                {
+                  "min": 15,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "ExertedAttackDamage",
+          "name": "Exerted Attack Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Empowered Attacks deal {0}% increased Damage",
+              "min": 86,
+              "max": 99
+            }
+          ]
+        },
+        {
+          "modGroup": "AdditionalTotems",
+          "name": "Additional Totems",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Melee Attack Skills have +{0} to maximum number of Summoned Totems",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "AftershockChance",
+          "name": "Aftershock Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance for Mace Slam Skills you use yourself to cause an additional Aftershock",
+              "min": 16,
+              "max": 23
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "SummonTotemCastSpeed",
+          "name": "Summon Totem Cast Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Totem Placement speed",
+              "min": 25,
+              "max": 31
+            }
+          ]
+        },
+        {
+          "modGroup": "WarcryCooldownSpeed",
+          "name": "Warcry Cooldown Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Warcry Cooldown Recovery Rate",
+              "min": 25,
+              "max": 31
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourPenetration",
+          "name": "Armour Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Break Armour equal to {0}% of Physical Damage dealt",
+              "min": 4,
+              "max": 7
+            }
+          ]
+        },
+        {
+          "modGroup": "FissureChance",
+          "name": "Fissure Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Skills which create Fissures have a {0}% chance to create an additional Fissure",
+              "min": 25,
+              "max": 31
+            }
+          ]
+        }
+      ]
+    },
+    "two_hand_axes": {
+      "prefixes": [
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        }
+      ]
+    },
+    "quarterstaves": {
+      "prefixes": [
+        {
+          "modGroup": "ColdDamagePercentagePrefix",
+          "name": "Cold Damage Percentage Prefix",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cold Damage, {1}% increased Freeze Buildup",
+              "vals": [
+                {
+                  "min": 86,
+                  "max": 99
+                },
+                {
+                  "min": 14,
+                  "max": 23
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "FireDamagePercentagePrefix",
+          "name": "Fire Damage Percentage Prefix",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Fire Damage, {1}% increased Ignite Magnitude",
+              "vals": [
+                {
+                  "min": 86,
+                  "max": 99
+                },
+                {
+                  "min": 14,
+                  "max": 23
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningDamagePercentagePrefix",
+          "name": "Lightning Damage Percentage Prefix",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Lightning Damage, {1}% increased Magnitude of Shock you inflict",
+              "vals": [
+                {
+                  "min": 86,
+                  "max": 99
+                },
+                {
+                  "min": 14,
+                  "max": 23
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "AdditionalComboChance",
+          "name": "Additional Combo Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to build an additional Combo on Hit",
+              "min": 25,
+              "max": 40
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "RecoverResourceOnExpendingCombo",
+          "name": "Recover Resource On Expending Combo",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Recover {0}% of Maximum Life when you expend at least 10 Combo",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "RecoverResourceOnExpendingCombo",
+          "name": "Recover Resource On Expending Combo",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Recover {0}% of Maximum Mana when you expend at least 10 Combo",
+              "min": 4,
+              "max": 6
+            }
+          ]
+        }
+      ]
+    },
+    "gloves_str": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "DazeBuildup",
+          "name": "Daze Buildup",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Daze on Hit",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "BleedChanceIncrease",
+          "name": "Bleed Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to inflict Bleeding",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "PoisonChanceIncrease",
+          "name": "Poison Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to Poison",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "AilmentEffect",
+          "name": "Ailment Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Ailments you inflict",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "InstantLeechPercent",
+          "name": "Instant Leech Percent",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Leech is Instant",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    "gloves_dex": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "DazeBuildup",
+          "name": "Daze Buildup",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Daze on Hit",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "CurseAreaOfEffect",
+          "name": "Curse Area Of Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Area of Effect of Curses",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "BleedChanceIncrease",
+          "name": "Bleed Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to inflict Bleeding",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "PoisonChanceIncrease",
+          "name": "Poison Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to Poison",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "Immobilise",
+          "name": "Immobilise",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Immobilisation buildup",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "AilmentEffect",
+          "name": "Ailment Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Ailments you inflict",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    "gloves_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "IncisionChance",
+          "name": "Incision Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance for Attack Hits to apply Incision",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "DazeBuildup",
+          "name": "Daze Buildup",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Daze on Hit",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ArcaneSurgeOnCrit",
+          "name": "Arcane Surge On Crit",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Gain Arcane Surge when you deal a Critical Hit",
+              "min": 10,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "CastSpeedOnFullLife",
+          "name": "Cast Speed On Full Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cast Speed when on Full Life",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "BleedChanceIncrease",
+          "name": "Bleed Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to inflict Bleeding",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "PoisonChanceIncrease",
+          "name": "Poison Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to Poison",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "AilmentEffect",
+          "name": "Ailment Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Ailments you inflict",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedSpeed",
+          "name": "Increased Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Skill Speed if you've consumed a Frenzy Charge Recently",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    "gloves_str_dex": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "DazeBuildup",
+          "name": "Daze Buildup",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Daze on Hit",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "CurseAreaOfEffect",
+          "name": "Curse Area Of Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Area of Effect of Curses",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "BleedChanceIncrease",
+          "name": "Bleed Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to inflict Bleeding",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "PoisonChanceIncrease",
+          "name": "Poison Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to Poison",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "Immobilise",
+          "name": "Immobilise",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Immobilisation buildup",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "AilmentEffect",
+          "name": "Ailment Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Ailments you inflict",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "InstantLeechPercent",
+          "name": "Instant Leech Percent",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Leech is Instant",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    "gloves_str_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "IncisionChance",
+          "name": "Incision Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance for Attack Hits to apply Incision",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "DazeBuildup",
+          "name": "Daze Buildup",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Daze on Hit",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ArcaneSurgeOnCrit",
+          "name": "Arcane Surge On Crit",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Gain Arcane Surge when you deal a Critical Hit",
+              "min": 10,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "CastSpeedOnFullLife",
+          "name": "Cast Speed On Full Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cast Speed when on Full Life",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "BleedChanceIncrease",
+          "name": "Bleed Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to inflict Bleeding",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "PoisonChanceIncrease",
+          "name": "Poison Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to Poison",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "AilmentEffect",
+          "name": "Ailment Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Ailments you inflict",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedSpeed",
+          "name": "Increased Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Skill Speed if you've consumed a Frenzy Charge Recently",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "InstantLeechPercent",
+          "name": "Instant Leech Percent",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Leech is Instant",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    "gloves_dex_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "IncisionChance",
+          "name": "Incision Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance for Attack Hits to apply Incision",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "DazeBuildup",
+          "name": "Daze Buildup",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Daze on Hit",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ArcaneSurgeOnCrit",
+          "name": "Arcane Surge On Crit",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Gain Arcane Surge when you deal a Critical Hit",
+              "min": 10,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "CurseAreaOfEffect",
+          "name": "Curse Area Of Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Area of Effect of Curses",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "CastSpeedOnFullLife",
+          "name": "Cast Speed On Full Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cast Speed when on Full Life",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "BleedChanceIncrease",
+          "name": "Bleed Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to inflict Bleeding",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "PoisonChanceIncrease",
+          "name": "Poison Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased chance to Poison",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "Immobilise",
+          "name": "Immobilise",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Immobilisation buildup",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "AilmentEffect",
+          "name": "Ailment Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Magnitude of Ailments you inflict",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreasedSpeed",
+          "name": "Increased Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Skill Speed if you've consumed a Frenzy Charge Recently",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    "boots_str": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "LifeRegenerationPlusPercentWhileMoving",
+          "name": "Life Regeneration Plus Percent While Moving",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Regeneration Rate while moving",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency if you have Dodge Rolled Recently",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaRegeneration",
+          "name": "Mana Regeneration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Regeneration Rate while stationary",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Duration of Bleeding on You",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedSelfIgniteDuration",
+          "name": "Reduced Self Ignite Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Ignite Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Poison Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "SlowPotency",
+          "name": "Slow Potency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Slowing Potency of Debuffs on You",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "DodgeRoll",
+          "name": "Dodge Roll",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} metres to Dodge Roll distance",
+              "min": 0.1,
+              "max": 0.2
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "CorruptedBlood",
+          "name": "Corrupted Blood",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Corrupted Blood cannot be inflicted on you"
+            }
+          ]
+        }
+      ]
+    },
+    "boots_dex": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "LifeRegenerationPlusPercentWhileMoving",
+          "name": "Life Regeneration Plus Percent While Moving",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Regeneration Rate while moving",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency if you have Dodge Rolled Recently",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaRegeneration",
+          "name": "Mana Regeneration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Regeneration Rate while stationary",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Duration of Bleeding on You",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedSelfIgniteDuration",
+          "name": "Reduced Self Ignite Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Ignite Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Poison Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "SlowPotency",
+          "name": "Slow Potency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Slowing Potency of Debuffs on You",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "DodgeRoll",
+          "name": "Dodge Roll",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} metres to Dodge Roll distance",
+              "min": 0.1,
+              "max": 0.2
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "CorruptedBlood",
+          "name": "Corrupted Blood",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Corrupted Blood cannot be inflicted on you"
+            }
+          ]
+        }
+      ]
+    },
+    "boots_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "LifeRegenerationPlusPercentWhileMoving",
+          "name": "Life Regeneration Plus Percent While Moving",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Regeneration Rate while moving",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency if you have Dodge Rolled Recently",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaRegeneration",
+          "name": "Mana Regeneration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Regeneration Rate while stationary",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Duration of Bleeding on You",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedSelfIgniteDuration",
+          "name": "Reduced Self Ignite Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Ignite Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Poison Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "SlowPotency",
+          "name": "Slow Potency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Slowing Potency of Debuffs on You",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "DodgeRoll",
+          "name": "Dodge Roll",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} metres to Dodge Roll distance",
+              "min": 0.1,
+              "max": 0.2
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "CorruptedBlood",
+          "name": "Corrupted Blood",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Corrupted Blood cannot be inflicted on you"
+            }
+          ]
+        }
+      ]
+    },
+    "boots_str_dex": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "LifeRegenerationPlusPercentWhileMoving",
+          "name": "Life Regeneration Plus Percent While Moving",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Regeneration Rate while moving",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency if you have Dodge Rolled Recently",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaRegeneration",
+          "name": "Mana Regeneration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Regeneration Rate while stationary",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Duration of Bleeding on You",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedSelfIgniteDuration",
+          "name": "Reduced Self Ignite Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Ignite Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Poison Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "SlowPotency",
+          "name": "Slow Potency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Slowing Potency of Debuffs on You",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "DodgeRoll",
+          "name": "Dodge Roll",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} metres to Dodge Roll distance",
+              "min": 0.1,
+              "max": 0.2
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "CorruptedBlood",
+          "name": "Corrupted Blood",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Corrupted Blood cannot be inflicted on you"
+            }
+          ]
+        }
+      ]
+    },
+    "boots_str_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "LifeRegenerationPlusPercentWhileMoving",
+          "name": "Life Regeneration Plus Percent While Moving",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Regeneration Rate while moving",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency if you have Dodge Rolled Recently",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaRegeneration",
+          "name": "Mana Regeneration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Regeneration Rate while stationary",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Duration of Bleeding on You",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedSelfIgniteDuration",
+          "name": "Reduced Self Ignite Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Ignite Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Poison Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "SlowPotency",
+          "name": "Slow Potency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Slowing Potency of Debuffs on You",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "DodgeRoll",
+          "name": "Dodge Roll",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} metres to Dodge Roll distance",
+              "min": 0.1,
+              "max": 0.2
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "CorruptedBlood",
+          "name": "Corrupted Blood",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Corrupted Blood cannot be inflicted on you"
+            }
+          ]
+        }
+      ]
+    },
+    "boots_dex_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "LifeRegenerationPlusPercentWhileMoving",
+          "name": "Life Regeneration Plus Percent While Moving",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Regeneration Rate while moving",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency if you have Dodge Rolled Recently",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaRegeneration",
+          "name": "Mana Regeneration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Regeneration Rate while stationary",
+              "min": 40,
+              "max": 50
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Duration of Bleeding on You",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedSelfIgniteDuration",
+          "name": "Reduced Self Ignite Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Ignite Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedAilmentDuration",
+          "name": "Reduced Ailment Duration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Poison Duration on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "SlowPotency",
+          "name": "Slow Potency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced Slowing Potency of Debuffs on You",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "DodgeRoll",
+          "name": "Dodge Roll",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} metres to Dodge Roll distance",
+              "min": 0.1,
+              "max": 0.2
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "CorruptedBlood",
+          "name": "Corrupted Blood",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Corrupted Blood cannot be inflicted on you"
+            }
+          ]
+        }
+      ]
+    },
+    "body_armours_str": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        }
+      ]
+    },
+    "body_armours_dex": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "CompanionReservationEfficiency",
+          "name": "Companion Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Reservation Efficiency of Companion Skills",
+              "min": 12,
+              "max": 18
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "DeflectDamageTaken",
+          "name": "Deflect Damage Taken",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Prevent +{0}% of Damage from Deflected Hits",
+              "min": 3,
+              "max": 5
+            }
+          ]
+        }
+      ]
+    },
+    "body_armours_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageRemovedFromManaBeforeLife",
+          "name": "Damage Removed From Mana Before Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage is taken from Mana before Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        }
+      ]
+    },
+    "body_armours_str_dex": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "CompanionReservationEfficiency",
+          "name": "Companion Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Reservation Efficiency of Companion Skills",
+              "min": 12,
+              "max": 18
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "DeflectDamageTaken",
+          "name": "Deflect Damage Taken",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Prevent +{0}% of Damage from Deflected Hits",
+              "min": 3,
+              "max": 5
+            }
+          ]
+        }
+      ]
+    },
+    "body_armours_str_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageRemovedFromManaBeforeLife",
+          "name": "Damage Removed From Mana Before Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage is taken from Mana before Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        }
+      ]
+    },
+    "body_armours_dex_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "CompanionReservationEfficiency",
+          "name": "Companion Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Reservation Efficiency of Companion Skills",
+              "min": 12,
+              "max": 18
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageRemovedFromManaBeforeLife",
+          "name": "Damage Removed From Mana Before Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage is taken from Mana before Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "DeflectDamageTaken",
+          "name": "Deflect Damage Taken",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Prevent +{0}% of Damage from Deflected Hits",
+              "min": 3,
+              "max": 5
+            }
+          ]
+        }
+      ]
+    },
+    "body_armours_str_dex_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "CompanionReservationEfficiency",
+          "name": "Companion Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Reservation Efficiency of Companion Skills",
+              "min": 12,
+              "max": 18
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 6,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageRemovedFromManaBeforeLife",
+          "name": "Damage Removed From Mana Before Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage is taken from Mana before Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "PercentDamageGoesToMana",
+          "name": "Percent Damage Goes To Mana",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Mana",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ReducedCurseEffect",
+          "name": "Reduced Curse Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% reduced effect of Curses on you",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToTakeCriticalStrike",
+          "name": "Chance To Take Critical Strike",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Hits have {0}% reduced Critical Hit Chance against you",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "DeflectDamageTaken",
+          "name": "Deflect Damage Taken",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Prevent +{0}% of Damage from Deflected Hits",
+              "min": 3,
+              "max": 5
+            }
+          ]
+        }
+      ]
+    },
+    "helmets_str": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "ArcaneSurgeEffect",
+          "name": "Arcane Surge Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased effect of Arcane Surge on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "GloryGeneration",
+          "name": "Glory Generation",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Glory generation",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCostEfficiency",
+          "name": "Life Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Cost Efficiency",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "PresenceRadius",
+          "name": "Presence Radius",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Presence Area of Effect",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageTakenGainedAsLife",
+          "name": "Damage Taken Gained As Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalDamageTakenRecoupedAsEnergyShield",
+          "name": "Elemental Damage Taken Recouped As Energy Shield",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Elemental Damage taken Recouped as Energy Shield",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourAppliesToChaosDamage",
+          "name": "Armour Applies To Chaos Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% of Armour also applies to Chaos Damage",
+              "min": 23,
+              "max": 31
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    "helmets_dex": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "CriticalStrikeMultiplier",
+          "name": "Critical Strike Multiplier",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Critical Damage Bonus",
+              "min": 13,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCostEfficiency",
+          "name": "Life Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Cost Efficiency",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "PresenceRadius",
+          "name": "Presence Radius",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Presence Area of Effect",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalDamageTakenRecoupedAsEnergyShield",
+          "name": "Elemental Damage Taken Recouped As Energy Shield",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Elemental Damage taken Recouped as Energy Shield",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "MarkDamage",
+          "name": "Mark Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Enemies you Mark take {0}% increased Damage",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        }
+      ]
+    },
+    "helmets_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "ArcaneSurgeEffect",
+          "name": "Arcane Surge Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased effect of Arcane Surge on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCostEfficiency",
+          "name": "Life Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Cost Efficiency",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "PresenceRadius",
+          "name": "Presence Radius",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Presence Area of Effect",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalDamageTakenRecoupedAsEnergyShield",
+          "name": "Elemental Damage Taken Recouped As Energy Shield",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Elemental Damage taken Recouped as Energy Shield",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    "helmets_str_dex": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "CriticalStrikeMultiplier",
+          "name": "Critical Strike Multiplier",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Critical Damage Bonus",
+              "min": 13,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ArcaneSurgeEffect",
+          "name": "Arcane Surge Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased effect of Arcane Surge on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "GloryGeneration",
+          "name": "Glory Generation",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Glory generation",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCostEfficiency",
+          "name": "Life Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Cost Efficiency",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "PresenceRadius",
+          "name": "Presence Radius",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Presence Area of Effect",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageTakenGainedAsLife",
+          "name": "Damage Taken Gained As Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalDamageTakenRecoupedAsEnergyShield",
+          "name": "Elemental Damage Taken Recouped As Energy Shield",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Elemental Damage taken Recouped as Energy Shield",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourAppliesToChaosDamage",
+          "name": "Armour Applies To Chaos Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% of Armour also applies to Chaos Damage",
+              "min": 23,
+              "max": 31
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "MarkDamage",
+          "name": "Mark Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Enemies you Mark take {0}% increased Damage",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        }
+      ]
+    },
+    "helmets_str_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "ArcaneSurgeEffect",
+          "name": "Arcane Surge Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased effect of Arcane Surge on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "GloryGeneration",
+          "name": "Glory Generation",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Glory generation",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCostEfficiency",
+          "name": "Life Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Cost Efficiency",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "PresenceRadius",
+          "name": "Presence Radius",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Presence Area of Effect",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        },
+        {
+          "modGroup": "DamageTakenGainedAsLife",
+          "name": "Damage Taken Gained As Life",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Damage taken Recouped as Life",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalDamageTakenRecoupedAsEnergyShield",
+          "name": "Elemental Damage Taken Recouped As Energy Shield",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Elemental Damage taken Recouped as Energy Shield",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ArmourAppliesToChaosDamage",
+          "name": "Armour Applies To Chaos Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% of Armour also applies to Chaos Damage",
+              "min": 23,
+              "max": 31
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    "helmets_dex_int": {
+      "prefixes": [],
+      "suffixes": [
+        {
+          "modGroup": "CriticalStrikeMultiplier",
+          "name": "Critical Strike Multiplier",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Critical Damage Bonus",
+              "min": 13,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ArcaneSurgeEffect",
+          "name": "Arcane Surge Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased effect of Arcane Surge on you",
+              "min": 20,
+              "max": 30
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCostEfficiency",
+          "name": "Life Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Life Cost Efficiency",
+              "min": 8,
+              "max": 12
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "PresenceRadius",
+          "name": "Presence Radius",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Presence Area of Effect",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        },
+        {
+          "modGroup": "ElementalDamageTakenRecoupedAsEnergyShield",
+          "name": "Elemental Damage Taken Recouped As Energy Shield",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Elemental Damage taken Recouped as Energy Shield",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "MarkDamage",
+          "name": "Mark Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Enemies you Mark take {0}% increased Damage",
+              "min": 4,
+              "max": 8
+            }
+          ]
+        }
+      ]
+    },
+    "life_flasks": {
+      "prefixes": [],
+      "suffixes": []
+    },
+    "mana_flasks": {
+      "prefixes": [],
+      "suffixes": []
+    },
+    "spears": {
+      "prefixes": [
+        {
+          "modGroup": "IncreasedAttackAreaOfEffect",
+          "name": "Increased Attack Area Of Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Area of Effect for Attacks",
+              "min": 12,
+              "max": 23
+            }
+          ]
+        },
+        {
+          "modGroup": "MeleeDamage",
+          "name": "Melee Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds",
+              "min": 60,
+              "max": 79
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "CompanionDamage",
+          "name": "Companion Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Companions deal {0}% increased Damage, {1}% increased Damage while your Companion is in your Presence",
+              "vals": [
+                {
+                  "min": 40,
+                  "max": 59
+                },
+                {
+                  "min": 40,
+                  "max": 59
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ProjectileDamage",
+          "name": "Projectile Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles deal {0}% increased Damage with Hits against Enemies further than 6m",
+              "min": 60,
+              "max": 79
+            }
+          ]
+        },
+        {
+          "modGroup": "ChainFromTerrain",
+          "name": "Chain From Terrain",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles have {0}% chance to Chain an additional time from terrain",
+              "min": 25,
+              "max": 35
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ChanceToPierce",
+          "name": "Chance To Pierce",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance to Pierce an Enemy",
+              "min": 40,
+              "max": 60
+            }
+          ]
+        },
+        {
+          "modGroup": "CompanionDamage",
+          "name": "Companion Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Attack Speed, {1}% increased Attack Speed while your Companion is in your Presence",
+              "vals": [
+                {
+                  "min": 8,
+                  "max": 13
+                },
+                {
+                  "min": 8,
+                  "max": 13
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "CompanionAttackSpeed",
+          "name": "Companion Attack Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Attack Speed, Companions have {1}% increased Attack Speed",
+              "vals": [
+                {
+                  "min": 12,
+                  "max": 18
+                },
+                {
+                  "min": 12,
+                  "max": 18
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Immobilise",
+          "name": "Immobilise",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Immobilisation buildup",
+              "min": 25,
+              "max": 34
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "AdditionalProjectiles",
+          "name": "Additional Projectiles",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectile Attacks have a {0}% chance to fire two additional Projectiles while moving",
+              "min": 10,
+              "max": 18
+            }
+          ]
+        },
+        {
+          "modGroup": "CriticalStrikeChanceIncrease",
+          "name": "Critical Strike Chance Increase",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles have {0}% increased Critical Hit Chance against Enemies further than 6m",
+              "min": 25,
+              "max": 34
+            }
+          ]
+        }
+      ]
+    },
+    "flails": {
+      "prefixes": [
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        }
+      ]
+    },
+    "crossbows": {
+      "prefixes": [
+        {
+          "modGroup": "GrenadeDamage",
+          "name": "Grenade Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Grenade Damage, {1}% increased Grenade Duration",
+              "vals": [
+                {
+                  "min": 101,
+                  "max": 121
+                },
+                {
+                  "min": 20,
+                  "max": 30
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modGroup": "AdditionalBallistaTotem",
+          "name": "Additional Ballista Totem",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to maximum number of Summoned Ballista Totems",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdResistancePenetration",
+          "name": "Cold Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Cold Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "FireResistancePenetration",
+          "name": "Fire Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Fire Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningResistancePenetration",
+          "name": "Lightning Resistance Penetration",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks with this Weapon Penetrate {0}% Lightning Resistance",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "GrenadeCooldownUse",
+          "name": "Grenade Cooldown Use",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Grenade Skills have +{0} Cooldown Use",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        {
+          "modGroup": "ProjectileDamage",
+          "name": "Projectile Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles deal {0}% increased Damage with Hits against Enemies within 2m",
+              "min": 85,
+              "max": 109
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "CrossbowReloadSpeed",
+          "name": "Crossbow Reload Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance when you Reload a Crossbow to be immediate",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Cost Efficiency of Attacks",
+              "min": 8,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "CrossbowReloadSpeed",
+          "name": "Crossbow Reload Speed",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Reload Speed",
+              "min": 17,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "SpiritReservationEfficiency",
+          "name": "Spirit Reservation Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spirit Reservation Efficiency of Skills",
+              "min": 5,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "LifeCost",
+          "name": "Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Skill Mana Costs Converted to Life Costs",
+              "min": 15,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "Chain",
+          "name": "Chain",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Attacks Chain an additional time"
+            }
+          ]
+        },
+        {
+          "modGroup": "GrenadeAdditionalDetonationChance",
+          "name": "Grenade Additional Detonation Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Grenades have {0}% chance to activate a second time",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "CriticalStrikeMultiplier",
+          "name": "Critical Strike Multiplier",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Projectiles have {0}% increased Critical Damage Bonus against Enemies within 2m",
+              "min": 27,
+              "max": 38
+            }
+          ]
+        }
+      ]
+    },
+    "foci": {
+      "prefixes": [
+        {
+          "modGroup": "CurseEffectiveness",
+          "name": "Curse Effectiveness",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Curse Magnitudes",
+              "min": 8,
+              "max": 16
+            }
+          ]
+        },
+        {
+          "modGroup": "SpellDamage",
+          "name": "Spell Damage",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Spell Damage while wielding a Melee Weapon",
+              "min": 61,
+              "max": 79
+            }
+          ]
+        },
+        {
+          "modGroup": "WeaponCasterDamagePrefix",
+          "name": "Weapon Caster Damage Prefix",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Invocated Spells deal {0}% increased Damage",
+              "min": 61,
+              "max": 79
+            }
+          ]
+        },
+        {
+          "modGroup": "OfferingEffect",
+          "name": "Offering Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Offering Skills have {0}% increased Buff effect",
+              "min": 12,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "SpellAreaOfEffect",
+          "name": "Spell Area Of Effect",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Spell Skills have {0}% increased Area of Effect",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "AdditionalSpellTotem",
+          "name": "Additional Spell Totem",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "Spell Skills have +{0} to maximum number of Summoned Totems",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        }
+      ],
+      "suffixes": [
+        {
+          "modGroup": "SpellsFire2AdditionalProjectileChance",
+          "name": "Spells Fire2 Additional Projectile Chance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance for Spell Skills to fire 2 additional Projectiles",
+              "min": 10,
+              "max": 16
+            }
+          ]
+        },
+        {
+          "modGroup": "ChanceToGainAnAdditionalInfusion",
+          "name": "Chance To Gain An Additional Infusion",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% chance when collecting an Elemental Infusion to gain an, additional Elemental Infusion of the same type",
+              "min": 15,
+              "max": 25
+            }
+          ]
+        },
+        {
+          "modGroup": "CurseDelay",
+          "name": "Curse Delay",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% faster Curse Activation",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "ManaCostEfficiency",
+          "name": "Mana Cost Efficiency",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% increased Mana Cost Efficiency",
+              "min": 6,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "modGroup": "SkillLifeCost",
+          "name": "Skill Life Cost",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "{0}% of Spell Mana Cost Converted to Life Cost",
+              "min": 10,
+              "max": 20
+            }
+          ]
+        },
+        {
+          "modGroup": "Dexterity",
+          "name": "Dexterity",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Dexterity and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "IncreaseSocketedGemLevel",
+          "name": "Increase Socketed Gem Level",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Level of all Minion Skills",
+              "min": 1,
+              "max": 2
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Dexterity",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "Strength",
+          "name": "Strength",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0} to Strength and Intelligence",
+              "min": 9,
+              "max": 15
+            }
+          ]
+        },
+        {
+          "modGroup": "ColdAndChaosDamageResistance",
+          "name": "Cold And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Cold and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "FireAndChaosDamageResistance",
+          "name": "Fire And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Fire and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "modGroup": "LightningAndChaosDamageResistance",
+          "name": "Lightning And Chaos Damage Resistance",
+          "tier": "D",
+          "weight": 1,
+          "lines": [
+            {
+              "modLine": "+{0}% to Lightning and Chaos Resistances",
+              "min": 13,
+              "max": 17
+            }
+          ]
+        }
+      ]
+    },
+    "charms": {
+      "prefixes": [],
+      "suffixes": []
+    }
   }
-}
-;
+};
