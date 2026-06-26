@@ -1365,6 +1365,94 @@ function renderCraftCounter(item) {
   });
 }
 
+// ============================================================
+//  MAGIC ITEM NAMING (PoE2-style)
+// ============================================================
+// PoE2 names a Magic item as: [prefix word] + BaseType + [of suffix phrase],
+// e.g. 'Burning Ruby of the Salamander'. Each affix contributes a short flavour
+// word chosen from its THEME -- never its raw stat text. This data only stores
+// stat-group descriptors (mod.name / mod.modGroup / mod.modLine), so the flavour
+// word is derived by matching theme keywords against those. First match wins, so
+// list specific themes before generic ones. To retheme, edit word / phrase below;
+// to add a theme, add an entry with the lower-case keywords to match.
+const MAGIC_PREFIX_WORDS = [
+  { keys: ['totem'],                      word: 'Totemic' },
+  { keys: ['minion'],                     word: 'Commanding' },
+  { keys: ['banner'],                     word: 'Heraldic' },
+  { keys: ['warcry'],                     word: 'Bellowing' },
+  { keys: ['rage'],                       word: 'Raging' },
+  { keys: ['bleed', 'bleeding'],          word: 'Serrated' },
+  { keys: ['ignite', 'flammability'],     word: 'Smouldering' },
+  { keys: ['fire'],                       word: 'Burning' },
+  { keys: ['cold', 'frost'],              word: 'Frosted' },
+  { keys: ['lightning', 'shock'],         word: 'Sparking' },
+  { keys: ['elemental'],                  word: 'Prismatic' },
+  { keys: ['chaos'],                      word: 'Polluted' },
+  { keys: ['armour', 'armor'],            word: 'Reinforced' },
+  { keys: ['block'],                      word: 'Bastion' },
+  { keys: ['shield'],                     word: 'Warding' },
+  { keys: ['thorns'],                     word: 'Spiked' },
+  { keys: ['area of effect', 'presence'], word: 'Expansive' },
+  { keys: ['mace'],                       word: 'Crushing' },
+  { keys: ['melee'],                      word: 'Bladed' },
+  { keys: ['attack'],                     word: 'Fierce' },
+  { keys: ['physical'],                   word: 'Honed' },
+  { keys: ['incision'],                   word: 'Lacerating' },
+  { keys: ['shapeshift', 'plant', 'damage form'], word: 'Feral' },
+  { keys: ['damage'],                     word: 'Vicious' },
+];
+const MAGIC_SUFFIX_PHRASES = [
+  { keys: ['totem'],                      phrase: 'of the Totem' },
+  { keys: ['minion'],                     phrase: 'of Servitude' },
+  { keys: ['banner', 'glory', 'valour'],  phrase: 'of the Herald' },
+  { keys: ['warcry'],                     phrase: 'of Command' },
+  { keys: ['rage'],                       phrase: 'of Fury' },
+  { keys: ['bleed', 'bleeding'],          phrase: 'of Haemorrhage' },
+  { keys: ['ignite', 'flammability'],     phrase: 'of Flames' },
+  { keys: ['fire'],                       phrase: 'of the Salamander' },
+  { keys: ['cold', 'frost'],              phrase: 'of the Glacier' },
+  { keys: ['lightning', 'shock'],         phrase: 'of the Storm' },
+  { keys: ['chaos'],                      phrase: 'of the Plague' },
+  { keys: ['resist'],                     phrase: 'of Warding' },
+  { keys: ['stun'],                       phrase: 'of Stability' },
+  { keys: ['knockback'],                  phrase: 'of Repulsion' },
+  { keys: ['leech'],                      phrase: 'of the Leech' },
+  { keys: ['regeneration', 'regen'],      phrase: 'of Renewal' },
+  { keys: ['life'],                       phrase: 'of Vitality' },
+  { keys: ['mana'],                       phrase: 'of the Mind' },
+  { keys: ['duration'],                   phrase: 'of Lingering' },
+  { keys: ['speed', 'cooldown'],          phrase: 'of Haste' },
+  { keys: ['mace'],                       phrase: 'of the Brute' },
+  { keys: ['shapeshift', 'plant'],        phrase: 'of the Beast' },
+  { keys: ['damage'],                     phrase: 'of Ruin' },
+];
+
+function magicModHaystack(mod) {
+  if (!mod) return '';
+  return [mod.modGroup, mod.name, mod.displayText, mod.modLine]
+    .filter(Boolean).join(' ').toLowerCase();
+}
+
+function pickMagicWord(table, mod, field) {
+  const hay = magicModHaystack(mod);
+  if (!hay) return '';
+  for (const entry of table) {
+    if (entry.keys.some(k => hay.includes(k))) return entry[field];
+  }
+  return '';
+}
+
+// Compose a PoE2-style Magic name from the item's (at most one) prefix and
+// suffix. Falls back to the bare base name if neither affix yields a word.
+function buildMagicName(item) {
+  const base = item.baseName;
+  const prefixMod = (item.prefixes || []).find(m => !m.unrevealed);
+  const suffixMod = (item.suffixes || []).find(m => !m.unrevealed);
+  const lead = prefixMod ? pickMagicWord(MAGIC_PREFIX_WORDS, prefixMod, 'word') : '';
+  const tail = suffixMod ? pickMagicWord(MAGIC_SUFFIX_PHRASES, suffixMod, 'phrase') : '';
+  return [lead, base, tail].filter(Boolean).join(' ') || base;
+}
+
 function renderItem(actionResult = null, overrideItem = null) {
   const item = overrideItem || engine.getItem();
   const realCorrupted = overrideItem ? engine.getItem().corrupted : item.corrupted;
@@ -1373,16 +1461,18 @@ function renderItem(actionResult = null, overrideItem = null) {
 
   elements.tooltip.className = `tooltip rarity-${item.rarity} ${item.corrupted ? 'corrupted' : ''} ${item.sanctified ? 'sanctified' : ''}`;
 
-  // Item display name. The engine only generates a proper name for Rare items
-  // (e.g. "Brood Star"); Magic and Normal items just show their clean base
-  // name (e.g. "Sapphire"), with their mods listed below. This is intentionally
-  // base-agnostic, so it behaves the same for every base type. (Earlier this
-  // glued the first prefix/suffix's internal stat-group tierName around the
-  // base name, producing stat-dump titles like "Cold Damage Percentage
-  // Sapphire Critical Strike Multiplier".)
+  // Item display name, following PoE2 conventions:
+  //  - Normal: just the base name (e.g. 'Ruby').
+  //  - Magic:  [prefix word] + base + [of suffix phrase], e.g.
+  //    'Burning Ruby of the Salamander'. The flavour words come from each
+  //    affix's THEME via buildMagicName() -- never the raw stat-group text,
+  //    which is what produced the old stat-dump titles.
+  //  - Rare:   the engine's generated two-word name (e.g. 'Brood Star').
   let fullName = item.baseName;
   if (item.rarity === 'rare') {
     fullName = item.name || item.baseName;
+  } else if (item.rarity === 'magic') {
+    fullName = buildMagicName(item);
   }
   elements.itemName.textContent = fullName;
 
@@ -1405,7 +1495,11 @@ function renderItem(actionResult = null, overrideItem = null) {
       tipHeader.appendChild(classEl);
     }
     const jt = currentJewelType || 'ruby';
-    if (item.rarity !== 'normal') {
+    // Show the small base-type subtitle ONLY for Rare items, whose generated
+    // name does not contain the base. Magic names already include the base
+    // ('Burning Ruby of the Salamander') and Normal items ARE the base, so a
+    // subtitle there would just duplicate it (the old 'Ruby / Ruby').
+    if (item.rarity === 'rare') {
       baseEl.textContent = jt.charAt(0).toUpperCase() + jt.slice(1);
       baseEl.style.display = 'block';
     } else {
