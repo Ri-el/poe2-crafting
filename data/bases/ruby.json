@@ -581,7 +581,9 @@
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "+{0}% to Maximum Fire Resistance",
-          "name": "Maximum Fire Resist"
+          "name": "Maximum Fire Resist",
+          "min": 1,
+          "max": 1
         }
       ]
     },
@@ -607,7 +609,9 @@
           "tier": 1,
           "ilvlReq": 1,
           "modLine": "Gain {0} Rage on Melee Hit",
-          "name": "Rage On Hit"
+          "name": "Rage On Hit",
+          "min": 1,
+          "max": 1
         }
       ]
     },
@@ -749,29 +753,21 @@
     {
       "modGroup": "ImmunityToBlind",
       "modLine": "Cannot be Blinded",
-      "min": null,
-      "max": null,
       "type": "corrupted"
     },
     {
       "modGroup": "CorruptedBlood",
       "modLine": "Corrupted Blood cannot be inflicted on you",
-      "min": null,
-      "max": null,
       "type": "corrupted"
     },
     {
       "modGroup": "ImmuneToMaim",
       "modLine": "Immune to Maim",
-      "min": null,
-      "max": null,
       "type": "corrupted"
     },
     {
       "modGroup": "YouCannotBeHindered",
       "modLine": "You cannot be Hindered",
-      "min": null,
-      "max": null,
       "type": "corrupted"
     }
   ],
