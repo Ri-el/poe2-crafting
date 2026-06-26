@@ -138,6 +138,7 @@ function buildCard(item) {
   card.type = 'button';
   card.className = 'cat-card' + (active ? ' is-active' : '') + (clickable ? '' : ' is-disabled');
   if (!clickable) card.disabled = true;
+  if (!active) card.title = 'Coming soon';
 
   card.appendChild(iconEl(item.icon));
 
@@ -146,10 +147,14 @@ function buildCard(item) {
   label.textContent = item.name;
   card.appendChild(label);
 
-  const badge = document.createElement('span');
-  badge.className = 'cat-badge ' + (active ? 'badge-ready' : 'badge-soon');
-  badge.textContent = active ? 'Playable' : 'Coming soon';
-  card.appendChild(badge);
+  // Only the playable category shows a badge; “coming soon” cards are
+  // communicated by their dimmed styling (keeps the screen compact).
+  if (active) {
+    const badge = document.createElement('span');
+    badge.className = 'cat-badge badge-ready';
+    badge.textContent = 'Playable';
+    card.appendChild(badge);
+  }
 
   card.addEventListener('click', () => {
     if (active) enterCraft();
@@ -201,6 +206,7 @@ function renderVariants(item) {
   for (const v of item.variants) {
     const card = document.createElement('div');
     card.className = 'cat-card variant-card is-disabled';
+    card.title = 'Coming soon';
 
     card.appendChild(iconEl(v.icon));
 
@@ -213,11 +219,6 @@ function renderVariants(item) {
     base.className = 'variant-base';
     base.textContent = v.bestBase ? 'Best base: ' + v.bestBase : 'Best base — TBD';
     card.appendChild(base);
-
-    const badge = document.createElement('span');
-    badge.className = 'cat-badge badge-soon';
-    badge.textContent = 'Coming soon';
-    card.appendChild(badge);
 
     grid.appendChild(card);
   }

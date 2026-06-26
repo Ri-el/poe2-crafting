@@ -1,50 +1,51 @@
 /* ============================================================
    Item Category Selection Screen
    Standalone styles (scoped) so style.css is untouched.
+   Compact “fit one screen” layout.
    ============================================================ */
 
 #select-view[hidden],
 #craft-view[hidden] { display: none !important; }
 
 #select-view {
-  max-width: 940px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 32px 20px 64px;
+  padding: 18px 16px 40px;
 }
 
 .select-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .select-heading {
   font-family: 'Cinzel', serif;
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #e8d6a8;
   letter-spacing: 0.04em;
-  margin: 14px 0 4px;
+  margin: 8px 0 2px;
 }
 
-.cat-group { margin-bottom: 30px; }
+.cat-group { margin-bottom: 12px; }
 
 .cat-group-title {
   font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: #8a8470;
   border-bottom: 1px solid rgba(200, 162, 83, 0.18);
-  padding-bottom: 8px;
-  margin: 0 0 16px;
+  padding-bottom: 5px;
+  margin: 0 0 8px;
   text-align: center;
 }
 
 .cat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 168px));
+  grid-template-columns: repeat(auto-fit, minmax(96px, 112px));
   justify-content: center;
-  gap: 16px;
+  gap: 10px;
 }
 
 .cat-card {
@@ -52,11 +53,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 20px 12px 16px;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 8px;
+  min-height: 82px;
   background: linear-gradient(180deg, rgba(28, 28, 32, 0.9), rgba(16, 16, 19, 0.9));
   border: 1px solid rgba(120, 110, 80, 0.25);
-  border-radius: 12px;
+  border-radius: 10px;
   color: #d8d2c2;
   font-family: 'Inter', sans-serif;
   cursor: pointer;
@@ -86,30 +89,33 @@
 }
 
 .cat-ico {
-  width: 48px;
-  height: 48px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .cat-ico img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.cat-ico-glyph { font-size: 28px; color: #6f6a55; }
+.cat-ico-glyph { font-size: 20px; color: #6f6a55; }
 
 .cat-card-label {
-  font-size: 0.9rem;
+  font-size: 0.72rem;
   font-weight: 500;
   line-height: 1.2;
 }
 
 .cat-badge {
-  font-size: 0.62rem;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 0.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 2px 8px;
+  letter-spacing: 0.06em;
+  padding: 2px 6px;
   border-radius: 999px;
 }
 .badge-soon { background: rgba(120, 110, 80, 0.18); color: #9a9176; }
-.badge-ready { background: rgba(90, 200, 130, 0.18); color: #87d8a4; }
+.badge-ready { background: rgba(90, 200, 130, 0.2); color: #87d8a4; }
 
 /* ---- Variant (attribute) screen ---- */
 .variant-back,
@@ -127,18 +133,19 @@
   cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease;
 }
-.variant-back { margin-bottom: 18px; }
+.variant-back { margin-bottom: 14px; }
 .back-to-select { margin: 16px 0 0 16px; }
 .variant-back:hover,
 .back-to-select:hover { border-color: rgba(200, 162, 83, 0.7); color: #e8d6a8; }
 
 .variant-base {
-  font-size: 0.7rem;
+  font-size: 0.66rem;
   color: #8a8470;
   font-style: italic;
 }
 
 @media (max-width: 560px) {
-  .cat-grid { grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 10px; }
-  #select-view { padding: 20px 12px 48px; }
+  .cat-grid { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); gap: 8px; }
+  #select-view { padding: 14px 10px 36px; }
+  .cat-card { min-height: 74px; padding: 10px 6px; }
 }
