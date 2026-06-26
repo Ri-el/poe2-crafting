@@ -905,6 +905,14 @@ function startDesecrationFlow(bone = 'preserved_cranium') {
 
 function openWell() {
   if (!desecState) { showError('Nothing to reveal.'); return; }
+  // Omen of Abyssal Echoes is consumed the moment the desecrated modifier is
+  // REVEALED (the Well opens) if it was activated -- whether or not the reroll
+  // is actually used. If it was never activated, it is never counted. Guarded
+  // by echoCounted so re-opening the Well (after a Cancel) cannot double-count.
+  if (selectedOmens.has('abyssal_echoes') && !desecState.echoCounted) {
+    engine.recordCurrencyUse('abyssal_echoes');
+    desecState.echoCounted = true;
+  }
   renderWell();
   if (elements.wellModal) {
     elements.wellModal.hidden = false;
@@ -947,21 +955,18 @@ function renderWell() {
 
 function rerollWell() {
   // Reroll requires Omen of Abyssal Echoes to be activated, and is limited to a
-  // single use per reveal (not unlimited). The omen is only consumed/counted in
-  // the currency counter once a mod is committed.
+  // single use per reveal (not unlimited). The omen itself is consumed/counted
+  // at reveal time (openWell), independent of whether this reroll is used.
   if (!desecState || desecState.abyssalUsed) return;
   if (!selectedOmens.has('abyssal_echoes')) return;
   const res = engine.rerollDesecration();
   if (!res.success) { playSound('error'); showError(res.error); return; }
-  desecState = { side: res.side, mode: res.mode, rerollsLeft: 0, options: res.options, abyssalUsed: true };
+  desecState = { side: res.side, mode: res.mode, rerollsLeft: 0, options: res.options, abyssalUsed: true, echoCounted: desecState.echoCounted };
   playSound('chaos');
   renderWell();
 }
 
 function chooseDesec(index) {
-  // Whether or not the reroll button was used, if Abyssal Echoes is activated it
-  // is consumed/counted on commit.
-  const usedEcho = selectedOmens.has('abyssal_echoes');
   const result = engine.chooseDesecratedMod(index);
   if (!result.success) {
     playSound('error'); triggerErrorAnimation();
@@ -969,9 +974,9 @@ function chooseDesec(index) {
     closeWell();
     return;
   }
-  // The bone was consumed at desecrate time. If Abyssal Echoes was activated to
-  // reroll, it is consumed/counted now, on commit, in the currency counter.
-  if (usedEcho) engine.recordCurrencyUse('abyssal_echoes');
+  // Abyssal Echoes is now counted at REVEAL time (see openWell), so it is
+  // consumed whether or not the reroll was used, and never when it was not
+  // activated. Nothing left to record here on commit.
   clearDesecration();
   playSound('vaal');
   triggerCraftAnimation('desecration');
