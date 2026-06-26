@@ -1,7 +1,7 @@
 /* ============================================================
    Item Category Selection Screen
    Standalone styles (scoped) so style.css is untouched.
-   Compact “fit one screen” layout.
+   Compact, single merged grid that fills every row.
    ============================================================ */
 
 #select-view[hidden],
@@ -15,7 +15,7 @@
 
 .select-header {
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .select-heading {
@@ -41,10 +41,10 @@
   text-align: center;
 }
 
+/* One continuous grid — cards stretch to fill each row (no ragged gaps). */
 .cat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(96px, 112px));
-  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
   gap: 10px;
 }
 
@@ -56,7 +56,7 @@
   justify-content: center;
   gap: 6px;
   padding: 12px 8px;
-  min-height: 82px;
+  min-height: 84px;
   background: linear-gradient(180deg, rgba(28, 28, 32, 0.9), rgba(16, 16, 19, 0.9));
   border: 1px solid rgba(120, 110, 80, 0.25);
   border-radius: 10px;
@@ -145,7 +145,7 @@
 }
 
 @media (max-width: 560px) {
-  .cat-grid { grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); gap: 8px; }
+  .cat-grid { grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 8px; }
   #select-view { padding: 14px 10px 36px; }
   .cat-card { min-height: 74px; padding: 10px 6px; }
 }

@@ -164,28 +164,21 @@ function buildCard(item) {
   return card;
 }
 
+// All categories render into ONE continuous grid so every row fills
+// edge-to-edge (no empty space at the end of each section).
 function renderCategories() {
   if (selectHeading) selectHeading.textContent = 'Choose what to craft';
   if (selectSub) selectSub.textContent = 'Pick an item category to begin.';
   root.innerHTML = '';
 
+  const grid = document.createElement('div');
+  grid.className = 'cat-grid';
   for (const group of CATEGORIES) {
-    const section = document.createElement('section');
-    section.className = 'cat-group';
-
-    const title = document.createElement('h2');
-    title.className = 'cat-group-title';
-    title.textContent = group.group;
-    section.appendChild(title);
-
-    const grid = document.createElement('div');
-    grid.className = 'cat-grid';
     for (const item of group.items) {
       grid.appendChild(buildCard(item));
     }
-    section.appendChild(grid);
-    root.appendChild(section);
   }
+  root.appendChild(grid);
   window.scrollTo(0, 0);
 }
 
