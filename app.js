@@ -1671,10 +1671,12 @@ function renderItem(actionResult = null, overrideItem = null) {
     b.classList.toggle('disabled', desecDisabled);
   });
   elements.omenBtns.forEach(b => {
-    // Omen of Light (Annulment) and Abyssal Echoes (reroll at reveal) stay usable
-    // even after the item already carries a Desecrated modifier; the directional
-    // reveal omens do not.
-    const alwaysUsable = b.dataset.omen === 'omen_of_light' || b.dataset.omen === 'abyssal_echoes';
+    // Only Omen of Light (Annulment) stays usable after the item already carries
+    // a Desecrated modifier. Abyssal Echoes must be ARMED BEFORE desecrating (as
+    // in PoE2): once you've desecrated/revealed once, its button is disabled so
+    // it can't be switched on after the fact -- the player is still free to arm
+    // it beforehand, and a reroll already armed for this reveal still works.
+    const alwaysUsable = b.dataset.omen === 'omen_of_light';
     // Abyssal Omens (Sovereign / Liege / Blackblooded) force the item type's
     // special Lich Desecrated mod group, which jewels do not have \u2014 disabled
     // until non-jewel bases are added.
