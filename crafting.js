@@ -86,6 +86,10 @@ class CraftingEngine {
   // Set the item level (1-100). Rebuilds the eligible candidate pools so the
   // tiers that can roll always match the current ilvl.
   setItemLevel(level) {
+    // A corrupted or sanctified item is locked: its mod pool must not change,
+    // and silently re-rolling the eligible candidate pools here would let later
+    // crafts (or a reveal) behave as if the item were still editable.
+    if (this._item.corrupted || this._item.sanctified) return this._item.ilvl;
     const n = Math.max(1, Math.min(100, Math.round(Number(level) || 0)));
     this._item.ilvl = n;
     this._prefixCandidates = this._buildCandidatePool(this._prefixPool, 'prefix');
@@ -365,7 +369,11 @@ class CraftingEngine {
   applyFracturing() {
     const err = this._checkCorrupted(); if (err) return err;
     if (this._item.rarity !== 'rare') return this._fail('Fracturing Orb can only be used on Rare items.');
-    const allMods = this._allModEntries();
+    // Exclude UNREVEALED placeholders (pending Desecrated mod / Mark of the
+    // Abyssal Lord) from both the 4-mod requirement and the fracture pick: they
+    // are not real, revealed modifiers, so fracturing must never land on one
+    // (which would "succeed" while leaving the item with no fractured mod).
+    const allMods = this._allModEntries().filter(e => !e.mod.unrevealed);
     if (allMods.length < 4) return this._fail('Fracturing Orb requires a Rare item with 4 modifiers.');
     if (allMods.some(e => e.mod.fractured)) return this._fail('Item already has a fractured modifier.');
     const pick = allMods[this._randomInt(0, allMods.length - 1)];
@@ -445,6 +453,12 @@ class CraftingEngine {
     // item that carries the Mark ALWAYS consumes it, guaranteeing an Unrevealed
     // Desecrated modifier. Remove the Mark up front so the one-time "already
     // desecrated" guard below doesn't block this intended interaction.
+    // Snapshot the item BEFORE any mutation so a desecration that fails its
+    // validation *after* work has begun (e.g. after consuming the Mark of the
+    // Abyssal Lord) is a clean no-op. Otherwise the player loses the Mark with
+    // nothing to show for it.
+    const _preDesecration = structuredClone(this._item);
+    const _failDesecration = (msg) => { this._item = _preDesecration; return this._fail(msg); };
     let markConsumed = false;
     let markSide = null;
     for (const [arrName, sideName] of [['prefixes', 'prefix'], ['suffixes', 'suffix']]) {
@@ -454,12 +468,12 @@ class CraftingEngine {
 
     // PoE2 rule: an item that already carries a Desecrated modifier cannot be
     // desecrated again — desecration is a one-time, permanent step per item.
-    if (this._item.prefixes.some(m => m.desecrated) ||
-        this._item.suffixes.some(m => m.desecrated)) {
-      return this._fail('This item already has a Desecrated modifier and cannot be desecrated again.');
+    if (this._item.prefixes.some(m => m.desecrated && !m.mark) ||
+        this._item.suffixes.some(m => m.desecrated && !m.mark)) {
+      return _failDesecration('This item already has a Desecrated modifier and cannot be desecrated again.');
     }
     if (this._desecratedPrefixes.length === 0 && this._desecratedSuffixes.length === 0) {
-      return this._fail('No Desecrated modifiers are available for this base.');
+      return _failDesecration('No Desecrated modifiers are available for this base.');
     }
 
     // Accept either a single `omen` (legacy) or an `omens` array, so a
@@ -474,7 +488,7 @@ class CraftingEngine {
     const side = this._resolveDesecrationSide(targetSide);
     const sidePool = side === 'prefix' ? this._desecratedPrefixes : this._desecratedSuffixes;
     if (sidePool.length === 0) {
-      return this._fail(`No Desecrated ${side} modifiers available for this base.`);
+      return _failDesecration(`No Desecrated ${side} modifiers available for this base.`);
     }
 
     const lim = this._limits[this._item.rarity] || this._limits.rare;
@@ -494,12 +508,12 @@ class CraftingEngine {
     //  - Preserved: no item-level limit.
     //  - Ancient:   no ilvl limit, but guarantees a minimum modifier level (40).
     if (boneCfg.maxItemLevel != null && (this._item.ilvl || 0) > boneCfg.maxItemLevel) {
-      return this._fail(`${boneCfg.name} can only desecrate items of Item Level ${boneCfg.maxItemLevel} or lower (this item is Item Level ${this._item.ilvl}).`);
+      return _failDesecration(`${boneCfg.name} can only desecrate items of Item Level ${boneCfg.maxItemLevel} or lower (this item is Item Level ${this._item.ilvl}).`);
     }
     const minModLevel = boneCfg.minModLevel || 0;
 
     const options = this._rollDesecratedOptions(side, revealCount, { desecratedOnly, minModLevel });
-    if (options.length === 0) return this._fail('No eligible Desecrated modifiers to reveal.');
+    if (options.length === 0) return _failDesecration('No eligible Desecrated modifiers to reveal.');
 
     // Place an UNREVEALED Desecrated modifier on the item immediately (PoE2
     // style): it fills the open slot on the targeted side, or replaces a random
@@ -524,7 +538,7 @@ class CraftingEngine {
     } else {
       const candidates = arr.map((m, i) => ({ m, i })).filter(x => !x.m.fractured && !x.m.unrevealed);
       if (candidates.length === 0) {
-        return this._fail('All modifiers on that side are fractured and cannot be replaced.');
+        return _failDesecration('All modifiers on that side are fractured and cannot be replaced.');
       }
       const pick = candidates[this._randomInt(0, candidates.length - 1)];
       removedMod = { ...arr[pick.i], type: side };
