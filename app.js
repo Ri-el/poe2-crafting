@@ -60,7 +60,15 @@ for (const [key, v] of Object.entries(ORB_VARIANTS)) {
 }
 
 let engine = null;
+// Legacy name kept for compatibility: this now holds the ACTIVE base id for any
+// category (e.g. 'ruby', 'rings', 'gloves_str'), not only jewels.
 let currentJewelType = 'ruby';
+// PoE2 item-class line shown on the tooltip (e.g. 'Jewel', 'Rings', 'Body
+// Armours'). Set by loadBase() when a category is chosen on the select screen.
+let currentItemClass = 'Jewel';
+// True while crafting a Jewel (keeps the Ruby/Sapphire/Emerald header selector
+// visible). Every other base picks its base on the select screen and hides it.
+let isJewelMode = true;
 let modData = null;
 let desecData = null;
 let armedCurrency = null;
@@ -209,6 +217,56 @@ function createEngine(type) {
   clearDesecration();
   renderItem();
 }
+
+// Jewel base ids -- the only category that swaps sub-bases from the in-craft
+// header selector. Every other category picks its concrete base on the item
+// select screen instead.
+const JEWEL_BASES = new Set([
+  'ruby', 'sapphire', 'emerald', 'diamond',
+  'time_lost_ruby', 'time_lost_sapphire', 'time_lost_emerald', 'time_lost_diamond',
+]);
+
+function setJewelSelectorVisible(show) {
+  if (elements.jewelSelector) elements.jewelSelector.style.display = show ? '' : 'none';
+}
+
+function syncJewelSelectorActive() {
+  if (!elements.jewelBtns) return;
+  elements.jewelBtns.forEach(b => b.classList.toggle('active', b.dataset.type === currentJewelType));
+}
+
+// Called by the item-select screen (select.js) when a category/base is chosen.
+// Switches the engine to that base, updates the item-class label, and shows or
+// hides the jewel header selector. Returns false (and shows an error) if the
+// base has no compiled data so the caller can keep the select screen open.
+function loadBase(baseId, classLabel) {
+  if (baseId === 'jewels') {
+    // Jewel mode: keep/repair the active jewel base and show the header swatch
+    // selector so Ruby/Sapphire/Emerald can be swapped without leaving craft.
+    isJewelMode = true;
+    currentItemClass = 'Jewel';
+    if (!JEWEL_BASES.has(currentJewelType)) currentJewelType = 'ruby';
+    setJewelSelectorVisible(true);
+    syncJewelSelectorActive();
+  } else {
+    if (!modData || !modData.bases || !modData.bases[baseId]) {
+      showError('That base has no data yet -- run build (build.cmd) after adding it.');
+      return false;
+    }
+    isJewelMode = false;
+    currentJewelType = baseId;          // legacy var now holds any base id
+    currentItemClass = classLabel || 'Item';
+    setJewelSelectorVisible(false);
+  }
+  disarmCurrency();
+  createEngine(currentJewelType);
+  return true;
+}
+
+// Expose the bridge the select screen calls. Assigned at load time so it exists
+// before the user can click a category card.
+window.CraftForge = window.CraftForge || {};
+window.CraftForge.loadBase = loadBase;
 
 function setupCurrencyIcons() {
   elements.currencyBtns.forEach(btn => {
@@ -1582,16 +1640,20 @@ function renderItem(actionResult = null, overrideItem = null) {
       classEl = document.createElement('span');
       classEl.id = 'item-class';
       classEl.className = 'item-class';
-      classEl.textContent = 'Jewel';
       tipHeader.appendChild(classEl);
     }
-    const jt = currentJewelType || 'ruby';
+    // The item-class line tracks the chosen category (Jewel, Rings, Body
+    // Armours, ...), not a hard-coded 'Jewel'.
+    classEl.textContent = currentItemClass || 'Jewel';
     // Show the small base-type subtitle ONLY for Rare items, whose generated
     // name does not contain the base. Magic names already include the base
     // ('Burning Ruby of the Salamander') and Normal items ARE the base, so a
     // subtitle there would just duplicate it (the old 'Ruby / Ruby').
     if (item.rarity === 'rare') {
-      baseEl.textContent = jt.charAt(0).toUpperCase() + jt.slice(1);
+      const jt = currentJewelType || 'ruby';
+      baseEl.textContent = isJewelMode
+        ? (jt.charAt(0).toUpperCase() + jt.slice(1))
+        : (item.baseName || currentItemClass);
       baseEl.style.display = 'block';
     } else {
       baseEl.style.display = 'none';
@@ -1862,6 +1924,8 @@ function saveToStash() {
     return;
   }
   const item = engine.getItem();
+  // Remember which item-class label to show when this item is loaded back.
+  item.itemClass = currentItemClass;
   // Preserve any in-progress (unrevealed) desecration so a saved item can be
   // resumed after it is loaded back. The unrevealed placeholder lives on the
   // item itself, but the pending reveal options (and the UI reveal state) live
@@ -1879,11 +1943,19 @@ function loadFromStash(index) {
   const saved = stash[index];
   if (!saved) return;
 
-  elements.jewelBtns.forEach(b => {
-    const match = b.dataset.type === saved.jewelType;
-    b.classList.toggle('active', match);
-    if (match) currentJewelType = saved.jewelType;
-  });
+  // Restore the saved item's base. Jewels keep the header swatch selector; any
+  // other base hides it and shows that base's class label instead.
+  currentJewelType = saved.jewelType;
+  if (JEWEL_BASES.has(saved.jewelType)) {
+    isJewelMode = true;
+    currentItemClass = 'Jewel';
+    setJewelSelectorVisible(true);
+    elements.jewelBtns.forEach(b => b.classList.toggle('active', b.dataset.type === saved.jewelType));
+  } else {
+    isJewelMode = false;
+    currentItemClass = saved.itemClass || 'Item';
+    setJewelSelectorVisible(false);
+  }
 
   engine = new CraftingEngine(modData, saved.jewelType, desecData);
 
