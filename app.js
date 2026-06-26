@@ -1373,13 +1373,16 @@ function renderItem(actionResult = null, overrideItem = null) {
 
   elements.tooltip.className = `tooltip rarity-${item.rarity} ${item.corrupted ? 'corrupted' : ''} ${item.sanctified ? 'sanctified' : ''}`;
 
+  // Item display name. The engine only generates a proper name for Rare items
+  // (e.g. "Brood Star"); Magic and Normal items just show their clean base
+  // name (e.g. "Sapphire"), with their mods listed below. This is intentionally
+  // base-agnostic, so it behaves the same for every base type. (Earlier this
+  // glued the first prefix/suffix's internal stat-group tierName around the
+  // base name, producing stat-dump titles like "Cold Damage Percentage
+  // Sapphire Critical Strike Multiplier".)
   let fullName = item.baseName;
   if (item.rarity === 'rare') {
     fullName = item.name || item.baseName;
-  } else if (item.rarity === 'magic' && (item.prefixes.length > 0 || item.suffixes.length > 0)) {
-    const p = item.prefixes.length > 0 ? (item.prefixes[0].tierName || '') : '';
-    const s = item.suffixes.length > 0 ? (item.suffixes[0].tierName || '') : '';
-    fullName = `${p} ${item.baseName} ${s}`.replace(/\s+/g, ' ').trim();
   }
   elements.itemName.textContent = fullName;
 
@@ -1748,7 +1751,7 @@ function renderStash() {
       const del = document.createElement('button');
       del.type = 'button';
       del.className = 'stash-del';
-      del.textContent = '\u00d7';
+      del.textContent = '×';
       del.title = 'Delete';
       del.addEventListener('click', (e) => { e.stopPropagation(); removeFromStash(i); });
       slot.appendChild(del);
