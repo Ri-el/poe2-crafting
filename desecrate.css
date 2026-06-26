@@ -316,22 +316,14 @@
 .mod-line .mod-detail { flex-basis: 100%; }
 .mod-line.fractured-mod::after { flex-basis: 100%; }
 
-/* Desecrated modifiers render GREEN with a small label */
+/* Desecrated modifiers render GREEN. The old "Desecrated" sublabel under the
+   line was removed at the user's request -- the green colour alone marks it. */
 .mod-line.desecrated-mod,
 .mod-line.desecrated-mod .mod-body {
   color: #5fd38a;
   text-shadow: 0 0 8px rgba(95, 211, 138, 0.3);
 }
-.mod-line.desecrated-mod::after {
-  content: '\2620 Desecrated';
-  flex-basis: 100%;
-  font-size: 0.58rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #4fbf7a;
-  opacity: 0.85;
-  margin-top: 1px;
-}
+.mod-line.desecrated-mod::after { content: none; }
 
 /* Green highlight flash when a desecrated mod is first revealed */
 .mod-line.desec-reveal { animation: desecReveal 1000ms ease-out both; }
