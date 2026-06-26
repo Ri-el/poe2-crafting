@@ -1353,6 +1353,11 @@ function commitDesecrationForesight(bone) {
   foreseenSeals = {};
   foreseenHover = null;
   hideForeseenBanner();
+  // Committing the foreseen desecration consumes the held bone, so drop the
+  // cursor orb too -- otherwise the green Preserved Cranium orb stays glued to
+  // the pointer (this path never disarmed, unlike startDesecrationFlow which
+  // disarms up front).
+  disarmCurrency();
   playSound('desecration');
   triggerCraftAnimation('desecration');
   renderItem(res);
