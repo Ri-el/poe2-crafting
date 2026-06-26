@@ -1,0 +1,1101 @@
+{
+  "name": "Emerald",
+  "attribute": "Dexterity",
+  "prefixes": [
+    {
+      "modGroup": "AilmentEffect",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Magnitude of Ailments you inflict",
+          "name": "Ailment Effect",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "AllDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Parry Damage",
+          "name": "All Damage",
+          "min": 15,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "modGroup": "AttackDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Attack Damage",
+          "name": "Attack Damage",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "BlindEffect",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Blind Effect",
+          "name": "Blind Effect",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "CharmDamageWhileUsing",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage while you have an active Charm",
+          "name": "Charm Damage While Using",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "CompanionDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Companions deal {0}% increased Damage",
+          "name": "Companion Damage",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "CompanionLife",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Companions have {0}% increased maximum Life",
+          "name": "Companion Life",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "CriticalAilmentEffect",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Magnitude of Damaging Ailments you inflict with Critical Hits",
+          "name": "Critical Ailment Effect",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "CrossbowDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage with Crossbows",
+          "name": "Crossbow Damage",
+          "min": 6,
+          "max": 16
+        }
+      ]
+    },
+    {
+      "modGroup": "CurseEffectiveness",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Effect of your Mark Skills",
+          "name": "Curse Effectiveness",
+          "min": 4,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "modGroup": "DamageForm",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage with Plant Skills",
+          "name": "Damage Form",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "DamageVsRareOrUnique",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage with Hits against Rare and Unique Enemies",
+          "name": "Damage Vs Rare Or Unique",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "ElementalDamagePercent",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Elemental Damage",
+          "name": "Elemental Damage Percent",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "EquipmentModifierEffect",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased bonuses gained from Equipped Quiver",
+          "name": "Equipment Modifier Effect",
+          "min": 4,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "modGroup": "EvasionRatingPercent",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Evasion Rating",
+          "name": "Evasion Rating Percent",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "HazardDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Hazard Damage",
+          "name": "Hazard Damage",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "HeraldDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Herald Skills deal {0}% increased Damage",
+          "name": "Herald Damage",
+          "min": 15,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedAccuracyPercent",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Accuracy Rating",
+          "name": "Increased Accuracy Percent",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "LightningDamagePercentage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Lightning Damage",
+          "name": "Lightning Damage Percentage",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "LightningResistancePenetration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Damage Penetrates {0}% Lightning Resistance",
+          "name": "Lightning Resistance Penetration",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "MeleeDamageIfProjectileHitRecently",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds",
+          "name": "Melee Damage If Projectile Hit Recently",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "PoisonEffect",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Magnitude of Poison you inflict",
+          "name": "Poison Effect",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "ProjectileDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Projectile Damage",
+          "name": "Projectile Damage",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "ProjectileDamageIfMeleeHitRecently",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds",
+          "name": "Projectile Damage If Melee Hit Recently",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "ProjectileSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Projectile Speed",
+          "name": "Projectile Speed",
+          "min": 4,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "modGroup": "ShockEffect",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Magnitude of Shock you inflict",
+          "name": "Shock Effect",
+          "min": 10,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "SpearDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage with Spears",
+          "name": "Spear Damage",
+          "min": 6,
+          "max": 16
+        }
+      ]
+    },
+    {
+      "modGroup": "SpecificWeaponAccuracy",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Accuracy Rating with Bows",
+          "name": "Specific Weapon Accuracy",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "SpecificWeaponDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage with Bows",
+          "name": "Specific Weapon Damage",
+          "min": 6,
+          "max": 16
+        },
+        {
+          "weight": 100,
+          "tier": 2,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Damage with Quarterstaves",
+          "name": "Specific Weapon Damage",
+          "min": 6,
+          "max": 16
+        }
+      ]
+    }
+  ],
+  "suffixes": [
+    {
+      "modGroup": "AilmentChance",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased chance to inflict Ailments",
+          "name": "Ailment Chance",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "AilmentThreshold",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Elemental Ailment Threshold",
+          "name": "Ailment Threshold",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "BeltFlaskChargesGained",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Flask Charges gained",
+          "name": "Belt Flask Charges Gained",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "BlindOnHit",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% chance to Blind Enemies on Hit with Attacks",
+          "name": "Blind On Hit",
+          "min": 3,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "modGroup": "ChainFromTerrain",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Projectiles have {0}% chance to Chain an additional time from terrain",
+          "name": "Chain From Terrain",
+          "min": 3,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "ChanceToPierce",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% chance to Pierce an Enemy",
+          "name": "Chance To Pierce",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "CharmChargesGained",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Charm Charges gained",
+          "name": "Charm Charges Gained",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "CharmDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Charm Effect Duration",
+          "name": "Charm Duration",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "CooldownRecovery",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Cooldown Recovery Rate",
+          "name": "Cooldown Recovery",
+          "min": 3,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "modGroup": "CriticalStrikeChanceIncrease",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Critical Hit Chance for Attacks",
+          "name": "Critical Strike Chance Increase",
+          "min": 6,
+          "max": 16
+        }
+      ]
+    },
+    {
+      "modGroup": "CriticalStrikeMultiplier",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Critical Damage Bonus for Attack Damage",
+          "name": "Critical Strike Multiplier",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "CrossbowReloadSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Crossbow Reload Speed",
+          "name": "Crossbow Reload Speed",
+          "min": 10,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "CrossbowSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Attack Speed with Crossbows",
+          "name": "Crossbow Speed",
+          "min": 2,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "CurseCastSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Mark Skills have {0}% increased Use Speed",
+          "name": "Curse Cast Speed",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "DamagingAilmentDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Duration of Damaging Ailments on Enemies",
+          "name": "Damaging Ailment Duration",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "DazeBuildup",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% chance to Daze on Hit",
+          "name": "Daze Buildup",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "DebuffTime",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Debuffs on you expire {0}% faster",
+          "name": "Debuff Time",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "ElementalAilmentDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Duration of Ignite, Shock and Chill on Enemies",
+          "name": "Elemental Ailment Duration",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "FasterAilmentDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Damaging Ailments deal damage {0}% faster",
+          "name": "Faster Ailment Damage",
+          "min": 3,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "modGroup": "FlaskChargeGenerationPercent",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Life Flask Charges gained",
+          "name": "Flask Charge Generation Percent",
+          "min": 10,
+          "max": 20
+        },
+        {
+          "weight": 100,
+          "tier": 2,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Mana Flask Charges gained",
+          "name": "Flask Charge Generation Percent",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "FlaskDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Flask Effect Duration",
+          "name": "Flask Duration",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "FlaskLifeRecovery",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Life Recovery from Flasks",
+          "name": "Flask Life Recovery",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "FlaskManaRecovery",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Mana Recovery from Flasks",
+          "name": "Flask Mana Recovery",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "ForkingProjectiles",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Projectiles have {0}% chance for an additional Projectile when Forking",
+          "name": "Forking Projectiles",
+          "min": 10,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedAttackSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 2,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedStunThresholdIfNoRecentStun",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Stun Threshold if you haven't been Stunned Recently",
+          "name": "Increased Stun Threshold If No Recent Stun",
+          "min": 15,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "modGroup": "ManaLeechAmount",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased amount of Mana Leeched",
+          "name": "Mana Leech Amount",
+          "min": 5,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "MarkDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "Mark Skills have {0}% increased Skill Effect Duration",
+          "name": "Mark Duration",
+          "min": 18,
+          "max": 32
+        }
+      ]
+    },
+    {
+      "modGroup": "MaximumLightningResistance",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "+{0}% to Maximum Lightning Resistance",
+          "name": "Maximum Lightning Resistance",
+          "min": 1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "modGroup": "MovementVelocity",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Movement Speed",
+          "name": "Movement Velocity",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "modGroup": "ParriedDebuff",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Parried Debuff Duration",
+          "name": "Parried Debuff",
+          "min": 10,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "PinBuildup",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Pin Buildup",
+          "name": "Pin Buildup",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "PoisonChanceIncrease",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% chance to Poison on Hit",
+          "name": "Poison Chance Increase",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "PoisonDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Poison Duration",
+          "name": "Poison Duration",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "QuarterstaffFreezeBuildup",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Freeze Buildup with Quarterstaves",
+          "name": "Quarterstaff Freeze Buildup",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "ShockChanceIncrease",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased chance to Shock",
+          "name": "Shock Chance Increase",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "ShockDuration",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Shock Duration",
+          "name": "Shock Duration",
+          "min": 15,
+          "max": 25
+        }
+      ]
+    },
+    {
+      "modGroup": "SlowPotency",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% reduced Slowing Potency of Debuffs on You",
+          "name": "Slow Potency",
+          "min": 5,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "modGroup": "SpearAttackSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Attack Speed with Spears",
+          "name": "Spear Attack Speed",
+          "min": 2,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "SpearCriticalDamage",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Critical Damage Bonus with Spears",
+          "name": "Spear Critical Damage",
+          "min": 10,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "modGroup": "SpecificWeaponSpeed",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Attack Speed with Bows",
+          "name": "Specific Weapon Speed",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "weight": 100,
+          "tier": 2,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Attack Speed with Quarterstaves",
+          "name": "Specific Weapon Speed",
+          "min": 2,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "modGroup": "StunThresholdDuringParry",
+      "tiers": [
+        {
+          "weight": 100,
+          "tier": 1,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Stun Threshold while Parrying",
+          "name": "Stun Threshold During Parry",
+          "min": 15,
+          "max": 25
+        }
+      ]
+    }
+  ],
+  "vaalCorruptedMods": [
+    {
+      "modGroup": "Dexterity",
+      "modLine": "+{0} to Dexterity",
+      "min": 4,
+      "max": 6,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "Intelligence",
+      "modLine": "+{0} to Intelligence",
+      "min": 4,
+      "max": 6,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "Strength",
+      "modLine": "+{0} to Strength",
+      "min": 4,
+      "max": 6,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "ChaosResistance",
+      "modLine": "+{0}% to Chaos Resistance",
+      "min": 3,
+      "max": 7,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "ColdResistance",
+      "modLine": "+{0}% to Cold Resistance",
+      "min": 5,
+      "max": 10,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "FireResistance",
+      "modLine": "+{0}% to Fire Resistance",
+      "min": 5,
+      "max": 10,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "LightningResistance",
+      "modLine": "+{0}% to Lightning Resistance",
+      "min": 5,
+      "max": 10,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "ImmunityToBlind",
+      "modLine": "Cannot be Blinded",
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "CorruptedBlood",
+      "modLine": "Corrupted Blood cannot be inflicted on you",
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "ImmuneToMaim",
+      "modLine": "Immune to Maim",
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "YouCannotBeHindered",
+      "modLine": "You cannot be Hindered",
+      "type": "corrupted"
+    }
+  ],
+  "vaalEnchantments": []
+}

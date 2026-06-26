@@ -1,0 +1,2277 @@
+{
+  "name": "Two Hand Sword",
+  "prefixes": [
+    {
+      "modGroup": "ColdDamage",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 81,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Cold Damage",
+              "vals": [
+                {
+                  "min": 112,
+                  "max": 124
+                },
+                {
+                  "min": 168,
+                  "max": 189
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 75,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Cold Damage",
+              "vals": [
+                {
+                  "min": 84,
+                  "max": 107
+                },
+                {
+                  "min": 126,
+                  "max": 161
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 65,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Cold Damage",
+              "vals": [
+                {
+                  "min": 60,
+                  "max": 80
+                },
+                {
+                  "min": 92,
+                  "max": 121
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 60,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Cold Damage",
+              "vals": [
+                {
+                  "min": 46,
+                  "max": 57
+                },
+                {
+                  "min": 70,
+                  "max": 88
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 54,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Cold Damage",
+              "vals": [
+                {
+                  "min": 32,
+                  "max": 43
+                },
+                {
+                  "min": 49,
+                  "max": 66
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 46,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Cold Damage",
+              "vals": [
+                {
+                  "min": 25,
+                  "max": 30
+                },
+                {
+                  "min": 38,
+                  "max": 46
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 33,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Cold Damage",
+              "vals": [
+                {
+                  "min": 16,
+                  "max": 23
+                },
+                {
+                  "min": 25,
+                  "max": 35
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 16,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Cold Damage",
+              "vals": [
+                {
+                  "min": 10,
+                  "max": 14
+                },
+                {
+                  "min": 15,
+                  "max": 23
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 9,
+          "ilvlReq": 8,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Cold Damage",
+              "vals": [
+                {
+                  "min": 5,
+                  "max": 8
+                },
+                {
+                  "min": 9,
+                  "max": 14
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 10,
+          "ilvlReq": 1,
+          "name": "Cold Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Cold Damage",
+              "vals": [
+                {
+                  "min": 2,
+                  "max": 3
+                },
+                {
+                  "min": 4,
+                  "max": 6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "FireDamage",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 81,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Fire Damage",
+              "vals": [
+                {
+                  "min": 135,
+                  "max": 156
+                },
+                {
+                  "min": 205,
+                  "max": 236
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 75,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Fire Damage",
+              "vals": [
+                {
+                  "min": 102,
+                  "max": 130
+                },
+                {
+                  "min": 155,
+                  "max": 198
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 65,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Fire Damage",
+              "vals": [
+                {
+                  "min": 73,
+                  "max": 97
+                },
+                {
+                  "min": 112,
+                  "max": 149
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 60,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Fire Damage",
+              "vals": [
+                {
+                  "min": 56,
+                  "max": 70
+                },
+                {
+                  "min": 84,
+                  "max": 107
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 54,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Fire Damage",
+              "vals": [
+                {
+                  "min": 39,
+                  "max": 53
+                },
+                {
+                  "min": 59,
+                  "max": 80
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 46,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Fire Damage",
+              "vals": [
+                {
+                  "min": 30,
+                  "max": 37
+                },
+                {
+                  "min": 45,
+                  "max": 56
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 33,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Fire Damage",
+              "vals": [
+                {
+                  "min": 19,
+                  "max": 27
+                },
+                {
+                  "min": 30,
+                  "max": 42
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 16,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Fire Damage",
+              "vals": [
+                {
+                  "min": 11,
+                  "max": 17
+                },
+                {
+                  "min": 19,
+                  "max": 28
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 9,
+          "ilvlReq": 8,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Fire Damage",
+              "vals": [
+                {
+                  "min": 6,
+                  "max": 9
+                },
+                {
+                  "min": 10,
+                  "max": 16
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 10,
+          "ilvlReq": 1,
+          "name": "Fire Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Fire Damage",
+              "vals": [
+                {
+                  "min": 2,
+                  "max": 4
+                },
+                {
+                  "min": 5,
+                  "max": 7
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedAccuracy",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 76,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 451,
+          "max": 550
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 67,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 347,
+          "max": 450
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 58,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 237,
+          "max": 346
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 48,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 168,
+          "max": 236
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 36,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 124,
+          "max": 167
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 26,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 85,
+          "max": 123
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 18,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 61,
+          "max": 84
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 13,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 33,
+          "max": 60
+        },
+        {
+          "weight": 1,
+          "tier": 9,
+          "ilvlReq": 8,
+          "modLine": "+{0} to Accuracy Rating",
+          "name": "Increased Accuracy",
+          "min": 11,
+          "max": 32
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedWeaponElementalDamagePercent",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 81,
+          "modLine": "{0}% increased Elemental Damage with Attacks",
+          "name": "Increased Weapon Elemental Damage Percent",
+          "min": 120,
+          "max": 139
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Elemental Damage with Attacks",
+          "name": "Increased Weapon Elemental Damage Percent",
+          "min": 100,
+          "max": 119
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Elemental Damage with Attacks",
+          "name": "Increased Weapon Elemental Damage Percent",
+          "min": 86,
+          "max": 99
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Elemental Damage with Attacks",
+          "name": "Increased Weapon Elemental Damage Percent",
+          "min": 72,
+          "max": 85
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Elemental Damage with Attacks",
+          "name": "Increased Weapon Elemental Damage Percent",
+          "min": 48,
+          "max": 71
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 4,
+          "modLine": "{0}% increased Elemental Damage with Attacks",
+          "name": "Increased Weapon Elemental Damage Percent",
+          "min": 34,
+          "max": 47
+        }
+      ]
+    },
+    {
+      "modGroup": "LightningDamage",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 81,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 19
+                },
+                {
+                  "min": 310,
+                  "max": 358
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 75,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 16
+                },
+                {
+                  "min": 239,
+                  "max": 300
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 65,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 13
+                },
+                {
+                  "min": 168,
+                  "max": 231
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 60,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 8
+                },
+                {
+                  "min": 128,
+                  "max": 162
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 54,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 6
+                },
+                {
+                  "min": 93,
+                  "max": 122
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 46,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 4
+                },
+                {
+                  "min": 80,
+                  "max": 88
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 33,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 4
+                },
+                {
+                  "min": 53,
+                  "max": 76
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 16,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 3
+                },
+                {
+                  "min": 31,
+                  "max": 43
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 9,
+          "ilvlReq": 8,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 2
+                },
+                {
+                  "min": 19,
+                  "max": 27
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 10,
+          "ilvlReq": 1,
+          "name": "Lightning Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Lightning Damage",
+              "vals": [
+                {
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "min": 7,
+                  "max": 10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 81,
+          "name": "Local Increased Physical Damage Percent And Accuracy Rating",
+          "lines": [
+            {
+              "modLine": "{0}% increased Physical Damage, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 75,
+                  "max": 79
+                },
+                {
+                  "min": 175,
+                  "max": 200
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 70,
+          "name": "Local Increased Physical Damage Percent And Accuracy Rating",
+          "lines": [
+            {
+              "modLine": "{0}% increased Physical Damage, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 65,
+                  "max": 74
+                },
+                {
+                  "min": 150,
+                  "max": 174
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 65,
+          "name": "Local Increased Physical Damage Percent And Accuracy Rating",
+          "lines": [
+            {
+              "modLine": "{0}% increased Physical Damage, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 55,
+                  "max": 64
+                },
+                {
+                  "min": 124,
+                  "max": 149
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 54,
+          "name": "Local Increased Physical Damage Percent And Accuracy Rating",
+          "lines": [
+            {
+              "modLine": "{0}% increased Physical Damage, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 45,
+                  "max": 54
+                },
+                {
+                  "min": 98,
+                  "max": 123
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 38,
+          "name": "Local Increased Physical Damage Percent And Accuracy Rating",
+          "lines": [
+            {
+              "modLine": "{0}% increased Physical Damage, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 35,
+                  "max": 44
+                },
+                {
+                  "min": 73,
+                  "max": 97
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 23,
+          "name": "Local Increased Physical Damage Percent And Accuracy Rating",
+          "lines": [
+            {
+              "modLine": "{0}% increased Physical Damage, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 25,
+                  "max": 34
+                },
+                {
+                  "min": 47,
+                  "max": 72
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 14,
+          "name": "Local Increased Physical Damage Percent And Accuracy Rating",
+          "lines": [
+            {
+              "modLine": "{0}% increased Physical Damage, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 20,
+                  "max": 24
+                },
+                {
+                  "min": 21,
+                  "max": 46
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 8,
+          "name": "Local Increased Physical Damage Percent And Accuracy Rating",
+          "lines": [
+            {
+              "modLine": "{0}% increased Physical Damage, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 15,
+                  "max": 19
+                },
+                {
+                  "min": 16,
+                  "max": 20
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "LocalPhysicalDamagePercent",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 82,
+          "modLine": "{0}% increased Physical Damage",
+          "name": "Local Physical Damage Percent",
+          "min": 170,
+          "max": 179
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 75,
+          "modLine": "{0}% increased Physical Damage",
+          "name": "Local Physical Damage Percent",
+          "min": 155,
+          "max": 169
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Physical Damage",
+          "name": "Local Physical Damage Percent",
+          "min": 135,
+          "max": 154
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 46,
+          "modLine": "{0}% increased Physical Damage",
+          "name": "Local Physical Damage Percent",
+          "min": 110,
+          "max": 134
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "{0}% increased Physical Damage",
+          "name": "Local Physical Damage Percent",
+          "min": 85,
+          "max": 109
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 16,
+          "modLine": "{0}% increased Physical Damage",
+          "name": "Local Physical Damage Percent",
+          "min": 65,
+          "max": 84
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 8,
+          "modLine": "{0}% increased Physical Damage",
+          "name": "Local Physical Damage Percent",
+          "min": 50,
+          "max": 64
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Physical Damage",
+          "name": "Local Physical Damage Percent",
+          "min": 40,
+          "max": 49
+        }
+      ]
+    },
+    {
+      "modGroup": "PhysicalDamage",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 75,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Physical Damage",
+              "vals": [
+                {
+                  "min": 37,
+                  "max": 55
+                },
+                {
+                  "min": 63,
+                  "max": 94
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 65,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Physical Damage",
+              "vals": [
+                {
+                  "min": 29,
+                  "max": 44
+                },
+                {
+                  "min": 50,
+                  "max": 75
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 60,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Physical Damage",
+              "vals": [
+                {
+                  "min": 23,
+                  "max": 35
+                },
+                {
+                  "min": 39,
+                  "max": 59
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 54,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Physical Damage",
+              "vals": [
+                {
+                  "min": 19,
+                  "max": 29
+                },
+                {
+                  "min": 33,
+                  "max": 49
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 46,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Physical Damage",
+              "vals": [
+                {
+                  "min": 14,
+                  "max": 21
+                },
+                {
+                  "min": 25,
+                  "max": 37
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 33,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Physical Damage",
+              "vals": [
+                {
+                  "min": 11,
+                  "max": 17
+                },
+                {
+                  "min": 20,
+                  "max": 30
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 16,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Physical Damage",
+              "vals": [
+                {
+                  "min": 8,
+                  "max": 12
+                },
+                {
+                  "min": 15,
+                  "max": 22
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 8,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Physical Damage",
+              "vals": [
+                {
+                  "min": 5,
+                  "max": 8
+                },
+                {
+                  "min": 10,
+                  "max": 15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 9,
+          "ilvlReq": 1,
+          "name": "Physical Damage",
+          "lines": [
+            {
+              "modLine": "Adds {0} to {1} Physical Damage",
+              "vals": [
+                {
+                  "min": 2,
+                  "max": 3
+                },
+                {
+                  "min": 5,
+                  "max": 7
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "suffixes": [
+    {
+      "modGroup": "CriticalStrikeChanceIncrease",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 73,
+          "modLine": "+{0}% to Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 4.41,
+          "max": 5
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 59,
+          "modLine": "+{0}% to Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 3.81,
+          "max": 4.4
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 44,
+          "modLine": "+{0}% to Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 3.11,
+          "max": 3.8
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 30,
+          "modLine": "+{0}% to Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 2.11,
+          "max": 2.7
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 20,
+          "modLine": "+{0}% to Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 1.51,
+          "max": 2.1
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 1,
+          "modLine": "+{0}% to Critical Hit Chance",
+          "name": "Critical Strike Chance Increase",
+          "min": 1.01,
+          "max": 1.5
+        }
+      ]
+    },
+    {
+      "modGroup": "CriticalStrikeMultiplier",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 73,
+          "modLine": "+{0}% to Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 23,
+          "max": 25
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 59,
+          "modLine": "+{0}% to Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 20,
+          "max": 22
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 44,
+          "modLine": "+{0}% to Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 17,
+          "max": 19
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 30,
+          "modLine": "+{0}% to Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 14,
+          "max": 16
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 21,
+          "modLine": "+{0}% to Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 12,
+          "max": 13
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 8,
+          "modLine": "+{0}% to Critical Damage Bonus",
+          "name": "Critical Strike Multiplier",
+          "min": 10,
+          "max": 11
+        }
+      ]
+    },
+    {
+      "modGroup": "Dexterity",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 74,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 31,
+          "max": 33
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 66,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 21,
+          "max": 24
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 13,
+          "max": 16
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 9,
+          "max": 12
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0} to Dexterity",
+          "name": "Dexterity",
+          "min": 5,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreasedAttackSpeed",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 77,
+          "modLine": "{0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 26,
+          "max": 28
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 60,
+          "modLine": "{0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 23,
+          "max": 25
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 45,
+          "modLine": "{0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 20,
+          "max": 22
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 37,
+          "modLine": "{0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 17,
+          "max": 19
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 30,
+          "modLine": "{0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 14,
+          "max": 16
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "{0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 11,
+          "max": 13
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "{0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 8,
+          "max": 10
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "{0}% increased Attack Speed",
+          "name": "Increased Attack Speed",
+          "min": 5,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "modGroup": "IncreaseSocketedGemLevel",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 81,
+          "modLine": "+{0} to Level of all Melee Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Level of all Melee Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 4,
+          "max": 4
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 36,
+          "modLine": "+{0} to Level of all Melee Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 18,
+          "modLine": "+{0} to Level of all Melee Skills",
+          "name": "Increase Socketed Gem Level",
+          "min": 2,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "modGroup": "LifeGainedFromEnemyDeath",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 77,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 69,
+          "max": 84
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 66,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 54,
+          "max": 68
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 55,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 41,
+          "max": 53
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 29,
+          "max": 40
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 19,
+          "max": 28
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 10,
+          "max": 18
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 7,
+          "max": 9
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "Gain {0} Life per enemy killed",
+          "name": "Life Gained From Enemy Death",
+          "min": 4,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "modGroup": "LifeGainPerTarget",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 40,
+          "modLine": "Grants {0} Life per Enemy Hit",
+          "name": "Life Gain Per Target",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 30,
+          "modLine": "Grants {0} Life per Enemy Hit",
+          "name": "Life Gain Per Target",
+          "min": 4,
+          "max": 4
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 20,
+          "modLine": "Grants {0} Life per Enemy Hit",
+          "name": "Life Gain Per Target",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 8,
+          "modLine": "Grants {0} Life per Enemy Hit",
+          "name": "Life Gain Per Target",
+          "min": 2,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "modGroup": "LifeLeech",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 65,
+          "modLine": "Leeches {0}% of Physical Damage as Life",
+          "name": "Life Leech",
+          "min": 9,
+          "max": 9.9
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 54,
+          "modLine": "Leeches {0}% of Physical Damage as Life",
+          "name": "Life Leech",
+          "min": 8,
+          "max": 8.9
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 38,
+          "modLine": "Leeches {0}% of Physical Damage as Life",
+          "name": "Life Leech",
+          "min": 7,
+          "max": 7.9
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 21,
+          "modLine": "Leeches {0}% of Physical Damage as Life",
+          "name": "Life Leech",
+          "min": 6,
+          "max": 6.9
+        }
+      ]
+    },
+    {
+      "modGroup": "LightRadiusAndAccuracy",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 30,
+          "name": "Light Radius And Accuracy",
+          "lines": [
+            {
+              "modLine": "{0}% increased Light Radius, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 15,
+                  "max": 15
+                },
+                {
+                  "min": 41,
+                  "max": 60
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 15,
+          "name": "Light Radius And Accuracy",
+          "lines": [
+            {
+              "modLine": "{0}% increased Light Radius, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 10,
+                  "max": 10
+                },
+                {
+                  "min": 21,
+                  "max": 40
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 8,
+          "name": "Light Radius And Accuracy",
+          "lines": [
+            {
+              "modLine": "{0}% increased Light Radius, +{1} to Accuracy Rating",
+              "vals": [
+                {
+                  "min": 5,
+                  "max": 5
+                },
+                {
+                  "min": 10,
+                  "max": 20
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modGroup": "LocalAttributeRequirements",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 60,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 35,
+          "max": 35
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 52,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 30,
+          "max": 30
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 40,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 25,
+          "max": 25
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 32,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 20,
+          "max": 20
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 24,
+          "modLine": "{0}% reduced Attribute Requirements",
+          "name": "Local Attribute Requirements",
+          "min": 15,
+          "max": 15
+        }
+      ]
+    },
+    {
+      "modGroup": "ManaGainedFromEnemyDeath",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 78,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 36,
+          "max": 45
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 67,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 28,
+          "max": 35
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 56,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 21,
+          "max": 27
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 45,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 15,
+          "max": 20
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 34,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 10,
+          "max": 14
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 23,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 12,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "Gain {0} Mana per enemy killed",
+          "name": "Mana Gained From Enemy Death",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "modGroup": "ManaLeech",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 65,
+          "modLine": "Leeches {0}% of Physical Damage as Mana",
+          "name": "Mana Leech",
+          "min": 8,
+          "max": 8.9
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 54,
+          "modLine": "Leeches {0}% of Physical Damage as Mana",
+          "name": "Mana Leech",
+          "min": 7,
+          "max": 7.9
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 38,
+          "modLine": "Leeches {0}% of Physical Damage as Mana",
+          "name": "Mana Leech",
+          "min": 6,
+          "max": 6.9
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 21,
+          "modLine": "Leeches {0}% of Physical Damage as Mana",
+          "name": "Mana Leech",
+          "min": 5,
+          "max": 5.9
+        }
+      ]
+    },
+    {
+      "modGroup": "Strength",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 74,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 31,
+          "max": 33
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 66,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 28,
+          "max": 30
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 55,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 25,
+          "max": 27
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 44,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 21,
+          "max": 24
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 33,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 22,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 13,
+          "max": 16
+        },
+        {
+          "weight": 1,
+          "tier": 7,
+          "ilvlReq": 11,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 9,
+          "max": 12
+        },
+        {
+          "weight": 1,
+          "tier": 8,
+          "ilvlReq": 1,
+          "modLine": "+{0} to Strength",
+          "name": "Strength",
+          "min": 5,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "modGroup": "StunDamageIncrease",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 74,
+          "modLine": "Causes {0}% increased Stun Buildup",
+          "name": "Stun Damage Increase",
+          "min": 71,
+          "max": 80
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 58,
+          "modLine": "Causes {0}% increased Stun Buildup",
+          "name": "Stun Damage Increase",
+          "min": 61,
+          "max": 70
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 44,
+          "modLine": "Causes {0}% increased Stun Buildup",
+          "name": "Stun Damage Increase",
+          "min": 51,
+          "max": 60
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 30,
+          "modLine": "Causes {0}% increased Stun Buildup",
+          "name": "Stun Damage Increase",
+          "min": 41,
+          "max": 50
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 20,
+          "modLine": "Causes {0}% increased Stun Buildup",
+          "name": "Stun Damage Increase",
+          "min": 31,
+          "max": 40
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 5,
+          "modLine": "Causes {0}% increased Stun Buildup",
+          "name": "Stun Damage Increase",
+          "min": 21,
+          "max": 30
+        }
+      ]
+    },
+    {
+      "modGroup": "StunDurationIncreasePercent",
+      "tiers": [
+        {
+          "weight": 1,
+          "tier": 1,
+          "ilvlReq": 71,
+          "modLine": "{0}% increased Stun Duration",
+          "name": "Stun Duration Increase Percent",
+          "min": 27,
+          "max": 30
+        },
+        {
+          "weight": 1,
+          "tier": 2,
+          "ilvlReq": 58,
+          "modLine": "{0}% increased Stun Duration",
+          "name": "Stun Duration Increase Percent",
+          "min": 23,
+          "max": 26
+        },
+        {
+          "weight": 1,
+          "tier": 3,
+          "ilvlReq": 44,
+          "modLine": "{0}% increased Stun Duration",
+          "name": "Stun Duration Increase Percent",
+          "min": 20,
+          "max": 22
+        },
+        {
+          "weight": 1,
+          "tier": 4,
+          "ilvlReq": 30,
+          "modLine": "{0}% increased Stun Duration",
+          "name": "Stun Duration Increase Percent",
+          "min": 17,
+          "max": 19
+        },
+        {
+          "weight": 1,
+          "tier": 5,
+          "ilvlReq": 18,
+          "modLine": "{0}% increased Stun Duration",
+          "name": "Stun Duration Increase Percent",
+          "min": 14,
+          "max": 16
+        },
+        {
+          "weight": 1,
+          "tier": 6,
+          "ilvlReq": 5,
+          "modLine": "{0}% increased Stun Duration",
+          "name": "Stun Duration Increase Percent",
+          "min": 11,
+          "max": 13
+        }
+      ]
+    }
+  ],
+  "vaalCorruptedMods": [
+    {
+      "modGroup": "LocalChanceToBleed",
+      "modLine": "{0}% chance to cause Bleeding on Hit",
+      "min": 10,
+      "max": 15,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "LocalChanceToPoisonOnHit",
+      "modLine": "{0}% chance to Poison on Hit with this weapon",
+      "min": 10,
+      "max": 15,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IncreasedAttackSpeed",
+      "modLine": "{0}% increased Attack Speed",
+      "min": 6,
+      "max": 8,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "IncreasedWeaponElementalDamagePercent",
+      "modLine": "{0}% increased Elemental Damage with Attacks",
+      "min": 40,
+      "max": 50,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "MeleeWeaponAndUnarmedRange",
+      "modLine": "{0}% increased Melee Strike Range with this weapon",
+      "min": 10,
+      "max": 20,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "LocalPhysicalDamagePercent",
+      "modLine": "{0}% increased Physical Damage",
+      "min": 15,
+      "max": 25,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "LocalAttributeRequirements",
+      "modLine": "{0}% reduced Attribute Requirements",
+      "min": 10,
+      "max": 20,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "CriticalStrikeMultiplier",
+      "modLine": "+{0}% to Critical Damage Bonus",
+      "min": 5,
+      "max": 10,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "LocalChaosDamage",
+      "modLine": "Adds {0} to {1} Chaos damage",
+      "vals": [
+        {
+          "min": 10,
+          "max": 16
+        },
+        {
+          "min": 17,
+          "max": 25
+        }
+      ],
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "ColdDamage",
+      "modLine": "Adds {0} to {1} Cold Damage",
+      "vals": [
+        {
+          "min": 11,
+          "max": 17
+        },
+        {
+          "min": 18,
+          "max": 26
+        }
+      ],
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "FireDamage",
+      "modLine": "Adds {0} to {1} Fire Damage",
+      "vals": [
+        {
+          "min": 13,
+          "max": 20
+        },
+        {
+          "min": 21,
+          "max": 31
+        }
+      ],
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "LightningDamage",
+      "modLine": "Adds {0} to {1} Lightning Damage",
+      "vals": [
+        {
+          "min": 1,
+          "max": 3
+        },
+        {
+          "min": 41,
+          "max": 61
+        }
+      ],
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "StunDamageIncrease",
+      "modLine": "Causes {0}% increased Stun Buildup",
+      "min": 20,
+      "max": 30,
+      "type": "corrupted"
+    },
+    {
+      "modGroup": "RageOnHit",
+      "modLine": "Grants {0} Rage on Hit",
+      "min": 1,
+      "max": 1,
+      "type": "corrupted"
+    }
+  ],
+  "vaalEnchantments": []
+}
