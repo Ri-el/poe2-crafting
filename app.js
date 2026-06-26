@@ -1734,23 +1734,40 @@ function renderItem(actionResult = null, overrideItem = null) {
   // already-desecrated — desecrating is exactly how the Mark gets consumed.
   const alreadyDesecrated =
     item.prefixes.some(m => m.desecrated && !m.mark) || item.suffixes.some(m => m.desecrated && !m.mark);
+  // A desecrated modifier that has already been REVEALED (it is no longer the
+  // unrevealed placeholder still waiting at the Reveal panel / Well of Souls).
+  // Abyssal Echoes may be armed up until this point, but never after.
+  const hasRevealedDesec =
+    item.prefixes.some(m => m.desecrated && !m.mark && !m.unrevealed) ||
+    item.suffixes.some(m => m.desecrated && !m.mark && !m.unrevealed);
   const desecDisabled = realLocked || !desecData || alreadyDesecrated || item.rarity !== 'rare';
   elements.boneBtns.forEach(b => {
     b.disabled = desecDisabled;
     b.classList.toggle('disabled', desecDisabled);
   });
   elements.omenBtns.forEach(b => {
-    // Only Omen of Light (Annulment) stays usable after the item already carries
-    // a Desecrated modifier. Abyssal Echoes must be ARMED BEFORE desecrating (as
-    // in PoE2): once you've desecrated/revealed once, its button is disabled so
-    // it can't be switched on after the fact -- the player is still free to arm
-    // it beforehand, and a reroll already armed for this reveal still works.
+    // Omen of Light (Annulment) stays usable even after the item carries a
+    // Desecrated modifier. Abyssal Echoes may be armed any time BEFORE the
+    // Desecrated modifier is REVEALED: before desecrating, OR after desecrating
+    // while the modifier is still unrevealed (pending at the Reveal panel). Once
+    // it has actually been revealed at the Well of Souls, the omen can no longer
+    // be switched on. A reroll already armed for the current reveal still works.
     const alwaysUsable = b.dataset.omen === 'omen_of_light';
+    const isEchoes = b.dataset.omen === 'abyssal_echoes';
     // Abyssal Omens (Sovereign / Liege / Blackblooded) force the item type's
     // special Lich Desecrated mod group, which jewels do not have \u2014 disabled
     // until non-jewel bases are added.
     const jewelUnsupported = b.dataset.jewelDisabled === 'true';
-    const omenDisabled = realLocked || jewelUnsupported || (!alwaysUsable && (alreadyDesecrated || item.rarity !== 'rare'));
+    let omenDisabled;
+    if (alwaysUsable) {
+      omenDisabled = realLocked || jewelUnsupported;
+    } else if (isEchoes) {
+      // Armable through the whole pre-reveal window (before AND after the bone is
+      // used); only locked out once the desecrated mod has actually been revealed.
+      omenDisabled = realLocked || jewelUnsupported || item.rarity !== 'rare' || hasRevealedDesec;
+    } else {
+      omenDisabled = realLocked || jewelUnsupported || alreadyDesecrated || item.rarity !== 'rare';
+    }
     b.disabled = omenDisabled;
     b.classList.toggle('disabled', omenDisabled);
   });
