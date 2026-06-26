@@ -393,11 +393,17 @@ function setupEventListeners() {
     // shift-to-keep behaviour stays consistent with the click model.
     if (armedCurrency !== currency) armCurrency(currency);
 
-    if (currency === 'hinekora') { applyHinekoraLock(); return; }
+    if (currency === 'hinekora') { applyHinekoraLock(shiftKey); return; }
 
-    // Abyssal bones open the Well of Souls (desecration) instead of applying directly.
+    // Abyssal bones open the Well of Souls (desecration) instead of applying
+    // directly. Under Hinekora's Lock the desecration outcome is FORESEEN, so
+    // commit the EXACT sealed desecration (same placement + same Well of Souls
+    // options) rather than rolling a fresh one -- otherwise the committed result
+    // would differ from what the Lock just previewed.
     if (currency === 'preserved_cranium') {
-      startDesecrationFlow(currency); return;
+      if (engine.getItem().hinekoraLocked) commitDesecrationForesight(currency);
+      else startDesecrationFlow(currency);
+      return;
     }
 
     // Hinekora's Lock: using any currency commits its (sealed) foreseen outcome
@@ -1073,14 +1079,22 @@ function updateRedoButton() {
   elements.redoBtn.classList.toggle('disabled', empty);
 }
 
-function applyHinekoraLock() {
+function applyHinekoraLock(shiftKey = false) {
   if (engine.getItem().corrupted) {
+    // A blocked application must not leave the Lock orb glued to the cursor --
+    // drop it back like every other failed currency (hold SHIFT to keep it).
+    if (!shiftKey) disarmCurrency();
     playSound('error');
     triggerErrorAnimation();
     showError('Item is corrupted and cannot be modified.');
     return;
   }
   if (engine.getItem().hinekoraLocked) {
+    // Re-applying a Lock that's already on the item is a no-op, so the held
+    // Lock must drop back too instead of trailing the pointer.
+    if (!shiftKey) disarmCurrency();
+    playSound('error');
+    triggerErrorAnimation();
     showError("Hinekora's Lock is already applied.");
     return;
   }
@@ -1233,8 +1247,12 @@ function computeDesecrationForesight(bone) {
   const res = engine.startDesecration({ bone, omens: Array.from(selectedOmens) });
   if (!res || !res.success) { engine.loadItem(snapshot); return { result: res }; }
   const afterItem = engine.getItem();
+  // Capture the engine's pending desecration (the placement + the rolled Well of
+  // Souls options) so Hinekora's Lock can later COMMIT this exact sealed
+  // desecration instead of rolling a brand-new one.
+  const pending = engine.getPendingDesecration();
   engine.loadItem(snapshot); // roll back the placed mod + pending desecration
-  return { result: res, afterItem };
+  return { result: res, afterItem, pending };
 }
 
 function previewForesight(currency) {
@@ -1293,6 +1311,52 @@ function commitForesight(currency) {
   triggerCraftAnimation(currency);
   disarmCurrency();
   renderItem();
+}
+
+// Hinekora's Lock + desecration: commit the EXACT foreseen desecration. The
+// preview (computeDesecrationForesight) rolled the placement and the Well of
+// Souls options and then rolled the engine back; here we restore that sealed
+// state instead of running a fresh startDesecration, so the committed result
+// matches what was foreseen. Mirrors startDesecrationFlow for omen/UI cleanup.
+function commitDesecrationForesight(bone) {
+  const seal = foreseenSeals[bone] || computeDesecrationForesight(bone);
+  if (!seal.afterItem || !seal.pending) {
+    // Would do nothing (e.g. not a Rare item): drop the bone back like any other
+    // blocked application instead of leaving it glued to the cursor.
+    disarmCurrency();
+    playSound('error');
+    triggerErrorAnimation();
+    showError((seal.result && seal.result.error) || 'Nothing to foresee.');
+    return;
+  }
+  const before = engine.getItem();
+  pushUndo(before);
+  // Restore the sealed item (with its unrevealed placeholder) AND the sealed
+  // pending desecration (same side/mode + the same revealed options).
+  engine.loadItem(seal.afterItem, seal.pending);
+  engine.recordCurrencyUse(bone);
+  // Consume any directional / one-shot omens now (Abyssal Echoes is counted
+  // later, on commit at the Well), mirroring startDesecrationFlow.
+  selectedOmens.forEach((o) => { if (o !== 'abyssal_echoes') engine.recordCurrencyUse(o); });
+  engine.clearHinekoraLock();
+  const res = seal.result;
+  desecState = { side: res.side, mode: res.mode, rerollsLeft: res.rerollsLeft, options: res.options, abyssalUsed: false };
+  // Keep Abyssal Echoes armed through the reveal (its sealed reroll still
+  // appears), but drop every other omen + clear their button highlight.
+  const keepEchoes = selectedOmens.has('abyssal_echoes');
+  selectedOmens.clear();
+  if (keepEchoes) selectedOmens.add('abyssal_echoes');
+  elements.omenBtns.forEach(b => {
+    if (b.dataset.omen === 'abyssal_echoes') return;
+    b.classList.remove('active');
+  });
+  foreseenSeals = {};
+  foreseenHover = null;
+  hideForeseenBanner();
+  playSound('desecration');
+  triggerCraftAnimation('desecration');
+  renderItem(res);
+  showRevealPanel();
 }
 
 function showForeseenBanner(currency, ok) {
